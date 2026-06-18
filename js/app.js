@@ -108,7 +108,7 @@ const CFG = {
 };
 const C = () => CFG[DOMAIN];   // raccourci config du domaine actif
 
-const DV = "2"; // bump à chaque mise à jour de contenu pour court-circuiter le cache
+const DV = "3"; // bump à chaque mise à jour de contenu pour court-circuiter le cache
 function mkDomain(c, dos, img) {
   const flat = [];
   (c.chapitres || []).forEach((ch, ci) => (ch.oeuvres || []).forEach((o, oi) =>

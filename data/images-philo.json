@@ -495,37 +495,69 @@
     "w": 180,
     "h": 293
   },
-  "Epistulae Morales ad Lucilium": {
-    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Seneca_the_Younger%2C_Letters%2C_Florence%2C_Plut._45.33.jpg/1280px-Seneca_the_Younger%2C_Letters%2C_Florence%2C_Plut._45.33.jpg",
-    "thumb_w": 1000,
-    "thumb_h": 1411,
-    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Seneca_the_Younger%2C_Letters%2C_Florence%2C_Plut._45.33.jpg",
-    "w": 2316,
-    "h": 3269
+  "Hesiod": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Bust_of_Hesiod_%28%3F%29-Ancient_Roman_busts_in_the_Neues_Museum.jpg",
+    "thumb_w": 744,
+    "thumb_h": 1280,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Bust_of_Hesiod_%28%3F%29-Ancient_Roman_busts_in_the_Neues_Museum.jpg",
+    "w": 744,
+    "h": 1280
   },
-  "Epictetus": {
-    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Epicteti_Enchiridion_Latinis_versibus_adumbratum_%28Oxford_1715%29_frontispiece_%28cropped%29.jpg/1280px-Epicteti_Enchiridion_Latinis_versibus_adumbratum_%28Oxford_1715%29_frontispiece_%28cropped%29.jpg",
+  "Thales of Miletus": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Illustrerad_Verldshistoria_band_I_Ill_107.jpg/1280px-Illustrerad_Verldshistoria_band_I_Ill_107.jpg",
     "thumb_w": 1000,
-    "thumb_h": 1468,
-    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Epicteti_Enchiridion_Latinis_versibus_adumbratum_%28Oxford_1715%29_frontispiece_%28cropped%29.jpg",
-    "w": 1859,
-    "h": 2729
+    "thumb_h": 1522,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Illustrerad_Verldshistoria_band_I_Ill_107.jpg",
+    "w": 1541,
+    "h": 2345
   },
-  "Marcus Aurelius": {
-    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/MSR-ra-61-b-1-DM.jpg/1280px-MSR-ra-61-b-1-DM.jpg",
+  "Anaximander": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Pietro_Bellotti_%28attr%29_Anaximander.jpg/1280px-Pietro_Bellotti_%28attr%29_Anaximander.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1065,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Pietro_Bellotti_%28attr%29_Anaximander.jpg",
+    "w": 3658,
+    "h": 3895
+  },
+  "Protagoras": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Ribera_-_Protagoras%2C_1637.jpg",
+    "thumb_w": 787,
+    "thumb_h": 1000,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Ribera_-_Protagoras%2C_1637.jpg",
+    "w": 787,
+    "h": 1000
+  },
+  "Socrates": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Socrates_Louvre.jpg/1280px-Socrates_Louvre.jpg",
     "thumb_w": 1000,
     "thumb_h": 1333,
-    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/MSR-ra-61-b-1-DM.jpg",
-    "w": 3000,
-    "h": 4000
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Socrates_Louvre.jpg",
+    "w": 1944,
+    "h": 2592
   },
-  "Seneca the Younger": {
-    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Duble_herma_of_Socrates_and_Seneca_Antikensammlung_Berlin_07.jpg/1280px-Duble_herma_of_Socrates_and_Seneca_Antikensammlung_Berlin_07.jpg",
+  "Xenophon": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Bust_of_Xenophon.jpg/1280px-Bust_of_Xenophon.jpg",
     "thumb_w": 1000,
-    "thumb_h": 1234,
-    "url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Duble_herma_of_Socrates_and_Seneca_Antikensammlung_Berlin_07.jpg",
-    "w": 1790,
-    "h": 2208
+    "thumb_h": 1510,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Bust_of_Xenophon.jpg",
+    "w": 3264,
+    "h": 4928
+  },
+  "Theophrastus": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Teofrasto_Orto_botanico_detail.jpg",
+    "thumb_w": 900,
+    "thumb_h": 1200,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Teofrasto_Orto_botanico_detail.jpg",
+    "w": 900,
+    "h": 1200
+  },
+  "Thomas Aquinas": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/St-thomas-aquinasFXD.jpg/1280px-St-thomas-aquinasFXD.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1499,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/St-thomas-aquinasFXD.jpg",
+    "w": 4004,
+    "h": 6000
   },
   "Zeno of Citium": {
     "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Paolo_Monti_-_Servizio_fotografico_%28Napoli%2C_1969%29_-_BEIC_6353768.jpg",
@@ -535,6 +567,62 @@
     "w": 867,
     "h": 1280
   },
+  "Marcus Aurelius": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/MSR-ra-61-b-1-DM.jpg/1280px-MSR-ra-61-b-1-DM.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1333,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/MSR-ra-61-b-1-DM.jpg",
+    "w": 3000,
+    "h": 4000
+  },
+  "Epictetus": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Epicteti_Enchiridion_Latinis_versibus_adumbratum_%28Oxford_1715%29_frontispiece_%28cropped%29.jpg/1280px-Epicteti_Enchiridion_Latinis_versibus_adumbratum_%28Oxford_1715%29_frontispiece_%28cropped%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1468,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Epicteti_Enchiridion_Latinis_versibus_adumbratum_%28Oxford_1715%29_frontispiece_%28cropped%29.jpg",
+    "w": 1859,
+    "h": 2729
+  },
+  "Pyrrho": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Philosopher%2C_marble_head%2C_Roman_copy%2C_AM_Corfu%2C_Krfm22.jpg",
+    "thumb_w": 925,
+    "thumb_h": 1200,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Philosopher%2C_marble_head%2C_Roman_copy%2C_AM_Corfu%2C_Krfm22.jpg",
+    "w": 925,
+    "h": 1200
+  },
+  "Augustine of Hippo": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Saint_Augustine_by_Philippe_de_Champaigne.jpg/1280px-Saint_Augustine_by_Philippe_de_Champaigne.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1276,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Saint_Augustine_by_Philippe_de_Champaigne.jpg",
+    "w": 3135,
+    "h": 4000
+  },
+  "William of Ockham": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/7/70/William_of_Ockham.png",
+    "thumb_w": 271,
+    "thumb_h": 361,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/70/William_of_Ockham.png",
+    "w": 271,
+    "h": 361
+  },
+  "Plotinus": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Plotinos.jpg",
+    "thumb_w": 569,
+    "thumb_h": 681,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Plotinos.jpg",
+    "w": 569,
+    "h": 681
+  },
+  "Boethius": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Boethius.jpeg",
+    "thumb_w": 499,
+    "thumb_h": 705,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Boethius.jpeg",
+    "w": 499,
+    "h": 705
+  },
   "René Descartes": {
     "thumb": "https://upload.wikimedia.org/wikipedia/commons/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg",
     "thumb_w": 817,
@@ -543,6 +631,46 @@
     "w": 817,
     "h": 1000
   },
+  "Baruch Spinoza": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Spinoza.jpg/1280px-Spinoza.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1162,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Spinoza.jpg",
+    "w": 1377,
+    "h": 1600
+  },
+  "Gottfried Wilhelm Leibniz": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_%28ca._1695%29.jpg/1280px-Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_%28ca._1695%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1235,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_%28ca._1695%29.jpg",
+    "w": 4486,
+    "h": 5538
+  },
+  "Candide": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Candide1759.jpg",
+    "thumb_w": 1242,
+    "thumb_h": 2256,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Candide1759.jpg",
+    "w": 1242,
+    "h": 2256
+  },
+  "Blaise Pascal": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Blaise_Pascal_Versailles.JPG/1280px-Blaise_Pascal_Versailles.JPG",
+    "thumb_w": 1000,
+    "thumb_h": 1191,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/98/Blaise_Pascal_Versailles.JPG",
+    "w": 2365,
+    "h": 2817
+  },
+  "John Locke": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Godfrey_Kneller_-_Portrait_of_John_Locke_%28Hermitage%29.jpg/1280px-Godfrey_Kneller_-_Portrait_of_John_Locke_%28Hermitage%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1219,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Godfrey_Kneller_-_Portrait_of_John_Locke_%28Hermitage%29.jpg",
+    "w": 2018,
+    "h": 2460
+  },
   "David Hume": {
     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/David_Hume_Ramsay.jpg/1280px-David_Hume_Ramsay.jpg",
     "thumb_w": 1000,
@@ -550,6 +678,22 @@
     "url": "https://upload.wikimedia.org/wikipedia/commons/0/03/David_Hume_Ramsay.jpg",
     "w": 5384,
     "h": 6518
+  },
+  "George Berkeley": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/George_Berkeley_by_John_Smibert.jpg/1280px-George_Berkeley_by_John_Smibert.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1358,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/32/George_Berkeley_by_John_Smibert.jpg",
+    "w": 2400,
+    "h": 3258
+  },
+  "Francis Bacon": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Somer_Francis_Bacon.jpg/1280px-Somer_Francis_Bacon.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1228,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Somer_Francis_Bacon.jpg",
+    "w": 1629,
+    "h": 2000
   },
   "Voltaire": {
     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Nicolas_de_Largilli%C3%A8re_-_Portrait_de_Voltaire_%281694-1778%29_en_1718_-_P208_-_mus%C3%A9e_Carnavalet_-_5_%28cropped%29.jpg/1280px-Nicolas_de_Largilli%C3%A8re_-_Portrait_de_Voltaire_%281694-1778%29_en_1718_-_P208_-_mus%C3%A9e_Carnavalet_-_5_%28cropped%29.jpg",
@@ -575,14 +719,6 @@
     "w": 890,
     "h": 1124
   },
-  "Candide": {
-    "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Candide1759.jpg",
-    "thumb_w": 1242,
-    "thumb_h": 2256,
-    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Candide1759.jpg",
-    "w": 1242,
-    "h": 2256
-  },
   "Denis Diderot": {
     "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Denis_Diderot_by_Louis-Michel_van_Loo.jpg",
     "thumb_w": 1000,
@@ -598,5 +734,133 @@
     "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Immanuel_Kant_-_Gemaelde_1.jpg",
     "w": 1009,
     "h": 1317
+  },
+  "Georg Wilhelm Friedrich Hegel": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Jakob_Schlesinger_-_Hegel_1831.jpg/1280px-Jakob_Schlesinger_-_Hegel_1831.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1261,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Jakob_Schlesinger_-_Hegel_1831.jpg",
+    "w": 1654,
+    "h": 2085
+  },
+  "Arthur Schopenhauer": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Arthur_Schopenhauer_by_J_Sch%C3%A4fer%2C_1859b.jpg/1280px-Arthur_Schopenhauer_by_J_Sch%C3%A4fer%2C_1859b.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1278,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Arthur_Schopenhauer_by_J_Sch%C3%A4fer%2C_1859b.jpg",
+    "w": 1997,
+    "h": 2552
+  },
+  "Friedrich Wilhelm Joseph Schelling": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Nb_pinacoteca_stieler_friedrich_wilhelm_joseph_von_schelling.jpg",
+    "thumb_w": 803,
+    "thumb_h": 996,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Nb_pinacoteca_stieler_friedrich_wilhelm_joseph_von_schelling.jpg",
+    "w": 803,
+    "h": 996
+  },
+  "Karl Marx": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Karl_Marx_by_John_Jabez_Edwin_Mayall_1875_-_Restored_%26_Adjusted_%283x4_cropped_b%29.png/1280px-Karl_Marx_by_John_Jabez_Edwin_Mayall_1875_-_Restored_%26_Adjusted_%283x4_cropped_b%29.png",
+    "thumb_w": 1000,
+    "thumb_h": 1334,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Karl_Marx_by_John_Jabez_Edwin_Mayall_1875_-_Restored_%26_Adjusted_%283x4_cropped_b%29.png",
+    "w": 2010,
+    "h": 2682
+  },
+  "Friedrich Engels": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/21/Friedrich_Engels_portrait_%28cropped%29.jpg",
+    "thumb_w": 615,
+    "thumb_h": 820,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Friedrich_Engels_portrait_%28cropped%29.jpg",
+    "w": 615,
+    "h": 820
+  },
+  "Friedrich Nietzsche": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche187a.jpg/1280px-Nietzsche187a.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1357,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche187a.jpg",
+    "w": 1464,
+    "h": 1986
+  },
+  "On the Genealogy of Morality": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Genealogie_der_Moral_cover.gif",
+    "thumb_w": 296,
+    "thumb_h": 424,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Genealogie_der_Moral_cover.gif",
+    "w": 296,
+    "h": 424
+  },
+  "Sigmund Freud": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Sigmund_Freud%2C_by_Max_Halberstadt_%28cropped%29.jpg/1280px-Sigmund_Freud%2C_by_Max_Halberstadt_%28cropped%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1360,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Sigmund_Freud%2C_by_Max_Halberstadt_%28cropped%29.jpg",
+    "w": 1647,
+    "h": 2240
+  },
+  "Søren Kierkegaard": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/d/d4/S%C3%B8ren_Kierkegaard_%281813-1855%29_-_%28cropped%29.jpg",
+    "thumb_w": 564,
+    "thumb_h": 796,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/S%C3%B8ren_Kierkegaard_%281813-1855%29_-_%28cropped%29.jpg",
+    "w": 564,
+    "h": 796
+  },
+  "Jean-Paul Sartre": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Jean_Paul_Sartre_1965.jpg/1280px-Jean_Paul_Sartre_1965.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1309,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Jean_Paul_Sartre_1965.jpg",
+    "w": 1462,
+    "h": 1914
+  },
+  "Simone de Beauvoir": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/55/Simone_De_Beauvoir_%28cropped%29.jpg",
+    "thumb_w": 516,
+    "thumb_h": 689,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Simone_De_Beauvoir_%28cropped%29.jpg",
+    "w": 516,
+    "h": 689
+  },
+  "Martin Heidegger": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/12/Freiburg%2C_Z%C3%A4hringen-_Jahnhalle%2C_Prof._Martin_Heidegger_w%C3%A4hrend_eines_Vortrags_-_LABW_-_Staatsarchiv_Freiburg_W_134_Nr._023740f_%28cropped%29.jpeg",
+    "thumb_w": 322,
+    "thumb_h": 422,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Freiburg%2C_Z%C3%A4hringen-_Jahnhalle%2C_Prof._Martin_Heidegger_w%C3%A4hrend_eines_Vortrags_-_LABW_-_Staatsarchiv_Freiburg_W_134_Nr._023740f_%28cropped%29.jpeg",
+    "w": 322,
+    "h": 422
+  },
+  "Ludwig Wittgenstein": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Ludwig_Wittgenstein_1929.jpg/1280px-Ludwig_Wittgenstein_1929.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1353,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Ludwig_Wittgenstein_1929.jpg",
+    "w": 2510,
+    "h": 3397
+  },
+  "Michel Foucault": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Photo_of_Michel_Foucault_on_1970_dustjacket_of_The_Order_of_Things.jpg",
+    "thumb_w": 318,
+    "thumb_h": 418,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Photo_of_Michel_Foucault_on_1970_dustjacket_of_The_Order_of_Things.jpg",
+    "w": 318,
+    "h": 418
+  },
+  "John Rawls": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/d/dd/John_Rawls_%281971_photo_portrait%29.jpg",
+    "thumb_w": 1092,
+    "thumb_h": 1529,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/John_Rawls_%281971_photo_portrait%29.jpg",
+    "w": 1092,
+    "h": 1529
+  },
+  "Hannah Arendt": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Hannah_Arendt_auf_dem_1._Kulturkritikerkongress%2C_Barbara_Niggl_Radloff%2C_FM-2019-1-5-9-16_%28cropped%29.jpg/1280px-Hannah_Arendt_auf_dem_1._Kulturkritikerkongress%2C_Barbara_Niggl_Radloff%2C_FM-2019-1-5-9-16_%28cropped%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1315,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Hannah_Arendt_auf_dem_1._Kulturkritikerkongress%2C_Barbara_Niggl_Radloff%2C_FM-2019-1-5-9-16_%28cropped%29.jpg",
+    "w": 1323,
+    "h": 1740
   }
 }

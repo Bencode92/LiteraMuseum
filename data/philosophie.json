@@ -77,16 +77,53 @@
       ],
       "notion": "La philosophie naît comme passage du mythos au logos : expliquer le monde par la raison plutôt que par les récits divins.",
       "roster": [
-        { "nom": "Thalès de Milet", "niveau": "★", "detail": "L'eau, principe (archê) de toutes choses ; père de la philosophie" },
-        { "nom": "Anaximandre", "niveau": "○", "detail": "L'apeiron (l'illimité) comme principe" },
-        { "nom": "Héraclite", "niveau": "★", "detail": "Le devenir, le logos, l'unité des contraires" },
-        { "nom": "Parménide", "niveau": "★", "detail": "L'Être un et immobile ; ontologie" },
-        { "nom": "Pythagore", "niveau": "★", "detail": "Le nombre comme principe ; harmonie" },
-        { "nom": "Démocrite", "niveau": "○", "detail": "Atomisme et matérialisme" },
-        { "nom": "Anaxagore", "niveau": "○", "detail": "Le Noûs (Esprit) ordonnateur" },
-        { "nom": "Archê", "niveau": "", "detail": "Principe originel et explicatif du réel" },
-        { "nom": "Physis", "niveau": "", "detail": "La nature comme objet d'étude rationnelle" }
-      ]
+        {
+          "nom": "Thalès de Milet",
+          "niveau": "★",
+          "detail": "L'eau, principe (archê) de toutes choses ; père de la philosophie"
+        },
+        {
+          "nom": "Anaximandre",
+          "niveau": "○",
+          "detail": "L'apeiron (l'illimité) comme principe"
+        },
+        {
+          "nom": "Héraclite",
+          "niveau": "★",
+          "detail": "Le devenir, le logos, l'unité des contraires"
+        },
+        {
+          "nom": "Parménide",
+          "niveau": "★",
+          "detail": "L'Être un et immobile ; ontologie"
+        },
+        {
+          "nom": "Pythagore",
+          "niveau": "★",
+          "detail": "Le nombre comme principe ; harmonie"
+        },
+        {
+          "nom": "Démocrite",
+          "niveau": "○",
+          "detail": "Atomisme et matérialisme"
+        },
+        {
+          "nom": "Anaxagore",
+          "niveau": "○",
+          "detail": "Le Noûs (Esprit) ordonnateur"
+        },
+        {
+          "nom": "Archê",
+          "niveau": "",
+          "detail": "Principe originel et explicatif du réel"
+        },
+        {
+          "nom": "Physis",
+          "niveau": "",
+          "detail": "La nature comme objet d'étude rationnelle"
+        }
+      ],
+      "dossier": "presocratiques"
     },
     {
       "num": 2,
@@ -164,15 +201,48 @@
       ],
       "notion": "Avec Socrate, le « connais-toi toi-même » ; avec Platon, le réel vrai n'est pas le sensible mais le monde des Idées.",
       "roster": [
-        { "nom": "Socrate", "niveau": "★", "detail": "Ironie et maïeutique ; n'a rien écrit" },
-        { "nom": "Platon", "niveau": "★", "detail": "Théorie des Idées ; La République" },
-        { "nom": "Les sophistes (Protagoras, Gorgias)", "niveau": "○", "detail": "« L'homme est la mesure de toutes choses » ; relativisme" },
-        { "nom": "Théorie des Idées (Formes)", "niveau": "", "detail": "Modèles éternels dont le sensible est copie" },
-        { "nom": "Allégorie de la caverne", "niveau": "", "detail": "Sortie de l'ignorance vers la lumière du Bien" },
-        { "nom": "Maïeutique", "niveau": "", "detail": "Faire accoucher l'interlocuteur de la vérité" },
-        { "nom": "Dialectique", "niveau": "", "detail": "Montée par le dialogue vers le principe" },
-        { "nom": "L'Académie", "niveau": "", "detail": "École fondée par Platon vers -387" }
-      ]
+        {
+          "nom": "Socrate",
+          "niveau": "★",
+          "detail": "Ironie et maïeutique ; n'a rien écrit"
+        },
+        {
+          "nom": "Platon",
+          "niveau": "★",
+          "detail": "Théorie des Idées ; La République"
+        },
+        {
+          "nom": "Les sophistes (Protagoras, Gorgias)",
+          "niveau": "○",
+          "detail": "« L'homme est la mesure de toutes choses » ; relativisme"
+        },
+        {
+          "nom": "Théorie des Idées (Formes)",
+          "niveau": "",
+          "detail": "Modèles éternels dont le sensible est copie"
+        },
+        {
+          "nom": "Allégorie de la caverne",
+          "niveau": "",
+          "detail": "Sortie de l'ignorance vers la lumière du Bien"
+        },
+        {
+          "nom": "Maïeutique",
+          "niveau": "",
+          "detail": "Faire accoucher l'interlocuteur de la vérité"
+        },
+        {
+          "nom": "Dialectique",
+          "niveau": "",
+          "detail": "Montée par le dialogue vers le principe"
+        },
+        {
+          "nom": "L'Académie",
+          "niveau": "",
+          "detail": "École fondée par Platon vers -387"
+        }
+      ],
+      "dossier": "socrate-platon"
     },
     {
       "num": 3,
@@ -263,15 +333,48 @@
       ],
       "notion": "Le savoir part de l'expérience sensible : Aristote classe les sciences, invente la logique et fait de la vertu une affaire d'habitude et de juste milieu.",
       "roster": [
-        { "nom": "Aristote", "niveau": "★", "detail": "Le « Philosophe » par excellence ; précepteur d'Alexandre" },
-        { "nom": "Le Lycée (péripatétisme)", "niveau": "", "detail": "École fondée par Aristote ; enseignement en marchant" },
-        { "nom": "Théophraste", "niveau": "○", "detail": "Successeur d'Aristote ; Les Caractères" },
-        { "nom": "Hylémorphisme", "niveau": "", "detail": "Union de la matière (hylè) et de la forme (morphè)" },
-        { "nom": "Les quatre causes", "niveau": "", "detail": "Matérielle, formelle, efficiente, finale" },
-        { "nom": "Acte et puissance", "niveau": "", "detail": "Le devenir comme passage de la puissance à l'acte" },
-        { "nom": "Eudaimonia", "niveau": "", "detail": "Bonheur comme accomplissement de la nature humaine" },
-        { "nom": "Syllogisme", "niveau": "", "detail": "Inférence valide à partir de prémisses" }
-      ]
+        {
+          "nom": "Aristote",
+          "niveau": "★",
+          "detail": "Le « Philosophe » par excellence ; précepteur d'Alexandre"
+        },
+        {
+          "nom": "Le Lycée (péripatétisme)",
+          "niveau": "",
+          "detail": "École fondée par Aristote ; enseignement en marchant"
+        },
+        {
+          "nom": "Théophraste",
+          "niveau": "○",
+          "detail": "Successeur d'Aristote ; Les Caractères"
+        },
+        {
+          "nom": "Hylémorphisme",
+          "niveau": "",
+          "detail": "Union de la matière (hylè) et de la forme (morphè)"
+        },
+        {
+          "nom": "Les quatre causes",
+          "niveau": "",
+          "detail": "Matérielle, formelle, efficiente, finale"
+        },
+        {
+          "nom": "Acte et puissance",
+          "niveau": "",
+          "detail": "Le devenir comme passage de la puissance à l'acte"
+        },
+        {
+          "nom": "Eudaimonia",
+          "niveau": "",
+          "detail": "Bonheur comme accomplissement de la nature humaine"
+        },
+        {
+          "nom": "Syllogisme",
+          "niveau": "",
+          "detail": "Inférence valide à partir de prémisses"
+        }
+      ],
+      "dossier": "aristote"
     },
     {
       "num": 4,
@@ -349,16 +452,48 @@
       ],
       "notion": "Trois sagesses pour vivre bien : l'épicurisme (plaisir réglé), le stoïcisme (accord avec la raison du monde), le scepticisme (suspension du jugement).",
       "roster": [
-        { "nom": "Épicure", "niveau": "★", "detail": "Le Jardin ; éthique du plaisir et ataraxie" },
-        { "nom": "Zénon de Cition", "niveau": "★", "detail": "Fondateur du stoïcisme (le Portique)" },
-        { "nom": "Épictète", "niveau": "★", "detail": "Stoïcisme : ce qui dépend de nous" },
-        { "nom": "Marc Aurèle", "niveau": "★", "detail": "Empereur philosophe ; Pensées" },
-        { "nom": "Sénèque", "niveau": "○", "detail": "Stoïcisme romain ; Lettres à Lucilius" },
-        { "nom": "Pyrrhon d'Élis", "niveau": "○", "detail": "Fondateur du scepticisme" },
-        { "nom": "Ataraxie", "niveau": "", "detail": "Tranquillité de l'âme, but commun" },
-        { "nom": "Le cynisme (Diogène)", "niveau": "○", "detail": "Vivre selon la nature, contre les conventions" }
+        {
+          "nom": "Épicure",
+          "niveau": "★",
+          "detail": "Le Jardin ; éthique du plaisir et ataraxie"
+        },
+        {
+          "nom": "Zénon de Cition",
+          "niveau": "★",
+          "detail": "Fondateur du stoïcisme (le Portique)"
+        },
+        {
+          "nom": "Épictète",
+          "niveau": "★",
+          "detail": "Stoïcisme : ce qui dépend de nous"
+        },
+        {
+          "nom": "Marc Aurèle",
+          "niveau": "★",
+          "detail": "Empereur philosophe ; Pensées"
+        },
+        {
+          "nom": "Sénèque",
+          "niveau": "○",
+          "detail": "Stoïcisme romain ; Lettres à Lucilius"
+        },
+        {
+          "nom": "Pyrrhon d'Élis",
+          "niveau": "○",
+          "detail": "Fondateur du scepticisme"
+        },
+        {
+          "nom": "Ataraxie",
+          "niveau": "",
+          "detail": "Tranquillité de l'âme, but commun"
+        },
+        {
+          "nom": "Le cynisme (Diogène)",
+          "niveau": "○",
+          "detail": "Vivre selon la nature, contre les conventions"
+        }
       ],
-      "dossier": "stoicisme"
+      "dossier": "philosophies-hellenistiques"
     },
     {
       "num": 5,
@@ -436,16 +571,53 @@
       ],
       "notion": "La pensée médiévale cherche à articuler raison et révélation : Augustin par l'intériorité, Thomas d'Aquin par la synthèse avec Aristote.",
       "roster": [
-        { "nom": "Plotin", "niveau": "★", "detail": "Néoplatonisme ; l'Un et l'émanation" },
-        { "nom": "Saint Augustin", "niveau": "★", "detail": "Les Confessions ; la grâce, le temps" },
-        { "nom": "Thomas d'Aquin", "niveau": "★", "detail": "Scolastique ; foi et raison" },
-        { "nom": "Boèce", "niveau": "○", "detail": "Querelle des universaux ; consolation" },
-        { "nom": "Averroès (Ibn Rushd)", "niveau": "○", "detail": "Grand commentateur d'Aristote" },
-        { "nom": "Avicenne (Ibn Sina)", "niveau": "○", "detail": "Métaphysique de l'être ; médecine" },
-        { "nom": "Guillaume d'Ockham", "niveau": "○", "detail": "Nominalisme ; le « rasoir d'Ockham »" },
-        { "nom": "Querelle des universaux", "niveau": "", "detail": "Les concepts généraux existent-ils réellement ?" },
-        { "nom": "Scolastique", "niveau": "", "detail": "Méthode d'enseignement par disputatio" }
-      ]
+        {
+          "nom": "Plotin",
+          "niveau": "★",
+          "detail": "Néoplatonisme ; l'Un et l'émanation"
+        },
+        {
+          "nom": "Saint Augustin",
+          "niveau": "★",
+          "detail": "Les Confessions ; la grâce, le temps"
+        },
+        {
+          "nom": "Thomas d'Aquin",
+          "niveau": "★",
+          "detail": "Scolastique ; foi et raison"
+        },
+        {
+          "nom": "Boèce",
+          "niveau": "○",
+          "detail": "Querelle des universaux ; consolation"
+        },
+        {
+          "nom": "Averroès (Ibn Rushd)",
+          "niveau": "○",
+          "detail": "Grand commentateur d'Aristote"
+        },
+        {
+          "nom": "Avicenne (Ibn Sina)",
+          "niveau": "○",
+          "detail": "Métaphysique de l'être ; médecine"
+        },
+        {
+          "nom": "Guillaume d'Ockham",
+          "niveau": "○",
+          "detail": "Nominalisme ; le « rasoir d'Ockham »"
+        },
+        {
+          "nom": "Querelle des universaux",
+          "niveau": "",
+          "detail": "Les concepts généraux existent-ils réellement ?"
+        },
+        {
+          "nom": "Scolastique",
+          "niveau": "",
+          "detail": "Méthode d'enseignement par disputatio"
+        }
+      ],
+      "dossier": "neoplatonisme-medievale"
     },
     {
       "num": 6,
@@ -523,15 +695,48 @@
       ],
       "notion": "La raison, et non l'expérience, est la source des vérités certaines ; le modèle du savoir est la déduction mathématique.",
       "roster": [
-        { "nom": "René Descartes", "niveau": "★", "detail": "Le cogito ; père de la philosophie moderne" },
-        { "nom": "Baruch Spinoza", "niveau": "★", "detail": "Substance unique ; Dieu-Nature" },
-        { "nom": "Gottfried Leibniz", "niveau": "★", "detail": "Monades ; meilleur des mondes" },
-        { "nom": "Blaise Pascal", "niveau": "○", "detail": "Pari, « les deux infinis » ; Pensées" },
-        { "nom": "Nicolas Malebranche", "niveau": "○", "detail": "Occasionalisme ; voir tout en Dieu" },
-        { "nom": "Idées innées", "niveau": "", "detail": "Connaissances présentes dans l'esprit avant l'expérience" },
-        { "nom": "Dualisme", "niveau": "", "detail": "Distinction de la substance pensante et étendue" },
-        { "nom": "Mos geometricus", "niveau": "", "detail": "Exposer la philosophie comme une géométrie" }
-      ]
+        {
+          "nom": "René Descartes",
+          "niveau": "★",
+          "detail": "Le cogito ; père de la philosophie moderne"
+        },
+        {
+          "nom": "Baruch Spinoza",
+          "niveau": "★",
+          "detail": "Substance unique ; Dieu-Nature"
+        },
+        {
+          "nom": "Gottfried Leibniz",
+          "niveau": "★",
+          "detail": "Monades ; meilleur des mondes"
+        },
+        {
+          "nom": "Blaise Pascal",
+          "niveau": "○",
+          "detail": "Pari, « les deux infinis » ; Pensées"
+        },
+        {
+          "nom": "Nicolas Malebranche",
+          "niveau": "○",
+          "detail": "Occasionalisme ; voir tout en Dieu"
+        },
+        {
+          "nom": "Idées innées",
+          "niveau": "",
+          "detail": "Connaissances présentes dans l'esprit avant l'expérience"
+        },
+        {
+          "nom": "Dualisme",
+          "niveau": "",
+          "detail": "Distinction de la substance pensante et étendue"
+        },
+        {
+          "nom": "Mos geometricus",
+          "niveau": "",
+          "detail": "Exposer la philosophie comme une géométrie"
+        }
+      ],
+      "dossier": "rationalisme"
     },
     {
       "num": 7,
@@ -609,15 +814,48 @@
       ],
       "notion": "Rien n'est dans l'intellect qui n'ait d'abord été dans les sens : l'expérience est le tribunal de la connaissance.",
       "roster": [
-        { "nom": "John Locke", "niveau": "★", "detail": "Tabula rasa ; libéralisme politique" },
-        { "nom": "George Berkeley", "niveau": "★", "detail": "Immatérialisme ; esse est percipi" },
-        { "nom": "David Hume", "niveau": "★", "detail": "Critique de la causalité ; scepticisme" },
-        { "nom": "Francis Bacon", "niveau": "○", "detail": "Méthode inductive ; « Savoir, c'est pouvoir »" },
-        { "nom": "Thomas Hobbes", "niveau": "○", "detail": "Matérialisme ; Léviathan (voir Lumières)" },
-        { "nom": "Empirisme", "niveau": "", "detail": "L'expérience, source de toute connaissance" },
-        { "nom": "Induction", "niveau": "", "detail": "Du particulier observé au général" },
-        { "nom": "Causalité", "niveau": "", "detail": "Lien cause-effet : réel ou habitude ?" }
-      ]
+        {
+          "nom": "John Locke",
+          "niveau": "★",
+          "detail": "Tabula rasa ; libéralisme politique"
+        },
+        {
+          "nom": "George Berkeley",
+          "niveau": "★",
+          "detail": "Immatérialisme ; esse est percipi"
+        },
+        {
+          "nom": "David Hume",
+          "niveau": "★",
+          "detail": "Critique de la causalité ; scepticisme"
+        },
+        {
+          "nom": "Francis Bacon",
+          "niveau": "○",
+          "detail": "Méthode inductive ; « Savoir, c'est pouvoir »"
+        },
+        {
+          "nom": "Thomas Hobbes",
+          "niveau": "○",
+          "detail": "Matérialisme ; Léviathan (voir Lumières)"
+        },
+        {
+          "nom": "Empirisme",
+          "niveau": "",
+          "detail": "L'expérience, source de toute connaissance"
+        },
+        {
+          "nom": "Induction",
+          "niveau": "",
+          "detail": "Du particulier observé au général"
+        },
+        {
+          "nom": "Causalité",
+          "niveau": "",
+          "detail": "Lien cause-effet : réel ou habitude ?"
+        }
+      ],
+      "dossier": "empirisme"
     },
     {
       "num": 8,
@@ -708,15 +946,51 @@
       ],
       "notion": "« Sapere aude ! » Aie le courage de te servir de ton propre entendement (Kant). La raison s'autocritique et s'émancipe.",
       "roster": [
-        { "nom": "Emmanuel Kant", "niveau": "★", "detail": "Criticisme ; impératif catégorique" },
-        { "nom": "Jean-Jacques Rousseau", "niveau": "★", "detail": "Contrat social ; volonté générale" },
-        { "nom": "Voltaire", "niveau": "○", "detail": "Tolérance ; combat contre le fanatisme" },
-        { "nom": "Montesquieu", "niveau": "○", "detail": "Séparation des pouvoirs" },
-        { "nom": "Diderot", "niveau": "○", "detail": "Encyclopédie ; matérialisme" },
-        { "nom": "Sapere aude", "niveau": "", "detail": "« Ose savoir » : devise des Lumières" },
-        { "nom": "Impératif catégorique", "niveau": "", "detail": "Loi morale inconditionnelle et universelle" },
-        { "nom": "Autonomie", "niveau": "", "detail": "Se donner à soi-même sa propre loi" },
-        { "nom": "Phénomène / noumène", "niveau": "", "detail": "Ce qui apparaît vs la chose en soi" }
+        {
+          "nom": "Emmanuel Kant",
+          "niveau": "★",
+          "detail": "Criticisme ; impératif catégorique"
+        },
+        {
+          "nom": "Jean-Jacques Rousseau",
+          "niveau": "★",
+          "detail": "Contrat social ; volonté générale"
+        },
+        {
+          "nom": "Voltaire",
+          "niveau": "○",
+          "detail": "Tolérance ; combat contre le fanatisme"
+        },
+        {
+          "nom": "Montesquieu",
+          "niveau": "○",
+          "detail": "Séparation des pouvoirs"
+        },
+        {
+          "nom": "Diderot",
+          "niveau": "○",
+          "detail": "Encyclopédie ; matérialisme"
+        },
+        {
+          "nom": "Sapere aude",
+          "niveau": "",
+          "detail": "« Ose savoir » : devise des Lumières"
+        },
+        {
+          "nom": "Impératif catégorique",
+          "niveau": "",
+          "detail": "Loi morale inconditionnelle et universelle"
+        },
+        {
+          "nom": "Autonomie",
+          "niveau": "",
+          "detail": "Se donner à soi-même sa propre loi"
+        },
+        {
+          "nom": "Phénomène / noumène",
+          "niveau": "",
+          "detail": "Ce qui apparaît vs la chose en soi"
+        }
       ],
       "dossier": "lumieres-kant"
     },
@@ -796,15 +1070,48 @@
       ],
       "notion": "L'histoire a un sens : la raison (Hegel) ou la liberté du Moi (Fichte) se réalise par étapes. La dialectique est le moteur du réel.",
       "roster": [
-        { "nom": "G. W. F. Hegel", "niveau": "★", "detail": "Dialectique ; esprit absolu ; histoire" },
-        { "nom": "Johann Gottlieb Fichte", "niveau": "○", "detail": "Idéalisme du Moi" },
-        { "nom": "Friedrich Schelling", "niveau": "○", "detail": "Philosophie de la nature et de l'identité" },
-        { "nom": "Arthur Schopenhauer", "niveau": "★", "detail": "La Volonté ; pessimisme" },
-        { "nom": "Friedrich Schiller", "niveau": "○", "detail": "Éducation esthétique" },
-        { "nom": "Dialectique", "niveau": "", "detail": "Dépassement des contradictions (Aufhebung)" },
-        { "nom": "Esprit (Geist)", "niveau": "", "detail": "Réalité spirituelle se déployant dans l'histoire" },
-        { "nom": "Reconnaissance", "niveau": "", "detail": "La conscience de soi requiert autrui" }
-      ]
+        {
+          "nom": "G. W. F. Hegel",
+          "niveau": "★",
+          "detail": "Dialectique ; esprit absolu ; histoire"
+        },
+        {
+          "nom": "Johann Gottlieb Fichte",
+          "niveau": "○",
+          "detail": "Idéalisme du Moi"
+        },
+        {
+          "nom": "Friedrich Schelling",
+          "niveau": "○",
+          "detail": "Philosophie de la nature et de l'identité"
+        },
+        {
+          "nom": "Arthur Schopenhauer",
+          "niveau": "★",
+          "detail": "La Volonté ; pessimisme"
+        },
+        {
+          "nom": "Friedrich Schiller",
+          "niveau": "○",
+          "detail": "Éducation esthétique"
+        },
+        {
+          "nom": "Dialectique",
+          "niveau": "",
+          "detail": "Dépassement des contradictions (Aufhebung)"
+        },
+        {
+          "nom": "Esprit (Geist)",
+          "niveau": "",
+          "detail": "Réalité spirituelle se déployant dans l'histoire"
+        },
+        {
+          "nom": "Reconnaissance",
+          "niveau": "",
+          "detail": "La conscience de soi requiert autrui"
+        }
+      ],
+      "dossier": "idealisme-allemand-hegel"
     },
     {
       "num": 10,
@@ -882,16 +1189,53 @@
       ],
       "notion": "La conscience est trompée : Marx révèle les rapports économiques, Nietzsche la volonté de puissance, Freud le désir inconscient.",
       "roster": [
-        { "nom": "Karl Marx", "niveau": "★", "detail": "Matérialisme historique ; Le Capital" },
-        { "nom": "Friedrich Nietzsche", "niveau": "★", "detail": "Volonté de puissance ; mort de Dieu" },
-        { "nom": "Sigmund Freud", "niveau": "★", "detail": "Inconscient ; psychanalyse" },
-        { "nom": "Søren Kierkegaard", "niveau": "○", "detail": "Angoisse ; précurseur de l'existentialisme" },
-        { "nom": "Auguste Comte", "niveau": "○", "detail": "Positivisme ; loi des trois états" },
-        { "nom": "Aliénation", "niveau": "", "detail": "Dépossession de soi dans le travail ou l'idéologie" },
-        { "nom": "Généalogie", "niveau": "", "detail": "Remonter à l'origine cachée des valeurs" },
-        { "nom": "Inconscient", "niveau": "", "detail": "Psychisme soustrait à la conscience" },
-        { "nom": "Nihilisme", "niveau": "", "detail": "Effondrement des valeurs suprêmes" }
-      ]
+        {
+          "nom": "Karl Marx",
+          "niveau": "★",
+          "detail": "Matérialisme historique ; Le Capital"
+        },
+        {
+          "nom": "Friedrich Nietzsche",
+          "niveau": "★",
+          "detail": "Volonté de puissance ; mort de Dieu"
+        },
+        {
+          "nom": "Sigmund Freud",
+          "niveau": "★",
+          "detail": "Inconscient ; psychanalyse"
+        },
+        {
+          "nom": "Søren Kierkegaard",
+          "niveau": "○",
+          "detail": "Angoisse ; précurseur de l'existentialisme"
+        },
+        {
+          "nom": "Auguste Comte",
+          "niveau": "○",
+          "detail": "Positivisme ; loi des trois états"
+        },
+        {
+          "nom": "Aliénation",
+          "niveau": "",
+          "detail": "Dépossession de soi dans le travail ou l'idéologie"
+        },
+        {
+          "nom": "Généalogie",
+          "niveau": "",
+          "detail": "Remonter à l'origine cachée des valeurs"
+        },
+        {
+          "nom": "Inconscient",
+          "niveau": "",
+          "detail": "Psychisme soustrait à la conscience"
+        },
+        {
+          "nom": "Nihilisme",
+          "niveau": "",
+          "detail": "Effondrement des valeurs suprêmes"
+        }
+      ],
+      "dossier": "maitres-du-soupcon"
     },
     {
       "num": 11,
@@ -982,16 +1326,53 @@
       ],
       "notion": "L'homme n'a pas de nature fixe : il existe d'abord, puis se définit par ses actes. Penser depuis l'expérience vécue et la liberté.",
       "roster": [
-        { "nom": "Edmund Husserl", "niveau": "★", "detail": "Fondateur de la phénoménologie" },
-        { "nom": "Martin Heidegger", "niveau": "★", "detail": "Être et Temps ; le Dasein" },
-        { "nom": "Jean-Paul Sartre", "niveau": "★", "detail": "Existentialisme ; liberté radicale" },
-        { "nom": "Simone de Beauvoir", "niveau": "★", "detail": "Le Deuxième Sexe ; éthique de l'ambiguïté" },
-        { "nom": "Maurice Merleau-Ponty", "niveau": "○", "detail": "Phénoménologie du corps" },
-        { "nom": "Albert Camus", "niveau": "○", "detail": "Philosophie de l'absurde et de la révolte" },
-        { "nom": "Intentionnalité", "niveau": "", "detail": "La conscience est toujours conscience de quelque chose" },
-        { "nom": "Existence / essence", "niveau": "", "detail": "L'existence précède l'essence (Sartre)" },
-        { "nom": "Authenticité", "niveau": "", "detail": "Assumer sa finitude et sa liberté" }
-      ]
+        {
+          "nom": "Edmund Husserl",
+          "niveau": "★",
+          "detail": "Fondateur de la phénoménologie"
+        },
+        {
+          "nom": "Martin Heidegger",
+          "niveau": "★",
+          "detail": "Être et Temps ; le Dasein"
+        },
+        {
+          "nom": "Jean-Paul Sartre",
+          "niveau": "★",
+          "detail": "Existentialisme ; liberté radicale"
+        },
+        {
+          "nom": "Simone de Beauvoir",
+          "niveau": "★",
+          "detail": "Le Deuxième Sexe ; éthique de l'ambiguïté"
+        },
+        {
+          "nom": "Maurice Merleau-Ponty",
+          "niveau": "○",
+          "detail": "Phénoménologie du corps"
+        },
+        {
+          "nom": "Albert Camus",
+          "niveau": "○",
+          "detail": "Philosophie de l'absurde et de la révolte"
+        },
+        {
+          "nom": "Intentionnalité",
+          "niveau": "",
+          "detail": "La conscience est toujours conscience de quelque chose"
+        },
+        {
+          "nom": "Existence / essence",
+          "niveau": "",
+          "detail": "L'existence précède l'essence (Sartre)"
+        },
+        {
+          "nom": "Authenticité",
+          "niveau": "",
+          "detail": "Assumer sa finitude et sa liberté"
+        }
+      ],
+      "dossier": "phenomenologie-existentialisme"
     },
     {
       "num": 12,
@@ -1082,17 +1463,58 @@
       ],
       "notion": "Deux grands chantiers : analyser le langage pour dissiper les faux problèmes (Wittgenstein), et démasquer pouvoir et injustice (Foucault, Rawls).",
       "roster": [
-        { "nom": "Ludwig Wittgenstein", "niveau": "★", "detail": "Langage ; jeux de langage" },
-        { "nom": "Michel Foucault", "niveau": "★", "detail": "Pouvoir-savoir ; discipline" },
-        { "nom": "John Rawls", "niveau": "★", "detail": "Théorie de la justice ; équité" },
-        { "nom": "Bertrand Russell", "niveau": "○", "detail": "Logique ; atomisme logique" },
-        { "nom": "Karl Popper", "niveau": "○", "detail": "Falsifiabilité ; société ouverte" },
-        { "nom": "Hannah Arendt", "niveau": "○", "detail": "Totalitarisme ; banalité du mal" },
-        { "nom": "Jacques Derrida", "niveau": "○", "detail": "Déconstruction" },
-        { "nom": "Jürgen Habermas", "niveau": "○", "detail": "Agir communicationnel ; espace public" },
-        { "nom": "Tournant linguistique", "niveau": "", "detail": "Le langage au centre de la philosophie" },
-        { "nom": "Falsifiabilité", "niveau": "", "detail": "Critère de scientificité (Popper)" }
-      ]
+        {
+          "nom": "Ludwig Wittgenstein",
+          "niveau": "★",
+          "detail": "Langage ; jeux de langage"
+        },
+        {
+          "nom": "Michel Foucault",
+          "niveau": "★",
+          "detail": "Pouvoir-savoir ; discipline"
+        },
+        {
+          "nom": "John Rawls",
+          "niveau": "★",
+          "detail": "Théorie de la justice ; équité"
+        },
+        {
+          "nom": "Bertrand Russell",
+          "niveau": "○",
+          "detail": "Logique ; atomisme logique"
+        },
+        {
+          "nom": "Karl Popper",
+          "niveau": "○",
+          "detail": "Falsifiabilité ; société ouverte"
+        },
+        {
+          "nom": "Hannah Arendt",
+          "niveau": "○",
+          "detail": "Totalitarisme ; banalité du mal"
+        },
+        {
+          "nom": "Jacques Derrida",
+          "niveau": "○",
+          "detail": "Déconstruction"
+        },
+        {
+          "nom": "Jürgen Habermas",
+          "niveau": "○",
+          "detail": "Agir communicationnel ; espace public"
+        },
+        {
+          "nom": "Tournant linguistique",
+          "niveau": "",
+          "detail": "Le langage au centre de la philosophie"
+        },
+        {
+          "nom": "Falsifiabilité",
+          "niveau": "",
+          "detail": "Critère de scientificité (Popper)"
+        }
+      ],
+      "dossier": "analytique-contemporains"
     }
   ]
 }

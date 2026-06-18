@@ -479,6 +479,246 @@
     "w": 1622,
     "h": 2390
   },
+  "Homer": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Homer_At_the_British_Museum_2024_%283x4_cropped%29.jpg/1280px-Homer_At_the_British_Museum_2024_%283x4_cropped%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1334,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Homer_At_the_British_Museum_2024_%283x4_cropped%29.jpg",
+    "w": 3222,
+    "h": 4298
+  },
+  "Milman Parry": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Milman_Parry_1919_yearbook_photograph.jpg",
+    "thumb_w": 316,
+    "thumb_h": 460,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Milman_Parry_1919_yearbook_photograph.jpg",
+    "w": 316,
+    "h": 460
+  },
+  "Hesiod": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Bust_of_Hesiod_%28%3F%29-Ancient_Roman_busts_in_the_Neues_Museum.jpg",
+    "thumb_w": 744,
+    "thumb_h": 1280,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Bust_of_Hesiod_%28%3F%29-Ancient_Roman_busts_in_the_Neues_Museum.jpg",
+    "w": 744,
+    "h": 1280
+  },
+  "Aristotle": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Aristotle_Altemps_Inv8575.jpg/1280px-Aristotle_Altemps_Inv8575.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1338,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Aristotle_Altemps_Inv8575.jpg",
+    "w": 1700,
+    "h": 2275
+  },
+  "Sophocles": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/19/Sophocles_pushkin.jpg",
+    "thumb_w": 779,
+    "thumb_h": 1058,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Sophocles_pushkin.jpg",
+    "w": 779,
+    "h": 1058
+  },
+  "Aristophanes": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Bust_of_Aristophanes.jpg/1280px-Bust_of_Aristophanes.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1457,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Bust_of_Aristophanes.jpg",
+    "w": 2335,
+    "h": 3402
+  },
+  "Virgil": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Virgil_mosaic_in_the_Bardo_National_Museum_%28Tunis%29_%2812241228546%29.jpg/1280px-Virgil_mosaic_in_the_Bardo_National_Museum_%28Tunis%29_%2812241228546%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1019,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Virgil_mosaic_in_the_Bardo_National_Museum_%28Tunis%29_%2812241228546%29.jpg",
+    "w": 2596,
+    "h": 2645
+  },
+  "Ovid": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Ovid_by_an_anonymous_sculptor.jpg/1280px-Ovid_by_an_anonymous_sculptor.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1333,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Ovid_by_an_anonymous_sculptor.jpg",
+    "w": 3024,
+    "h": 4032
+  },
+  "Latin": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Rome_Colosseum_inscription_2.jpg/1280px-Rome_Colosseum_inscription_2.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1333,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Rome_Colosseum_inscription_2.jpg",
+    "w": 2304,
+    "h": 3072
+  },
+  "Dante Alighieri": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Bargello_-_Kapelle_Fresko_2a.jpg",
+    "thumb_w": 361,
+    "thumb_h": 542,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Bargello_-_Kapelle_Fresko_2a.jpg",
+    "w": 361,
+    "h": 542
+  },
+  "Bernard of Clairvaux": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/c/cd/San_Bernardo%2C_de_Juan_Correa_de_Vivar_%28Museo_del_Prado%29.jpg",
+    "thumb_w": 779,
+    "thumb_h": 1920,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/San_Bernardo%2C_de_Juan_Correa_de_Vivar_%28Museo_del_Prado%29.jpg",
+    "w": 779,
+    "h": 1920
+  },
+  "Thomas Aquinas": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/St-thomas-aquinasFXD.jpg/1280px-St-thomas-aquinasFXD.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1499,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/St-thomas-aquinasFXD.jpg",
+    "w": 4004,
+    "h": 6000
+  },
+  "Augustine of Hippo": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Saint_Augustine_by_Philippe_de_Champaigne.jpg/1280px-Saint_Augustine_by_Philippe_de_Champaigne.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1276,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Saint_Augustine_by_Philippe_de_Champaigne.jpg",
+    "w": 3135,
+    "h": 4000
+  },
+  "Chrétien de Troyes": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Chr%C3%A9tien_de_Troyes.jpg",
+    "thumb_w": 527,
+    "thumb_h": 681,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Chr%C3%A9tien_de_Troyes.jpg",
+    "w": 527,
+    "h": 681
+  },
+  "Marie de France": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Marie_de_France_1.tif/lossy-page1-1280px-Marie_de_France_1.tif.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 840,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/09/Marie_de_France_1.tif",
+    "w": 1564,
+    "h": 1314
+  },
+  "Joachim du Bellay": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/17/Joachim_Du_Bellay.jpeg",
+    "thumb_w": 620,
+    "thumb_h": 760,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Joachim_Du_Bellay.jpeg",
+    "w": 620,
+    "h": 760
+  },
+  "Michel de Montaigne": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Portrait_of_Michel_de_Montaigne%2C_circa_unknown.jpg",
+    "thumb_w": 1168,
+    "thumb_h": 1594,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Portrait_of_Michel_de_Montaigne%2C_circa_unknown.jpg",
+    "w": 1168,
+    "h": 1594
+  },
+  "François Rabelais": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Francois_Rabelais_-_Portrait.jpg/1280px-Francois_Rabelais_-_Portrait.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1237,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Francois_Rabelais_-_Portrait.jpg",
+    "w": 1574,
+    "h": 1947
+  },
+  "Miguel de Cervantes": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Cervantes_J%C3%A1uregui.jpg/1280px-Cervantes_J%C3%A1uregui.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1312,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/09/Cervantes_J%C3%A1uregui.jpg",
+    "w": 1443,
+    "h": 1893
+  },
+  "William Shakespeare": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/William_Shakespeare_by_John_Taylor%2C_edited.jpg/1280px-William_Shakespeare_by_John_Taylor%2C_edited.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1275,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/William_Shakespeare_by_John_Taylor%2C_edited.jpg",
+    "w": 2400,
+    "h": 3059
+  },
+  "Nicolas Boileau-Despréaux": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/25/Nicolas_Boileau.PNG",
+    "thumb_w": 632,
+    "thumb_h": 786,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/25/Nicolas_Boileau.PNG",
+    "w": 632,
+    "h": 786
+  },
+  "Pierre Corneille": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Pierre_Corneille_2.jpg",
+    "thumb_w": 826,
+    "thumb_h": 830,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Pierre_Corneille_2.jpg",
+    "w": 826,
+    "h": 830
+  },
+  "Jean Racine": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Portrait_de_Jean_Racine_d%27apr%C3%A8s_Jean-Baptiste_Santerre.jpg/1280px-Portrait_de_Jean_Racine_d%27apr%C3%A8s_Jean-Baptiste_Santerre.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1023,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Portrait_de_Jean_Racine_d%27apr%C3%A8s_Jean-Baptiste_Santerre.jpg",
+    "w": 2001,
+    "h": 2048
+  },
+  "Charles Perrault": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Portrait_de_Charles_Perrault_par_Charles_Le_Brun_%28d%C3%A9tail%29.jpg/1280px-Portrait_de_Charles_Perrault_par_Charles_Le_Brun_%28d%C3%A9tail%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1380,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Portrait_de_Charles_Perrault_par_Charles_Le_Brun_%28d%C3%A9tail%29.jpg",
+    "w": 3189,
+    "h": 4400
+  },
+  "Molière": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Pierre_Mignard_-_Portrait_de_Jean-Baptiste_Poquelin_dit_Moli%C3%A8re_%281622-1673%29_-_Google_Art_Project_%28cropped%29.jpg/1280px-Pierre_Mignard_-_Portrait_de_Jean-Baptiste_Poquelin_dit_Moli%C3%A8re_%281622-1673%29_-_Google_Art_Project_%28cropped%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1134,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Pierre_Mignard_-_Portrait_de_Jean-Baptiste_Poquelin_dit_Moli%C3%A8re_%281622-1673%29_-_Google_Art_Project_%28cropped%29.jpg",
+    "w": 3716,
+    "h": 4214
+  },
+  "Voltaire": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Nicolas_de_Largilli%C3%A8re_-_Portrait_de_Voltaire_%281694-1778%29_en_1718_-_P208_-_mus%C3%A9e_Carnavalet_-_5_%28cropped%29.jpg/1280px-Nicolas_de_Largilli%C3%A8re_-_Portrait_de_Voltaire_%281694-1778%29_en_1718_-_P208_-_mus%C3%A9e_Carnavalet_-_5_%28cropped%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1332,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Nicolas_de_Largilli%C3%A8re_-_Portrait_de_Voltaire_%281694-1778%29_en_1718_-_P208_-_mus%C3%A9e_Carnavalet_-_5_%28cropped%29.jpg",
+    "w": 2344,
+    "h": 3123
+  },
+  "Jean-Jacques Rousseau": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Maurice_Quentin_de_La_Tour_-_Portrait_of_Jean-Jacques_Rousseau_-_adjusted.jpg",
+    "thumb_w": 988,
+    "thumb_h": 1252,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Maurice_Quentin_de_La_Tour_-_Portrait_of_Jean-Jacques_Rousseau_-_adjusted.jpg",
+    "w": 988,
+    "h": 1252
+  },
+  "Denis Diderot": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Denis_Diderot_by_Louis-Michel_van_Loo.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1248,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Denis_Diderot_by_Louis-Michel_van_Loo.jpg",
+    "w": 1000,
+    "h": 1248
+  },
+  "Pierre Beaumarchais": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/56/Jean-Marc_Nattier%2C_Portrait_de_Pierre-Augustin_Caron_de_Beaumarchais_%281755%29.jpg",
+    "thumb_w": 484,
+    "thumb_h": 624,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Jean-Marc_Nattier%2C_Portrait_de_Pierre-Augustin_Caron_de_Beaumarchais_%281755%29.jpg",
+    "w": 484,
+    "h": 624
+  },
+  "Montesquieu": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Charles_Montesquieu.jpg",
+    "thumb_w": 752,
+    "thumb_h": 909,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Charles_Montesquieu.jpg",
+    "w": 752,
+    "h": 909
+  },
   "Victor Hugo": {
     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Victor_Hugo_by_%C3%89tienne_Carjat_1876_-_full.jpg/1280px-Victor_Hugo_by_%C3%89tienne_Carjat_1876_-_full.jpg",
     "thumb_w": 1000,
@@ -486,6 +726,14 @@
     "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Victor_Hugo_by_%C3%89tienne_Carjat_1876_-_full.jpg",
     "w": 2140,
     "h": 2632
+  },
+  "Théophile Gautier": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Th%C3%A9ophile_Gautier_by_Nadar_c1856-1.jpg",
+    "thumb_w": 1178,
+    "thumb_h": 1467,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Th%C3%A9ophile_Gautier_by_Nadar_c1856-1.jpg",
+    "w": 1178,
+    "h": 1467
   },
   "Johann Wolfgang von Goethe": {
     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Goethe_%28Stieler_1828%29.jpg/1280px-Goethe_%28Stieler_1828%29.jpg",
@@ -526,5 +774,189 @@
     "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Nadar_%28atelier_de%29_-_Emile_Zola%2C_13-556535.jpg",
     "w": 758,
     "h": 1037
+  },
+  "Les Rougon-Macquart": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Emile_Zola_-_La_Fortune_des_Rougon.djvu/page1-1280px-Emile_Zola_-_La_Fortune_des_Rougon.djvu.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1549,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Emile_Zola_-_La_Fortune_des_Rougon.djvu",
+    "w": 1568,
+    "h": 2429
+  },
+  "Fyodor Dostoevsky": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg/1280px-Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1250,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/78/Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg",
+    "w": 3200,
+    "h": 4000
+  },
+  "Stéphane Mallarmé": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Mallarm%C3%A9_Nadar.jpg",
+    "thumb_w": 985,
+    "thumb_h": 1356,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Mallarm%C3%A9_Nadar.jpg",
+    "w": 985,
+    "h": 1356
+  },
+  "Arthur Rimbaud": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Rimbaud.PNG",
+    "thumb_w": 664,
+    "thumb_h": 874,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Rimbaud.PNG",
+    "w": 664,
+    "h": 874
+  },
+  "Alexandrine": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Alejandro_Magno_en_submarino.jpg/1280px-Alejandro_Magno_en_submarino.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 884,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/98/Alejandro_Magno_en_submarino.jpg",
+    "w": 1796,
+    "h": 1587
+  },
+  "Free verse": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Is_5-e._e._cummings-0091.tif/lossy-page1-1280px-Is_5-e._e._cummings-0091.tif.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1598,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/98/Is_5-e._e._cummings-0091.tif",
+    "w": 1554,
+    "h": 2484
+  },
+  "Charles Baudelaire": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/%C3%89tienne_Carjat%2C_Portrait_of_Charles_Baudelaire%2C_circa_1862.jpg/1280px-%C3%89tienne_Carjat%2C_Portrait_of_Charles_Baudelaire%2C_circa_1862.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1263,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/%C3%89tienne_Carjat%2C_Portrait_of_Charles_Baudelaire%2C_circa_1862.jpg",
+    "w": 2851,
+    "h": 3600
+  },
+  "Realism (arts)": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Eilif_Peterssen_-_Summer_Night_-_Google_Art_Project.jpg/1280px-Eilif_Peterssen_-_Summer_Night_-_Google_Art_Project.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 872,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Eilif_Peterssen_-_Summer_Night_-_Google_Art_Project.jpg",
+    "w": 3454,
+    "h": 3011
+  },
+  "James Joyce": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Revolutionary_Joyce_Better_Contrast.jpg",
+    "thumb_w": 570,
+    "thumb_h": 764,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Revolutionary_Joyce_Better_Contrast.jpg",
+    "w": 570,
+    "h": 764
+  },
+  "Narrative": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/9/93/Narrative_Books_on_Library_Shelf.JPG",
+    "thumb_w": 648,
+    "thumb_h": 484,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Narrative_Books_on_Library_Shelf.JPG",
+    "w": 648,
+    "h": 484
+  },
+  "Marcel Proust": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Otto_Wegener_Proust_vers_1895_bis.jpg",
+    "thumb_w": 768,
+    "thumb_h": 956,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Otto_Wegener_Proust_vers_1895_bis.jpg",
+    "w": 768,
+    "h": 956
+  },
+  "Virginia Woolf": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/George_Charles_Beresford_-_Virginia_Woolf_in_1902_-_Restoration.jpg/1280px-George_Charles_Beresford_-_Virginia_Woolf_in_1902_-_Restoration.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1366,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/George_Charles_Beresford_-_Virginia_Woolf_in_1902_-_Restoration.jpg",
+    "w": 2924,
+    "h": 3994
+  },
+  "Franz Kafka": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Franz_Kafka%2C_1923.jpg/1280px-Franz_Kafka%2C_1923.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1333,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Franz_Kafka%2C_1923.jpg",
+    "w": 1992,
+    "h": 2656
+  },
+  "Jean-Paul Sartre": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Jean_Paul_Sartre_1965.jpg/1280px-Jean_Paul_Sartre_1965.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1309,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Jean_Paul_Sartre_1965.jpg",
+    "w": 1462,
+    "h": 1914
+  },
+  "Albert Camus": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/0/08/Albert_Camus%2C_gagnant_de_prix_Nobel%2C_portrait_en_buste%2C_pos%C3%A9_au_bureau%2C_faisant_face_%C3%A0_gauche%2C_cigarette_de_tabagisme.jpg",
+    "thumb_w": 719,
+    "thumb_h": 863,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Albert_Camus%2C_gagnant_de_prix_Nobel%2C_portrait_en_buste%2C_pos%C3%A9_au_bureau%2C_faisant_face_%C3%A0_gauche%2C_cigarette_de_tabagisme.jpg",
+    "w": 719,
+    "h": 863
+  },
+  "Samuel Beckett": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Samuel_Beckett%2C_Pic%2C_1_%28cropped%29.jpg/1280px-Samuel_Beckett%2C_Pic%2C_1_%28cropped%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1360,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Samuel_Beckett%2C_Pic%2C_1_%28cropped%29.jpg",
+    "w": 1982,
+    "h": 2696
+  },
+  "Simone de Beauvoir": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/55/Simone_De_Beauvoir_%28cropped%29.jpg",
+    "thumb_w": 516,
+    "thumb_h": 689,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Simone_De_Beauvoir_%28cropped%29.jpg",
+    "w": 516,
+    "h": 689
+  },
+  "Nathalie Sarraute": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Nathalie_Sarraute_-_portrait_de_Fernand_Michaud_-_btv1b103295272.jpg/1280px-Nathalie_Sarraute_-_portrait_de_Fernand_Michaud_-_btv1b103295272.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1498,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Nathalie_Sarraute_-_portrait_de_Fernand_Michaud_-_btv1b103295272.jpg",
+    "w": 3105,
+    "h": 4651
+  },
+  "Georges Perec": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/7/78/Georges_Perec.jpg",
+    "thumb_w": 280,
+    "thumb_h": 300,
+    "url": "https://upload.wikimedia.org/wikipedia/en/7/78/Georges_Perec.jpg",
+    "w": 280,
+    "h": 300
+  },
+  "Gabriel García Márquez": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Gabriel_Garcia_Marquez.jpg",
+    "thumb_w": 427,
+    "thumb_h": 640,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Gabriel_Garcia_Marquez.jpg",
+    "w": 427,
+    "h": 640
+  },
+  "Toni Morrison": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Toni_Morrison.jpg/1280px-Toni_Morrison.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1425,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Toni_Morrison.jpg",
+    "w": 1540,
+    "h": 2195
+  },
+  "Annie Ernaux": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Annie_Ernaux_in_2022_%284_av_11%29.jpg/1280px-Annie_Ernaux_in_2022_%284_av_11%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 891,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Annie_Ernaux_in_2022_%284_av_11%29.jpg",
+    "w": 1500,
+    "h": 1337
+  },
+  "Salman Rushdie": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Salman_Rushdie%2C_2024.jpg/1280px-Salman_Rushdie%2C_2024.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1370,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Salman_Rushdie%2C_2024.jpg",
+    "w": 1880,
+    "h": 2576
   }
 }
