@@ -108,7 +108,7 @@ const CFG = {
 };
 const C = () => CFG[DOMAIN];   // raccourci config du domaine actif
 
-const DV = "4"; // bump à chaque mise à jour de contenu pour court-circuiter le cache
+const DV = "5"; // bump à chaque mise à jour de contenu pour court-circuiter le cache
 function mkDomain(c, dos, img) {
   const flat = [];
   (c.chapitres || []).forEach((ch, ci) => (ch.oeuvres || []).forEach((o, oi) =>
@@ -193,7 +193,7 @@ function setActiveFloor(ci) {
 /* ---------- routage ---------- */
 addEventListener("hashchange", route);
 document.addEventListener("click", e => {
-  const dom = e.target.closest("[data-domain]");
+  const dom = e.target.closest(".dom[data-domain]");
   if (dom) { e.preventDefault(); switchDomain(dom.dataset.domain); return; }
   if (e.target.closest("[data-fav]")) return; // géré par le handler favoris
   const z = e.target.closest("[data-zoom]");
