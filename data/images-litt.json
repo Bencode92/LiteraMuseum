@@ -478,5 +478,53 @@
     "url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Les_ann%C3%A9es_%28Annie_Ernaux%29.jpg",
     "w": 1622,
     "h": 2390
+  },
+  "Victor Hugo": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Victor_Hugo_by_%C3%89tienne_Carjat_1876_-_full.jpg/1280px-Victor_Hugo_by_%C3%89tienne_Carjat_1876_-_full.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1230,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Victor_Hugo_by_%C3%89tienne_Carjat_1876_-_full.jpg",
+    "w": 2140,
+    "h": 2632
+  },
+  "Johann Wolfgang von Goethe": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Goethe_%28Stieler_1828%29.jpg/1280px-Goethe_%28Stieler_1828%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1233,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Goethe_%28Stieler_1828%29.jpg",
+    "w": 1972,
+    "h": 2432
+  },
+  "Lord Byron": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Byron_1813_by_Phillips.jpg",
+    "thumb_w": 733,
+    "thumb_h": 944,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Byron_1813_by_Phillips.jpg",
+    "w": 733,
+    "h": 944
+  },
+  "Honoré de Balzac": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/%E5%A5%A5%C2%B7%E5%B7%B4%E5%B0%94%E6%89%8E%E5%85%8B.png/1280px-%E5%A5%A5%C2%B7%E5%B7%B4%E5%B0%94%E6%89%8E%E5%85%8B.png",
+    "thumb_w": 1000,
+    "thumb_h": 1333,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/%E5%A5%A5%C2%B7%E5%B7%B4%E5%B0%94%E6%89%8E%E5%85%8B.png",
+    "w": 2074,
+    "h": 2765
+  },
+  "Gustave Flaubert": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Gustave_Flaubert.jpg",
+    "thumb_w": 984,
+    "thumb_h": 1084,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Gustave_Flaubert.jpg",
+    "w": 984,
+    "h": 1084
+  },
+  "Émile Zola": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/9/97/Nadar_%28atelier_de%29_-_Emile_Zola%2C_13-556535.jpg",
+    "thumb_w": 758,
+    "thumb_h": 1037,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Nadar_%28atelier_de%29_-_Emile_Zola%2C_13-556535.jpg",
+    "w": 758,
+    "h": 1037
   }
 }

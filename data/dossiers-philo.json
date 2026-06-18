@@ -32,11 +32,26 @@
         }
       ],
       "carte": [
-        ["Dates", "≈ -300 (fondation) à 180 (mort de Marc Aurèle)"],
-        ["Fondateur", "Zénon de Cition"],
-        ["Lieu", "Le Portique (Stoa) d'Athènes, puis Rome"],
-        ["Devise", "Vivre selon la nature et la raison"],
-        ["But", "Ataraxie : la tranquillité de l'âme"]
+        [
+          "Dates",
+          "≈ -300 (fondation) à 180 (mort de Marc Aurèle)"
+        ],
+        [
+          "Fondateur",
+          "Zénon de Cition"
+        ],
+        [
+          "Lieu",
+          "Le Portique (Stoa) d'Athènes, puis Rome"
+        ],
+        [
+          "Devise",
+          "Vivre selon la nature et la raison"
+        ],
+        [
+          "But",
+          "Ataraxie : la tranquillité de l'âme"
+        ]
       ],
       "contexte": [
         "Monde hellénistique instable après la mort d'Alexandre : la philosophie devient un art de vivre individuel.",
@@ -87,8 +102,14 @@
           "niveau": "★",
           "portrait": "Né esclave en Phrygie, affranchi puis maître à Rome et en Grèce, Épictète incarne l'idée que la liberté intérieure ne dépend d'aucune condition sociale. Il n'a rien écrit : son enseignement nous est parvenu par son disciple Arrien.",
           "bio_sections": [
-            { "h": "De l'esclavage à la sagesse", "p": "Esclave d'un affranchi de Néron, il étudie la philosophie pendant sa servitude. Affranchi, il enseigne à Rome jusqu'à l'expulsion des philosophes, puis fonde une école à Nicopolis." },
-            { "h": "Une doctrine du regard", "p": "Pour Épictète, nous ne maîtrisons pas les événements, mais notre jugement sur eux. La liberté consiste à vouloir ce qui arrive plutôt qu'à vouloir que les choses arrivent comme nous le désirons." }
+            {
+              "h": "De l'esclavage à la sagesse",
+              "p": "Esclave d'un affranchi de Néron, il étudie la philosophie pendant sa servitude. Affranchi, il enseigne à Rome jusqu'à l'expulsion des philosophes, puis fonde une école à Nicopolis."
+            },
+            {
+              "h": "Une doctrine du regard",
+              "p": "Pour Épictète, nous ne maîtrisons pas les événements, mais notre jugement sur eux. La liberté consiste à vouloir ce qui arrive plutôt qu'à vouloir que les choses arrivent comme nous le désirons."
+            }
           ]
         },
         {
@@ -98,8 +119,14 @@
           "niveau": "★",
           "portrait": "Empereur romain de 161 à 180, surnommé l'« empereur philosophe », il gouverne un empire menacé tout en restant fidèle à l'idéal stoïcien du devoir et de la maîtrise de soi.",
           "bio_sections": [
-            { "h": "Un pouvoir au service du devoir", "p": "Confronté aux guerres et aux épidémies, il conçoit le pouvoir comme un service. Ses Pensées, écrites sur les champs de bataille, témoignent d'un effort constant pour rester juste et serein." },
-            { "h": "La dernière grande voix stoïcienne", "p": "Sa mort en 180 marque souvent la fin du stoïcisme antique comme école vivante. Son livre demeure l'un des classiques les plus lus de la sagesse occidentale." }
+            {
+              "h": "Un pouvoir au service du devoir",
+              "p": "Confronté aux guerres et aux épidémies, il conçoit le pouvoir comme un service. Ses Pensées, écrites sur les champs de bataille, témoignent d'un effort constant pour rester juste et serein."
+            },
+            {
+              "h": "La dernière grande voix stoïcienne",
+              "p": "Sa mort en 180 marque souvent la fin du stoïcisme antique comme école vivante. Son livre demeure l'un des classiques les plus lus de la sagesse occidentale."
+            }
           ]
         },
         {
@@ -109,8 +136,14 @@
           "niveau": "★",
           "portrait": "Homme politique, dramaturge et philosophe, précepteur puis conseiller de Néron, Sénèque illustre les tensions entre la sagesse stoïcienne et l'exercice du pouvoir. Contraint au suicide par son ancien élève, il meurt en stoïcien.",
           "bio_sections": [
-            { "h": "Philosophe dans le monde", "p": "Riche et engagé dans les affaires de l'Empire, il défend une morale exigeante tout en vivant au cœur du pouvoir, ce qui lui valut des critiques sur la cohérence de sa vie." },
-            { "h": "Une œuvre morale considérable", "p": "Lettres, dialogues et traités (sur la colère, la brièveté de la vie, la tranquillité de l'âme) font de lui le grand passeur du stoïcisme vers le monde latin et chrétien." }
+            {
+              "h": "Philosophe dans le monde",
+              "p": "Riche et engagé dans les affaires de l'Empire, il défend une morale exigeante tout en vivant au cœur du pouvoir, ce qui lui valut des critiques sur la cohérence de sa vie."
+            },
+            {
+              "h": "Une œuvre morale considérable",
+              "p": "Lettres, dialogues et traités (sur la colère, la brièveté de la vie, la tranquillité de l'âme) font de lui le grand passeur du stoïcisme vers le monde latin et chrétien."
+            }
           ]
         },
         {
@@ -120,7 +153,10 @@
           "niveau": "○",
           "portrait": "Marchand devenu philosophe après un naufrage, il fonde l'école stoïcienne à Athènes. On ne conserve de lui que des fragments, mais il pose les bases logiques, physiques et éthiques du système.",
           "bio_sections": [
-            { "h": "Le fondateur", "p": "Élève des cyniques et de l'Académie, il synthétise plusieurs traditions pour créer une doctrine originale enseignée sous le Portique peint, la Stoa poikilè." }
+            {
+              "h": "Le fondateur",
+              "p": "Élève des cyniques et de l'Académie, il synthétise plusieurs traditions pour créer une doctrine originale enseignée sous le Portique peint, la Stoa poikilè."
+            }
           ]
         }
       ],
@@ -144,145 +180,268 @@
     },
     {
       "id": "lumieres-kant",
-      "titre": "Les Lumières et Kant",
-      "periode": "≈ 1715 → 1804",
-      "sous_titre": "Le courage de penser par soi-même et l'autocritique de la raison",
+      "titre": "Les Lumières & Kant",
+      "periode": "XVIIIᵉ siècle (≈ 1715-1804)",
+      "sous_titre": "« Ose savoir ! » : la raison contre les préjugés — puis Kant qui en fixe enfin les limites.",
       "recit": [
         {
-          "h": "Le siècle des Lumières",
-          "p": "Au XVIIIᵉ siècle, en France, en Angleterre, en Allemagne, une génération de penseurs entreprend de soumettre toutes les croyances au tribunal de la raison. Contre les préjugés, le fanatisme et l'absolutisme, les « philosophes » prônent la tolérance, la liberté et le progrès. Leur mot d'ordre : éclairer les hommes pour les émanciper."
+          "h": "Le siècle qui ose",
+          "p": "Au XVIIIᵉ, une génération décide que rien ne doit échapper à l'examen de la raison : ni la religion, ni le roi, ni la tradition. Kant résume le programme d'un mot : « Sapere aude » — ose te servir de ton propre entendement. Penser par soi-même devient un courage, et un devoir."
         },
         {
-          "h": "Un combat pour la liberté",
-          "p": "Voltaire combat l'intolérance religieuse, Montesquieu théorise la séparation des pouvoirs, Rousseau refonde la légitimité politique sur la volonté générale, Diderot et d'Alembert rassemblent les savoirs dans l'Encyclopédie. Ces œuvres préparent intellectuellement les révolutions américaine et française et la Déclaration des droits de l'homme."
+          "h": "La raison comme tribunal",
+          "p": "Les Lumières ne se contentent plus de croire ce qu'on leur transmet : elles convoquent toute autorité devant le tribunal de la raison. Une coutume, un dogme, une loi ne valent que s'ils résistent à la critique. C'est un renversement total de la source du vrai et du juste."
         },
         {
-          "h": "Kant, philosophe des Lumières",
-          "p": "En 1784, dans un court texte célèbre, Kant définit les Lumières : « la sortie de l'homme hors de l'état de minorité dont il est lui-même responsable ». Sa devise, Sapere aude, « aie le courage de te servir de ton propre entendement », résume tout le mouvement. Mais Kant va plus loin : il fait de la raison elle-même l'objet de la critique."
+          "h": "Le combat : tolérance et savoir",
+          "p": "La pensée devient une arme. Voltaire se bat contre le fanatisme et l'injustice (affaire Calas), réclame la tolérance. Diderot et d'Alembert lancent l'Encyclopédie : rassembler tout le savoir humain pour « changer la façon commune de penser ». Diffuser, c'est émanciper."
         },
         {
-          "h": "La révolution copernicienne",
-          "p": "Réveillé par Hume de son « sommeil dogmatique », Kant cherche à dépasser le conflit entre rationalisme et empirisme. Sa solution est une révolution : ce n'est pas notre esprit qui se règle sur les objets, mais les objets qui se conforment aux formes a priori de notre sensibilité (espace, temps) et de notre entendement (les catégories)."
+          "h": "Rousseau, la voix discordante",
+          "p": "Au cœur des Lumières, Rousseau dénonce les Lumières : pour lui, le progrès des sciences et des arts n'a pas rendu l'homme meilleur, il l'a corrompu. L'homme naît bon, la société le déforme. Il oppose au calcul des philosophes la voix du sentiment et de la conscience."
         },
         {
-          "h": "Les limites du savoir",
-          "p": "De là découle une conséquence majeure : nous ne connaissons que les phénomènes, le monde tel qu'il nous apparaît, jamais la « chose en soi » (le noumène). La métaphysique classique, qui prétendait connaître Dieu, l'âme ou le monde dans leur réalité absolue, dépasse les bornes de la raison. Kant trace ainsi les frontières du connaissable."
+          "h": "Kant : la révolution copernicienne",
+          "p": "Kant fait la synthèse de deux siècles de querelle. Plutôt que de demander si l'esprit se règle sur les objets, il renverse : ce sont les objets qui se règlent sur les structures de notre esprit (l'espace, le temps, les catégories). La connaissance est donc possible — mais seulement du monde tel qu'il nous apparaît, jamais des « choses en soi »."
         },
         {
-          "h": "La morale du devoir",
-          "p": "Si la raison est limitée dans la connaissance, elle est souveraine dans l'action. Kant fonde une morale autonome : la loi morale, l'impératif catégorique, commande d'agir selon des maximes universalisables et de traiter toujours l'humanité comme une fin, jamais seulement comme un moyen. La dignité de l'homme repose sur cette autonomie."
+          "h": "La morale : agir par devoir",
+          "p": "Si la raison ne peut prouver Dieu, l'âme ou la liberté, elle fonde en revanche la morale. Kant énonce l'impératif catégorique : agis seulement selon une maxime que tu pourrais vouloir universelle. La dignité, ce n'est pas le plaisir ni l'intérêt : c'est obéir à la loi qu'on se donne soi-même."
         }
       ],
       "carte": [
-        ["Dates", "XVIIIᵉ siècle ; Kant : 1724 – 1804"],
-        ["Mots d'ordre", "Raison, tolérance, liberté, progrès"],
-        ["Devise", "Sapere aude (« Ose savoir »)"],
-        ["Œuvre phare", "Critique de la raison pure (1781)"],
-        ["Apport de Kant", "Le criticisme : critique des pouvoirs et limites de la raison"]
+        [
+          "Dates",
+          "≈ 1715 (mort de Louis XIV) → 1804 (mort de Kant)"
+        ],
+        [
+          "Foyers",
+          "Paris, Édimbourg, Königsberg"
+        ],
+        [
+          "Devise",
+          "Sapere aude — ose savoir"
+        ],
+        [
+          "Arme",
+          "la critique : tout passe au tribunal de la raison"
+        ]
       ],
-      "contexte": [
-        "Réaction contre l'absolutisme, le fanatisme et les préjugés.",
-        "Essor des sciences (Newton) et confiance dans la méthode.",
-        "Diffusion des idées par l'Encyclopédie, les salons, la presse.",
-        "Toile de fond des révolutions américaine (1776) et française (1789)."
-      ],
-      "phrase": "« Sapere aude ! Aie le courage de te servir de ton propre entendement. » — Kant",
-      "oeuvres": [
+      "mentalites": {
+        "avant": "Le vrai et le juste se fondent sur l'autorité : l'Écriture, la tradition, le roi de droit divin. On reçoit le savoir d'en haut ; douter, c'est désobéir.",
+        "renversements": [
+          "L'autorité ne suffit plus : une idée ne vaut que si elle résiste à l'examen rationnel.",
+          "L'individu majeur : chacun doit penser par lui-même, pas déléguer son jugement.",
+          "Le savoir se diffuse (l'Encyclopédie) au lieu de rester réservé à une élite.",
+          "La tolérance devient une valeur : on ne tue plus pour des croyances."
+        ],
+        "phrase": "Le juge du vrai et du juste n'est plus la tradition : c'est la raison."
+      },
+      "probleme": "Jusqu'où la raison peut-elle aller ? Peut-elle vraiment tout connaître et tout fonder — la nature, Dieu, la morale — par ses seules forces, ou a-t-elle des limites qu'il faut d'abord tracer ?",
+      "debats": [
         {
-          "titre": "Critique de la raison pure",
-          "wiki": "Critique of Pure Reason",
-          "artiste": "Emmanuel Kant",
-          "annee": "1781",
-          "genie": "Refonde toute la théorie de la connaissance par la « révolution copernicienne » et fixe les limites de la raison.",
-          "analyse": "Kant montre que la connaissance suppose à la fois des données sensibles et des formes a priori de l'esprit. Nous ne connaissons que les phénomènes, structurés par l'espace, le temps et les catégories ; la chose en soi reste inaccessible. La métaphysique dogmatique est ainsi disqualifiée."
+          "titre": "Rationalisme contre Empirisme",
+          "question": "D'où vient la connaissance ?",
+          "camps": [
+            {
+              "nom": "Rationalisme",
+              "tenants": "Descartes, Spinoza, Leibniz",
+              "wiki": "René Descartes",
+              "these": "La connaissance vraie vient de la raison et d'idées innées ; les sens trompent. On part de principes certains, comme en mathématiques."
+            },
+            {
+              "nom": "Empirisme",
+              "tenants": "Locke, Berkeley, Hume",
+              "wiki": "David Hume",
+              "these": "Rien dans l'esprit qui ne soit d'abord passé par les sens. Toute idée vient de l'expérience ; même la causalité n'est qu'une habitude."
+            }
+          ],
+          "issue": "Kant tranche : la connaissance combine les deux — les données viennent de l'expérience (empirisme), mais l'esprit les organise par ses formes a priori (rationalisme)."
         },
         {
-          "titre": "Fondements de la métaphysique des mœurs",
-          "wiki": "Groundwork of the Metaphysic of Morals",
-          "artiste": "Emmanuel Kant",
-          "annee": "1785",
-          "genie": "Fonde une morale rationnelle et universelle indépendante de tout intérêt et de toute conséquence.",
-          "analyse": "La valeur morale d'un acte tient à l'intention d'agir par devoir. L'impératif catégorique fournit le critère : n'agir que selon une maxime que l'on pourrait vouloir universelle, et respecter en chacun l'humanité comme fin en soi."
+          "titre": "Voltaire contre Rousseau",
+          "question": "Le progrès rend-il l'homme meilleur ?",
+          "camps": [
+            {
+              "nom": "Le progrès civilise",
+              "tenants": "Voltaire, l'esprit des Lumières",
+              "wiki": "Voltaire",
+              "these": "Les sciences, les arts et le commerce adoucissent les mœurs et reculent le fanatisme. La civilisation est un bienfait à étendre."
+            },
+            {
+              "nom": "La civilisation corrompt",
+              "tenants": "Rousseau",
+              "wiki": "Jean-Jacques Rousseau",
+              "these": "L'homme naît bon ; ce sont la propriété, le luxe et la société inégalitaire qui le pervertissent. Le progrès des arts masque un recul moral."
+            }
+          ],
+          "issue": "Querelle jamais close : elle nourrit le romantisme (contre la raison froide) et toute la critique moderne du « progrès »."
+        },
+        {
+          "titre": "Déisme contre matérialisme",
+          "question": "Dieu est-il nécessaire pour expliquer le monde ?",
+          "camps": [
+            {
+              "nom": "Déisme",
+              "tenants": "Voltaire, l'horloger du monde",
+              "wiki": "Voltaire",
+              "these": "Un Dieu créateur a réglé l'univers comme une horloge, puis l'a laissé tourner selon ses lois. La raison y mène, pas la révélation."
+            },
+            {
+              "nom": "Matérialisme athée",
+              "tenants": "d'Holbach, Diderot",
+              "wiki": "Baron d'Holbach",
+              "these": "Il n'existe que la matière et ses lois ; pas besoin de Dieu pour expliquer la nature. La religion naît de la peur et de l'ignorance."
+            }
+          ],
+          "issue": "Kant déplace la question : Dieu est indémontrable par la raison pure, mais reste un postulat nécessaire de la vie morale."
+        }
+      ],
+      "oeuvres": [
+        {
+          "titre": "Lettres philosophiques",
+          "wiki": "Voltaire",
+          "artiste": "Voltaire",
+          "annee": "1734",
+          "genese": "Exilé en Angleterre après une querelle, Voltaire y découvre la tolérance religieuse, la liberté de pensée et la science de Newton. Il en tire ces « lettres » qui louent l'Angleterre… pour mieux critiquer la France.",
+          "genie": "Le premier grand manifeste des Lumières : faire l'éloge d'un autre pays pour dénoncer, sans le dire, l'absolutisme et l'intolérance du sien.",
+          "posterite": "Le livre est brûlé ; Voltaire doit fuir. Mais le modèle « comparer pour critiquer » est lancé : la philosophie devient combat public.",
+          "approfondir": "On parle de « bombe contre l'Ancien Régime » : Voltaire y oppose la monarchie tempérée anglaise et la liberté de commerce à la société d'ordres française. C'est aussi l'introduction de Newton et de Locke dans la culture française."
+        },
+        {
+          "titre": "Candide",
+          "wiki": "Candide",
+          "artiste": "Voltaire",
+          "annee": "1759",
+          "genese": "Après le terrible tremblement de terre de Lisbonne (1755), Voltaire ne supporte plus l'optimisme philosophique qui prétend que « tout est pour le mieux ». Il riposte par un conte féroce.",
+          "genie": "Démolir, par le rire et l'absurde des malheurs accumulés, l'optimisme de Leibniz (« le meilleur des mondes possibles »).",
+          "posterite": "Devient l'arme satirique par excellence ; sa formule finale « il faut cultiver notre jardin » reste l'une des plus commentées de la littérature.",
+          "approfondir": "La cible précise est l'optimisme leibnizien popularisé par Wolff et Pope. Voltaire n'oppose pas un autre système, mais une sagesse pratique : agir et travailler plutôt que disserter sur le mal."
+        },
+        {
+          "titre": "L'Encyclopédie",
+          "wiki": "Encyclopédie",
+          "artiste": "Diderot & d'Alembert",
+          "annee": "1751-1772",
+          "genese": "Ce qui devait être la simple traduction d'un dictionnaire anglais devient, sous Diderot, une entreprise monumentale : 28 volumes, des centaines de collaborateurs, malgré la censure et les interdictions.",
+          "genie": "Rassembler et ordonner TOUT le savoir humain — y compris les métiers et techniques — pour, dit Diderot, « changer la façon commune de penser ».",
+          "posterite": "Modèle de toute encyclopédie moderne ; symbole de l'idée que diffuser le savoir, c'est émanciper. Une arme intellectuelle collective.",
+          "approfondir": "L'Encyclopédie glisse la critique dans les renvois d'articles (un article anodin renvoie ironiquement à un article subversif). Les planches des arts et métiers valorisent le travail manuel, longtemps méprisé."
         },
         {
           "titre": "Du contrat social",
           "wiki": "The Social Contract",
           "artiste": "Jean-Jacques Rousseau",
           "annee": "1762",
-          "genie": "Pense une autorité politique légitime fondée sur la liberté : on n'obéit qu'à soi-même.",
-          "analyse": "Par le pacte social, chacun s'unit à tous et se soumet à la volonté générale, expression de l'intérêt commun. Rousseau réconcilie ainsi liberté individuelle et obéissance aux lois, et fonde la souveraineté du peuple."
+          "genese": "Rousseau cherche à fonder une autorité politique légitime sans la faire reposer sur la force ni sur Dieu, mais sur l'accord des hommes libres eux-mêmes.",
+          "genie": "« L'homme est né libre, et partout il est dans les fers. » Le pouvoir n'est légitime que s'il exprime la volonté générale du peuple souverain.",
+          "posterite": "Texte-clé de la Révolution française et de la démocratie moderne ; la souveraineté du peuple en descend directement.",
+          "approfondir": "La « volonté générale » n'est pas la somme des intérêts particuliers (la volonté de tous) mais ce que veut le corps politique en vue du bien commun — distinction qui nourrira d'immenses débats, jusqu'aux dérives autoritaires qu'on lui a reprochées."
         },
         {
-          "titre": "Encyclopédie",
-          "wiki": "Encyclopédie",
-          "artiste": "Diderot et d'Alembert",
-          "annee": "1751-1772",
-          "genie": "Incarne le projet des Lumières : rassembler et diffuser les savoirs pour changer la manière de penser.",
-          "analyse": "Cette entreprise collective et monumentale ordonne les connaissances selon la raison, valorise les arts et les techniques, et glisse partout une critique des autorités. Malgré la censure, elle devient le manifeste du progrès et de l'esprit critique."
+          "titre": "Critique de la raison pure",
+          "wiki": "Critique of Pure Reason",
+          "artiste": "Emmanuel Kant",
+          "annee": "1781",
+          "genese": "Kant dit avoir été « réveillé de son sommeil dogmatique » par Hume : si la causalité n'est qu'une habitude, toute science est menacée. Il consacre dix ans de silence à répondre.",
+          "genie": "La « révolution copernicienne » : ce n'est plus l'esprit qui se règle sur les objets, mais les objets qui se règlent sur les structures de notre esprit.",
+          "posterite": "Refonde toute la philosophie : après Kant, on ne peut plus penser la connaissance sans interroger d'abord ses conditions. Point de départ de l'idéalisme allemand.",
+          "approfondir": "Kant distingue les jugements « synthétiques a priori » (qui ajoutent du savoir tout en étant nécessaires, comme en mathématiques) et trace la frontière entre phénomène (ce qui nous apparaît, connaissable) et noumène (la chose en soi, inconnaissable)."
         }
       ],
       "artistes": [
         {
-          "nom": "Emmanuel Kant",
-          "wiki": "Immanuel Kant",
-          "dates": "1724 – 1804",
+          "nom": "Voltaire",
+          "wiki": "Voltaire",
+          "dates": "1694-1778",
           "niveau": "★",
-          "portrait": "Né et mort à Königsberg, dont il ne sortit presque jamais, Kant mena une vie d'une régularité légendaire entièrement vouée à la pensée. Il est l'auteur du tournant critique qui sépare la philosophie moderne de la philosophie classique.",
+          "portrait": "L'incarnation des Lumières : poète, dramaturge, conteur, pamphlétaire, infatigable défenseur de la tolérance.",
           "bio_sections": [
-            { "h": "Le réveil critique", "p": "Longtemps fidèle à la métaphysique rationaliste, Kant est, selon ses mots, « réveillé de son sommeil dogmatique » par la lecture de Hume. Il élabore alors le projet critique : examiner les pouvoirs et les limites de la raison elle-même." },
-            { "h": "Les trois Critiques", "p": "Son œuvre s'organise autour de trois grandes Critiques : la raison pure (connaître), la raison pratique (agir), et la faculté de juger (le beau et le vivant). Il articule ainsi science, morale et esthétique." },
-            { "h": "Vers la paix", "p": "À la fin de sa vie, Kant écrit Vers la paix perpétuelle, projet d'une fédération d'États libres garantissant la paix par le droit, qui inspirera les organisations internationales modernes." }
+            {
+              "h": "Le combattant",
+              "p": "Embastillé, exilé en Angleterre, il revient armé : il fera de la plume une force publique contre le fanatisme (affaire Calas) et l'injustice."
+            },
+            {
+              "h": "Le déiste ironique",
+              "p": "Il croit en un Dieu « horloger » accessible à la raison, mais déteste les Églises et les dogmes. « Écrasons l'infâme » : l'infâme, c'est l'intolérance."
+            }
           ]
         },
         {
           "nom": "Jean-Jacques Rousseau",
           "wiki": "Jean-Jacques Rousseau",
-          "dates": "1712 – 1778",
+          "dates": "1712-1778",
           "niveau": "★",
-          "portrait": "Genevois autodidacte, écrivain, musicien et philosophe, Rousseau occupe une place à part dans les Lumières : il en partage l'idéal de liberté mais en critique le progrès et l'optimisme. Il influence la politique, la pédagogie et le romantisme.",
+          "portrait": "Le dissident des Lumières : il en partage le combat pour la liberté, mais retourne la raison contre la civilisation.",
           "bio_sections": [
-            { "h": "L'homme bon dénaturé", "p": "Pour Rousseau, l'homme est naturellement bon mais corrompu par la société et l'inégalité. Le Discours sur l'origine de l'inégalité retrace cette dégradation." },
-            { "h": "Refonder le lien social et l'éducation", "p": "Le Contrat social cherche une organisation politique respectant la liberté, tandis qu'Émile propose une éducation conforme à la nature de l'enfant." }
+            {
+              "h": "L'homme naturellement bon",
+              "p": "Pour lui, l'homme naît bon ; c'est la société, la propriété et l'inégalité qui le corrompent. Une thèse qui fonde toute une critique moderne."
+            },
+            {
+              "h": "Le souverain, c'est le peuple",
+              "p": "Avec le Contrat social, il fait reposer la légitimité du pouvoir sur la volonté générale — l'idée matrice de la démocratie."
+            }
           ]
         },
         {
-          "nom": "Voltaire",
-          "wiki": "Voltaire",
-          "dates": "1694 – 1778",
+          "nom": "Denis Diderot",
+          "wiki": "Denis Diderot",
+          "dates": "1713-1784",
           "niveau": "○",
-          "portrait": "Écrivain et polémiste infatigable, Voltaire est la figure la plus célèbre des Lumières françaises. Par ses contes, ses lettres et ses combats publics, il fait de la tolérance et de la liberté de pensée une cause européenne.",
+          "portrait": "Le bâtisseur de l'Encyclopédie, esprit universel et matérialiste audacieux.",
           "bio_sections": [
-            { "h": "Le combat contre l'infâme", "p": "Voltaire lutte sans relâche contre le fanatisme et l'injustice, notamment dans l'affaire Calas, et défend la tolérance dans son Traité sur la tolérance." }
+            {
+              "h": "Le maître d'œuvre",
+              "p": "Il porte à bout de bras, vingt ans durant, l'Encyclopédie, malgré la censure, la prison et les défections."
+            }
           ]
         },
         {
-          "nom": "Montesquieu",
-          "wiki": "Montesquieu",
-          "dates": "1689 – 1755",
-          "niveau": "○",
-          "portrait": "Magistrat et penseur politique, Montesquieu observe les sociétés et les lois en savant. De l'esprit des lois fonde une science politique comparée et théorise la séparation des pouvoirs.",
+          "nom": "Emmanuel Kant",
+          "wiki": "Immanuel Kant",
+          "dates": "1724-1804",
+          "niveau": "★",
+          "portrait": "Le philosophe de Königsberg, d'une régularité légendaire, qui clôt les Lumières en en fixant les limites.",
           "bio_sections": [
-            { "h": "La liberté par l'équilibre des pouvoirs", "p": "Pour éviter le despotisme, il faut que « le pouvoir arrête le pouvoir » : législatif, exécutif et judiciaire doivent être distingués et se limiter mutuellement." }
+            {
+              "h": "La critique",
+              "p": "Plutôt que d'affirmer ou de nier, il demande d'abord : que peut, et que ne peut pas, la raison ? Trois Critiques (raison pure, raison pratique, faculté de juger) en sortent."
+            },
+            {
+              "h": "La dignité",
+              "p": "Sa morale du devoir et de l'impératif catégorique fonde la dignité de la personne : l'homme est une fin, jamais seulement un moyen."
+            }
           ]
         }
       ],
+      "liens": {
+        "d_ou": "Des querelles du XVIIᵉ : le rationalisme (Descartes) et l'empirisme (Locke, Hume), que les Lumières prolongent et que Kant vient arbitrer.",
+        "mene": "À l'idéalisme allemand (Hegel), qui pense l'Histoire et l'Esprit ; et, par réaction contre la « raison froide », au romantisme qui réhabilite le sentiment et le génie."
+      },
+      "plus": [
+        {
+          "h": "Le détail : qu'est-ce qu'un jugement « synthétique a priori » ?",
+          "p": "C'est le cœur technique de Kant. « Analytique » : le prédicat est déjà contenu dans le sujet (« tout corps est étendu ») — vrai mais sans info nouvelle. « Synthétique » : il ajoute de l'information (« ce corps est lourd ») — mais d'habitude, par l'expérience (a posteriori). Le tour de force de Kant : montrer qu'il existe des jugements à la fois synthétiques (instructifs) ET a priori (nécessaires, indépendants de l'expérience) — les mathématiques et les principes de la physique. C'est ce qui rend la science universelle possible."
+        },
+        {
+          "h": "L'angle mort politique des Lumières",
+          "p": "Beaucoup de philosophes prônent un « despotisme éclairé » (un monarque qui réforme par le haut) plutôt que la démocratie. Et l'universalisme proclamé coexiste longtemps avec l'esclavage colonial et l'exclusion des femmes — contradictions que la postérité (de Condorcet à aujourd'hui) ne cessera de pointer."
+        }
+      ],
       "memos": [
-        "Lumières = émancipation par la raison ; devise Sapere aude.",
-        "Kant : révolution copernicienne, les objets se règlent sur l'esprit.",
-        "On connaît les phénomènes, jamais la chose en soi (noumène).",
-        "Morale : impératif catégorique, autonomie, l'homme comme fin en soi."
+        "Sapere aude : ose penser par toi-même. Le mot d'ordre de tout le siècle.",
+        "Rationalisme + empirisme → synthèse de Kant : l'esprit met en forme l'expérience.",
+        "Kant : on connaît le phénomène (ce qui nous apparaît), jamais la chose en soi.",
+        "Impératif catégorique : agis selon une maxime que tu voudrais universelle."
       ],
       "autotest": [
-        "Comment Kant définit-il les Lumières dans son texte de 1784 ?",
-        "En quoi consiste la « révolution copernicienne » en philosophie ?",
-        "Quelle différence Kant fait-il entre phénomène et noumène ?",
-        "Énonce une formulation de l'impératif catégorique.",
-        "Qu'apporte Rousseau avec la notion de volonté générale ?"
-      ],
-      "liens": {
-        "d_ou": "Synthétise et dépasse le rationalisme (Descartes, Leibniz) et l'empirisme (Locke, Hume) ; prolonge l'esprit critique des Lumières.",
-        "mene": "Ouvre la voie à l'idéalisme allemand (Fichte, Hegel) et nourrit toute l'éthique et la philosophie politique modernes."
-      }
+        "Que signifie « Sapere aude », et pourquoi est-ce le mot d'ordre des Lumières ?",
+        "Oppose en une phrase le rationalisme et l'empirisme — puis comment Kant les réconcilie.",
+        "Pourquoi Rousseau est-il à la fois dans les Lumières et contre elles ?",
+        "Qu'est-ce que la « révolution copernicienne » de Kant en théorie de la connaissance ?",
+        "Énonce l'impératif catégorique et donne un exemple d'application."
+      ]
     }
   ]
 }

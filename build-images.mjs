@@ -13,8 +13,8 @@ import { readFileSync, writeFileSync } from "node:fs";
 const API = "https://en.wikipedia.org/w/api.php";
 const SIZE = 1000;
 const JOBS = [
-  ["data/litterature.json", "data/images-litt.json"],
-  ["data/philosophie.json", "data/images-philo.json"],
+  [["data/litterature.json", "data/dossiers-litt.json"], "data/images-litt.json"],
+  [["data/philosophie.json", "data/dossiers-philo.json"], "data/images-philo.json"],
 ];
 
 function collectWiki(node, out = new Set()) {
@@ -51,10 +51,11 @@ async function resolveBatch(titles) {
   return res;
 }
 
-for (const [dataF, outF] of JOBS) {
-  const data = JSON.parse(readFileSync(dataF, "utf8"));
-  const titles = [...collectWiki(data)];
-  console.log(`\n📚 ${dataF} → ${titles.length} titres « wiki »…`);
+for (const [dataFiles, outF] of JOBS) {
+  const set = new Set();
+  for (const df of dataFiles) collectWiki(JSON.parse(readFileSync(df, "utf8")), set);
+  const titles = [...set];
+  console.log(`\n📚 ${dataFiles.join(" + ")} → ${titles.length} titres « wiki »…`);
   const manifest = {}, missing = [];
   for (const batch of chunk(titles, 40)) {
     try {
@@ -68,7 +69,7 @@ for (const [dataF, outF] of JOBS) {
   writeFileSync(outF, JSON.stringify(manifest, null, 2));
   console.log(`✅ ${outF} : ${Object.keys(manifest).length} images.`);
   if (missing.length) {
-    console.log(`⚠️ ${missing.length} sans image (corrige le "wiki" dans ${dataF}) :`);
+    console.log(`⚠️ ${missing.length} sans image (corrige le "wiki" dans ${dataFiles.join(" ou ")}) :`);
     missing.forEach(m => console.log("   • " + m));
   }
 }

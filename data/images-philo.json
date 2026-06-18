@@ -494,5 +494,109 @@
     "url": "https://upload.wikimedia.org/wikipedia/en/f/fc/Of_Grammatology%2C_French_edition.jpg",
     "w": 180,
     "h": 293
+  },
+  "Epistulae Morales ad Lucilium": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Seneca_the_Younger%2C_Letters%2C_Florence%2C_Plut._45.33.jpg/1280px-Seneca_the_Younger%2C_Letters%2C_Florence%2C_Plut._45.33.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1411,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Seneca_the_Younger%2C_Letters%2C_Florence%2C_Plut._45.33.jpg",
+    "w": 2316,
+    "h": 3269
+  },
+  "Epictetus": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Epicteti_Enchiridion_Latinis_versibus_adumbratum_%28Oxford_1715%29_frontispiece_%28cropped%29.jpg/1280px-Epicteti_Enchiridion_Latinis_versibus_adumbratum_%28Oxford_1715%29_frontispiece_%28cropped%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1468,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Epicteti_Enchiridion_Latinis_versibus_adumbratum_%28Oxford_1715%29_frontispiece_%28cropped%29.jpg",
+    "w": 1859,
+    "h": 2729
+  },
+  "Marcus Aurelius": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/MSR-ra-61-b-1-DM.jpg/1280px-MSR-ra-61-b-1-DM.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1333,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/MSR-ra-61-b-1-DM.jpg",
+    "w": 3000,
+    "h": 4000
+  },
+  "Seneca the Younger": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Duble_herma_of_Socrates_and_Seneca_Antikensammlung_Berlin_07.jpg/1280px-Duble_herma_of_Socrates_and_Seneca_Antikensammlung_Berlin_07.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1234,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Duble_herma_of_Socrates_and_Seneca_Antikensammlung_Berlin_07.jpg",
+    "w": 1790,
+    "h": 2208
+  },
+  "Zeno of Citium": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Paolo_Monti_-_Servizio_fotografico_%28Napoli%2C_1969%29_-_BEIC_6353768.jpg",
+    "thumb_w": 867,
+    "thumb_h": 1280,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Paolo_Monti_-_Servizio_fotografico_%28Napoli%2C_1969%29_-_BEIC_6353768.jpg",
+    "w": 867,
+    "h": 1280
+  },
+  "René Descartes": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg",
+    "thumb_w": 817,
+    "thumb_h": 1000,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg",
+    "w": 817,
+    "h": 1000
+  },
+  "David Hume": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/David_Hume_Ramsay.jpg/1280px-David_Hume_Ramsay.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1211,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/03/David_Hume_Ramsay.jpg",
+    "w": 5384,
+    "h": 6518
+  },
+  "Voltaire": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Nicolas_de_Largilli%C3%A8re_-_Portrait_de_Voltaire_%281694-1778%29_en_1718_-_P208_-_mus%C3%A9e_Carnavalet_-_5_%28cropped%29.jpg/1280px-Nicolas_de_Largilli%C3%A8re_-_Portrait_de_Voltaire_%281694-1778%29_en_1718_-_P208_-_mus%C3%A9e_Carnavalet_-_5_%28cropped%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1332,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Nicolas_de_Largilli%C3%A8re_-_Portrait_de_Voltaire_%281694-1778%29_en_1718_-_P208_-_mus%C3%A9e_Carnavalet_-_5_%28cropped%29.jpg",
+    "w": 2344,
+    "h": 3123
+  },
+  "Jean-Jacques Rousseau": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Maurice_Quentin_de_La_Tour_-_Portrait_of_Jean-Jacques_Rousseau_-_adjusted.jpg",
+    "thumb_w": 988,
+    "thumb_h": 1252,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Maurice_Quentin_de_La_Tour_-_Portrait_of_Jean-Jacques_Rousseau_-_adjusted.jpg",
+    "w": 988,
+    "h": 1252
+  },
+  "Baron d'Holbach": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Paul_Heinrich_Dietrich_Baron_d%27Holbach_Roslin.jpg",
+    "thumb_w": 890,
+    "thumb_h": 1124,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Paul_Heinrich_Dietrich_Baron_d%27Holbach_Roslin.jpg",
+    "w": 890,
+    "h": 1124
+  },
+  "Candide": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Candide1759.jpg",
+    "thumb_w": 1242,
+    "thumb_h": 2256,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Candide1759.jpg",
+    "w": 1242,
+    "h": 2256
+  },
+  "Denis Diderot": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Denis_Diderot_by_Louis-Michel_van_Loo.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1248,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Denis_Diderot_by_Louis-Michel_van_Loo.jpg",
+    "w": 1000,
+    "h": 1248
+  },
+  "Immanuel Kant": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/7/79/Immanuel_Kant_-_Gemaelde_1.jpg",
+    "thumb_w": 1009,
+    "thumb_h": 1317,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Immanuel_Kant_-_Gemaelde_1.jpg",
+    "w": 1009,
+    "h": 1317
   }
 }

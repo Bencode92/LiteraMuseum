@@ -108,7 +108,7 @@ const CFG = {
 };
 const C = () => CFG[DOMAIN];   // raccourci config du domaine actif
 
-const DV = "1"; // bump à chaque mise à jour de contenu pour court-circuiter le cache
+const DV = "2"; // bump à chaque mise à jour de contenu pour court-circuiter le cache
 function mkDomain(c, dos, img) {
   const flat = [];
   (c.chapitres || []).forEach((ch, ci) => (ch.oeuvres || []).forEach((o, oi) =>
@@ -901,6 +901,18 @@ function renderDossier(id) {
      ${d.mentalites.phrase ? `<div class="phrase">${esc(d.mentalites.phrase)}</div>` : ""}`));
 
   if (d.probleme) P.push(sec("🎯 Le problème central", `<div class="phrase">${esc(d.probleme)}</div>`));
+  if (d.debats) P.push(sec("⚔️ Oppositions d'idées", d.debats.map(db => `
+    <div class="debat">
+      <div class="debat-q">${esc(db.titre)}${db.question ? ` <span>— ${esc(db.question)}</span>` : ""}</div>
+      <div class="camps">${(db.camps || []).map(c => `
+        <div class="camp">
+          ${c.wiki ? `<div class="camp-img" data-wiki="${esc(c.wiki)}"></div>` : ""}
+          <div class="camp-nom">${esc(c.nom)}</div>
+          ${c.tenants ? `<div class="camp-qui">${esc(c.tenants)}</div>` : ""}
+          <p>${esc(c.these)}</p>
+        </div>`).join(`<div class="vs">⚔️</div>`)}</div>
+      ${db.issue ? `<div class="memo"><b>L'issue —</b> ${esc(db.issue)}</div>` : ""}
+    </div>`).join("")));
   if (d.caracteristiques) P.push(sec("👁 Caractéristiques visuelles", ul(d.caracteristiques)));
   if (d.genres) P.push(sec("🎭 Les genres", ul(d.genres)));
 
@@ -925,8 +937,11 @@ function renderDossier(id) {
         <div class="recit-txt">
           <h3>${esc(o.titre)} ${favBtn(`oeuvre-d:${d.id}:${o.titre}`, `${o.titre} — ${o.artiste}`, `#/d/${d.id}`, "œuvre")}</h3>
           <div class="s" style="color:var(--muted);font-style:italic;margin-bottom:8px">${esc(o.artiste)} · ${esc(o.annee)}${o.lieu ? ` · ${esc(o.lieu)}` : ""}</div>
+          ${o.genese ? `<p><b>📜 Genèse —</b> ${esc(o.genese)}</p>` : ""}
           <p style="font-weight:600">${esc(o.genie)}</p>
           ${o.analyse ? `<p>${esc(o.analyse)}</p>` : ""}
+          ${o.posterite ? `<p><b>📈 Postérité —</b> ${esc(o.posterite)}</p>` : ""}
+          ${o.approfondir ? `<details class="deep"><summary>Pour aller plus loin</summary><p>${esc(o.approfondir)}</p></details>` : ""}
         </div>
       </div>`).join("")));
 
@@ -968,6 +983,8 @@ function renderDossier(id) {
     `${d.liens.d_ou ? `<div class="block"><h3>D'où ça vient</h3><p>${esc(d.liens.d_ou)}</p></div>` : ""}
      ${d.liens.mene ? `<div class="block"><h3>Où ça mène</h3><p>${esc(d.liens.mene)}</p></div>` : ""}`));
 
+  if (d.plus) P.push(sec("🔎 Pour aller plus loin", d.plus.map(s =>
+    `<details class="deep"><summary>${esc(s.h)}</summary><p>${esc(s.p)}</p></details>`).join("")));
   if (d.memos) P.push(sec("🧠 Mémos", `<ul class="dots">${d.memos.map(m => `<li><i>${esc(m)}</i></li>`).join("")}</ul>`));
   if (d.autotest) P.push(sec("✅ Auto-test", `<ol class="rev">${d.autotest.map(q => `<li>${esc(q)}</li>`).join("")}</ol>`));
 
