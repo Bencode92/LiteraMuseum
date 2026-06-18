@@ -1,0 +1,1098 @@
+{
+  "source": "Parcours chronologique d'histoire de la philosophie, par courants.",
+  "chapitres": [
+    {
+      "num": 1,
+      "titre": "Les présocratiques",
+      "titre_en": "Pre-Socratics",
+      "portee": "Grèce, VIᵉ–Vᵉ s. av. J.-C.",
+      "couleur": "#8d6e63",
+      "idee": "Sortir du mythe pour chercher un principe rationnel : de quoi le monde est-il fait et comment expliquer le changement sans recourir aux dieux ?",
+      "oeuvres": [
+        {
+          "titre": "De la nature (fragments)",
+          "wiki": "Heraclitus",
+          "artiste": "Héraclite d'Éphèse",
+          "annee": "≈ -500",
+          "explication": "Héraclite affirme que tout s'écoule (panta rhei) : le réel est un flux perpétuel régi par le logos, raison cachée qui unit les contraires. Le feu en est le symbole.",
+          "contexte": "À Éphèse, en pleine effervescence des cités ioniennes, Héraclite formule une pensée du devenir qui s'oppose à toute fixité.",
+          "elements": [
+            "« On ne se baigne jamais deux fois dans le même fleuve »",
+            "Logos : ordre rationnel du monde",
+            "Unité des contraires (guerre = père de toutes choses)"
+          ]
+        },
+        {
+          "titre": "De la nature (Poème)",
+          "wiki": "Parmenides",
+          "artiste": "Parménide d'Élée",
+          "annee": "≈ -480",
+          "explication": "Parménide soutient au contraire que « l'Être est, le non-être n'est pas » : le changement et la pluralité sont des illusions des sens. Seul l'Être un, immobile et éternel, est pensable.",
+          "contexte": "Fondateur de l'école d'Élée, il pose les bases de l'ontologie et de la logique de l'identité contre la pensée du flux.",
+          "elements": [
+            "« L'Être est, le non-être n'est pas »",
+            "Identité de l'être et de la pensée",
+            "Critique radicale de l'illusion sensible"
+          ]
+        },
+        {
+          "titre": "Théorème de Pythagore et harmonie des nombres",
+          "wiki": "Pythagoras",
+          "artiste": "Pythagore de Samos",
+          "annee": "≈ -530",
+          "explication": "Pythagore et son école font du nombre le principe de toutes choses : l'univers est mathématiquement ordonné (le cosmos). L'âme est immortelle et se réincarne.",
+          "contexte": "Communauté religieuse et scientifique à Crotone, mêlant mathématiques, musique et ascèse.",
+          "elements": [
+            "« Tout est nombre »",
+            "Harmonie des sphères",
+            "Métempsychose (transmigration des âmes)"
+          ]
+        },
+        {
+          "titre": "Les paradoxes de Zénon",
+          "wiki": "Zeno of Elea",
+          "artiste": "Zénon d'Élée",
+          "annee": "≈ -450",
+          "explication": "Disciple de Parménide, Zénon invente des paradoxes (Achille et la tortue, la flèche) pour montrer que le mouvement et la pluralité mènent à l'absurde, défendant ainsi l'immobilité de l'Être.",
+          "contexte": "Premier usage systématique du raisonnement par l'absurde, ancêtre de la dialectique.",
+          "elements": [
+            "Paradoxe d'Achille et la tortue",
+            "Raisonnement par l'absurde",
+            "Défense de la thèse éléate"
+          ]
+        },
+        {
+          "titre": "Les atomes et le vide",
+          "wiki": "Democritus",
+          "artiste": "Démocrite d'Abdère",
+          "annee": "≈ -420",
+          "explication": "Avec Leucippe, Démocrite fonde l'atomisme : la réalité se réduit à des atomes insécables se mouvant dans le vide. Tout naît de leurs combinaisons mécaniques, sans finalité.",
+          "contexte": "Réponse matérialiste au dilemme entre Héraclite et Parménide : le changement existe par recomposition d'éléments stables.",
+          "elements": [
+            "Atomes + vide = seules réalités",
+            "Déterminisme mécanique",
+            "Ancêtre du matérialisme moderne"
+          ]
+        }
+      ],
+      "notion": "La philosophie naît comme passage du mythos au logos : expliquer le monde par la raison plutôt que par les récits divins.",
+      "roster": [
+        { "nom": "Thalès de Milet", "niveau": "★", "detail": "L'eau, principe (archê) de toutes choses ; père de la philosophie" },
+        { "nom": "Anaximandre", "niveau": "○", "detail": "L'apeiron (l'illimité) comme principe" },
+        { "nom": "Héraclite", "niveau": "★", "detail": "Le devenir, le logos, l'unité des contraires" },
+        { "nom": "Parménide", "niveau": "★", "detail": "L'Être un et immobile ; ontologie" },
+        { "nom": "Pythagore", "niveau": "★", "detail": "Le nombre comme principe ; harmonie" },
+        { "nom": "Démocrite", "niveau": "○", "detail": "Atomisme et matérialisme" },
+        { "nom": "Anaxagore", "niveau": "○", "detail": "Le Noûs (Esprit) ordonnateur" },
+        { "nom": "Archê", "niveau": "", "detail": "Principe originel et explicatif du réel" },
+        { "nom": "Physis", "niveau": "", "detail": "La nature comme objet d'étude rationnelle" }
+      ]
+    },
+    {
+      "num": 2,
+      "titre": "Socrate et Platon",
+      "titre_en": "Socrates & Plato",
+      "portee": "Athènes, Vᵉ–IVᵉ s. av. J.-C.",
+      "couleur": "#5c6bc0",
+      "idee": "Déplacer la question du cosmos vers l'homme et le bien : comment connaître la vérité, vivre justement et fonder la cité juste ?",
+      "oeuvres": [
+        {
+          "titre": "Apologie de Socrate",
+          "wiki": "Plato",
+          "artiste": "Platon (sur Socrate)",
+          "annee": "≈ -399",
+          "explication": "Platon met en scène la défense de Socrate accusé de corrompre la jeunesse et d'impiété. Socrate y revendique l'examen incessant de soi : « une vie sans examen ne vaut pas la peine d'être vécue ».",
+          "contexte": "Après la défaite d'Athènes, Socrate est condamné à mort en -399 ; le texte fonde la figure du philosophe martyr.",
+          "elements": [
+            "« Je sais que je ne sais rien »",
+            "Le démon (daimôn) socratique",
+            "Une vie sans examen ne vaut pas d'être vécue"
+          ]
+        },
+        {
+          "titre": "La République",
+          "wiki": "The Republic (Plato)",
+          "artiste": "Platon",
+          "annee": "≈ -380",
+          "explication": "Cherchant à définir la justice, Platon construit la cité idéale gouvernée par les philosophes-rois. Il y expose la théorie des Idées et l'allégorie de la caverne : le sensible n'est qu'ombre du monde intelligible.",
+          "contexte": "Œuvre maîtresse écrite après la fondation de l'Académie ; elle articule politique, métaphysique et éducation.",
+          "elements": [
+            "Allégorie de la caverne",
+            "Le philosophe-roi",
+            "L'âme tripartite (raison, cœur, désir)"
+          ]
+        },
+        {
+          "titre": "Le Banquet",
+          "wiki": "Symposium (Plato)",
+          "artiste": "Platon",
+          "annee": "≈ -385",
+          "explication": "Lors d'un banquet, plusieurs convives font l'éloge de l'amour (Éros). Socrate, rapportant les propos de Diotime, présente l'amour comme une ascension du beau sensible vers la Beauté en soi.",
+          "contexte": "Dialogue littéraire éblouissant qui lie érotique, métaphysique et désir de l'immortel.",
+          "elements": [
+            "L'échelle de l'amour (de Diotime)",
+            "Éros comme manque et élan vers le Beau",
+            "L'androgyne du mythe d'Aristophane"
+          ]
+        },
+        {
+          "titre": "Phédon",
+          "wiki": "Phaedo",
+          "artiste": "Platon",
+          "annee": "≈ -380",
+          "explication": "Au seuil de sa mort, Socrate démontre l'immortalité de l'âme. Connaître, c'est se ressouvenir (réminiscence) des Idées contemplées avant la naissance ; philosopher, c'est apprendre à mourir.",
+          "contexte": "Met en scène les derniers instants de Socrate ; cœur de la doctrine platonicienne de l'âme.",
+          "elements": [
+            "Réminiscence (anamnèse)",
+            "Immortalité de l'âme",
+            "« Philosopher, c'est apprendre à mourir »"
+          ]
+        },
+        {
+          "titre": "Ménon",
+          "wiki": "Plato",
+          "artiste": "Platon",
+          "annee": "≈ -385",
+          "explication": "Peut-on enseigner la vertu ? Socrate fait découvrir un théorème géométrique à un esclave ignorant pour prouver que savoir, c'est se ressouvenir. Il introduit la méthode maïeutique.",
+          "contexte": "Dialogue charnière entre la période socratique et la théorie des Idées.",
+          "elements": [
+            "Maïeutique (l'art d'accoucher les esprits)",
+            "Le paradoxe de Ménon sur l'apprentissage",
+            "Savoir = réminiscence"
+          ]
+        }
+      ],
+      "notion": "Avec Socrate, le « connais-toi toi-même » ; avec Platon, le réel vrai n'est pas le sensible mais le monde des Idées.",
+      "roster": [
+        { "nom": "Socrate", "niveau": "★", "detail": "Ironie et maïeutique ; n'a rien écrit" },
+        { "nom": "Platon", "niveau": "★", "detail": "Théorie des Idées ; La République" },
+        { "nom": "Les sophistes (Protagoras, Gorgias)", "niveau": "○", "detail": "« L'homme est la mesure de toutes choses » ; relativisme" },
+        { "nom": "Théorie des Idées (Formes)", "niveau": "", "detail": "Modèles éternels dont le sensible est copie" },
+        { "nom": "Allégorie de la caverne", "niveau": "", "detail": "Sortie de l'ignorance vers la lumière du Bien" },
+        { "nom": "Maïeutique", "niveau": "", "detail": "Faire accoucher l'interlocuteur de la vérité" },
+        { "nom": "Dialectique", "niveau": "", "detail": "Montée par le dialogue vers le principe" },
+        { "nom": "L'Académie", "niveau": "", "detail": "École fondée par Platon vers -387" }
+      ]
+    },
+    {
+      "num": 3,
+      "titre": "Aristote",
+      "titre_en": "Aristotle",
+      "portee": "Grèce, IVᵉ s. av. J.-C.",
+      "couleur": "#26a69a",
+      "idee": "Ramener la vérité dans le monde sensible : observer, classer, comprendre les causes et fonder une science du réel, de la logique à l'éthique et la politique.",
+      "oeuvres": [
+        {
+          "titre": "Métaphysique",
+          "wiki": "Metaphysics (Aristotle)",
+          "artiste": "Aristote",
+          "annee": "≈ -340",
+          "explication": "Aristote étudie l'être en tant qu'être et les premières causes. Contre Platon, les Formes ne sont pas séparées : la substance unit matière et forme. Tout tend vers un Premier Moteur immobile.",
+          "contexte": "Recueil de traités sur « ce qui vient après la physique » ; fonde l'ontologie occidentale.",
+          "elements": [
+            "Substance, matière et forme",
+            "Acte et puissance",
+            "Le Premier Moteur immobile"
+          ]
+        },
+        {
+          "titre": "Éthique à Nicomaque",
+          "wiki": "Nicomachean Ethics",
+          "artiste": "Aristote",
+          "annee": "≈ -330",
+          "explication": "Le but de la vie humaine est le bonheur (eudaimonia), atteint par l'activité de l'âme conforme à la vertu. La vertu est un juste milieu entre deux excès, acquis par l'habitude.",
+          "contexte": "Adressée à son fils Nicomaque ; fonde l'éthique des vertus.",
+          "elements": [
+            "Eudaimonia (le bonheur comme fin)",
+            "La vertu, juste milieu (mésotês)",
+            "Le rôle de l'habitude (l'ethos)"
+          ]
+        },
+        {
+          "titre": "Organon (logique)",
+          "wiki": "Organon",
+          "artiste": "Aristote",
+          "annee": "≈ -350",
+          "explication": "Ensemble des traités de logique où Aristote invente le syllogisme, raisonnement valide tirant une conclusion de deux prémisses. Il systématise les catégories et les règles du raisonnement correct.",
+          "contexte": "« Instrument » (organon) de toute science ; la logique restera quasi inchangée jusqu'au XIXᵉ siècle.",
+          "elements": [
+            "Le syllogisme",
+            "Les dix catégories",
+            "Principe de non-contradiction"
+          ]
+        },
+        {
+          "titre": "La Politique",
+          "wiki": "Aristotle",
+          "artiste": "Aristote",
+          "annee": "≈ -330",
+          "explication": "« L'homme est un animal politique » : il ne se réalise que dans la cité. Aristote compare les régimes (monarchie, aristocratie, démocratie et leurs dérives) et plaide pour le gouvernement de la classe moyenne.",
+          "contexte": "Issue de l'observation de centaines de constitutions ; pensée réaliste du pouvoir.",
+          "elements": [
+            "« L'homme est un animal politique »",
+            "Typologie des régimes",
+            "Le rôle stabilisateur de la classe moyenne"
+          ]
+        },
+        {
+          "titre": "Physique",
+          "wiki": "Physics (Aristotle)",
+          "artiste": "Aristote",
+          "annee": "≈ -350",
+          "explication": "Aristote y analyse le mouvement, le temps, l'espace et l'infini. Il distingue les quatre causes (matérielle, formelle, efficiente, finale) qui expliquent tout phénomène naturel.",
+          "contexte": "Fonde une physique finaliste qui dominera la pensée jusqu'à Galilée.",
+          "elements": [
+            "Les quatre causes",
+            "La cause finale (téléologie)",
+            "Analyse du mouvement et du temps"
+          ]
+        },
+        {
+          "titre": "Poétique",
+          "wiki": "Aristotle",
+          "artiste": "Aristote",
+          "annee": "≈ -335",
+          "explication": "Premier traité de théorie littéraire : la tragédie imite l'action (mimésis) et produit la catharsis, purgation des passions par la pitié et la terreur. Définit l'unité d'action.",
+          "contexte": "Texte fondateur de l'esthétique occidentale, influent jusqu'au théâtre classique.",
+          "elements": [
+            "Mimésis (imitation)",
+            "Catharsis (purgation des passions)",
+            "L'unité d'action de la tragédie"
+          ]
+        }
+      ],
+      "notion": "Le savoir part de l'expérience sensible : Aristote classe les sciences, invente la logique et fait de la vertu une affaire d'habitude et de juste milieu.",
+      "roster": [
+        { "nom": "Aristote", "niveau": "★", "detail": "Le « Philosophe » par excellence ; précepteur d'Alexandre" },
+        { "nom": "Le Lycée (péripatétisme)", "niveau": "", "detail": "École fondée par Aristote ; enseignement en marchant" },
+        { "nom": "Théophraste", "niveau": "○", "detail": "Successeur d'Aristote ; Les Caractères" },
+        { "nom": "Hylémorphisme", "niveau": "", "detail": "Union de la matière (hylè) et de la forme (morphè)" },
+        { "nom": "Les quatre causes", "niveau": "", "detail": "Matérielle, formelle, efficiente, finale" },
+        { "nom": "Acte et puissance", "niveau": "", "detail": "Le devenir comme passage de la puissance à l'acte" },
+        { "nom": "Eudaimonia", "niveau": "", "detail": "Bonheur comme accomplissement de la nature humaine" },
+        { "nom": "Syllogisme", "niveau": "", "detail": "Inférence valide à partir de prémisses" }
+      ]
+    },
+    {
+      "num": 4,
+      "titre": "Les philosophies hellénistiques",
+      "titre_en": "Hellenistic Schools",
+      "portee": "Grèce et Rome, IVᵉ s. av. – IIᵉ s. apr. J.-C.",
+      "couleur": "#7cb342",
+      "idee": "Après Alexandre, la philosophie devient art de vivre : comment atteindre la tranquillité de l'âme (ataraxie) dans un monde instable ?",
+      "oeuvres": [
+        {
+          "titre": "Lettre à Ménécée",
+          "wiki": "Epicurus",
+          "artiste": "Épicure",
+          "annee": "≈ -300",
+          "explication": "Épicure y expose son éthique du plaisir : le bonheur est l'absence de troubles (ataraxie) et de douleur (aponie). Il distingue les désirs naturels et nécessaires des désirs vains, et libère l'homme de la peur des dieux et de la mort.",
+          "contexte": "Enseignée au Jardin d'Athènes ; matérialisme atomiste hérité de Démocrite.",
+          "elements": [
+            "« La mort n'est rien pour nous »",
+            "Tétrapharmakos (quadruple remède)",
+            "Classification des désirs"
+          ]
+        },
+        {
+          "titre": "Manuel (Enchiridion)",
+          "wiki": "Enchiridion of Epictetus",
+          "artiste": "Épictète",
+          "annee": "≈ 125",
+          "explication": "Manuel de stoïcisme pratique : il faut distinguer ce qui dépend de nous (nos jugements, nos désirs) de ce qui n'en dépend pas (le reste). La sagesse consiste à n'attacher son bonheur qu'à ce qui est en notre pouvoir.",
+          "contexte": "Notes prises par Arrien des leçons d'Épictète, ancien esclave devenu maître stoïcien.",
+          "elements": [
+            "« Il y a ce qui dépend de nous et ce qui n'en dépend pas »",
+            "Distinction du désir et de l'aversion",
+            "Accepter l'ordre du monde"
+          ]
+        },
+        {
+          "titre": "Pensées pour moi-même",
+          "wiki": "Meditations",
+          "artiste": "Marc Aurèle",
+          "annee": "≈ 175",
+          "explication": "Journal intime de l'empereur stoïcien, écrit pour son propre usage. Méditations sur le devoir, l'acceptation du destin, l'impermanence et la fraternité des hommes guidés par la raison universelle.",
+          "contexte": "Rédigé en grec sur les champs de bataille ; chef-d'œuvre de la spiritualité stoïcienne.",
+          "elements": [
+            "Vivre selon la nature et la raison",
+            "Memento mori (penser à la mort)",
+            "Cosmopolitisme : « citoyen du monde »"
+          ]
+        },
+        {
+          "titre": "De la nature des choses",
+          "wiki": "De rerum natura",
+          "artiste": "Lucrèce",
+          "annee": "≈ -55",
+          "explication": "Long poème latin exposant la physique d'Épicure : tout est atomes et vide, l'âme est mortelle, les dieux indifférents. But thérapeutique : délivrer les hommes de la superstition et de la peur de la mort.",
+          "contexte": "Transmet l'épicurisme à Rome ; redécouvert à la Renaissance, il influence la modernité.",
+          "elements": [
+            "Le clinamen (déviation des atomes)",
+            "Critique de la religion et de la peur",
+            "Matérialisme intégral"
+          ]
+        },
+        {
+          "titre": "Les Hypotyposes pyrrhoniennes",
+          "wiki": "Sextus Empiricus",
+          "artiste": "Sextus Empiricus",
+          "annee": "≈ 200",
+          "explication": "Exposé du scepticisme : face à l'égale force des arguments contraires, le sage suspend son jugement (épochè). Cette suspension conduit paradoxalement à la tranquillité de l'âme.",
+          "contexte": "Synthèse de la tradition pyrrhonienne ; source majeure du scepticisme moderne (Montaigne, Descartes).",
+          "elements": [
+            "Épochè (suspension du jugement)",
+            "Les tropes (modes du doute)",
+            "Isosthénie : égale force des thèses opposées"
+          ]
+        }
+      ],
+      "notion": "Trois sagesses pour vivre bien : l'épicurisme (plaisir réglé), le stoïcisme (accord avec la raison du monde), le scepticisme (suspension du jugement).",
+      "roster": [
+        { "nom": "Épicure", "niveau": "★", "detail": "Le Jardin ; éthique du plaisir et ataraxie" },
+        { "nom": "Zénon de Cition", "niveau": "★", "detail": "Fondateur du stoïcisme (le Portique)" },
+        { "nom": "Épictète", "niveau": "★", "detail": "Stoïcisme : ce qui dépend de nous" },
+        { "nom": "Marc Aurèle", "niveau": "★", "detail": "Empereur philosophe ; Pensées" },
+        { "nom": "Sénèque", "niveau": "○", "detail": "Stoïcisme romain ; Lettres à Lucilius" },
+        { "nom": "Pyrrhon d'Élis", "niveau": "○", "detail": "Fondateur du scepticisme" },
+        { "nom": "Ataraxie", "niveau": "", "detail": "Tranquillité de l'âme, but commun" },
+        { "nom": "Le cynisme (Diogène)", "niveau": "○", "detail": "Vivre selon la nature, contre les conventions" }
+      ],
+      "dossier": "stoicisme"
+    },
+    {
+      "num": 5,
+      "titre": "Néoplatonisme et philosophie médiévale",
+      "titre_en": "Neoplatonism & Medieval",
+      "portee": "Antiquité tardive et Moyen Âge, IIIᵉ–XIVᵉ s.",
+      "couleur": "#ab47bc",
+      "idee": "Penser Dieu et l'âme : comment concilier l'héritage grec avec la foi (chrétienne, juive, musulmane) ? Accorder raison et révélation.",
+      "oeuvres": [
+        {
+          "titre": "Les Ennéades",
+          "wiki": "Enneads",
+          "artiste": "Plotin",
+          "annee": "≈ 250",
+          "explication": "Plotin reprend Platon : tout procède de l'Un, principe ineffable, par émanation (l'Intellect, puis l'Âme, puis le monde sensible). Le sage remonte vers l'Un par l'intériorité et l'extase.",
+          "contexte": "Synthèse mystique du platonisme tardif, rassemblée par son disciple Porphyre.",
+          "elements": [
+            "L'Un, principe suprême",
+            "Émanation et procession",
+            "Retour de l'âme vers l'Un"
+          ]
+        },
+        {
+          "titre": "Les Confessions",
+          "wiki": "Confessions (Augustine)",
+          "artiste": "Saint Augustin",
+          "annee": "≈ 400",
+          "explication": "Récit autobiographique de la conversion d'Augustin, mêlé de méditations philosophiques sur le temps, la mémoire et la grâce. Première grande exploration de l'intériorité (« rentre en toi-même »).",
+          "contexte": "Augustin christianise le néoplatonisme ; fonde une grande part de la théologie occidentale.",
+          "elements": [
+            "Analyse du temps (« Qu'est-ce donc que le temps ? »)",
+            "L'intériorité et la mémoire",
+            "Le rôle de la grâce divine"
+          ]
+        },
+        {
+          "titre": "Somme théologique",
+          "wiki": "Summa Theologica",
+          "artiste": "Thomas d'Aquin",
+          "annee": "≈ 1270",
+          "explication": "Vaste synthèse de la foi chrétienne et de la philosophie d'Aristote. Thomas montre que raison et foi ne se contredisent pas et propose cinq voies (quinque viae) pour démontrer l'existence de Dieu.",
+          "contexte": "Cœur de la scolastique ; intègre l'aristotélisme redécouvert via les Arabes.",
+          "elements": [
+            "Les cinq voies (preuves de Dieu)",
+            "Harmonie de la foi et de la raison",
+            "Distinction essence / existence"
+          ]
+        },
+        {
+          "titre": "Consolation de la Philosophie",
+          "wiki": "The Consolation of Philosophy",
+          "artiste": "Boèce",
+          "annee": "≈ 524",
+          "explication": "Écrite en prison avant son exécution, l'œuvre met en scène Dame Philosophie consolant Boèce. Elle traite de la fortune, du vrai bonheur, de la providence et concilie liberté humaine et prescience divine.",
+          "contexte": "Pont entre Antiquité et Moyen Âge ; livre le plus lu du monde médiéval après la Bible.",
+          "elements": [
+            "La roue de la Fortune",
+            "Le vrai bonheur en Dieu, non dans les biens",
+            "Conciliation liberté / prescience divine"
+          ]
+        },
+        {
+          "titre": "Le Guide des égarés",
+          "wiki": "The Guide for the Perplexed",
+          "artiste": "Moïse Maïmonide",
+          "annee": "≈ 1190",
+          "explication": "Le grand penseur juif concilie la Torah et la philosophie d'Aristote. Il développe une théologie négative : on ne peut dire ce que Dieu est, seulement ce qu'il n'est pas.",
+          "contexte": "Témoigne du dialogue judéo-arabe ; influence Thomas d'Aquin et Spinoza.",
+          "elements": [
+            "Théologie négative (attributs de Dieu)",
+            "Accord de la Loi et de la raison",
+            "Interprétation allégorique des Écritures"
+          ]
+        }
+      ],
+      "notion": "La pensée médiévale cherche à articuler raison et révélation : Augustin par l'intériorité, Thomas d'Aquin par la synthèse avec Aristote.",
+      "roster": [
+        { "nom": "Plotin", "niveau": "★", "detail": "Néoplatonisme ; l'Un et l'émanation" },
+        { "nom": "Saint Augustin", "niveau": "★", "detail": "Les Confessions ; la grâce, le temps" },
+        { "nom": "Thomas d'Aquin", "niveau": "★", "detail": "Scolastique ; foi et raison" },
+        { "nom": "Boèce", "niveau": "○", "detail": "Querelle des universaux ; consolation" },
+        { "nom": "Averroès (Ibn Rushd)", "niveau": "○", "detail": "Grand commentateur d'Aristote" },
+        { "nom": "Avicenne (Ibn Sina)", "niveau": "○", "detail": "Métaphysique de l'être ; médecine" },
+        { "nom": "Guillaume d'Ockham", "niveau": "○", "detail": "Nominalisme ; le « rasoir d'Ockham »" },
+        { "nom": "Querelle des universaux", "niveau": "", "detail": "Les concepts généraux existent-ils réellement ?" },
+        { "nom": "Scolastique", "niveau": "", "detail": "Méthode d'enseignement par disputatio" }
+      ]
+    },
+    {
+      "num": 6,
+      "titre": "Le rationalisme",
+      "titre_en": "Rationalism",
+      "portee": "Europe, XVIIᵉ s.",
+      "couleur": "#5e35b1",
+      "idee": "Fonder un savoir certain sur la seule raison : à partir d'un point indubitable, reconstruire toute connaissance, comme en géométrie.",
+      "oeuvres": [
+        {
+          "titre": "Méditations métaphysiques",
+          "wiki": "Meditations on First Philosophy",
+          "artiste": "René Descartes",
+          "annee": "1641",
+          "explication": "Par le doute hyperbolique, Descartes rejette tout ce qui peut être mis en doute pour atteindre une certitude première : le « je pense, donc je suis ». Il fonde ensuite la connaissance sur la véracité divine et distingue l'âme du corps.",
+          "contexte": "Acte de naissance de la philosophie moderne et de la subjectivité.",
+          "elements": [
+            "Cogito ergo sum (« je pense, donc je suis »)",
+            "Le doute hyperbolique et le malin génie",
+            "Dualisme de l'âme et du corps"
+          ]
+        },
+        {
+          "titre": "Discours de la méthode",
+          "wiki": "Discourse on the Method",
+          "artiste": "René Descartes",
+          "annee": "1637",
+          "explication": "Descartes y expose en français quatre règles pour bien conduire sa raison (évidence, analyse, ordre, dénombrement). Manifeste d'une raison universelle et de la méthode comme chemin vers la vérité.",
+          "contexte": "Préface à des essais scientifiques ; écrit en langue vulgaire pour s'adresser à tous.",
+          "elements": [
+            "Les quatre règles de la méthode",
+            "« Le bon sens est la chose du monde la mieux partagée »",
+            "L'idéal d'une science unifiée"
+          ]
+        },
+        {
+          "titre": "Éthique",
+          "wiki": "Ethics (Spinoza)",
+          "artiste": "Baruch Spinoza",
+          "annee": "1677",
+          "explication": "Démontrée « à la manière des géomètres », l'œuvre identifie Dieu et la Nature (Deus sive Natura) : une seule substance infinie. La liberté consiste à comprendre la nécessité ; la béatitude vient de la connaissance.",
+          "contexte": "Publiée après sa mort ; panthéisme radical qui scandalise son époque.",
+          "elements": [
+            "Deus sive Natura (Dieu = la Nature)",
+            "Le conatus (effort pour persévérer dans l'être)",
+            "Liberté = connaissance de la nécessité"
+          ]
+        },
+        {
+          "titre": "La Monadologie",
+          "wiki": "Monadology",
+          "artiste": "Gottfried Wilhelm Leibniz",
+          "annee": "1714",
+          "explication": "L'univers est composé de monades, points spirituels « sans portes ni fenêtres », chacune reflétant tout l'univers. Dieu a choisi « le meilleur des mondes possibles », selon une harmonie préétablie.",
+          "contexte": "Synthèse de la métaphysique leibnizienne ; codécouvreur du calcul infinitésimal.",
+          "elements": [
+            "Les monades, atomes spirituels",
+            "Harmonie préétablie",
+            "Le meilleur des mondes possibles ; principe de raison suffisante"
+          ]
+        },
+        {
+          "titre": "Traité théologico-politique",
+          "wiki": "Tractatus Theologico-Politicus",
+          "artiste": "Baruch Spinoza",
+          "annee": "1670",
+          "explication": "Spinoza plaide pour la liberté de penser et la séparation de la philosophie et de la théologie. Il inaugure la critique historique de la Bible et défend la démocratie comme meilleur régime.",
+          "contexte": "Publié anonymement ; texte fondateur de la tolérance et de la laïcité.",
+          "elements": [
+            "Liberté de pensée et d'expression",
+            "Critique rationnelle des Écritures",
+            "Défense de la démocratie"
+          ]
+        }
+      ],
+      "notion": "La raison, et non l'expérience, est la source des vérités certaines ; le modèle du savoir est la déduction mathématique.",
+      "roster": [
+        { "nom": "René Descartes", "niveau": "★", "detail": "Le cogito ; père de la philosophie moderne" },
+        { "nom": "Baruch Spinoza", "niveau": "★", "detail": "Substance unique ; Dieu-Nature" },
+        { "nom": "Gottfried Leibniz", "niveau": "★", "detail": "Monades ; meilleur des mondes" },
+        { "nom": "Blaise Pascal", "niveau": "○", "detail": "Pari, « les deux infinis » ; Pensées" },
+        { "nom": "Nicolas Malebranche", "niveau": "○", "detail": "Occasionalisme ; voir tout en Dieu" },
+        { "nom": "Idées innées", "niveau": "", "detail": "Connaissances présentes dans l'esprit avant l'expérience" },
+        { "nom": "Dualisme", "niveau": "", "detail": "Distinction de la substance pensante et étendue" },
+        { "nom": "Mos geometricus", "niveau": "", "detail": "Exposer la philosophie comme une géométrie" }
+      ]
+    },
+    {
+      "num": 7,
+      "titre": "L'empirisme",
+      "titre_en": "Empiricism",
+      "portee": "Îles britanniques, XVIIᵉ–XVIIIᵉ s.",
+      "couleur": "#00897b",
+      "idee": "Toute connaissance vient de l'expérience : l'esprit est une « page blanche » et la raison ne tire rien d'autre que ce que les sens lui fournissent.",
+      "oeuvres": [
+        {
+          "titre": "Essai sur l'entendement humain",
+          "wiki": "An Essay Concerning Human Understanding",
+          "artiste": "John Locke",
+          "annee": "1689",
+          "explication": "Locke réfute les idées innées : à la naissance, l'esprit est une tabula rasa. Toutes nos idées viennent de la sensation et de la réflexion. Il fonde une théorie de la connaissance modeste et empirique.",
+          "contexte": "Manifeste de l'empirisme moderne ; influence majeure sur les Lumières.",
+          "elements": [
+            "Tabula rasa (table rase)",
+            "Idées de sensation et de réflexion",
+            "Qualités premières et secondes"
+          ]
+        },
+        {
+          "titre": "Traité des principes de la connaissance humaine",
+          "wiki": "A Treatise Concerning the Principles of Human Knowledge",
+          "artiste": "George Berkeley",
+          "annee": "1710",
+          "explication": "Berkeley pousse l'empirisme à l'immatérialisme : « être, c'est être perçu » (esse est percipi). La matière n'existe pas indépendamment de l'esprit ; seules existent les idées et les esprits qui les perçoivent, soutenus par Dieu.",
+          "contexte": "Réponse idéaliste aux apories de Locke sur la substance matérielle.",
+          "elements": [
+            "Esse est percipi (« être, c'est être perçu »)",
+            "Immatérialisme",
+            "Dieu garant de la permanence du monde"
+          ]
+        },
+        {
+          "titre": "Enquête sur l'entendement humain",
+          "wiki": "An Enquiry Concerning Human Understanding",
+          "artiste": "David Hume",
+          "annee": "1748",
+          "explication": "Hume radicalise l'empirisme : la causalité n'est pas observée mais une habitude de l'esprit liant des impressions. Il distingue impressions et idées, et mine la prétention de la raison à dépasser l'expérience.",
+          "contexte": "Sommet et crise de l'empirisme ; ce livre « réveillera Kant de son sommeil dogmatique ».",
+          "elements": [
+            "Critique de la causalité (habitude, non nécessité)",
+            "Impressions et idées",
+            "Problème de l'induction"
+          ]
+        },
+        {
+          "titre": "Traité de la nature humaine",
+          "wiki": "A Treatise of Human Nature",
+          "artiste": "David Hume",
+          "annee": "1739",
+          "explication": "Œuvre de jeunesse ambitieuse appliquant la méthode expérimentale à l'esprit humain. Hume y développe sa théorie du « moi » comme simple faisceau de perceptions et sa philosophie morale fondée sur le sentiment.",
+          "contexte": "« Tombé mort-né des presses » à sa parution, devenu un classique majeur.",
+          "elements": [
+            "Le moi, « faisceau de perceptions »",
+            "La morale repose sur le sentiment (sympathie)",
+            "Loi de Hume : on ne tire pas le « devoir » de « l'être »"
+          ]
+        },
+        {
+          "titre": "Second traité du gouvernement civil",
+          "wiki": "Two Treatises of Government",
+          "artiste": "John Locke",
+          "annee": "1689",
+          "explication": "Locke fonde le libéralisme politique : les hommes possèdent des droits naturels (vie, liberté, propriété) et instituent l'État par contrat pour les protéger. Le pouvoir est limité et révocable s'il devient tyrannique.",
+          "contexte": "Justifie la Glorieuse Révolution anglaise ; inspire les révolutions américaine et française.",
+          "elements": [
+            "Droits naturels (vie, liberté, propriété)",
+            "Le consentement comme fondement du pouvoir",
+            "Droit de résistance à la tyrannie"
+          ]
+        }
+      ],
+      "notion": "Rien n'est dans l'intellect qui n'ait d'abord été dans les sens : l'expérience est le tribunal de la connaissance.",
+      "roster": [
+        { "nom": "John Locke", "niveau": "★", "detail": "Tabula rasa ; libéralisme politique" },
+        { "nom": "George Berkeley", "niveau": "★", "detail": "Immatérialisme ; esse est percipi" },
+        { "nom": "David Hume", "niveau": "★", "detail": "Critique de la causalité ; scepticisme" },
+        { "nom": "Francis Bacon", "niveau": "○", "detail": "Méthode inductive ; « Savoir, c'est pouvoir »" },
+        { "nom": "Thomas Hobbes", "niveau": "○", "detail": "Matérialisme ; Léviathan (voir Lumières)" },
+        { "nom": "Empirisme", "niveau": "", "detail": "L'expérience, source de toute connaissance" },
+        { "nom": "Induction", "niveau": "", "detail": "Du particulier observé au général" },
+        { "nom": "Causalité", "niveau": "", "detail": "Lien cause-effet : réel ou habitude ?" }
+      ]
+    },
+    {
+      "num": 8,
+      "titre": "Les Lumières et Kant",
+      "titre_en": "Enlightenment & Kant",
+      "portee": "Europe, XVIIIᵉ s.",
+      "couleur": "#fb8c00",
+      "idee": "Oser penser par soi-même : émanciper la raison de la tutelle des autorités et fixer les limites et les pouvoirs de la connaissance humaine.",
+      "oeuvres": [
+        {
+          "titre": "Critique de la raison pure",
+          "wiki": "Critique of Pure Reason",
+          "artiste": "Emmanuel Kant",
+          "annee": "1781",
+          "explication": "Kant opère une « révolution copernicienne » : ce n'est pas l'esprit qui se règle sur les objets, mais les objets qui se conforment aux formes de notre esprit (espace, temps, catégories). On connaît les phénomènes, jamais la chose en soi.",
+          "contexte": "Dépasse le conflit rationalisme/empirisme ; texte fondateur de la philosophie moderne.",
+          "elements": [
+            "Révolution copernicienne en philosophie",
+            "Phénomène / noumène (chose en soi)",
+            "Jugements synthétiques a priori"
+          ]
+        },
+        {
+          "titre": "Fondements de la métaphysique des mœurs",
+          "wiki": "Groundwork of the Metaphysic of Morals",
+          "artiste": "Emmanuel Kant",
+          "annee": "1785",
+          "explication": "Kant fonde la morale sur la raison et le devoir. L'impératif catégorique commande d'agir selon des maximes universalisables et de traiter l'humanité toujours comme une fin, jamais seulement comme un moyen.",
+          "contexte": "Cœur de l'éthique déontologique ; autonomie de la volonté.",
+          "elements": [
+            "Impératif catégorique",
+            "Agir par devoir, non par inclination",
+            "L'homme comme fin en soi (dignité)"
+          ]
+        },
+        {
+          "titre": "Du contrat social",
+          "wiki": "The Social Contract",
+          "artiste": "Jean-Jacques Rousseau",
+          "annee": "1762",
+          "explication": "Rousseau cherche à concilier liberté et obéissance : par le contrat, chacun s'unit à tous et n'obéit qu'à la volonté générale, c'est-à-dire à lui-même. Fonde la souveraineté populaire.",
+          "contexte": "« L'homme est né libre, et partout il est dans les fers » ; influence la Révolution française.",
+          "elements": [
+            "« L'homme est né libre… »",
+            "La volonté générale",
+            "Souveraineté du peuple"
+          ]
+        },
+        {
+          "titre": "Lettres philosophiques",
+          "wiki": "Letters on the English",
+          "artiste": "Voltaire",
+          "annee": "1734",
+          "explication": "Sous prétexte de décrire l'Angleterre, Voltaire fait l'éloge de la tolérance, de la liberté et de la science (Newton, Locke) pour critiquer l'absolutisme et l'intolérance françaises. Manifeste des Lumières.",
+          "contexte": "Condamné et brûlé en France ; arme de combat contre le fanatisme.",
+          "elements": [
+            "Éloge de la tolérance",
+            "Défense de la liberté de pensée",
+            "Diffusion de Newton et Locke"
+          ]
+        },
+        {
+          "titre": "De l'esprit des lois",
+          "wiki": "The Spirit of Law",
+          "artiste": "Montesquieu",
+          "annee": "1748",
+          "explication": "Montesquieu analyse les régimes et les lois en fonction des mœurs et du climat. Il formule la séparation des pouvoirs (législatif, exécutif, judiciaire) comme garantie contre le despotisme.",
+          "contexte": "Fonde la science politique moderne ; inspire les constitutions libérales.",
+          "elements": [
+            "Séparation des pouvoirs",
+            "« Le pouvoir arrête le pouvoir »",
+            "Typologie des gouvernements"
+          ]
+        },
+        {
+          "titre": "Encyclopédie",
+          "wiki": "Encyclopédie",
+          "artiste": "Diderot et d'Alembert",
+          "annee": "1751",
+          "explication": "Vaste entreprise de diffusion des savoirs, l'Encyclopédie veut « changer la façon commune de penser » en rassemblant les connaissances raisonnées. Œuvre collective et symbole de l'esprit des Lumières.",
+          "contexte": "17 volumes de texte ; censurée mais portée par les philosophes.",
+          "elements": [
+            "Diffusion universelle du savoir",
+            "Foi dans le progrès et la raison",
+            "Œuvre collective des « philosophes »"
+          ]
+        }
+      ],
+      "notion": "« Sapere aude ! » Aie le courage de te servir de ton propre entendement (Kant). La raison s'autocritique et s'émancipe.",
+      "roster": [
+        { "nom": "Emmanuel Kant", "niveau": "★", "detail": "Criticisme ; impératif catégorique" },
+        { "nom": "Jean-Jacques Rousseau", "niveau": "★", "detail": "Contrat social ; volonté générale" },
+        { "nom": "Voltaire", "niveau": "○", "detail": "Tolérance ; combat contre le fanatisme" },
+        { "nom": "Montesquieu", "niveau": "○", "detail": "Séparation des pouvoirs" },
+        { "nom": "Diderot", "niveau": "○", "detail": "Encyclopédie ; matérialisme" },
+        { "nom": "Sapere aude", "niveau": "", "detail": "« Ose savoir » : devise des Lumières" },
+        { "nom": "Impératif catégorique", "niveau": "", "detail": "Loi morale inconditionnelle et universelle" },
+        { "nom": "Autonomie", "niveau": "", "detail": "Se donner à soi-même sa propre loi" },
+        { "nom": "Phénomène / noumène", "niveau": "", "detail": "Ce qui apparaît vs la chose en soi" }
+      ],
+      "dossier": "lumieres-kant"
+    },
+    {
+      "num": 9,
+      "titre": "L'idéalisme allemand et Hegel",
+      "titre_en": "German Idealism & Hegel",
+      "portee": "Allemagne, fin XVIIIᵉ – début XIXᵉ s.",
+      "couleur": "#3949ab",
+      "idee": "Après Kant, penser l'absolu : l'esprit (ou la raison) se déploie dans l'histoire et se réconcilie avec le réel à travers un mouvement dialectique.",
+      "oeuvres": [
+        {
+          "titre": "Phénoménologie de l'esprit",
+          "wiki": "The Phenomenology of Spirit",
+          "artiste": "Georg Wilhelm Friedrich Hegel",
+          "annee": "1807",
+          "explication": "Hegel décrit le voyage de la conscience vers le savoir absolu, à travers ses figures successives. La vérité est le résultat d'un processus dialectique ; la célèbre dialectique du maître et de l'esclave y montre que la reconnaissance fonde la conscience de soi.",
+          "contexte": "Achevée à la veille de la bataille d'Iéna ; matrice de toute la philosophie postérieure.",
+          "elements": [
+            "Dialectique (thèse-antithèse-synthèse)",
+            "Dialectique du maître et de l'esclave",
+            "Le savoir absolu comme résultat"
+          ]
+        },
+        {
+          "titre": "Principes de la philosophie du droit",
+          "wiki": "Elements of the Philosophy of Right",
+          "artiste": "Georg Wilhelm Friedrich Hegel",
+          "annee": "1820",
+          "explication": "Hegel y déploie la liberté dans les institutions : famille, société civile, État. « Tout ce qui est rationnel est réel, tout ce qui est réel est rationnel. » L'État est l'incarnation de l'esprit objectif.",
+          "contexte": "Philosophie politique de la maturité ; débattue par toute la postérité (Marx en tête).",
+          "elements": [
+            "« Le réel est rationnel… »",
+            "L'État comme réalisation de la liberté",
+            "Esprit objectif"
+          ]
+        },
+        {
+          "titre": "Doctrine de la science",
+          "wiki": "Johann Gottlieb Fichte",
+          "artiste": "Johann Gottlieb Fichte",
+          "annee": "1794",
+          "explication": "Fichte radicalise l'idéalisme kantien : tout part du Moi qui se pose lui-même et pose un non-Moi (le monde). L'activité du sujet est au principe de toute réalité ; la philosophie devient pensée de la liberté.",
+          "contexte": "Premier grand système de l'idéalisme allemand, à Iéna.",
+          "elements": [
+            "Le Moi absolu qui se pose",
+            "Moi / non-Moi",
+            "Primauté de l'activité et de la liberté"
+          ]
+        },
+        {
+          "titre": "Le Monde comme volonté et représentation",
+          "wiki": "The World as Will and Representation",
+          "artiste": "Arthur Schopenhauer",
+          "annee": "1818",
+          "explication": "Contre l'optimisme hégélien, Schopenhauer voit derrière le monde-représentation une Volonté aveugle et insatiable, source de souffrance perpétuelle. Le salut passe par l'art, la compassion et l'ascèse.",
+          "contexte": "Influence du bouddhisme ; pessimisme qui marquera Nietzsche, Wagner et Freud.",
+          "elements": [
+            "La Volonté, essence du monde",
+            "Le monde comme représentation",
+            "Pessimisme et délivrance par l'art"
+          ]
+        },
+        {
+          "titre": "Lettres sur l'éducation esthétique de l'homme",
+          "wiki": "On the Aesthetic Education of Man",
+          "artiste": "Friedrich Schiller",
+          "annee": "1795",
+          "explication": "Schiller cherche à réconcilier sensibilité et raison par l'art. Le « jeu » esthétique permet à l'homme de devenir pleinement libre et humain ; l'éducation par le beau prépare la liberté politique.",
+          "contexte": "Réponse à la Terreur révolutionnaire ; pont entre Kant et le romantisme.",
+          "elements": [
+            "L'instinct de jeu (Spieltrieb)",
+            "Réconcilier sensible et rationnel par le beau",
+            "« L'homme n'est pleinement homme que là où il joue »"
+          ]
+        }
+      ],
+      "notion": "L'histoire a un sens : la raison (Hegel) ou la liberté du Moi (Fichte) se réalise par étapes. La dialectique est le moteur du réel.",
+      "roster": [
+        { "nom": "G. W. F. Hegel", "niveau": "★", "detail": "Dialectique ; esprit absolu ; histoire" },
+        { "nom": "Johann Gottlieb Fichte", "niveau": "○", "detail": "Idéalisme du Moi" },
+        { "nom": "Friedrich Schelling", "niveau": "○", "detail": "Philosophie de la nature et de l'identité" },
+        { "nom": "Arthur Schopenhauer", "niveau": "★", "detail": "La Volonté ; pessimisme" },
+        { "nom": "Friedrich Schiller", "niveau": "○", "detail": "Éducation esthétique" },
+        { "nom": "Dialectique", "niveau": "", "detail": "Dépassement des contradictions (Aufhebung)" },
+        { "nom": "Esprit (Geist)", "niveau": "", "detail": "Réalité spirituelle se déployant dans l'histoire" },
+        { "nom": "Reconnaissance", "niveau": "", "detail": "La conscience de soi requiert autrui" }
+      ]
+    },
+    {
+      "num": 10,
+      "titre": "Les maîtres du soupçon",
+      "titre_en": "Masters of Suspicion",
+      "portee": "Europe, XIXᵉ – début XXᵉ s.",
+      "couleur": "#c62828",
+      "idee": "Démasquer les illusions de la conscience : derrière nos idées se cachent l'économie (Marx), la volonté de puissance (Nietzsche) ou l'inconscient (Freud).",
+      "oeuvres": [
+        {
+          "titre": "Le Capital",
+          "wiki": "Das Kapital",
+          "artiste": "Karl Marx",
+          "annee": "1867",
+          "explication": "Marx analyse le capitalisme : la valeur vient du travail, mais le capitaliste s'approprie la plus-value, d'où l'exploitation et l'aliénation du travailleur. L'histoire est l'histoire de la lutte des classes.",
+          "contexte": "Critique de l'économie politique ; matérialisme historique fondant le marxisme.",
+          "elements": [
+            "Plus-value et exploitation",
+            "Aliénation du travailleur",
+            "Matérialisme historique ; lutte des classes"
+          ]
+        },
+        {
+          "titre": "Ainsi parlait Zarathoustra",
+          "wiki": "Thus Spoke Zarathustra",
+          "artiste": "Friedrich Nietzsche",
+          "annee": "1883",
+          "explication": "Sous forme de poème prophétique, Nietzsche annonce « la mort de Dieu », le surhomme (Übermensch) qui crée ses propres valeurs, et l'éternel retour. Il appelle à transvaluer toutes les valeurs.",
+          "contexte": "Œuvre la plus célèbre de Nietzsche, écrite dans la fièvre et la solitude.",
+          "elements": [
+            "« Dieu est mort »",
+            "Le surhomme (Übermensch)",
+            "L'éternel retour"
+          ]
+        },
+        {
+          "titre": "Par-delà le bien et le mal",
+          "wiki": "Beyond Good and Evil",
+          "artiste": "Friedrich Nietzsche",
+          "annee": "1886",
+          "explication": "Nietzsche critique la morale et la métaphysique traditionnelles. Il oppose la morale des maîtres à la morale des esclaves (le ressentiment) et fait de la volonté de puissance le ressort de toute vie.",
+          "contexte": "Généalogie critique des valeurs ; prélude à la Généalogie de la morale.",
+          "elements": [
+            "Volonté de puissance",
+            "Morale des maîtres / des esclaves",
+            "Critique du ressentiment"
+          ]
+        },
+        {
+          "titre": "L'Interprétation du rêve",
+          "wiki": "The Interpretation of Dreams",
+          "artiste": "Sigmund Freud",
+          "annee": "1900",
+          "explication": "Freud fonde la psychanalyse : le rêve est la « voie royale » vers l'inconscient, accomplissement déguisé d'un désir refoulé. Le moi n'est pas maître dans sa propre maison.",
+          "contexte": "Découverte de l'inconscient ; troisième « blessure narcissique » de l'humanité.",
+          "elements": [
+            "L'inconscient et le refoulement",
+            "Le rêve, accomplissement de désir",
+            "Travail du rêve (condensation, déplacement)"
+          ]
+        },
+        {
+          "titre": "Manifeste du parti communiste",
+          "wiki": "The Communist Manifesto",
+          "artiste": "Karl Marx et Friedrich Engels",
+          "annee": "1848",
+          "explication": "Texte programmatique : « Un spectre hante l'Europe. » Marx et Engels y résument leur philosophie de l'histoire comme lutte des classes et appellent les prolétaires de tous les pays à s'unir.",
+          "contexte": "Écrit à la veille des révolutions de 1848 ; texte politique le plus influent du XIXᵉ siècle.",
+          "elements": [
+            "« Prolétaires de tous les pays, unissez-vous »",
+            "L'histoire comme lutte des classes",
+            "Critique de la bourgeoisie"
+          ]
+        }
+      ],
+      "notion": "La conscience est trompée : Marx révèle les rapports économiques, Nietzsche la volonté de puissance, Freud le désir inconscient.",
+      "roster": [
+        { "nom": "Karl Marx", "niveau": "★", "detail": "Matérialisme historique ; Le Capital" },
+        { "nom": "Friedrich Nietzsche", "niveau": "★", "detail": "Volonté de puissance ; mort de Dieu" },
+        { "nom": "Sigmund Freud", "niveau": "★", "detail": "Inconscient ; psychanalyse" },
+        { "nom": "Søren Kierkegaard", "niveau": "○", "detail": "Angoisse ; précurseur de l'existentialisme" },
+        { "nom": "Auguste Comte", "niveau": "○", "detail": "Positivisme ; loi des trois états" },
+        { "nom": "Aliénation", "niveau": "", "detail": "Dépossession de soi dans le travail ou l'idéologie" },
+        { "nom": "Généalogie", "niveau": "", "detail": "Remonter à l'origine cachée des valeurs" },
+        { "nom": "Inconscient", "niveau": "", "detail": "Psychisme soustrait à la conscience" },
+        { "nom": "Nihilisme", "niveau": "", "detail": "Effondrement des valeurs suprêmes" }
+      ]
+    },
+    {
+      "num": 11,
+      "titre": "Phénoménologie et existentialisme",
+      "titre_en": "Phenomenology & Existentialism",
+      "portee": "Europe, XXᵉ s.",
+      "couleur": "#455a64",
+      "idee": "Revenir « aux choses mêmes » et penser l'existence concrète : que signifie exister, être au monde, être libre et responsable de soi ?",
+      "oeuvres": [
+        {
+          "titre": "Méditations cartésiennes",
+          "wiki": "Edmund Husserl",
+          "artiste": "Edmund Husserl",
+          "annee": "1931",
+          "explication": "Husserl fonde la phénoménologie : revenir « aux choses mêmes » en décrivant les phénomènes tels qu'ils apparaissent à la conscience. Par la réduction (épochè), on suspend l'attitude naturelle pour saisir l'intentionnalité.",
+          "contexte": "Reprise critique de Descartes ; matrice de toute la phénoménologie.",
+          "elements": [
+            "« Aux choses mêmes ! »",
+            "Intentionnalité (toute conscience est conscience de quelque chose)",
+            "Réduction phénoménologique (épochè)"
+          ]
+        },
+        {
+          "titre": "Être et Temps",
+          "wiki": "Being and Time",
+          "artiste": "Martin Heidegger",
+          "annee": "1927",
+          "explication": "Heidegger repose la question de l'être à partir de l'existant qui se la pose : le Dasein (« être-là »). L'homme est un être-au-monde, un être-pour-la-mort, qui peut vivre dans l'authenticité ou se perdre dans le « On ».",
+          "contexte": "Œuvre majeure du XXᵉ siècle ; refonde l'ontologie.",
+          "elements": [
+            "Dasein (l'être-là)",
+            "Être-au-monde et être-pour-la-mort",
+            "Authenticité vs le « On » (das Man)"
+          ]
+        },
+        {
+          "titre": "L'Être et le Néant",
+          "wiki": "Being and Nothingness",
+          "artiste": "Jean-Paul Sartre",
+          "annee": "1943",
+          "explication": "Sartre fonde l'existentialisme athée : « l'existence précède l'essence ». L'homme est condamné à être libre, sans nature donnée ; il se définit par ses choix et porte la responsabilité de soi. La mauvaise foi est la fuite devant cette liberté.",
+          "contexte": "Grand traité phénoménologique ; cœur de l'existentialisme français.",
+          "elements": [
+            "« L'existence précède l'essence »",
+            "Liberté et responsabilité radicales",
+            "La mauvaise foi"
+          ]
+        },
+        {
+          "titre": "Le Deuxième Sexe",
+          "wiki": "The Second Sex",
+          "artiste": "Simone de Beauvoir",
+          "annee": "1949",
+          "explication": "« On ne naît pas femme, on le devient. » Beauvoir applique l'existentialisme à la condition féminine : la femme a été constituée en « Autre » par la société. Œuvre fondatrice du féminisme philosophique.",
+          "contexte": "Analyse historique, biologique et existentielle de l'oppression des femmes.",
+          "elements": [
+            "« On ne naît pas femme, on le devient »",
+            "La femme comme « Autre »",
+            "Liberté et situation"
+          ]
+        },
+        {
+          "titre": "Phénoménologie de la perception",
+          "wiki": "Phenomenology of Perception",
+          "artiste": "Maurice Merleau-Ponty",
+          "annee": "1945",
+          "explication": "Merleau-Ponty replace le corps au centre : je perçois le monde par mon corps propre, antérieurement à toute réflexion. La conscience est d'abord incarnée et engagée dans le monde.",
+          "contexte": "Renouvelle la phénoménologie en intégrant psychologie et physiologie.",
+          "elements": [
+            "Le corps propre (corps vécu)",
+            "Primauté de la perception",
+            "Être au monde incarné"
+          ]
+        },
+        {
+          "titre": "Le Mythe de Sisyphe",
+          "wiki": "The Myth of Sisyphus",
+          "artiste": "Albert Camus",
+          "annee": "1942",
+          "explication": "Camus part de l'absurde : le divorce entre le désir de sens de l'homme et le silence du monde. Faut-il se suicider ? Non : il faut vivre la révolte. « Il faut imaginer Sisyphe heureux. »",
+          "contexte": "Essai-clé de la pensée de l'absurde, complément du roman L'Étranger.",
+          "elements": [
+            "L'absurde",
+            "La révolte plutôt que le suicide",
+            "« Il faut imaginer Sisyphe heureux »"
+          ]
+        }
+      ],
+      "notion": "L'homme n'a pas de nature fixe : il existe d'abord, puis se définit par ses actes. Penser depuis l'expérience vécue et la liberté.",
+      "roster": [
+        { "nom": "Edmund Husserl", "niveau": "★", "detail": "Fondateur de la phénoménologie" },
+        { "nom": "Martin Heidegger", "niveau": "★", "detail": "Être et Temps ; le Dasein" },
+        { "nom": "Jean-Paul Sartre", "niveau": "★", "detail": "Existentialisme ; liberté radicale" },
+        { "nom": "Simone de Beauvoir", "niveau": "★", "detail": "Le Deuxième Sexe ; éthique de l'ambiguïté" },
+        { "nom": "Maurice Merleau-Ponty", "niveau": "○", "detail": "Phénoménologie du corps" },
+        { "nom": "Albert Camus", "niveau": "○", "detail": "Philosophie de l'absurde et de la révolte" },
+        { "nom": "Intentionnalité", "niveau": "", "detail": "La conscience est toujours conscience de quelque chose" },
+        { "nom": "Existence / essence", "niveau": "", "detail": "L'existence précède l'essence (Sartre)" },
+        { "nom": "Authenticité", "niveau": "", "detail": "Assumer sa finitude et sa liberté" }
+      ]
+    },
+    {
+      "num": 12,
+      "titre": "Philosophie analytique et contemporains",
+      "titre_en": "Analytic & Contemporary",
+      "portee": "Monde anglo-saxon et France, XXᵉ–XXIᵉ s.",
+      "couleur": "#00838f",
+      "idee": "Clarifier le langage et repenser le pouvoir et la justice : analyser les conditions du sens, démasquer les dispositifs, fonder une société équitable.",
+      "oeuvres": [
+        {
+          "titre": "Tractatus logico-philosophicus",
+          "wiki": "Tractatus Logico-Philosophicus",
+          "artiste": "Ludwig Wittgenstein",
+          "annee": "1921",
+          "explication": "Le langage représente le monde comme une image (théorie figurative). Ce qui ne peut être dit clairement doit être tu. La philosophie est une activité de clarification, non une doctrine.",
+          "contexte": "Texte fondateur de la philosophie analytique du langage ; influence le Cercle de Vienne.",
+          "elements": [
+            "« Ce dont on ne peut parler, il faut le taire »",
+            "Théorie figurative du langage",
+            "Limites du langage = limites du monde"
+          ]
+        },
+        {
+          "titre": "Recherches philosophiques",
+          "wiki": "Philosophical Investigations",
+          "artiste": "Ludwig Wittgenstein",
+          "annee": "1953",
+          "explication": "Le « second » Wittgenstein renverse sa première philosophie : le sens d'un mot est son usage dans une forme de vie. Le langage est un ensemble de « jeux de langage » ; il n'existe pas de langage privé.",
+          "contexte": "Publié à titre posthume ; tournant pragmatique de la philosophie du langage.",
+          "elements": [
+            "« La signification, c'est l'usage »",
+            "Jeux de langage et formes de vie",
+            "Argument du langage privé"
+          ]
+        },
+        {
+          "titre": "Théorie de la justice",
+          "wiki": "A Theory of Justice",
+          "artiste": "John Rawls",
+          "annee": "1971",
+          "explication": "Rawls renouvelle le contrat social : derrière un « voile d'ignorance », des individus rationnels choisiraient des principes justes (libertés égales, et inégalités acceptables seulement si elles profitent aux plus défavorisés).",
+          "contexte": "Relance la philosophie politique normative ; débat avec le libertarisme de Nozick.",
+          "elements": [
+            "Voile d'ignorance et position originelle",
+            "Principe de différence",
+            "La justice comme équité"
+          ]
+        },
+        {
+          "titre": "Surveiller et punir",
+          "wiki": "Discipline and Punish",
+          "artiste": "Michel Foucault",
+          "annee": "1975",
+          "explication": "Foucault retrace le passage du supplice à la prison et montre comment les sociétés modernes produisent des corps « dociles » par la discipline. Le pouvoir n'est pas seulement répressif : il est diffus, normalisateur (le panoptique).",
+          "contexte": "Archéologie du pouvoir ; pensée majeure de la modernité disciplinaire.",
+          "elements": [
+            "Société disciplinaire",
+            "Le panoptique (surveillance intériorisée)",
+            "Pouvoir-savoir ; biopouvoir"
+          ]
+        },
+        {
+          "titre": "La Condition postmoderne",
+          "wiki": "The Postmodern Condition",
+          "artiste": "Jean-François Lyotard",
+          "annee": "1979",
+          "explication": "Lyotard diagnostique « l'incrédulité à l'égard des grands récits » (progrès, émancipation). Le savoir se fragmente en petits récits locaux ; il définit la condition postmoderne.",
+          "contexte": "Rapport sur le savoir dans les sociétés développées ; manifeste du postmodernisme.",
+          "elements": [
+            "Fin des grands récits",
+            "Légitimation du savoir",
+            "Pluralité des jeux de langage"
+          ]
+        },
+        {
+          "titre": "De la grammatologie",
+          "wiki": "Of Grammatology",
+          "artiste": "Jacques Derrida",
+          "annee": "1967",
+          "explication": "Derrida fonde la déconstruction : il critique le « logocentrisme » occidental qui privilégie la parole sur l'écriture. Tout texte porte des hiérarchies et des oppositions qu'on peut défaire de l'intérieur. La différance.",
+          "contexte": "Cœur du structuralisme et du poststructuralisme français.",
+          "elements": [
+            "Déconstruction",
+            "Différance",
+            "Critique du logocentrisme"
+          ]
+        }
+      ],
+      "notion": "Deux grands chantiers : analyser le langage pour dissiper les faux problèmes (Wittgenstein), et démasquer pouvoir et injustice (Foucault, Rawls).",
+      "roster": [
+        { "nom": "Ludwig Wittgenstein", "niveau": "★", "detail": "Langage ; jeux de langage" },
+        { "nom": "Michel Foucault", "niveau": "★", "detail": "Pouvoir-savoir ; discipline" },
+        { "nom": "John Rawls", "niveau": "★", "detail": "Théorie de la justice ; équité" },
+        { "nom": "Bertrand Russell", "niveau": "○", "detail": "Logique ; atomisme logique" },
+        { "nom": "Karl Popper", "niveau": "○", "detail": "Falsifiabilité ; société ouverte" },
+        { "nom": "Hannah Arendt", "niveau": "○", "detail": "Totalitarisme ; banalité du mal" },
+        { "nom": "Jacques Derrida", "niveau": "○", "detail": "Déconstruction" },
+        { "nom": "Jürgen Habermas", "niveau": "○", "detail": "Agir communicationnel ; espace public" },
+        { "nom": "Tournant linguistique", "niveau": "", "detail": "Le langage au centre de la philosophie" },
+        { "nom": "Falsifiabilité", "niveau": "", "detail": "Critère de scientificité (Popper)" }
+      ]
+    }
+  ]
+}

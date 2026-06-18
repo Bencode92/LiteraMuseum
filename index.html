@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lettres &amp; Idées — littérature &amp; philosophie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/app.css?v=40" />
+</head>
+<body>
+  <header id="top">
+    <div class="brand" data-nav="#/"><span>Lettres &amp; Idées</span></div>
+    <div class="domains">
+      <button class="dom" data-domain="litt">📚 Littérature</button>
+      <button class="dom" data-domain="philo">🦉 Philosophie</button>
+    </div>
+    <nav class="tabs">
+      <button data-nav="#/parcours" class="tab">Parcours</button>
+      <button data-nav="#/" class="tab">Explorer</button>
+      <button data-nav="#/dossiers" class="tab">Dossiers</button>
+      <button data-nav="#/favoris" class="tab">Favoris</button>
+      <button data-nav="#/quiz" class="tab">Réviser</button>
+    </nav>
+  </header>
+
+  <!-- Frise chronologique : les époques, du plus ancien au plus récent -->
+  <aside id="floors"><h2>Frise chronologique</h2><ul id="floorList"></ul></aside>
+
+  <div id="layout">
+    <main id="main">
+      <nav id="breadcrumb"></nav>
+      <div id="view"></div>
+    </main>
+  </div>
+
+  <div id="lightbox" hidden>
+    <button id="lbclose" aria-label="Fermer">×</button>
+    <figure><img id="lbimg" alt="" /><figcaption id="lbcap"></figcaption></figure>
+  </div>
+
+  <script type="module" src="js/app.js?v=43"></script>
+</body>
+</html>

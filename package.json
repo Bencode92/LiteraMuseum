@@ -1,0 +1,10 @@
+{
+  "name": "lettres-idees",
+  "version": "1.0.0",
+  "description": "Lettres & Idées — littérature & philosophie en une seule app (guide IA Claude)",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "private": true
+}

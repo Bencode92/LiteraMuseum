@@ -1,0 +1,482 @@
+{
+  "Iliad": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Detail._Wooden_board_inscribed_in_ink_with_lines_468-473%2C_Book_I_of_Homer%27s_Iliad._Roman_Egypt._On_display_at_the_British_Museum.jpg/1280px-Detail._Wooden_board_inscribed_in_ink_with_lines_468-473%2C_Book_I_of_Homer%27s_Iliad._Roman_Egypt._On_display_at_the_British_Museum.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 619,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Detail._Wooden_board_inscribed_in_ink_with_lines_468-473%2C_Book_I_of_Homer%27s_Iliad._Roman_Egypt._On_display_at_the_British_Museum.jpg",
+    "w": 5633,
+    "h": 3485
+  },
+  "Odyssey": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Fragment_Odyssee_2245_2.jpg/1280px-Fragment_Odyssee_2245_2.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1541,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Fragment_Odyssee_2245_2.jpg",
+    "w": 1567,
+    "h": 2414
+  },
+  "Oedipus Rex": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/69/Oedipus.jpg",
+    "thumb_w": 400,
+    "thumb_h": 525,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Oedipus.jpg",
+    "w": 400,
+    "h": 525
+  },
+  "Aeneid": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Aeneas%27_Flight_from_Troy_by_Federico_Barocci.jpg",
+    "thumb_w": 1050,
+    "thumb_h": 729,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Aeneas%27_Flight_from_Troy_by_Federico_Barocci.jpg",
+    "w": 1050,
+    "h": 729
+  },
+  "Metamorphoses": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Ovidius_Naso_-_Metamorphoses%2C_del_MCCCCLXXXXVII_Adi_X_del_mese_di_aprile_-_1583162_Carta_a1r.jpeg",
+    "thumb_w": 1252,
+    "thumb_h": 1870,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Ovidius_Naso_-_Metamorphoses%2C_del_MCCCCLXXXXVII_Adi_X_del_mese_di_aprile_-_1583162_Carta_a1r.jpeg",
+    "w": 1252,
+    "h": 1870
+  },
+  "The Song of Roland": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Grandes_chroniques_Roland.jpg",
+    "thumb_w": 1215,
+    "thumb_h": 1286,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Grandes_chroniques_Roland.jpg",
+    "w": 1215,
+    "h": 1286
+  },
+  "Roman de la Rose": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/d/df/Le_Roman_de_la_Rose.jpg",
+    "thumb_w": 1210,
+    "thumb_h": 1674,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Le_Roman_de_la_Rose.jpg",
+    "w": 1210,
+    "h": 1674
+  },
+  "Divine Comedy": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Dante_Domenico_di_Michelino.jpg/1280px-Dante_Domenico_di_Michelino.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 805,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Dante_Domenico_di_Michelino.jpg",
+    "w": 2048,
+    "h": 1649
+  },
+  "Tristan and Iseult": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Herbert_James_Draper_-_Tristan_%26_Isolde.jpg/1280px-Herbert_James_Draper_-_Tristan_%26_Isolde.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 633,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Herbert_James_Draper_-_Tristan_%26_Isolde.jpg",
+    "w": 1400,
+    "h": 886
+  },
+  "François Villon": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Francois_Villon_1489.jpg",
+    "thumb_w": 534,
+    "thumb_h": 978,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Francois_Villon_1489.jpg",
+    "w": 534,
+    "h": 978
+  },
+  "Gargantua and Pantagruel": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Page11-682px-Rabelais_-_Pantagruel%2C_ca_1530.jpg",
+    "thumb_w": 681,
+    "thumb_h": 1024,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Page11-682px-Rabelais_-_Pantagruel%2C_ca_1530.jpg",
+    "w": 681,
+    "h": 1024
+  },
+  "Essays (Montaigne)": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Essais_Titelblatt_%281588%29.png",
+    "thumb_w": 953,
+    "thumb_h": 1240,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Essais_Titelblatt_%281588%29.png",
+    "w": 953,
+    "h": 1240
+  },
+  "Hamlet": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Edwin_Booth_Hamlet_1870.jpg",
+    "thumb_w": 361,
+    "thumb_h": 468,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Edwin_Booth_Hamlet_1870.jpg",
+    "w": 361,
+    "h": 468
+  },
+  "Don Quixote": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Title_page_first_edition_Don_Quijote.jpg",
+    "thumb_w": 1099,
+    "thumb_h": 1762,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Title_page_first_edition_Don_Quijote.jpg",
+    "w": 1099,
+    "h": 1762
+  },
+  "Shakespeare's sonnets": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Sonnets1609titlepage.jpg",
+    "thumb_w": 1065,
+    "thumb_h": 1536,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Sonnets1609titlepage.jpg",
+    "w": 1065,
+    "h": 1536
+  },
+  "Le Cid": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/62/3402440-Le_Cid_performed_in_Paris_1637-Burgos.jpg",
+    "thumb_w": 1024,
+    "thumb_h": 1455,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/62/3402440-Le_Cid_performed_in_Paris_1637-Burgos.jpg",
+    "w": 1024,
+    "h": 1455
+  },
+  "Tartuffe": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Tartuffe.jpg",
+    "thumb_w": 512,
+    "thumb_h": 870,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Tartuffe.jpg",
+    "w": 512,
+    "h": 870
+  },
+  "Jean de La Fontaine": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Jean_de_La_Fontaine.PNG",
+    "thumb_w": 561,
+    "thumb_h": 718,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Jean_de_La_Fontaine.PNG",
+    "w": 561,
+    "h": 718
+  },
+  "Phèdre": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/8/85/Racine_-_Ph%C3%A8dre_Act5_sc6_1677_-_c%C3%A9sar.jpg",
+    "thumb_w": 700,
+    "thumb_h": 1172,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Racine_-_Ph%C3%A8dre_Act5_sc6_1677_-_c%C3%A9sar.jpg",
+    "w": 700,
+    "h": 1172
+  },
+  "François de La Rochefoucauld (writer)": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Fran%C3%A7ois_de_La_Rochefoucauld.jpg",
+    "thumb_w": 516,
+    "thumb_h": 666,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Fran%C3%A7ois_de_La_Rochefoucauld.jpg",
+    "w": 516,
+    "h": 666
+  },
+  "Persian Letters": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/63/Lpersanesmarteau.jpg",
+    "thumb_w": 249,
+    "thumb_h": 398,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/63/Lpersanesmarteau.jpg",
+    "w": 249,
+    "h": 398
+  },
+  "Candide": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Candide1759.jpg",
+    "thumb_w": 1242,
+    "thumb_h": 2256,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Candide1759.jpg",
+    "w": 1242,
+    "h": 2256
+  },
+  "Encyclopédie": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Encyclopedie_de_D%27Alembert_et_Diderot_-_Premiere_Page_-_ENC_1-NA5.jpg/1280px-Encyclopedie_de_D%27Alembert_et_Diderot_-_Premiere_Page_-_ENC_1-NA5.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1634,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Encyclopedie_de_D%27Alembert_et_Diderot_-_Premiere_Page_-_ENC_1-NA5.jpg",
+    "w": 3133,
+    "h": 5120
+  },
+  "Confessions (Rousseau)": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/12/Confessions_Rousseau_Aldus_P028.jpg",
+    "thumb_w": 506,
+    "thumb_h": 780,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Confessions_Rousseau_Aldus_P028.jpg",
+    "w": 506,
+    "h": 780
+  },
+  "The Marriage of Figaro": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/24/Ramberg_figaro_1.jpg",
+    "thumb_w": 301,
+    "thumb_h": 480,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Ramberg_figaro_1.jpg",
+    "w": 301,
+    "h": 480
+  },
+  "The Sorrows of Young Werther": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Goethe_1774.JPG/1280px-Goethe_1774.JPG",
+    "thumb_w": 1000,
+    "thumb_h": 791,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Goethe_1774.JPG",
+    "w": 2948,
+    "h": 2332
+  },
+  "Alphonse de Lamartine": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/55/Lamartine_par_Ary_Scheffer.png",
+    "thumb_w": 538,
+    "thumb_h": 837,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Lamartine_par_Ary_Scheffer.png",
+    "w": 538,
+    "h": 837
+  },
+  "The Hunchback of Notre-Dame": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/9/9c/Notre-Dame_de_Paris_1st_edition.jpg",
+    "thumb_w": 347,
+    "thumb_h": 287,
+    "url": "https://upload.wikimedia.org/wikipedia/en/9/9c/Notre-Dame_de_Paris_1st_edition.jpg",
+    "w": 347,
+    "h": 287
+  },
+  "Les Contemplations": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/3/3a/HugoContemplations.jpg",
+    "thumb_w": 556,
+    "thumb_h": 923,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/HugoContemplations.jpg",
+    "w": 556,
+    "h": 923
+  },
+  "Childe Harold's Pilgrimage": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Title_Page_of_Childe_Harold%27s_Pilgrimage%2C_circa_1812.png",
+    "thumb_w": 408,
+    "thumb_h": 545,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Title_Page_of_Childe_Harold%27s_Pilgrimage%2C_circa_1812.png",
+    "w": 408,
+    "h": 545
+  },
+  "Le Père Goriot": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/3/34/Le_P%C3%A8re_Goriot%2C_1er_Volume%2C_1835.png",
+    "thumb_w": 908,
+    "thumb_h": 1500,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Le_P%C3%A8re_Goriot%2C_1er_Volume%2C_1835.png",
+    "w": 908,
+    "h": 1500
+  },
+  "Madame Bovary": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Madame_Bovary_1857_%28hi-res%29.jpg/1280px-Madame_Bovary_1857_%28hi-res%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1582,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Madame_Bovary_1857_%28hi-res%29.jpg",
+    "w": 1740,
+    "h": 2752
+  },
+  "Crime and Punishment": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/4/4b/Crimeandpunishmentcover.png",
+    "thumb_w": 255,
+    "thumb_h": 391,
+    "url": "https://upload.wikimedia.org/wikipedia/en/4/4b/Crimeandpunishmentcover.png",
+    "w": 255,
+    "h": 391
+  },
+  "War and Peace": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/a/af/Tolstoy_-_War_and_Peace_-_first_edition%2C_1869.jpg",
+    "thumb_w": 800,
+    "thumb_h": 1270,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/af/Tolstoy_-_War_and_Peace_-_first_edition%2C_1869.jpg",
+    "w": 800,
+    "h": 1270
+  },
+  "Germinal (novel)": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/61/Germinal_first_edition_cover.jpg",
+    "thumb_w": 800,
+    "thumb_h": 1244,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Germinal_first_edition_cover.jpg",
+    "w": 800,
+    "h": 1244
+  },
+  "Les Fleurs du mal": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Fleurs_du_mal.jpg/1280px-Fleurs_du_mal.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1657,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Fleurs_du_mal.jpg",
+    "w": 1923,
+    "h": 3187
+  },
+  "A Season in Hell": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Une_saison_en_enfer_-_01.jpg/1280px-Une_saison_en_enfer_-_01.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1465,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Une_saison_en_enfer_-_01.jpg",
+    "w": 2272,
+    "h": 3328
+  },
+  "Paul Verlaine": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Netsurf17_-_Paul_Verlaine.png",
+    "thumb_w": 195,
+    "thumb_h": 259,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Netsurf17_-_Paul_Verlaine.png",
+    "w": 195,
+    "h": 259
+  },
+  "Un coup de dés jamais n'abolira le hasard": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/d/df/Un_coup_de_d%C3%A9s_jamais_n%27abolira_le_hasard.png",
+    "thumb_w": 1064,
+    "thumb_h": 827,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Un_coup_de_d%C3%A9s_jamais_n%27abolira_le_hasard.png",
+    "w": 1064,
+    "h": 827
+  },
+  "Leaves of Grass": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Walt_Whitman%2C_steel_engraving%2C_July_1854.jpg/1280px-Walt_Whitman%2C_steel_engraving%2C_July_1854.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1310,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Walt_Whitman%2C_steel_engraving%2C_July_1854.jpg",
+    "w": 2329,
+    "h": 3052
+  },
+  "In Search of Lost Time": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/57/MS_A_la_recherche_du_temps_perdu.jpg",
+    "thumb_w": 506,
+    "thumb_h": 337,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/57/MS_A_la_recherche_du_temps_perdu.jpg",
+    "w": 506,
+    "h": 337
+  },
+  "The Metamorphosis": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Franz_Kafka_Die_Verwandlung_1916_Orig.-Pappband.jpg",
+    "thumb_w": 920,
+    "thumb_h": 1480,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Franz_Kafka_Die_Verwandlung_1916_Orig.-Pappband.jpg",
+    "w": 920,
+    "h": 1480
+  },
+  "Ulysses (novel)": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/a/ab/JoyceUlysses2.jpg",
+    "thumb_w": 444,
+    "thumb_h": 562,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/JoyceUlysses2.jpg",
+    "w": 444,
+    "h": 562
+  },
+  "Mrs Dalloway": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/thumb/6/67/Mrs._Dalloway_cover.jpg/1280px-Mrs._Dalloway_cover.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1381,
+    "url": "https://upload.wikimedia.org/wikipedia/en/6/67/Mrs._Dalloway_cover.jpg",
+    "w": 1448,
+    "h": 2000
+  },
+  "The Trial": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/f9/TrialKafka.jpg",
+    "thumb_w": 232,
+    "thumb_h": 341,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/TrialKafka.jpg",
+    "w": 232,
+    "h": 341
+  },
+  "Nausea (novel)": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/4/40/La_nausee.jpg",
+    "thumb_w": 257,
+    "thumb_h": 390,
+    "url": "https://upload.wikimedia.org/wikipedia/en/4/40/La_nausee.jpg",
+    "w": 257,
+    "h": 390
+  },
+  "The Stranger (Camus novel)": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/9/97/L%27%C3%89tranger_-_Albert_Camus.jpg",
+    "thumb_w": 601,
+    "thumb_h": 935,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/L%27%C3%89tranger_-_Albert_Camus.jpg",
+    "w": 601,
+    "h": 935
+  },
+  "The Myth of Sisyphus": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/7/75/Le_Mythe_de_Sisyphe.jpg",
+    "thumb_w": 253,
+    "thumb_h": 399,
+    "url": "https://upload.wikimedia.org/wikipedia/en/7/75/Le_Mythe_de_Sisyphe.jpg",
+    "w": 253,
+    "h": 399
+  },
+  "No Exit": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/a/a3/NoExit_cover.gif",
+    "thumb_w": 255,
+    "thumb_h": 392,
+    "url": "https://upload.wikimedia.org/wikipedia/en/a/a3/NoExit_cover.gif",
+    "w": 255,
+    "h": 392
+  },
+  "Waiting for Godot": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/En_attendant_Godot%2C_Festival_d%27Avignon%2C_1978.jpeg/1280px-En_attendant_Godot%2C_Festival_d%27Avignon%2C_1978.jpeg",
+    "thumb_w": 1000,
+    "thumb_h": 738,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/En_attendant_Godot%2C_Festival_d%27Avignon%2C_1978.jpeg",
+    "w": 4409,
+    "h": 3256
+  },
+  "Alain Robbe-Grillet": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/69/Alain_Robbe-Grillet_%28cropped%29.jpg",
+    "thumb_w": 341,
+    "thumb_h": 400,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Alain_Robbe-Grillet_%28cropped%29.jpg",
+    "w": 341,
+    "h": 400
+  },
+  "Marguerite Duras": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/12/Identite-Duras-1960-Sacem.png",
+    "thumb_w": 844,
+    "thumb_h": 890,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Identite-Duras-1960-Sacem.png",
+    "w": 844,
+    "h": 890
+  },
+  "La Modification": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/8/84/La_Modification.png",
+    "thumb_w": 177,
+    "thumb_h": 299,
+    "url": "https://upload.wikimedia.org/wikipedia/en/8/84/La_Modification.png",
+    "w": 177,
+    "h": 299
+  },
+  "Exercises in Style": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/3/36/ExercicesDeStyle.jpg",
+    "thumb_w": 247,
+    "thumb_h": 359,
+    "url": "https://upload.wikimedia.org/wikipedia/en/3/36/ExercicesDeStyle.jpg",
+    "w": 247,
+    "h": 359
+  },
+  "Life: A User's Manual": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/e/e1/Life_A_User%27s_Manual.jpg",
+    "thumb_w": 259,
+    "thumb_h": 384,
+    "url": "https://upload.wikimedia.org/wikipedia/en/e/e1/Life_A_User%27s_Manual.jpg",
+    "w": 259,
+    "h": 384
+  },
+  "One Hundred Years of Solitude": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/a/a0/Cien_a%C3%B1os_de_soledad_%28book_cover%2C_1967%29.jpg",
+    "thumb_w": 265,
+    "thumb_h": 376,
+    "url": "https://upload.wikimedia.org/wikipedia/en/a/a0/Cien_a%C3%B1os_de_soledad_%28book_cover%2C_1967%29.jpg",
+    "w": 265,
+    "h": 376
+  },
+  "Beloved (novel)": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Beloved_%281987_1st_ed_dust_jacket_cover%29.jpg",
+    "thumb_w": 929,
+    "thumb_h": 1374,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Beloved_%281987_1st_ed_dust_jacket_cover%29.jpg",
+    "w": 929,
+    "h": 1374
+  },
+  "The Satanic Verses": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/c/c8/1988_Salman_Rushdie_The_Satanic_Verses.jpg",
+    "thumb_w": 256,
+    "thumb_h": 394,
+    "url": "https://upload.wikimedia.org/wikipedia/en/c/c8/1988_Salman_Rushdie_The_Satanic_Verses.jpg",
+    "w": 256,
+    "h": 394
+  },
+  "Édouard Louis": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/2019.12.07._Edouard_Louis_Fot_Mariusz_Kubik_01.JPG/1280px-2019.12.07._Edouard_Louis_Fot_Mariusz_Kubik_01.JPG",
+    "thumb_w": 1000,
+    "thumb_h": 1333,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/2019.12.07._Edouard_Louis_Fot_Mariusz_Kubik_01.JPG",
+    "w": 3456,
+    "h": 4608
+  },
+  "The Years (Ernaux book)": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Les_ann%C3%A9es_%28Annie_Ernaux%29.jpg/1280px-Les_ann%C3%A9es_%28Annie_Ernaux%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1473,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Les_ann%C3%A9es_%28Annie_Ernaux%29.jpg",
+    "w": 1622,
+    "h": 2390
+  }
+}

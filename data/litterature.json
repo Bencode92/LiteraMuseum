@@ -1,0 +1,807 @@
+{
+  "source": "Parcours d'histoire littéraire par mouvements et époques.",
+  "chapitres": [
+    {
+      "num": 1,
+      "titre": "L'Antiquité fondatrice",
+      "titre_en": "Antiquity",
+      "portee": "Grèce et Rome, VIIIᵉ s. av. J.-C. → Vᵉ s.",
+      "couleur": "#b08968",
+      "idee": "C'est dans l'épopée, la tragédie et la poésie gréco-latines que naissent les grands genres et les mythes qui structureront toute la littérature occidentale.",
+      "oeuvres": [
+        {
+          "titre": "L'Iliade",
+          "wiki": "Iliad",
+          "artiste": "Homère",
+          "annee": "≈ -800",
+          "explication": "Épopée de la colère d'Achille pendant la guerre de Troie. Le poème fonde la figure du héros tragique, mortel et glorieux, et donne sa forme à l'épopée occidentale.",
+          "contexte": "Transmise d'abord oralement par des aèdes, l'œuvre cristallise des siècles de tradition orale grecque avant sa mise par écrit.",
+          "elements": ["La colère d'Achille comme fil conducteur", "Hexamètre dactylique et formules répétées", "Mort d'Hector et deuil de Priam"]
+        },
+        {
+          "titre": "L'Odyssée",
+          "wiki": "Odyssey",
+          "artiste": "Homère",
+          "annee": "≈ -750",
+          "explication": "Le retour d'Ulysse vers Ithaque, semé d'épreuves et de monstres. Récit du voyage et de la ruse, il invente le héros de l'intelligence et de la patience.",
+          "contexte": "Pendant à l'Iliade, l'Odyssée déplace l'épopée de la guerre vers l'aventure et le retour au foyer (le nostos).",
+          "elements": ["Le voyage et la nostalgie du retour", "Ulysse, l'homme aux mille ruses", "Le Cyclope, Circé, les Sirènes"]
+        },
+        {
+          "titre": "Œdipe roi",
+          "wiki": "Oedipus Rex",
+          "artiste": "Sophocle",
+          "annee": "≈ -430",
+          "explication": "Le roi de Thèbes enquête sur un meurtre et découvre qu'il est le coupable, ayant tué son père et épousé sa mère. Sommet de la tragédie sur le destin et l'ironie tragique.",
+          "contexte": "Représentée lors des concours dramatiques d'Athènes, la pièce illustre l'âge d'or de la tragédie attique au Vᵉ siècle.",
+          "elements": ["La fatalité et l'aveuglement", "L'ironie tragique (le spectateur sait)", "L'aveuglement final d'Œdipe"]
+        },
+        {
+          "titre": "L'Énéide",
+          "wiki": "Aeneid",
+          "artiste": "Virgile",
+          "annee": "≈ -19",
+          "explication": "Le Troyen Énée fuit Troie en flammes pour fonder Rome. Épopée nationale latine, elle relie le destin de Rome aux héros homériques et glorifie Auguste.",
+          "contexte": "Commandée à l'époque d'Auguste, l'œuvre donne à Rome un mythe fondateur à la hauteur de l'Iliade.",
+          "elements": ["La mission et le devoir (pietas)", "Énée et Didon à Carthage", "Imitation et rivalité avec Homère"]
+        },
+        {
+          "titre": "Les Métamorphoses",
+          "wiki": "Metamorphoses",
+          "artiste": "Ovide",
+          "annee": "8",
+          "explication": "Vaste recueil de mythes liés par le thème de la transformation, des origines du monde jusqu'à César. Réservoir inépuisable d'images pour la poésie et la peinture occidentales.",
+          "contexte": "Écrite sous Auguste, l'œuvre synthétise la mythologie gréco-romaine en un seul poème continu.",
+          "elements": ["La transformation comme principe", "Daphné, Narcisse, Pygmalion", "Source majeure des arts depuis la Renaissance"]
+        }
+      ],
+      "notion": "Les Anciens inventent les genres (épopée, tragédie, lyrisme) et un fonds de mythes que l'Occident ne cessera de relire.",
+      "roster": [
+        {"nom": "Homère", "niveau": "★", "detail": "L'Iliade et L'Odyssée"},
+        {"nom": "Sophocle", "niveau": "★", "detail": "Œdipe roi, Antigone"},
+        {"nom": "Eschyle", "niveau": "○", "detail": "L'Orestie, père de la tragédie"},
+        {"nom": "Euripide", "niveau": "○", "detail": "Médée, tragique du pathétique"},
+        {"nom": "Virgile", "niveau": "★", "detail": "L'Énéide, épopée de Rome"},
+        {"nom": "Ovide", "niveau": "★", "detail": "Les Métamorphoses"},
+        {"nom": "Sappho", "niveau": "○", "detail": "Lyrisme amoureux grec"},
+        {"nom": "La tragédie attique", "niveau": "", "detail": "Concours dramatiques d'Athènes, Vᵉ s."},
+        {"nom": "L'épopée", "niveau": "", "detail": "Récit héroïque en vers"}
+      ]
+    },
+    {
+      "num": 2,
+      "titre": "Le Moyen Âge",
+      "titre_en": "Middle Ages",
+      "portee": "Europe, Xᵉ → XVᵉ siècle",
+      "couleur": "#6a994e",
+      "idee": "Entre épopée féodale, amour courtois et grand poème chrétien, la littérature médiévale invente le roman et chante l'amour, la prouesse et le salut.",
+      "oeuvres": [
+        {
+          "titre": "La Chanson de Roland",
+          "wiki": "The Song of Roland",
+          "artiste": "Anonyme",
+          "annee": "≈ 1100",
+          "explication": "Chanson de geste racontant la mort héroïque de Roland à Roncevaux. Elle exalte la fidélité au roi, le courage et la foi chrétienne face aux Sarrasins.",
+          "contexte": "La plus ancienne chanson de geste française conservée, chantée par les jongleurs sur les routes de pèlerinage.",
+          "elements": ["L'idéal féodal et la foi", "Le cor de Roland (l'olifant)", "Vers décasyllabes en laisses"]
+        },
+        {
+          "titre": "Le Roman de la Rose",
+          "wiki": "Roman de la Rose",
+          "artiste": "Guillaume de Lorris et Jean de Meung",
+          "annee": "≈ 1230",
+          "explication": "Long poème allégorique sur la conquête amoureuse, figurée par la cueillette d'une rose. Œuvre majeure de l'amour courtois puis de la satire savante.",
+          "contexte": "Composé en deux temps, courtois chez Guillaume, encyclopédique et critique chez Jean de Meung.",
+          "elements": ["L'allégorie amoureuse", "L'amour courtois (fin'amor)", "Le rêve comme cadre narratif"]
+        },
+        {
+          "titre": "La Divine Comédie",
+          "wiki": "Divine Comedy",
+          "artiste": "Dante Alighieri",
+          "annee": "≈ 1320",
+          "explication": "Voyage du poète à travers l'Enfer, le Purgatoire et le Paradis, guidé par Virgile puis Béatrice. Somme spirituelle et poétique de tout le Moyen Âge.",
+          "contexte": "Écrite en toscan plutôt qu'en latin, l'œuvre fonde la langue littéraire italienne.",
+          "elements": ["La structure en trois royaumes", "Les cercles de l'Enfer", "La terza rima (tercets enchaînés)"]
+        },
+        {
+          "titre": "Tristan et Iseut",
+          "wiki": "Tristan and Iseult",
+          "artiste": "Béroul, Thomas et autres",
+          "annee": "≈ 1170",
+          "explication": "Légende du philtre d'amour qui lie irrémédiablement Tristan et Iseut. Mythe fondateur de l'amour-passion fatal, plus fort que la loi et la mort.",
+          "contexte": "Issue de la matière de Bretagne, la légende circule en plusieurs versions à la cour des Plantagenêts.",
+          "elements": ["Le philtre et la passion fatale", "L'amour contre le devoir", "La mort des amants réunis"]
+        },
+        {
+          "titre": "Le Testament",
+          "wiki": "François Villon",
+          "artiste": "François Villon",
+          "annee": "1461",
+          "explication": "Long poème mêlant legs ironiques, ballades et méditation sur la mort et le temps qui passe. Voix personnelle et déchirante d'un poète marginal.",
+          "contexte": "Villon, étudiant et voleur, écrit dans le Paris troublé de la fin du Moyen Âge.",
+          "elements": ["La hantise de la mort et du temps", "La Ballade des dames du temps jadis", "Le ton personnel et la dérision"]
+        }
+      ],
+      "notion": "Le Moyen Âge fait surgir le roman, l'amour courtois et, avec Dante, le grand poème en langue vulgaire.",
+      "roster": [
+        {"nom": "Dante Alighieri", "niveau": "★", "detail": "La Divine Comédie"},
+        {"nom": "Chrétien de Troyes", "niveau": "★", "detail": "Romans arthuriens, le Graal"},
+        {"nom": "François Villon", "niveau": "★", "detail": "Le Testament, poète maudit"},
+        {"nom": "Marie de France", "niveau": "○", "detail": "Les Lais, contes en vers"},
+        {"nom": "Pétrarque", "niveau": "○", "detail": "Le Canzoniere, sonnets à Laure"},
+        {"nom": "Boccace", "niveau": "○", "detail": "Le Décaméron, contes en prose"},
+        {"nom": "L'amour courtois", "niveau": "", "detail": "Fin'amor des troubadours"},
+        {"nom": "La chanson de geste", "niveau": "", "detail": "Épopée féodale chantée"},
+        {"nom": "La matière de Bretagne", "niveau": "", "detail": "Légendes arthuriennes"}
+      ]
+    },
+    {
+      "num": 3,
+      "titre": "La Renaissance et l'humanisme",
+      "titre_en": "Renaissance & Humanism",
+      "portee": "Europe, XVᵉ → début XVIIᵉ siècle",
+      "couleur": "#c9a227",
+      "idee": "Le retour aux Anciens et la confiance en l'homme renouvellent l'écriture : la littérature devient exploration du savoir, du langage et de la nature humaine.",
+      "oeuvres": [
+        {
+          "titre": "Gargantua",
+          "wiki": "Gargantua and Pantagruel",
+          "artiste": "François Rabelais",
+          "annee": "1534",
+          "explication": "Récit truculent des aventures du géant Gargantua, mêlant rire, érudition et critique de l'éducation et de l'Église. Le savoir y rime avec liberté et joie de vivre.",
+          "contexte": "Médecin et moine humaniste, Rabelais incarne l'optimisme du savoir nouveau face à la scolastique médiévale.",
+          "elements": ["Le rire et la démesure", "L'abbaye de Thélème : « Fais ce que voudras »", "Foisonnement de la langue"]
+        },
+        {
+          "titre": "Les Essais",
+          "wiki": "Essays (Montaigne)",
+          "artiste": "Michel de Montaigne",
+          "annee": "1580",
+          "explication": "Montaigne s'examine lui-même pour comprendre l'homme en général. Il invente l'essai : une pensée libre, sceptique, qui se cherche en écrivant.",
+          "contexte": "Retiré dans sa « librairie », Montaigne écrit dans une France déchirée par les guerres de religion.",
+          "elements": ["« Que sais-je ? » et le scepticisme", "Le moi comme objet d'étude", "Naissance du genre de l'essai"]
+        },
+        {
+          "titre": "Hamlet",
+          "wiki": "Hamlet",
+          "artiste": "William Shakespeare",
+          "annee": "≈ 1601",
+          "explication": "Le prince du Danemark hésite à venger son père assassiné. Tragédie de l'indécision et de la conscience, elle sonde le doute et le sens de l'existence.",
+          "contexte": "Écrite pour le théâtre élisabéthain et la troupe du Globe, à l'apogée du génie shakespearien.",
+          "elements": ["« Être ou ne pas être »", "Le doute et la folie feinte", "Le théâtre dans le théâtre"]
+        },
+        {
+          "titre": "Don Quichotte",
+          "wiki": "Don Quixote",
+          "artiste": "Miguel de Cervantès",
+          "annee": "1605",
+          "explication": "Un hidalgo enivré de romans de chevalerie part redresser des torts imaginaires. Souvent tenu pour le premier roman moderne, il mêle idéal et réalité avec humour et mélancolie.",
+          "contexte": "Cervantès parodie les romans de chevalerie dans l'Espagne du Siècle d'or.",
+          "elements": ["L'idéalisme contre le réel", "Don Quichotte et Sancho Panza", "Les moulins pris pour des géants"]
+        },
+        {
+          "titre": "Les Sonnets",
+          "wiki": "Shakespeare's sonnets",
+          "artiste": "William Shakespeare",
+          "annee": "1609",
+          "explication": "Recueil de 154 sonnets sur l'amour, le temps, la beauté et la postérité. La forme brève y atteint une intensité et une musicalité inégalées en anglais.",
+          "contexte": "Le sonnet, venu d'Italie via Pétrarque, devient en Europe la grande forme lyrique de la Renaissance.",
+          "elements": ["Le temps et la beauté qui passe", "Le sonnet (14 vers)", "Le « Dark Lady » et le « Fair Youth »"]
+        }
+      ],
+      "notion": "L'humanisme remet l'homme au centre : on relit les Anciens, on doute, on explore la langue et la conscience.",
+      "roster": [
+        {"nom": "François Rabelais", "niveau": "★", "detail": "Gargantua, Pantagruel"},
+        {"nom": "Michel de Montaigne", "niveau": "★", "detail": "Les Essais"},
+        {"nom": "William Shakespeare", "niveau": "★", "detail": "Hamlet, Macbeth, sonnets"},
+        {"nom": "Miguel de Cervantès", "niveau": "★", "detail": "Don Quichotte"},
+        {"nom": "Pierre de Ronsard", "niveau": "○", "detail": "La Pléiade, sonnets à Hélène"},
+        {"nom": "Joachim du Bellay", "niveau": "○", "detail": "Les Regrets, Défense de la langue"},
+        {"nom": "L'humanisme", "niveau": "", "detail": "L'homme et les Anciens au centre"},
+        {"nom": "La Pléiade", "niveau": "", "detail": "Illustrer la langue française"}
+      ]
+    },
+    {
+      "num": 4,
+      "titre": "Baroque et Classicisme",
+      "titre_en": "Baroque & Classicism",
+      "portee": "France, XVIIᵉ siècle (Grand Siècle)",
+      "couleur": "#9b2226",
+      "idee": "Au siècle de Louis XIV, l'idéal classique de mesure, de raison et de bienséance domine le théâtre, la fable et le portrait moral.",
+      "oeuvres": [
+        {
+          "titre": "Le Cid",
+          "wiki": "Le Cid",
+          "artiste": "Pierre Corneille",
+          "annee": "1637",
+          "explication": "Rodrigue doit choisir entre l'amour de Chimène et l'honneur de sa famille. Tragi-comédie du dilemme cornélien, où la volonté héroïque triomphe de la passion.",
+          "contexte": "Son succès déclenche la « querelle du Cid » sur le respect des règles classiques.",
+          "elements": ["Le dilemme cornélien (amour/devoir)", "Les stances de Rodrigue", "Le héros volontaire et glorieux"]
+        },
+        {
+          "titre": "Tartuffe",
+          "wiki": "Tartuffe",
+          "artiste": "Molière",
+          "annee": "1664",
+          "explication": "Un faux dévot s'introduit dans une famille pour la duper et la spolier. Comédie satirique sur l'hypocrisie religieuse, longtemps interdite pour son audace.",
+          "contexte": "Molière, comédien et auteur du roi, brave la cabale des dévots.",
+          "elements": ["La satire de l'hypocrisie", "« Couvrez ce sein que je ne saurais voir »", "Le rire qui corrige les mœurs"]
+        },
+        {
+          "titre": "Les Fables",
+          "wiki": "Jean de La Fontaine",
+          "artiste": "Jean de La Fontaine",
+          "annee": "1668",
+          "explication": "Récits brefs où des animaux incarnent les défauts humains, chacun délivrant une morale. Une critique fine de la société sous le masque léger de l'apologue.",
+          "contexte": "Inspirées d'Ésope, les Fables peignent en filigrane la cour de Louis XIV.",
+          "elements": ["L'apologue et la morale", "La Cigale et la Fourmi, Le Corbeau et le Renard", "La satire voilée de la cour"]
+        },
+        {
+          "titre": "Phèdre",
+          "wiki": "Phèdre",
+          "artiste": "Jean Racine",
+          "annee": "1677",
+          "explication": "Phèdre est dévorée par une passion coupable pour son beau-fils Hippolyte. Sommet de la tragédie racinienne : la passion comme fatalité destructrice.",
+          "contexte": "Racine porte à la perfection la tragédie classique, fondée sur les règles des trois unités.",
+          "elements": ["La passion fatale et la culpabilité", "La règle des trois unités", "Le vers racinien, pur et musical"]
+        },
+        {
+          "titre": "Les Maximes",
+          "wiki": "François de La Rochefoucauld (writer)",
+          "artiste": "La Rochefoucauld",
+          "annee": "1665",
+          "explication": "Recueil de sentences brèves démasquant l'amour-propre derrière les apparentes vertus. Une anatomie lucide et désenchantée du cœur humain.",
+          "contexte": "Né des conversations de salon, le genre de la maxime incarne l'analyse morale du Grand Siècle.",
+          "elements": ["La forme de la maxime", "L'amour-propre derrière les vertus", "Le pessimisme moral"]
+        }
+      ],
+      "notion": "Le classicisme vise « plaire et instruire » par la mesure, la raison et le respect des règles.",
+      "roster": [
+        {"nom": "Molière", "niveau": "★", "detail": "Tartuffe, Le Misanthrope, Dom Juan"},
+        {"nom": "Jean Racine", "niveau": "★", "detail": "Phèdre, Andromaque, Britannicus"},
+        {"nom": "Pierre Corneille", "niveau": "★", "detail": "Le Cid, Horace, Cinna"},
+        {"nom": "Jean de La Fontaine", "niveau": "★", "detail": "Les Fables"},
+        {"nom": "Madame de La Fayette", "niveau": "○", "detail": "La Princesse de Clèves"},
+        {"nom": "Blaise Pascal", "niveau": "○", "detail": "Les Pensées"},
+        {"nom": "Nicolas Boileau", "niveau": "○", "detail": "L'Art poétique, théoricien"},
+        {"nom": "Le classicisme", "niveau": "", "detail": "Mesure, raison, bienséance"},
+        {"nom": "La règle des trois unités", "niveau": "", "detail": "Action, temps, lieu"}
+      ]
+    },
+    {
+      "num": 5,
+      "titre": "Les Lumières",
+      "titre_en": "The Enlightenment",
+      "portee": "Europe, XVIIIᵉ siècle",
+      "couleur": "#e9c46a",
+      "idee": "Armée de la raison et de l'esprit critique, la littérature des Lumières combat l'obscurantisme, défend la tolérance et prépare les révolutions.",
+      "oeuvres": [
+        {
+          "titre": "Lettres persanes",
+          "wiki": "Persian Letters",
+          "artiste": "Montesquieu",
+          "annee": "1721",
+          "explication": "Deux Persans voyageant en France livrent un regard naïf et critique sur ses mœurs et ses institutions. Le regard étranger devient une arme satirique.",
+          "contexte": "Roman épistolaire qui inaugure la critique sociale souriante des Lumières.",
+          "elements": ["Le regard étranger et la satire", "Le roman par lettres", "La critique des institutions"]
+        },
+        {
+          "titre": "Candide",
+          "wiki": "Candide",
+          "artiste": "Voltaire",
+          "annee": "1759",
+          "explication": "Un jeune homme naïf parcourt le monde et y rencontre tous les malheurs, ce qui ruine l'optimisme de son maître Pangloss. Conte philosophique éclatant et drôle.",
+          "contexte": "Réponse de Voltaire à l'optimisme leibnizien et au tremblement de terre de Lisbonne.",
+          "elements": ["« Il faut cultiver notre jardin »", "Le conte philosophique", "La satire de l'optimisme béat"]
+        },
+        {
+          "titre": "L'Encyclopédie",
+          "wiki": "Encyclopédie",
+          "artiste": "Diderot et d'Alembert",
+          "annee": "1751",
+          "explication": "Vaste entreprise pour rassembler tout le savoir humain et le diffuser. Monument des Lumières, à la fois somme scientifique et machine de guerre contre les préjugés.",
+          "contexte": "Œuvre collective censurée à plusieurs reprises, elle mobilise les plus grands esprits du siècle.",
+          "elements": ["La diffusion universelle du savoir", "L'esprit critique et la raison", "Une œuvre collective et militante"]
+        },
+        {
+          "titre": "Les Confessions",
+          "wiki": "Confessions (Rousseau)",
+          "artiste": "Jean-Jacques Rousseau",
+          "annee": "1782",
+          "explication": "Rousseau raconte sa vie sans rien dissimuler, prétendant se montrer « dans toute la vérité de la nature ». Acte fondateur de l'autobiographie moderne.",
+          "contexte": "Rousseau annonce déjà la sensibilité préromantique par l'aveu et l'émotion.",
+          "elements": ["L'aveu et la sincérité", "Naissance de l'autobiographie moderne", "La sensibilité préromantique"]
+        },
+        {
+          "titre": "Le Mariage de Figaro",
+          "wiki": "The Marriage of Figaro",
+          "artiste": "Beaumarchais",
+          "annee": "1784",
+          "explication": "Le valet Figaro déjoue les manœuvres de son maître pour épouser Suzanne. Comédie pétillante où le serviteur tient tête au noble : un théâtre frondeur, presque révolutionnaire.",
+          "contexte": "La pièce, longtemps interdite, est lue comme un défi à l'ordre aristocratique d'Ancien Régime.",
+          "elements": ["Le valet qui défie le maître", "Le monologue de Figaro", "L'esprit frondeur des Lumières"]
+        }
+      ],
+      "notion": "Les Lumières : penser par soi-même, douter, défendre la tolérance et le progrès par l'écriture.",
+      "roster": [
+        {"nom": "Voltaire", "niveau": "★", "detail": "Candide, Zadig, le combat philosophique"},
+        {"nom": "Jean-Jacques Rousseau", "niveau": "★", "detail": "Les Confessions, Du contrat social"},
+        {"nom": "Denis Diderot", "niveau": "★", "detail": "L'Encyclopédie, Jacques le fataliste"},
+        {"nom": "Montesquieu", "niveau": "★", "detail": "Lettres persanes, De l'esprit des lois"},
+        {"nom": "Beaumarchais", "niveau": "○", "detail": "Le Mariage de Figaro"},
+        {"nom": "Marivaux", "niveau": "○", "detail": "Le Jeu de l'amour et du hasard"},
+        {"nom": "Le conte philosophique", "niveau": "", "detail": "Récit bref porteur d'idées"},
+        {"nom": "Les Lumières", "niveau": "", "detail": "Raison, tolérance, progrès"}
+      ]
+    },
+    {
+      "num": 6,
+      "titre": "Le Romantisme",
+      "titre_en": "Romanticism",
+      "portee": "Europe, ≈ 1800-1850",
+      "couleur": "#7b2cbf",
+      "idee": "Contre la froide raison classique, le Romantisme exalte le moi, la passion, la nature et la liberté ; le poète devient un mage et un guide.",
+      "oeuvres": [
+        {
+          "titre": "Les Souffrances du jeune Werther",
+          "wiki": "The Sorrows of Young Werther",
+          "artiste": "Johann Wolfgang von Goethe",
+          "annee": "1774",
+          "explication": "Un jeune homme épris d'un amour impossible se laisse consumer jusqu'au suicide. Le roman lance la sensibilité romantique et provoque une vague d'émotion dans toute l'Europe.",
+          "contexte": "Œuvre du mouvement Sturm und Drang, elle annonce le Romantisme par son culte du sentiment.",
+          "elements": ["Le mal de vivre romantique", "Le roman épistolaire", "L'amour absolu et la mort"]
+        },
+        {
+          "titre": "Méditations poétiques",
+          "wiki": "Alphonse de Lamartine",
+          "artiste": "Alphonse de Lamartine",
+          "annee": "1820",
+          "explication": "Recueil lyrique où le poète épanche sa mélancolie et son amour perdu au sein d'une nature complice. Acte de naissance de la poésie romantique française.",
+          "contexte": "Le succès du recueil révèle un public avide d'émotion et d'intimité.",
+          "elements": ["Le lyrisme du moi", "« Le Lac » et la fuite du temps", "La nature confidente"]
+        },
+        {
+          "titre": "Notre-Dame de Paris",
+          "wiki": "The Hunchback of Notre-Dame",
+          "artiste": "Victor Hugo",
+          "annee": "1831",
+          "explication": "Dans le Paris médiéval, le sonneur difforme Quasimodo aime la bohémienne Esmeralda. Vaste fresque romantique mêlant grotesque et sublime autour de la cathédrale.",
+          "contexte": "Hugo applique son esthétique du mélange des genres exposée dans la préface de Cromwell.",
+          "elements": ["Le mélange du grotesque et du sublime", "La cathédrale comme personnage", "Quasimodo et Esmeralda"]
+        },
+        {
+          "titre": "Les Contemplations",
+          "wiki": "Les Contemplations",
+          "artiste": "Victor Hugo",
+          "annee": "1856",
+          "explication": "Recueil en deux parties, « Autrefois » et « Aujourd'hui », séparées par la mort de sa fille Léopoldine. Sommet du lyrisme : du bonheur à la douleur et à la méditation métaphysique.",
+          "contexte": "Écrit en partie pendant l'exil de Hugo opposé à Napoléon III.",
+          "elements": ["Le deuil et le souvenir", "« Demain, dès l'aube »", "Du moi intime au sens du monde"]
+        },
+        {
+          "titre": "Childe Harold",
+          "wiki": "Childe Harold's Pilgrimage",
+          "artiste": "Lord Byron",
+          "annee": "1812",
+          "explication": "Un jeune homme désabusé erre à travers l'Europe en quête de sens. Le poème impose le « héros byronien », mélancolique, révolté et fascinant, modèle du Romantisme européen.",
+          "contexte": "Le succès fait de Byron une célébrité européenne et une figure du poète romantique.",
+          "elements": ["Le héros byronien", "Le voyage et l'errance", "Le spleen et la révolte"]
+        }
+      ],
+      "notion": "Le Romantisme libère le moi, le sentiment et l'imagination contre les règles et la raison.",
+      "roster": [
+        {"nom": "Victor Hugo", "niveau": "★", "detail": "Notre-Dame de Paris, Les Contemplations"},
+        {"nom": "Johann Wolfgang von Goethe", "niveau": "★", "detail": "Werther, Faust"},
+        {"nom": "Alphonse de Lamartine", "niveau": "★", "detail": "Méditations poétiques"},
+        {"nom": "Lord Byron", "niveau": "★", "detail": "Childe Harold, héros byronien"},
+        {"nom": "Alfred de Musset", "niveau": "○", "detail": "Lorenzaccio, les Nuits"},
+        {"nom": "Gérard de Nerval", "niveau": "○", "detail": "Les Chimères, Aurélia"},
+        {"nom": "Chateaubriand", "niveau": "○", "detail": "René, Mémoires d'outre-tombe"},
+        {"nom": "Le lyrisme", "niveau": "", "detail": "Expression du moi et du sentiment"},
+        {"nom": "Le mal du siècle", "niveau": "", "detail": "Mélancolie de la génération romantique"}
+      ],
+      "dossier": "romantisme"
+    },
+    {
+      "num": 7,
+      "titre": "Réalisme et Naturalisme",
+      "titre_en": "Realism & Naturalism",
+      "portee": "Europe, ≈ 1830-1890",
+      "couleur": "#5f6c37",
+      "idee": "Le roman se veut peinture exacte de la société : il observe les milieux, l'argent, les passions, jusqu'à appliquer la méthode scientifique à la fiction.",
+      "oeuvres": [
+        {
+          "titre": "Le Père Goriot",
+          "wiki": "Le Père Goriot",
+          "artiste": "Honoré de Balzac",
+          "annee": "1835",
+          "explication": "Un vieillard se ruine pour ses filles ingrates tandis que le jeune Rastignac apprend les lois cruelles de la société parisienne. Pierre angulaire de La Comédie humaine.",
+          "contexte": "Balzac veut faire « concurrence à l'état civil » en peignant toute la société de son temps.",
+          "elements": ["Le pouvoir de l'argent", "« À nous deux, Paris ! »", "Le retour des personnages"]
+        },
+        {
+          "titre": "Madame Bovary",
+          "wiki": "Madame Bovary",
+          "artiste": "Gustave Flaubert",
+          "annee": "1857",
+          "explication": "Une femme de province, rêvant d'une vie romanesque, s'enlise dans l'adultère et les dettes. Chef-d'œuvre du réalisme par sa précision et son style impersonnel.",
+          "contexte": "Le roman vaut à Flaubert un procès pour outrage à la morale, dont il sort acquitté.",
+          "elements": ["Le bovarysme (l'évasion par le rêve)", "La quête du « mot juste »", "Le style indirect libre"]
+        },
+        {
+          "titre": "Crime et Châtiment",
+          "wiki": "Crime and Punishment",
+          "artiste": "Fiodor Dostoïevski",
+          "annee": "1866",
+          "explication": "Un étudiant pauvre assassine une usurière pour se prouver qu'il est un être supérieur, puis sombre dans la culpabilité. Roman psychologique sur la conscience et la rédemption.",
+          "contexte": "Dostoïevski sonde les abîmes de l'âme dans la Russie de la misère urbaine.",
+          "elements": ["La culpabilité et la rédemption", "Raskolnikov, le « surhomme »", "Le roman polyphonique"]
+        },
+        {
+          "titre": "Guerre et Paix",
+          "wiki": "War and Peace",
+          "artiste": "Léon Tolstoï",
+          "annee": "1869",
+          "explication": "Vaste fresque suivant des familles russes pendant les guerres napoléoniennes. Le roman total mêle l'intime et l'Histoire, la guerre et la paix, le destin et le hasard.",
+          "contexte": "Tolstoï peint l'invasion napoléonienne de 1812 vue d'en bas comme d'en haut.",
+          "elements": ["Le roman total et l'Histoire", "Le destin collectif et individuel", "La bataille de Borodino"]
+        },
+        {
+          "titre": "Germinal",
+          "wiki": "Germinal (novel)",
+          "artiste": "Émile Zola",
+          "annee": "1885",
+          "explication": "Dans le Nord minier, des ouvriers affamés se révoltent et déclenchent une grève écrasée dans le sang. Manifeste du Naturalisme et grand roman de la condition ouvrière.",
+          "contexte": "Zola applique sa méthode naturaliste : documentation, hérédité et milieu social.",
+          "elements": ["La condition ouvrière et la grève", "Le Naturalisme (méthode « scientifique »)", "La mine comme monstre dévorant"]
+        }
+      ],
+      "notion": "Réalisme et Naturalisme veulent dire le vrai : la société, l'argent, le corps, le milieu, sans idéalisation.",
+      "roster": [
+        {"nom": "Honoré de Balzac", "niveau": "★", "detail": "La Comédie humaine, Le Père Goriot"},
+        {"nom": "Gustave Flaubert", "niveau": "★", "detail": "Madame Bovary, L'Éducation sentimentale"},
+        {"nom": "Émile Zola", "niveau": "★", "detail": "Germinal, Les Rougon-Macquart"},
+        {"nom": "Fiodor Dostoïevski", "niveau": "★", "detail": "Crime et Châtiment, Les Frères Karamazov"},
+        {"nom": "Léon Tolstoï", "niveau": "★", "detail": "Guerre et Paix, Anna Karénine"},
+        {"nom": "Guy de Maupassant", "niveau": "○", "detail": "Bel-Ami, contes réalistes"},
+        {"nom": "Stendhal", "niveau": "○", "detail": "Le Rouge et le Noir"},
+        {"nom": "Le Naturalisme", "niveau": "", "detail": "La méthode expérimentale en roman"},
+        {"nom": "Le réalisme", "niveau": "", "detail": "Peinture exacte de la société"}
+      ],
+      "dossier": "realisme"
+    },
+    {
+      "num": 8,
+      "titre": "Symbolisme et poésie moderne",
+      "titre_en": "Symbolism & Modern Poetry",
+      "portee": "France, ≈ 1857-1900",
+      "couleur": "#1d3557",
+      "idee": "La poésie se détourne du récit pour explorer les correspondances, le rêve et la musique des mots ; les « poètes maudits » inventent la modernité.",
+      "oeuvres": [
+        {
+          "titre": "Les Fleurs du mal",
+          "wiki": "Les Fleurs du mal",
+          "artiste": "Charles Baudelaire",
+          "annee": "1857",
+          "explication": "Recueil où le poète arrache la beauté au mal, au spleen et à la ville moderne. Pivot entre Romantisme et modernité, il fonde la poésie urbaine et symboliste.",
+          "contexte": "Le recueil est condamné pour outrage aux mœurs la même année que Madame Bovary.",
+          "elements": ["Spleen et idéal", "Les « correspondances »", "La beauté tirée du mal"]
+        },
+        {
+          "titre": "Une saison en enfer",
+          "wiki": "A Season in Hell",
+          "artiste": "Arthur Rimbaud",
+          "annee": "1873",
+          "explication": "Confession poétique en prose d'une crise intérieure et d'une tentative de « réinventer la vie ». Rimbaud y brûle ses illusions de voyant avant de renoncer à la poésie.",
+          "contexte": "Rimbaud, adolescent prodige, révolutionne la poésie puis l'abandonne avant ses vingt ans.",
+          "elements": ["Le « dérèglement de tous les sens »", "Le poète voyant", "Le poème en prose"]
+        },
+        {
+          "titre": "Romances sans paroles",
+          "wiki": "Paul Verlaine",
+          "artiste": "Paul Verlaine",
+          "annee": "1874",
+          "explication": "Recueil tout en nuances et en musicalité, où le paysage épouse l'état d'âme. Verlaine impose « De la musique avant toute chose » comme art poétique.",
+          "contexte": "Écrit au temps de sa liaison tumultueuse avec Rimbaud.",
+          "elements": ["La musicalité du vers", "Le paysage état d'âme", "« Il pleure dans mon cœur »"]
+        },
+        {
+          "titre": "Un coup de dés",
+          "wiki": "Un coup de dés jamais n'abolira le hasard",
+          "artiste": "Stéphane Mallarmé",
+          "annee": "1897",
+          "explication": "Poème éclaté sur la page, jouant des blancs, des typographies et du hasard. Expérience radicale qui annonce la poésie visuelle et le vers libre du XXᵉ siècle.",
+          "contexte": "Mallarmé, maître du Symbolisme, pousse la poésie vers l'absolu et l'abstraction.",
+          "elements": ["Le blanc et l'espace de la page", "L'absolu et l'idéal du Livre", "L'hermétisme symboliste"]
+        },
+        {
+          "titre": "Feuilles d'herbe",
+          "wiki": "Leaves of Grass",
+          "artiste": "Walt Whitman",
+          "annee": "1855",
+          "explication": "Recueil exalté célébrant le moi, le corps, la démocratie et l'Amérique en vers libres amples. Il libère la poésie de la rime et fonde le lyrisme moderne anglophone.",
+          "contexte": "Whitman, à contre-courant, ouvre la voie au vers libre dans le monde entier.",
+          "elements": ["Le vers libre", "Le « chant de moi-même »", "L'élan démocratique"]
+        }
+      ],
+      "notion": "Le Symbolisme cherche derrière le réel un sens caché et fait de la musique et du symbole les armes du poète.",
+      "roster": [
+        {"nom": "Charles Baudelaire", "niveau": "★", "detail": "Les Fleurs du mal"},
+        {"nom": "Arthur Rimbaud", "niveau": "★", "detail": "Illuminations, Une saison en enfer"},
+        {"nom": "Paul Verlaine", "niveau": "★", "detail": "Poèmes saturniens, Sagesse"},
+        {"nom": "Stéphane Mallarmé", "niveau": "★", "detail": "Un coup de dés, L'Après-midi d'un faune"},
+        {"nom": "Walt Whitman", "niveau": "○", "detail": "Feuilles d'herbe, vers libre"},
+        {"nom": "Lautréamont", "niveau": "○", "detail": "Les Chants de Maldoror"},
+        {"nom": "Les correspondances", "niveau": "", "detail": "Liens secrets entre les sens"},
+        {"nom": "Les poètes maudits", "niveau": "", "detail": "Marginaux et visionnaires"}
+      ]
+    },
+    {
+      "num": 9,
+      "titre": "Le roman moderne",
+      "titre_en": "The Modern Novel",
+      "portee": "Europe, début du XXᵉ siècle",
+      "couleur": "#264653",
+      "idee": "Le roman se réinvente : la mémoire, le monologue intérieur et le temps subjectif remplacent l'intrigue linéaire pour explorer la conscience.",
+      "oeuvres": [
+        {
+          "titre": "À la recherche du temps perdu",
+          "wiki": "In Search of Lost Time",
+          "artiste": "Marcel Proust",
+          "annee": "1913",
+          "explication": "Un narrateur reconstruit sa vie par le jeu de la mémoire involontaire. Œuvre-monde de sept tomes sur le temps, l'art, l'amour et la société qui refonde le roman moderne.",
+          "contexte": "Proust écrit reclus, transformant sa propre vie en cathédrale romanesque.",
+          "elements": ["La mémoire involontaire (la madeleine)", "Le temps retrouvé par l'art", "La phrase longue et sinueuse"]
+        },
+        {
+          "titre": "La Métamorphose",
+          "wiki": "The Metamorphosis",
+          "artiste": "Franz Kafka",
+          "annee": "1915",
+          "explication": "Un employé se réveille changé en insecte monstrueux et devient un fardeau pour sa famille. Fable de l'aliénation et de l'absurde, écrite dans une langue glacée et précise.",
+          "contexte": "Kafka donne forme à l'angoisse de l'individu broyé par le monde moderne.",
+          "elements": ["L'aliénation et l'absurde", "Gregor Samsa, l'insecte", "Le fantastique froid et logique"]
+        },
+        {
+          "titre": "Ulysse",
+          "wiki": "Ulysses (novel)",
+          "artiste": "James Joyce",
+          "annee": "1922",
+          "explication": "Une journée à Dublin recompose, heure par heure, l'odyssée de l'homme ordinaire Leopold Bloom. Sommet de l'expérimentation narrative et du monologue intérieur.",
+          "contexte": "Joyce calque la structure du roman sur l'Odyssée d'Homère.",
+          "elements": ["Le monologue intérieur (flux de conscience)", "Une seule journée (16 juin 1904)", "La calque sur l'Odyssée"]
+        },
+        {
+          "titre": "Mrs Dalloway",
+          "wiki": "Mrs Dalloway",
+          "artiste": "Virginia Woolf",
+          "annee": "1925",
+          "explication": "Une journée dans la vie de Clarissa Dalloway, qui prépare une réception à Londres. La narration glisse d'une conscience à l'autre pour saisir le flux du temps intérieur.",
+          "contexte": "Woolf, figure du groupe de Bloomsbury, renouvelle le roman par l'intériorité.",
+          "elements": ["Le temps intérieur et l'instant", "Le glissement entre consciences", "L'ombre de la guerre"]
+        },
+        {
+          "titre": "Le Procès",
+          "wiki": "The Trial",
+          "artiste": "Franz Kafka",
+          "annee": "1925",
+          "explication": "Joseph K. est arrêté et jugé pour un crime qu'on ne lui révèle jamais. Cauchemar bureaucratique et métaphysique sur la culpabilité et l'absurdité du pouvoir.",
+          "contexte": "Roman inachevé, publié après la mort de Kafka par son ami Max Brod.",
+          "elements": ["La machine bureaucratique", "La culpabilité sans cause", "Le « kafkaïen »"]
+        }
+      ],
+      "notion": "Le roman moderne abandonne l'intrigue classique pour explorer la conscience, la mémoire et le temps.",
+      "roster": [
+        {"nom": "Marcel Proust", "niveau": "★", "detail": "À la recherche du temps perdu"},
+        {"nom": "Franz Kafka", "niveau": "★", "detail": "La Métamorphose, Le Procès"},
+        {"nom": "James Joyce", "niveau": "★", "detail": "Ulysse, Gens de Dublin"},
+        {"nom": "Virginia Woolf", "niveau": "★", "detail": "Mrs Dalloway, Les Vagues"},
+        {"nom": "Thomas Mann", "niveau": "○", "detail": "La Montagne magique"},
+        {"nom": "André Gide", "niveau": "○", "detail": "Les Faux-Monnayeurs"},
+        {"nom": "Le monologue intérieur", "niveau": "", "detail": "Flux de conscience"},
+        {"nom": "Le temps subjectif", "niveau": "", "detail": "La durée vécue contre l'horloge"}
+      ]
+    },
+    {
+      "num": 10,
+      "titre": "Existentialisme et absurde",
+      "titre_en": "Existentialism & the Absurd",
+      "portee": "France, ≈ 1938-1960",
+      "couleur": "#343a40",
+      "idee": "Après les guerres, la littérature interroge un monde sans Dieu ni sens donné : l'homme est libre, donc responsable, face à l'absurde de l'existence.",
+      "oeuvres": [
+        {
+          "titre": "La Nausée",
+          "wiki": "Nausea (novel)",
+          "artiste": "Jean-Paul Sartre",
+          "annee": "1938",
+          "explication": "Un homme éprouve un malaise devant l'existence brute et contingente des choses. Roman-manifeste de l'existentialisme : l'existence précède l'essence.",
+          "contexte": "Sartre transpose sa philosophie en fiction à la veille de la guerre.",
+          "elements": ["La contingence de l'existence", "« L'existence précède l'essence »", "La liberté angoissante"]
+        },
+        {
+          "titre": "L'Étranger",
+          "wiki": "The Stranger (Camus novel)",
+          "artiste": "Albert Camus",
+          "annee": "1942",
+          "explication": "Meursault tue un homme « à cause du soleil » et reste indifférent à son propre procès. Récit blanc et glacé qui incarne le sentiment de l'absurde.",
+          "contexte": "Publié en pleine guerre, le roman impose une voix neuve et déconcertante.",
+          "elements": ["L'indifférence et l'absurde", "« Aujourd'hui, maman est morte »", "L'écriture neutre"]
+        },
+        {
+          "titre": "Le Mythe de Sisyphe",
+          "wiki": "The Myth of Sisyphus",
+          "artiste": "Albert Camus",
+          "annee": "1942",
+          "explication": "Essai philosophique partant d'une seule question : la vie vaut-elle d'être vécue ? Camus y répond par la révolte lucide face à l'absurde, incarnée par Sisyphe heureux.",
+          "contexte": "Pendant essayistique de L'Étranger, il fonde la pensée camusienne de l'absurde.",
+          "elements": ["L'absurde comme point de départ", "« Il faut imaginer Sisyphe heureux »", "La révolte plutôt que le suicide"]
+        },
+        {
+          "titre": "Huis clos",
+          "wiki": "No Exit",
+          "artiste": "Jean-Paul Sartre",
+          "annee": "1944",
+          "explication": "Trois morts enfermés ensemble pour l'éternité se torturent du regard. Pièce où s'exprime la fameuse formule « L'enfer, c'est les autres ».",
+          "contexte": "Le théâtre devient pour Sartre un laboratoire d'idées existentialistes.",
+          "elements": ["« L'enfer, c'est les autres »", "Le regard d'autrui", "Le huis clos comme dispositif"]
+        },
+        {
+          "titre": "En attendant Godot",
+          "wiki": "Waiting for Godot",
+          "artiste": "Samuel Beckett",
+          "annee": "1953",
+          "explication": "Deux vagabonds attendent un certain Godot qui ne vient jamais. Pièce phare du « théâtre de l'absurde », elle vide l'action et le langage de tout sens rassurant.",
+          "contexte": "Beckett, écrivant en français, révolutionne la scène par le dépouillement.",
+          "elements": ["L'attente vaine", "Le théâtre de l'absurde", "Le dépouillement et la répétition"]
+        }
+      ],
+      "notion": "Existentialisme et absurde : sans sens donné, l'homme est condamné à être libre et doit se révolter.",
+      "roster": [
+        {"nom": "Jean-Paul Sartre", "niveau": "★", "detail": "La Nausée, Huis clos, L'Être et le Néant"},
+        {"nom": "Albert Camus", "niveau": "★", "detail": "L'Étranger, La Peste, Le Mythe de Sisyphe"},
+        {"nom": "Samuel Beckett", "niveau": "★", "detail": "En attendant Godot, Fin de partie"},
+        {"nom": "Simone de Beauvoir", "niveau": "○", "detail": "Le Deuxième Sexe, Les Mandarins"},
+        {"nom": "Eugène Ionesco", "niveau": "○", "detail": "La Cantatrice chauve, Rhinocéros"},
+        {"nom": "L'absurde", "niveau": "", "detail": "Le divorce entre l'homme et le monde"},
+        {"nom": "L'existentialisme", "niveau": "", "detail": "L'existence précède l'essence"},
+        {"nom": "Le théâtre de l'absurde", "niveau": "", "detail": "Langage et action vidés de sens"}
+      ]
+    },
+    {
+      "num": 11,
+      "titre": "Nouveau Roman et expérimentations",
+      "titre_en": "Nouveau Roman & Experiments",
+      "portee": "France, ≈ 1950-1970",
+      "couleur": "#457b9d",
+      "idee": "Une génération conteste le roman traditionnel : plus de héros, d'intrigue ni de psychologie classique ; le texte devient laboratoire du regard et de la forme.",
+      "oeuvres": [
+        {
+          "titre": "La Jalousie",
+          "wiki": "Alain Robbe-Grillet",
+          "artiste": "Alain Robbe-Grillet",
+          "annee": "1957",
+          "explication": "Un narrateur invisible, rongé de jalousie, décrit obsessionnellement objets et gestes sans jamais s'exprimer. Manifeste du regard objectif du Nouveau Roman.",
+          "contexte": "Robbe-Grillet théorise le « nouveau roman » et la primauté des choses sur les sentiments.",
+          "elements": ["La description objective des choses", "L'absence de héros et d'intrigue", "Le narrateur effacé"]
+        },
+        {
+          "titre": "Moderato cantabile",
+          "wiki": "Marguerite Duras",
+          "artiste": "Marguerite Duras",
+          "annee": "1958",
+          "explication": "Autour d'un crime passionnel, une femme et un homme tournent en de fragiles dialogues. Récit allusif et musical où le non-dit et le désir priment sur l'action.",
+          "contexte": "Duras développe une écriture du blanc, du silence et de la répétition.",
+          "elements": ["L'écriture du non-dit", "La musicalité et la répétition", "Le désir et l'attente"]
+        },
+        {
+          "titre": "La Modification",
+          "wiki": "La Modification",
+          "artiste": "Michel Butor",
+          "annee": "1957",
+          "explication": "Un homme part rejoindre sa maîtresse à Rome et, dans le train, change peu à peu d'avis. Roman écrit à la deuxième personne (« vous »), exploit formel du Nouveau Roman.",
+          "contexte": "Butor expérimente le point de vue et la temporalité du récit.",
+          "elements": ["Le récit à la 2ᵉ personne (« vous »)", "Le voyage comme cheminement intérieur", "Le temps et la mémoire"]
+        },
+        {
+          "titre": "Exercices de style",
+          "wiki": "Exercises in Style",
+          "artiste": "Raymond Queneau",
+          "annee": "1947",
+          "explication": "Une même anecdote banale racontée 99 fois dans 99 styles différents. Jeu virtuose sur les pouvoirs de la forme, proche de l'esprit de l'Oulipo à venir.",
+          "contexte": "Queneau cofonde plus tard l'Oulipo, atelier de littérature à contraintes.",
+          "elements": ["La forme comme sujet", "Les 99 variations", "L'esprit de l'Oulipo"]
+        },
+        {
+          "titre": "La Vie mode d'emploi",
+          "wiki": "Life: A User's Manual",
+          "artiste": "Georges Perec",
+          "annee": "1978",
+          "explication": "Le roman explore, pièce par pièce, un immeuble parisien et la vie de ses habitants. Construction vertigineuse fondée sur des contraintes oulipiennes savantes.",
+          "contexte": "Perec, membre de l'Oulipo, pousse l'écriture à contraintes jusqu'au roman-monde.",
+          "elements": ["L'écriture à contraintes (Oulipo)", "L'immeuble comme puzzle", "Le foisonnement des récits"]
+        }
+      ],
+      "notion": "Le Nouveau Roman et l'Oulipo font de la forme et de la contrainte le vrai sujet du texte.",
+      "roster": [
+        {"nom": "Alain Robbe-Grillet", "niveau": "★", "detail": "La Jalousie, théoricien du Nouveau Roman"},
+        {"nom": "Nathalie Sarraute", "niveau": "★", "detail": "Tropismes, L'Ère du soupçon"},
+        {"nom": "Marguerite Duras", "niveau": "★", "detail": "Moderato cantabile, L'Amant"},
+        {"nom": "Michel Butor", "niveau": "○", "detail": "La Modification"},
+        {"nom": "Claude Simon", "niveau": "○", "detail": "La Route des Flandres, Nobel 1985"},
+        {"nom": "Georges Perec", "niveau": "★", "detail": "La Vie mode d'emploi, La Disparition"},
+        {"nom": "Raymond Queneau", "niveau": "○", "detail": "Exercices de style, Zazie dans le métro"},
+        {"nom": "L'Oulipo", "niveau": "", "detail": "Littérature à contraintes"},
+        {"nom": "Le Nouveau Roman", "niveau": "", "detail": "Refus du héros et de l'intrigue"}
+      ]
+    },
+    {
+      "num": 12,
+      "titre": "Littératures contemporaines et monde",
+      "titre_en": "Contemporary & World Literature",
+      "portee": "Monde, de 1945 à nos jours",
+      "couleur": "#bc4749",
+      "idee": "La littérature s'ouvre au monde entier : réalisme magique, voix postcoloniales et mémoires longtemps tues élargissent la carte des grandes œuvres.",
+      "oeuvres": [
+        {
+          "titre": "Cent ans de solitude",
+          "wiki": "One Hundred Years of Solitude",
+          "artiste": "Gabriel García Márquez",
+          "annee": "1967",
+          "explication": "Saga de la famille Buendía dans le village imaginaire de Macondo, où le merveilleux côtoie le quotidien. Chef-d'œuvre du réalisme magique latino-américain.",
+          "contexte": "Le roman porte le « boom » latino-américain à la reconnaissance mondiale.",
+          "elements": ["Le réalisme magique", "Macondo et la famille Buendía", "Le temps cyclique"]
+        },
+        {
+          "titre": "Beloved",
+          "wiki": "Beloved (novel)",
+          "artiste": "Toni Morrison",
+          "annee": "1987",
+          "explication": "Une ancienne esclave est hantée par le fantôme de l'enfant qu'elle a tuée pour lui épargner l'esclavage. Roman bouleversant sur la mémoire de l'esclavage aux États-Unis.",
+          "contexte": "Morrison reçoit le prix Nobel en 1993 ; son œuvre donne voix à l'expérience afro-américaine.",
+          "elements": ["La mémoire de l'esclavage", "Le fantôme et le traumatisme", "La voix afro-américaine"]
+        },
+        {
+          "titre": "Les Versets sataniques",
+          "wiki": "The Satanic Verses",
+          "artiste": "Salman Rushdie",
+          "annee": "1988",
+          "explication": "Deux Indiens survivent à un crash et voient leur identité se métamorphoser entre Bombay et Londres. Roman foisonnant sur l'exil, la foi et l'hybridité culturelle.",
+          "contexte": "L'œuvre déclenche une fatwa contre son auteur, devenant un symbole de la liberté d'écrire.",
+          "elements": ["L'exil et l'hybridité", "Migration et identité", "Le mélange du réel et du fantastique"]
+        },
+        {
+          "titre": "En finir avec Eddy Bellegueule",
+          "wiki": "Édouard Louis",
+          "artiste": "Édouard Louis",
+          "annee": "2014",
+          "explication": "Récit autobiographique d'une enfance pauvre et homosexuelle dans la France du Nord. Exemple marquant de l'autofiction sociale contemporaine.",
+          "contexte": "L'œuvre relie littérature et enquête sur les violences sociales actuelles.",
+          "elements": ["L'autofiction sociale", "La violence de classe", "L'écriture du témoignage"]
+        },
+        {
+          "titre": "Les Années",
+          "wiki": "The Years (Ernaux book)",
+          "artiste": "Annie Ernaux",
+          "annee": "2008",
+          "explication": "Autobiographie collective qui mêle la vie de l'auteure à la mémoire d'une génération, de l'après-guerre à nos jours. « Je » impersonnel et flux des images d'époque.",
+          "contexte": "Ernaux reçoit le prix Nobel en 2022 pour son écriture de la mémoire intime et sociale.",
+          "elements": ["La mémoire collective et intime", "Le « je » impersonnel", "L'écriture sociologique"]
+        }
+      ],
+      "notion": "La littérature contemporaine devient mondiale : réalisme magique, voix postcoloniales et écriture de soi.",
+      "roster": [
+        {"nom": "Gabriel García Márquez", "niveau": "★", "detail": "Cent ans de solitude"},
+        {"nom": "Toni Morrison", "niveau": "★", "detail": "Beloved, Nobel 1993"},
+        {"nom": "Salman Rushdie", "niveau": "○", "detail": "Les Enfants de minuit, Les Versets sataniques"},
+        {"nom": "Annie Ernaux", "niveau": "★", "detail": "Les Années, Nobel 2022"},
+        {"nom": "Jorge Luis Borges", "niveau": "○", "detail": "Fictions, l'écrivain-bibliothèque"},
+        {"nom": "Milan Kundera", "niveau": "○", "detail": "L'Insoutenable Légèreté de l'être"},
+        {"nom": "Édouard Louis", "niveau": "○", "detail": "En finir avec Eddy Bellegueule"},
+        {"nom": "Le réalisme magique", "niveau": "", "detail": "Le merveilleux dans le quotidien"},
+        {"nom": "L'autofiction", "niveau": "", "detail": "Le soi comme matière romanesque"},
+        {"nom": "Les littératures postcoloniales", "niveau": "", "detail": "Voix de l'exil et des anciens empires"}
+      ]
+    }
+  ]
+}

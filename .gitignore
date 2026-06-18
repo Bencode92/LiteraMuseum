@@ -1,0 +1,7 @@
+# Échanges générés par le guide IA (locaux)
+data/notes.json
+
+# macOS / éditeurs
+.DS_Store
+node_modules/
+*.log

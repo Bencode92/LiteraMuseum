@@ -1,0 +1,300 @@
+{
+  "dossiers": [
+    {
+      "id": "romantisme",
+      "titre": "Le romantisme",
+      "periode": "≈ 1800-1850",
+      "sous_titre": "La révolte du sentiment et la libération du moi",
+      "recit": [
+        {
+          "h": "Naissance d'une révolte",
+          "p": "Le romantisme naît au tournant du XIXᵉ siècle d'un refus : celui de la froide raison classique et de ses règles. Après les bouleversements de la Révolution française et de l'épopée napoléonienne, une génération se sent à la fois grisée d'idéal et orpheline de certitudes. Elle réclame le droit d'exprimer ses passions, ses doutes et ses rêves. La littérature cesse d'imiter les Anciens pour chanter l'individu et son intériorité."
+        },
+        {
+          "h": "Le culte du moi et du sentiment",
+          "p": "Au cœur du romantisme règne le « moi ». Le poète parle en son nom, étale ses joies et surtout ses peines, persuadé qu'en disant son cœur il atteint l'universel. Lamartine pleure son amour perdu au bord du lac, Hugo médite sur la mort de sa fille. La mélancolie devient une valeur : ce « mal du siècle » qui ronge les jeunes héros est le revers d'un trop-plein d'aspirations dans un monde qui les déçoit."
+        },
+        {
+          "h": "La nature et le grand large",
+          "p": "Contre la ville et la convention, les romantiques se tournent vers la nature : montagnes, tempêtes, forêts et ruines deviennent le miroir de l'âme. Le paysage n'est plus décor mais confident, écho de la tristesse ou de l'exaltation du poète. Le goût de l'exotisme, du voyage et de l'ailleurs traduit la même soif d'évasion et d'infini."
+        },
+        {
+          "h": "Hugo et la bataille du théâtre",
+          "p": "En France, Victor Hugo devient le chef de file du mouvement. Dans la préface de Cromwell, il réclame la liberté de mêler le sublime et le grotesque, le rire et les larmes, comme dans la vie. La première d'Hernani, en 1830, tourne à la bataille rangée entre Anciens et Modernes : le romantisme triomphe sur la scène et impose sa liberté formelle."
+        },
+        {
+          "h": "Un mouvement européen",
+          "p": "Le romantisme est avant tout un phénomène européen. L'Allemagne lui donne ses premiers feux avec Goethe et le Sturm und Drang, l'Angleterre ses poètes — Byron, Wordsworth, Keats —, l'Italie et la Russie leurs voix. Partout, c'est la même exaltation de la liberté, individuelle et politique : beaucoup de romantiques épousent les causes nationales et révolutionnaires de leur temps."
+        },
+        {
+          "h": "Héritage",
+          "p": "Le romantisme épuise sa veine vers le milieu du siècle, débordé par le réalisme qui lui reproche ses excès et ses larmes. Mais il a tout changé : il a libéré le moi, élargi la langue poétique, légitimé le sentiment et l'imagination. De Baudelaire au surréalisme, toute la modernité littéraire reste son héritière, fût-ce pour le contredire."
+        }
+      ],
+      "carte": [
+        ["Dates", "≈ 1800-1850"],
+        ["Berceau", "Allemagne et Angleterre, puis France"],
+        ["Mot d'ordre", "Liberté de l'art et expression du moi"],
+        ["Genres rois", "Poésie lyrique, drame, roman"],
+        ["Adversaire", "Le classicisme et ses règles"]
+      ],
+      "contexte": [
+        "Onde de choc de la Révolution française et des guerres napoléoniennes.",
+        "Montée de l'individu et de la sensibilité contre la raison des Lumières.",
+        "Essor des nationalismes et des révolutions de 1830 et 1848.",
+        "Découverte du Moyen Âge et du gothique, redevenus sources d'inspiration.",
+        "Industrialisation naissante, contre laquelle on exalte la nature."
+      ],
+      "phrase": "« Le romantisme, c'est le libéralisme en littérature. » (Victor Hugo)",
+      "oeuvres": [
+        {
+          "titre": "Les Contemplations",
+          "wiki": "Les Contemplations",
+          "artiste": "Victor Hugo",
+          "annee": "1856",
+          "genie": "Faire d'un deuil intime — la mort de sa fille — la matière d'une méditation universelle sur le temps et la mort.",
+          "analyse": "Le recueil se brise en deux : « Autrefois », lumineux, et « Aujourd'hui », endeuillé, séparés par la disparition de Léopoldine. Hugo y déploie tous les registres du lyrisme, du souvenir tendre (« Demain, dès l'aube ») à l'interrogation métaphysique. La douleur personnelle s'y mue en chant sur la condition humaine."
+        },
+        {
+          "titre": "Méditations poétiques",
+          "wiki": "Alphonse de Lamartine",
+          "artiste": "Alphonse de Lamartine",
+          "annee": "1820",
+          "genie": "Inventer le ton de la poésie romantique française : une voix qui se confie, musicale et mélancolique.",
+          "analyse": "Avec « Le Lac », Lamartine fixe pour des générations l'image du poète au bord de l'eau implorant le temps de suspendre son vol. Le succès immense du recueil révèle l'attente d'un public avide d'émotion et d'intimité, et marque l'acte de naissance officiel du romantisme poétique en France."
+        },
+        {
+          "titre": "Les Souffrances du jeune Werther",
+          "wiki": "The Sorrows of Young Werther",
+          "artiste": "Johann Wolfgang von Goethe",
+          "annee": "1774",
+          "genie": "Donner corps, avant l'heure, au héros romantique : un cœur trop grand pour le monde, jusqu'au suicide.",
+          "analyse": "Ce court roman par lettres fit pleurer toute l'Europe et déclencha une mode — vêtements, suicides imités. Goethe y peint l'amour absolu et impossible et l'incompatibilité du sentiment avec la société. Œuvre du Sturm und Drang, elle annonce le romantisme par son culte du sentiment et de l'individu."
+        }
+      ],
+      "artistes": [
+        {
+          "nom": "Victor Hugo",
+          "wiki": "Victor Hugo",
+          "dates": "1802-1885",
+          "niveau": "★",
+          "portrait": "Géant des lettres françaises, poète, romancier et dramaturge, Hugo incarne à lui seul le romantisme puis le rôle de l'écrivain engagé. Sa vie épouse tout le siècle, de la monarchie à la République.",
+          "bio_sections": [
+            {
+              "h": "Le chef de file",
+              "p": "Dès les années 1820, Hugo s'impose comme le porte-drapeau du romantisme. La préface de Cromwell (1827) sert de manifeste, et la bataille d'Hernani (1830) consacre sa victoire sur les classiques. Il mêle hardiment les genres et libère le vers."
+            },
+            {
+              "h": "L'exil et l'engagement",
+              "p": "Opposé au coup d'État de Louis-Napoléon Bonaparte, Hugo s'exile près de vingt ans à Guernesey. De là, il écrit certaines de ses plus grandes œuvres — Les Châtiments, Les Contemplations, Les Misérables — et devient la conscience morale de la nation."
+            },
+            {
+              "h": "Une œuvre-monde",
+              "p": "Poésie, roman, théâtre, dessin, combat politique : Hugo a tout embrassé. À sa mort, des funérailles nationales rassemblent des centaines de milliers de personnes ; il entre au Panthéon, symbole de l'écrivain devenu héros du peuple."
+            }
+          ]
+        },
+        {
+          "nom": "Johann Wolfgang von Goethe",
+          "wiki": "Johann Wolfgang von Goethe",
+          "dates": "1749-1832",
+          "niveau": "★",
+          "portrait": "Figure majeure de la littérature allemande et européenne, Goethe a traversé les Lumières et le romantisme. Son Faust et son Werther en font l'un des esprits universels de son temps.",
+          "bio_sections": [
+            {
+              "h": "Du Sturm und Drang au classicisme",
+              "p": "Le jeune Goethe lance, avec Werther, la sensibilité préromantique du Sturm und Drang. Mûr, il évolue vers un classicisme allemand, à Weimar, fait d'équilibre et de mesure, sans jamais cesser d'explorer toutes les formes."
+            },
+            {
+              "h": "Faust, l'œuvre d'une vie",
+              "p": "Goethe travaille à Faust pendant près de soixante ans. Le savant qui vend son âme au diable pour connaître et jouir de tout devient un mythe moderne, miroir des aspirations et des inquiétudes de l'homme romantique."
+            }
+          ]
+        },
+        {
+          "nom": "Lord Byron",
+          "wiki": "Lord Byron",
+          "dates": "1788-1824",
+          "niveau": "★",
+          "portrait": "Poète anglais à la vie aussi célèbre que l'œuvre, Byron incarne le romantisme flamboyant et scandaleux. Sa figure de héros mélancolique et révolté a fasciné toute l'Europe.",
+          "bio_sections": [
+            {
+              "h": "Le héros byronien",
+              "p": "Avec Childe Harold puis Don Juan, Byron impose un type de héros sombre, orgueilleux et désabusé, marqué par une faute secrète. Ce « héros byronien » essaime dans toute la littérature européenne."
+            },
+            {
+              "h": "Une mort engagée",
+              "p": "Fidèle à l'idéal romantique de liberté, Byron s'engage dans la guerre d'indépendance grecque et meurt de fièvre à Missolonghi en 1824. Sa fin fait de lui un martyr de la cause des peuples."
+            }
+          ]
+        }
+      ],
+      "memos": [
+        "Romantisme = liberté de l'art + expression du moi contre les règles classiques.",
+        "Mots-clés : lyrisme, mélancolie, nature, mal du siècle, exotisme.",
+        "Hugo en France, Goethe en Allemagne, Byron en Angleterre.",
+        "Hernani (1830) : la bataille qui fait triompher le drame romantique."
+      ],
+      "autotest": [
+        "Quels arguments le romantisme oppose-t-il au classicisme ?",
+        "Qu'appelle-t-on le « mal du siècle » et chez quels héros le repère-t-on ?",
+        "En quoi la nature change-t-elle de rôle chez les romantiques ?",
+        "Pourquoi la bataille d'Hernani est-elle un moment-clé ?"
+      ],
+      "liens": {
+        "d_ou": "Il prolonge la sensibilité des Lumières (Rousseau) et le Sturm und Drang allemand, en rupture avec le classicisme du XVIIᵉ siècle.",
+        "mene": "Il prépare Baudelaire et le symbolisme, et provoque par réaction le réalisme, qui lui reproche ses excès sentimentaux."
+      }
+    },
+    {
+      "id": "realisme",
+      "titre": "Le roman réaliste et naturaliste",
+      "periode": "≈ 1830-1890",
+      "sous_titre": "Peindre la société telle qu'elle est",
+      "recit": [
+        {
+          "h": "Le réel pour programme",
+          "p": "Vers 1830, las des envolées romantiques, des écrivains décident de peindre la société telle qu'elle est : ses milieux, son argent, ses ambitions et ses misères. Le roman se fait observation, presque enquête. L'écrivain prétend tendre un miroir au monde et noter ce qu'il y voit, sans l'embellir ni le condamner d'avance."
+        },
+        {
+          "h": "Balzac et la Comédie humaine",
+          "p": "Honoré de Balzac est le grand bâtisseur du réalisme. Dans La Comédie humaine, il veut faire « concurrence à l'état civil » : des centaines de personnages reviennent d'un roman à l'autre, composant une fresque complète de la société française post-révolutionnaire. L'argent y est le véritable moteur des destins, et l'arrivisme la grande passion du siècle."
+        },
+        {
+          "h": "Flaubert et le culte du style",
+          "p": "Avec Flaubert, le réalisme atteint sa perfection formelle. Dans Madame Bovary, il dépeint sans complaisance la médiocrité provinciale et les rêves d'évasion d'Emma. Mais Flaubert ajoute une exigence nouvelle : l'impersonnalité et la recherche obsessionnelle du « mot juste ». L'auteur doit être « comme Dieu dans l'univers, présent partout et visible nulle part »."
+        },
+        {
+          "h": "Zola et la méthode naturaliste",
+          "p": "Émile Zola pousse le réalisme jusqu'au naturalisme : il veut appliquer au roman la méthode des sciences. Hérédité, milieu social et déterminisme expliquent ses personnages. Dans Les Rougon-Macquart, il suit une famille à travers le Second Empire ; Germinal donne au monde ouvrier et à la misère une puissance épique inédite."
+        },
+        {
+          "h": "Le grand roman européen",
+          "p": "Le réalisme est une affaire européenne. En Russie, Dostoïevski sonde les abîmes de la conscience et de la culpabilité, tandis que Tolstoï peint, dans Guerre et Paix, une fresque totale où s'entrelacent l'intime et l'Histoire. En Angleterre, Dickens dénonce les injustices de la société industrielle. Partout, le roman devient le grand genre du siècle."
+        },
+        {
+          "h": "Héritage",
+          "p": "À la fin du siècle, le naturalisme s'essouffle et de nouvelles écritures — symbolisme, roman psychologique — prennent le relais. Mais le réalisme a durablement imposé le roman comme miroir de la société et laboratoire de l'âme. Sa volonté de vérité, son sens du détail et sa peinture des milieux irriguent encore le roman contemporain."
+        }
+      ],
+      "carte": [
+        ["Dates", "≈ 1830-1890"],
+        ["Foyers", "France et Russie au premier rang"],
+        ["Mot d'ordre", "Peindre le vrai, sans idéaliser"],
+        ["Genre roi", "Le roman"],
+        ["Pointe extrême", "Le naturalisme (méthode « scientifique »)"]
+      ],
+      "contexte": [
+        "Révolution industrielle, essor de la bourgeoisie et de l'argent.",
+        "Naissance des sciences sociales et de l'esprit positiviste.",
+        "Urbanisation et apparition d'une classe ouvrière nombreuse.",
+        "Progrès de la presse et du roman-feuilleton, qui élargit le public.",
+        "Réaction contre l'idéalisme et le sentimentalisme romantiques."
+      ],
+      "phrase": "« Un roman est un miroir que l'on promène le long d'un chemin. » (formule attribuée à Stendhal)",
+      "oeuvres": [
+        {
+          "titre": "Madame Bovary",
+          "wiki": "Madame Bovary",
+          "artiste": "Gustave Flaubert",
+          "annee": "1857",
+          "genie": "Atteindre l'universel à partir de la plus plate banalité provinciale, par la seule perfection du style.",
+          "analyse": "Emma Bovary, nourrie de romans, étouffe dans sa vie de femme de médecin de campagne et se perd dans l'adultère et les dettes. Flaubert invente le « bovarysme », cette fuite dans le rêve, et porte au plus haut le style indirect libre. Le roman, jugé pour immoralité, devient le modèle du réalisme."
+        },
+        {
+          "titre": "Le Père Goriot",
+          "wiki": "Le Père Goriot",
+          "artiste": "Honoré de Balzac",
+          "annee": "1835",
+          "genie": "Faire d'une pension parisienne un théâtre où se jouent l'argent, l'ambition et l'ingratitude de tout un monde.",
+          "analyse": "Le vieux Goriot se ruine pour ses filles qui le méprisent, pendant que le jeune Rastignac s'initie aux lois impitoyables de Paris. Roman clé de La Comédie humaine, il consacre la technique du retour des personnages et la peinture des forces sociales, l'argent en tête."
+        },
+        {
+          "titre": "Germinal",
+          "wiki": "Germinal (novel)",
+          "artiste": "Émile Zola",
+          "annee": "1885",
+          "genie": "Donner à la misère ouvrière et à la grève une ampleur épique, presque mythologique.",
+          "analyse": "Dans le bassin minier du Nord, des ouvriers affamés se révoltent et déclenchent une grève écrasée dans le sang. Zola applique sa méthode naturaliste — documentation, hérédité, milieu — mais y mêle un souffle visionnaire : la mine devient un monstre, la foule une force tellurique."
+        },
+        {
+          "titre": "Crime et Châtiment",
+          "wiki": "Crime and Punishment",
+          "artiste": "Fiodor Dostoïevski",
+          "annee": "1866",
+          "genie": "Faire du roman un théâtre de la conscience, où le crime devient une expérience métaphysique.",
+          "analyse": "Raskolnikov, étudiant pauvre, assassine une usurière pour se prouver qu'il est un être supérieur, puis sombre dans le tourment moral. Dostoïevski déploie une psychologie vertigineuse et un roman « polyphonique » où s'affrontent les voix et les idées, du crime à la rédemption."
+        }
+      ],
+      "artistes": [
+        {
+          "nom": "Honoré de Balzac",
+          "wiki": "Honoré de Balzac",
+          "dates": "1799-1850",
+          "niveau": "★",
+          "portrait": "Romancier titanesque, Balzac a voulu enfermer toute la société de son temps dans une seule œuvre, La Comédie humaine. Travailleur acharné, il écrivait des nuits entières, soutenu par des flots de café.",
+          "bio_sections": [
+            {
+              "h": "La Comédie humaine",
+              "p": "Balzac conçoit un projet démesuré : peindre, en plus de quatre-vingt-dix romans, l'ensemble des « espèces sociales » de la France de son époque. Les personnages y reviennent d'un livre à l'autre, tissant un monde cohérent et grouillant."
+            },
+            {
+              "h": "Le romancier de l'argent",
+              "p": "Personne n'a su comme lui dire le poids de l'argent, des dettes et de l'ambition sur les destinées. Lui-même criblé de dettes, il connaissait de l'intérieur les ressorts qu'il dépeignait avec une lucidité féroce."
+            }
+          ]
+        },
+        {
+          "nom": "Gustave Flaubert",
+          "wiki": "Gustave Flaubert",
+          "dates": "1821-1880",
+          "niveau": "★",
+          "portrait": "Maître absolu du style, Flaubert a fait du roman un art exigeant. Reclus à Croisset, il pesait chaque phrase, lisant ses textes à voix haute pour en éprouver la musique au « gueuloir ».",
+          "bio_sections": [
+            {
+              "h": "Le martyr du style",
+              "p": "Flaubert pouvait passer une semaine sur une page, en quête du « mot juste ». Son idéal d'impersonnalité — l'auteur invisible derrière son œuvre — a profondément marqué le roman moderne."
+            },
+            {
+              "h": "Le procès de Madame Bovary",
+              "p": "Accusé d'outrage à la morale en 1857, Flaubert est acquitté, et le scandale fait la fortune du livre. Le roman devient aussitôt la référence du réalisme et un modèle d'écriture."
+            }
+          ]
+        },
+        {
+          "nom": "Émile Zola",
+          "wiki": "Émile Zola",
+          "dates": "1840-1902",
+          "niveau": "★",
+          "portrait": "Chef de file du naturalisme et écrivain engagé, Zola a voulu faire du roman une science de l'homme et de la société. Son nom reste aussi attaché au combat pour la justice avec « J'accuse… ! ».",
+          "bio_sections": [
+            {
+              "h": "Les Rougon-Macquart",
+              "p": "En vingt romans, Zola suit une famille sous le Second Empire pour étudier l'« hérédité » et l'influence du milieu. Germinal, L'Assommoir ou Nana en sont les sommets, peignant le peuple comme jamais auparavant."
+            },
+            {
+              "h": "L'affaire Dreyfus",
+              "p": "En 1898, Zola publie « J'accuse… ! » pour défendre le capitaine Dreyfus injustement condamné. Cet acte le contraint à l'exil mais fait de lui le modèle de l'intellectuel engagé."
+            }
+          ]
+        }
+      ],
+      "memos": [
+        "Réalisme = peindre la société sans l'idéaliser ; le roman est roi.",
+        "Naturalisme = réalisme + méthode « scientifique » (hérédité, milieu) chez Zola.",
+        "Balzac (l'argent), Flaubert (le style), Zola (le peuple et la méthode).",
+        "Russie : Dostoïevski (la conscience) et Tolstoï (le roman total)."
+      ],
+      "autotest": [
+        "Quelle différence faites-vous entre réalisme et naturalisme ?",
+        "Qu'est-ce que le « bovarysme » ?",
+        "En quoi consiste le projet de La Comédie humaine ?",
+        "Quel rôle joue l'argent dans le roman réaliste ?"
+      ],
+      "liens": {
+        "d_ou": "Il réagit contre le romantisme, jugé trop sentimental, et s'appuie sur l'essor des sciences et de la société bourgeoise.",
+        "mene": "Il prépare le roman psychologique et, par réaction, le symbolisme, puis nourrit toute la tradition du grand roman réaliste jusqu'à aujourd'hui."
+      }
+    }
+  ]
+}

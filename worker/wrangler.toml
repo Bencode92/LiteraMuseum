@@ -1,0 +1,10 @@
+name = "benmuseum-guide"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+# Modèle Claude (optionnel — sinon claude-sonnet-4-6 par défaut)
+[vars]
+MODEL = "claude-sonnet-4-6"
+
+# La clé NE se met PAS ici. C'est un secret :
+#   wrangler secret put ANTHROPIC_API_KEY

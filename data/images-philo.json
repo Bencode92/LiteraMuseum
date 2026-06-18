@@ -1,0 +1,498 @@
+{
+  "Heraclitus": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/24/Heraclitus_b_4_compressed.jpg",
+    "thumb_w": 768,
+    "thumb_h": 963,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Heraclitus_b_4_compressed.jpg",
+    "w": 768,
+    "h": 963
+  },
+  "Parmenides": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Busto_di_Parmenide_%28cropped%29.jpg/1280px-Busto_di_Parmenide_%28cropped%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1214,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Busto_di_Parmenide_%28cropped%29.jpg",
+    "w": 1410,
+    "h": 1712
+  },
+  "Pythagoras": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Pythagoras_in_the_Roman_Forum%2C_Colosseum.jpg/1280px-Pythagoras_in_the_Roman_Forum%2C_Colosseum.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1447,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Pythagoras_in_the_Roman_Forum%2C_Colosseum.jpg",
+    "w": 2862,
+    "h": 4140
+  },
+  "Zeno of Elea": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Portretbuste_van_Zeno_van_Elea_Paradigmata_graphices_variorum_artificum_%28serietitel%29%2C_RP-P-1907-4495.jpg/1280px-Portretbuste_van_Zeno_van_Elea_Paradigmata_graphices_variorum_artificum_%28serietitel%29%2C_RP-P-1907-4495.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1440,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Portretbuste_van_Zeno_van_Elea_Paradigmata_graphices_variorum_artificum_%28serietitel%29%2C_RP-P-1907-4495.jpg",
+    "w": 4222,
+    "h": 6080
+  },
+  "Democritus": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/7/76/Unknown_greek_pushkin.jpg",
+    "thumb_w": 830,
+    "thumb_h": 1126,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/76/Unknown_greek_pushkin.jpg",
+    "w": 830,
+    "h": 1126
+  },
+  "Plato": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Plato_Silanion_Musei_Capitolini_MC1377.png/1280px-Plato_Silanion_Musei_Capitolini_MC1377.png",
+    "thumb_w": 1000,
+    "thumb_h": 1500,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Plato_Silanion_Musei_Capitolini_MC1377.png",
+    "w": 2400,
+    "h": 3600
+  },
+  "The Republic (Plato)": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Politeia_beginning._Codex_Parisinus_graecus_1807.jpg/1280px-Politeia_beginning._Codex_Parisinus_graecus_1807.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1449,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Politeia_beginning._Codex_Parisinus_graecus_1807.jpg",
+    "w": 1613,
+    "h": 2337
+  },
+  "Symposium (Plato)": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Plato_Symposium_papyrus.jpg",
+    "thumb_w": 621,
+    "thumb_h": 572,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Plato_Symposium_papyrus.jpg",
+    "w": 621,
+    "h": 572
+  },
+  "Phaedo": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Platonos_Phaedon.JPG",
+    "thumb_w": 732,
+    "thumb_h": 356,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Platonos_Phaedon.JPG",
+    "w": 732,
+    "h": 356
+  },
+  "Metaphysics (Aristotle)": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Meta-moerbeke_jpeg031-part.jpg",
+    "thumb_w": 596,
+    "thumb_h": 342,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Meta-moerbeke_jpeg031-part.jpg",
+    "w": 596,
+    "h": 342
+  },
+  "Nicomachean Ethics": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/8/82/Aristotelis_De_Moribus_ad_Nicomachum.jpg",
+    "thumb_w": 730,
+    "thumb_h": 1025,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Aristotelis_De_Moribus_ad_Nicomachum.jpg",
+    "w": 730,
+    "h": 1025
+  },
+  "Organon": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Aristotele%2C_organon%2C_XIII_secolo_%28bml%2C_pluteo_11_sin_1%29_01.jpg/1280px-Aristotele%2C_organon%2C_XIII_secolo_%28bml%2C_pluteo_11_sin_1%29_01.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 593,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Aristotele%2C_organon%2C_XIII_secolo_%28bml%2C_pluteo_11_sin_1%29_01.jpg",
+    "w": 4584,
+    "h": 2718
+  },
+  "Aristotle": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Aristotle_Altemps_Inv8575.jpg/1280px-Aristotle_Altemps_Inv8575.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1338,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Aristotle_Altemps_Inv8575.jpg",
+    "w": 1700,
+    "h": 2275
+  },
+  "Physics (Aristotle)": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Aristotle_Physica_page_1.png",
+    "thumb_w": 525,
+    "thumb_h": 774,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Aristotle_Physica_page_1.png",
+    "w": 525,
+    "h": 774
+  },
+  "Epicurus": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Epikouros_BM_1843.jpg/1280px-Epikouros_BM_1843.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1500,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Epikouros_BM_1843.jpg",
+    "w": 2533,
+    "h": 3800
+  },
+  "Enchiridion of Epictetus": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Epictetus_Enchiridion_1683_page1.jpg",
+    "thumb_w": 825,
+    "thumb_h": 1500,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Epictetus_Enchiridion_1683_page1.jpg",
+    "w": 825,
+    "h": 1500
+  },
+  "Meditations": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Marcus_Aurelius._De_seipso%2C_seu_vita_sua_%28Xylander%2C_1558%29.jpg/1280px-Marcus_Aurelius._De_seipso%2C_seu_vita_sua_%28Xylander%2C_1558%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1657,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Marcus_Aurelius._De_seipso%2C_seu_vita_sua_%28Xylander%2C_1558%29.jpg",
+    "w": 3374,
+    "h": 5592
+  },
+  "De rerum natura": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Lucretius%2C_De_rerum_natura.jpg",
+    "thumb_w": 1005,
+    "thumb_h": 1521,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Lucretius%2C_De_rerum_natura.jpg",
+    "w": 1005,
+    "h": 1521
+  },
+  "Sextus Empiricus": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Sexti_Empirici_Adversus_mathematicos.djvu/page1-1280px-Sexti_Empirici_Adversus_mathematicos.djvu.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1544,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Sexti_Empirici_Adversus_mathematicos.djvu",
+    "w": 2048,
+    "h": 3162
+  },
+  "Enneads": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Plotin.jpg",
+    "thumb_w": 513,
+    "thumb_h": 792,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Plotin.jpg",
+    "w": 513,
+    "h": 792
+  },
+  "Confessions (Augustine)": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Augustine_Confessiones.jpg",
+    "thumb_w": 227,
+    "thumb_h": 350,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Augustine_Confessiones.jpg",
+    "w": 227,
+    "h": 350
+  },
+  "Summa Theologica": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/7/78/SummaTheologiae.jpg",
+    "thumb_w": 625,
+    "thumb_h": 800,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/78/SummaTheologiae.jpg",
+    "w": 625,
+    "h": 800
+  },
+  "The Consolation of Philosophy": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Boethius%2C_Consolatio_philosophiae_%28French%29.jpg/1280px-Boethius%2C_Consolatio_philosophiae_%28French%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1406,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Boethius%2C_Consolatio_philosophiae_%28French%29.jpg",
+    "w": 2521,
+    "h": 3545
+  },
+  "The Guide for the Perplexed": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/9/90/Manuscript_page_by_Maimonides_Arabic_in_Hebrew_letters.jpg",
+    "thumb_w": 1129,
+    "thumb_h": 1234,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Manuscript_page_by_Maimonides_Arabic_in_Hebrew_letters.jpg",
+    "w": 1129,
+    "h": 1234
+  },
+  "Meditations on First Philosophy": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/7/77/Meditationes_de_prima_philosophia_1641.jpg",
+    "thumb_w": 966,
+    "thumb_h": 1566,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Meditationes_de_prima_philosophia_1641.jpg",
+    "w": 966,
+    "h": 1566
+  },
+  "Discourse on the Method": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Descartes_Discours_de_la_Methode.jpg",
+    "thumb_w": 429,
+    "thumb_h": 584,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Descartes_Discours_de_la_Methode.jpg",
+    "w": 429,
+    "h": 584
+  },
+  "Ethics (Spinoza)": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Spinoza_Ethica.jpg",
+    "thumb_w": 976,
+    "thumb_h": 1385,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Spinoza_Ethica.jpg",
+    "w": 976,
+    "h": 1385
+  },
+  "Monadology": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Leibniz_Monadology_1.jpg",
+    "thumb_w": 347,
+    "thumb_h": 552,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Leibniz_Monadology_1.jpg",
+    "w": 347,
+    "h": 552
+  },
+  "Tractatus Theologico-Politicus": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/9/92/Spinoza_Tractatus_Theologico-Politicus.jpg",
+    "thumb_w": 437,
+    "thumb_h": 644,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Spinoza_Tractatus_Theologico-Politicus.jpg",
+    "w": 437,
+    "h": 644
+  },
+  "An Essay Concerning Human Understanding": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/18/Locke_Essay_1690.jpg",
+    "thumb_w": 434,
+    "thumb_h": 775,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Locke_Essay_1690.jpg",
+    "w": 434,
+    "h": 775
+  },
+  "A Treatise Concerning the Principles of Human Knowledge": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Berkeley1-1.jpg",
+    "thumb_w": 280,
+    "thumb_h": 477,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Berkeley1-1.jpg",
+    "w": 280,
+    "h": 477
+  },
+  "An Enquiry Concerning Human Understanding": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/21/David_Hume.jpg",
+    "thumb_w": 825,
+    "thumb_h": 1000,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/David_Hume.jpg",
+    "w": 825,
+    "h": 1000
+  },
+  "A Treatise of Human Nature": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/7/72/A_Treatise_of_Human_Nature_by_David_Hume.jpg",
+    "thumb_w": 1133,
+    "thumb_h": 2000,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/72/A_Treatise_of_Human_Nature_by_David_Hume.jpg",
+    "w": 1133,
+    "h": 2000
+  },
+  "Two Treatises of Government": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/d/de/Locke_treatises_of_government_page.jpg",
+    "thumb_w": 640,
+    "thumb_h": 981,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Locke_treatises_of_government_page.jpg",
+    "w": 640,
+    "h": 981
+  },
+  "Critique of Pure Reason": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Immanuel_Kant_portrait_c1790.jpg/1280px-Immanuel_Kant_portrait_c1790.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1114,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Immanuel_Kant_portrait_c1790.jpg",
+    "w": 1617,
+    "h": 1802
+  },
+  "Groundwork of the Metaphysic of Morals": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Immanuel_Kant_portrait_c1790.jpg/1280px-Immanuel_Kant_portrait_c1790.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1114,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Immanuel_Kant_portrait_c1790.jpg",
+    "w": 1617,
+    "h": 1802
+  },
+  "The Social Contract": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/d/db/Social_contract_rousseau_page.jpg",
+    "thumb_w": 318,
+    "thumb_h": 510,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Social_contract_rousseau_page.jpg",
+    "w": 318,
+    "h": 510
+  },
+  "Letters on the English": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Lettres_anglaises_voltaire.jpg",
+    "thumb_w": 326,
+    "thumb_h": 561,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Lettres_anglaises_voltaire.jpg",
+    "w": 326,
+    "h": 561
+  },
+  "The Spirit of Law": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Montesquieu%2C_De_l%27Esprit_des_loix_%281st_ed%2C_1748%2C_vol_1%2C_title_page%29.jpg/1280px-Montesquieu%2C_De_l%27Esprit_des_loix_%281st_ed%2C_1748%2C_vol_1%2C_title_page%29.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1341,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Montesquieu%2C_De_l%27Esprit_des_loix_%281st_ed%2C_1748%2C_vol_1%2C_title_page%29.jpg",
+    "w": 1866,
+    "h": 2502
+  },
+  "Encyclopédie": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Encyclopedie_de_D%27Alembert_et_Diderot_-_Premiere_Page_-_ENC_1-NA5.jpg/1280px-Encyclopedie_de_D%27Alembert_et_Diderot_-_Premiere_Page_-_ENC_1-NA5.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1634,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Encyclopedie_de_D%27Alembert_et_Diderot_-_Premiere_Page_-_ENC_1-NA5.jpg",
+    "w": 3133,
+    "h": 5120
+  },
+  "The Phenomenology of Spirit": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/9/93/Ph%C3%A4nomenologie_des_Geistes.jpg",
+    "thumb_w": 573,
+    "thumb_h": 847,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Ph%C3%A4nomenologie_des_Geistes.jpg",
+    "w": 573,
+    "h": 847
+  },
+  "Elements of the Philosophy of Right": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Grundlinien_der_Philosophie_des_Rechts.jpg",
+    "thumb_w": 541,
+    "thumb_h": 894,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Grundlinien_der_Philosophie_des_Rechts.jpg",
+    "w": 541,
+    "h": 894
+  },
+  "Johann Gottlieb Fichte": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Johann_Gottlieb_Fichte.jpg",
+    "thumb_w": 1276,
+    "thumb_h": 1458,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Johann_Gottlieb_Fichte.jpg",
+    "w": 1276,
+    "h": 1458
+  },
+  "The World as Will and Representation": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Schop_welt_2ed.jpg",
+    "thumb_w": 485,
+    "thumb_h": 777,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Schop_welt_2ed.jpg",
+    "w": 485,
+    "h": 777
+  },
+  "On the Aesthetic Education of Man": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Anton_Graff_-_Friedrich_Schiller.jpg",
+    "thumb_w": 930,
+    "thumb_h": 1206,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Anton_Graff_-_Friedrich_Schiller.jpg",
+    "w": 930,
+    "h": 1206
+  },
+  "Das Kapital": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Zentralbibliothek_Z%C3%BCrich_Das_Kapital_Marx_1867.jpg",
+    "thumb_w": 997,
+    "thumb_h": 1681,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Zentralbibliothek_Z%C3%BCrich_Das_Kapital_Marx_1867.jpg",
+    "w": 997,
+    "h": 1681
+  },
+  "Thus Spoke Zarathustra": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Also_sprach_Zarathustra._Ein_Buch_f%C3%BCr_Alle_und_Keinen._In_drei_Theilen.jpg",
+    "thumb_w": 455,
+    "thumb_h": 700,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Also_sprach_Zarathustra._Ein_Buch_f%C3%BCr_Alle_und_Keinen._In_drei_Theilen.jpg",
+    "w": 455,
+    "h": 700
+  },
+  "Beyond Good and Evil": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Jenseits_von_Gut_und_B%C3%B6se_-_1886.jpg",
+    "thumb_w": 269,
+    "thumb_h": 424,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Jenseits_von_Gut_und_B%C3%B6se_-_1886.jpg",
+    "w": 269,
+    "h": 424
+  },
+  "The Interpretation of Dreams": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/0/06/Die_Traumdeutung_%28Congress_scan%29.jpg",
+    "thumb_w": 608,
+    "thumb_h": 970,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Die_Traumdeutung_%28Congress_scan%29.jpg",
+    "w": 608,
+    "h": 970
+  },
+  "The Communist Manifesto": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/8/86/Communist-manifesto.png",
+    "thumb_w": 1021,
+    "thumb_h": 1600,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Communist-manifesto.png",
+    "w": 1021,
+    "h": 1600
+  },
+  "Edmund Husserl": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Edmund_Husserl_1910s.jpg/1280px-Edmund_Husserl_1910s.jpg",
+    "thumb_w": 1000,
+    "thumb_h": 1433,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Edmund_Husserl_1910s.jpg",
+    "w": 1689,
+    "h": 2421
+  },
+  "Being and Time": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/3/33/Being_and_Time_%28German_edition%29.jpg",
+    "thumb_w": 200,
+    "thumb_h": 325,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Being_and_Time_%28German_edition%29.jpg",
+    "w": 200,
+    "h": 325
+  },
+  "Being and Nothingness": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/1/1f/Being_and_Nothingness_%28French_first_edition%29.JPG",
+    "thumb_w": 250,
+    "thumb_h": 404,
+    "url": "https://upload.wikimedia.org/wikipedia/en/1/1f/Being_and_Nothingness_%28French_first_edition%29.JPG",
+    "w": 250,
+    "h": 404
+  },
+  "The Second Sex": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/d/d0/LeDeuxiemeSexe.jpg",
+    "thumb_w": 261,
+    "thumb_h": 342,
+    "url": "https://upload.wikimedia.org/wikipedia/en/d/d0/LeDeuxiemeSexe.jpg",
+    "w": 261,
+    "h": 342
+  },
+  "Phenomenology of Perception": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/6/61/Phenomenology_of_Perception_%28French_edition%29.jpg",
+    "thumb_w": 200,
+    "thumb_h": 300,
+    "url": "https://upload.wikimedia.org/wikipedia/en/6/61/Phenomenology_of_Perception_%28French_edition%29.jpg",
+    "w": 200,
+    "h": 300
+  },
+  "The Myth of Sisyphus": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/7/75/Le_Mythe_de_Sisyphe.jpg",
+    "thumb_w": 253,
+    "thumb_h": 399,
+    "url": "https://upload.wikimedia.org/wikipedia/en/7/75/Le_Mythe_de_Sisyphe.jpg",
+    "w": 253,
+    "h": 399
+  },
+  "Tractatus Logico-Philosophicus": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Tractatus_title_page_1922_Harcourt.png",
+    "thumb_w": 835,
+    "thumb_h": 1208,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Tractatus_title_page_1922_Harcourt.png",
+    "w": 835,
+    "h": 1208
+  },
+  "Philosophical Investigations": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/5/57/Philosophical_Investigations%2C_first_English_edition.jpg",
+    "thumb_w": 254,
+    "thumb_h": 393,
+    "url": "https://upload.wikimedia.org/wikipedia/en/5/57/Philosophical_Investigations%2C_first_English_edition.jpg",
+    "w": 254,
+    "h": 393
+  },
+  "A Theory of Justice": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/28/A_Theory_of_Justice_-_first_American_hardcover_edition.jpg",
+    "thumb_w": 478,
+    "thumb_h": 713,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/A_Theory_of_Justice_-_first_American_hardcover_edition.jpg",
+    "w": 478,
+    "h": 713
+  },
+  "Discipline and Punish": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/b/be/Discipline_and_Punish_%28French_edition%29.jpg",
+    "thumb_w": 250,
+    "thumb_h": 401,
+    "url": "https://upload.wikimedia.org/wikipedia/en/b/be/Discipline_and_Punish_%28French_edition%29.jpg",
+    "w": 250,
+    "h": 401
+  },
+  "The Postmodern Condition": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/f/fa/The_Postmodern_Condition_%28French_edition%29.gif",
+    "thumb_w": 248,
+    "thumb_h": 402,
+    "url": "https://upload.wikimedia.org/wikipedia/en/f/fa/The_Postmodern_Condition_%28French_edition%29.gif",
+    "w": 248,
+    "h": 402
+  },
+  "Of Grammatology": {
+    "thumb": "https://upload.wikimedia.org/wikipedia/en/f/fc/Of_Grammatology%2C_French_edition.jpg",
+    "thumb_w": 180,
+    "thumb_h": 293,
+    "url": "https://upload.wikimedia.org/wikipedia/en/f/fc/Of_Grammatology%2C_French_edition.jpg",
+    "w": 180,
+    "h": 293
+  }
+}

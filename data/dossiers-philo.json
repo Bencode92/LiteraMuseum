@@ -1,0 +1,288 @@
+{
+  "dossiers": [
+    {
+      "id": "stoicisme",
+      "titre": "Le stoïcisme",
+      "periode": "≈ -300 → 180",
+      "sous_titre": "Vivre selon la raison et accepter ce qui ne dépend pas de nous",
+      "recit": [
+        {
+          "h": "Naissance sous le Portique",
+          "p": "Vers -300, à Athènes, Zénon de Cition enseigne sous un portique orné de fresques, la Stoa poikilè, qui donne son nom à l'école : le stoïcisme. Né d'un naufrage qui ruine Zénon et le pousse vers la philosophie, le Portique propose une sagesse complète unissant logique, physique et éthique. C'est l'éthique qui assurera sa célébrité durable."
+        },
+        {
+          "h": "Une physique de l'ordre universel",
+          "p": "Pour les stoïciens, le cosmos est un grand tout vivant, traversé par un souffle rationnel, le logos, parfois identifié à Dieu ou à la Nature. Rien n'arrive par hasard : tout s'enchaîne selon une nécessité providentielle. Vivre bien, c'est donc « vivre selon la nature », c'est-à-dire en accord avec cette raison qui gouverne le monde et qui habite aussi en nous."
+        },
+        {
+          "h": "Ce qui dépend de nous",
+          "p": "Le cœur pratique du stoïcisme tient dans une distinction d'Épictète : il y a ce qui dépend de nous (nos jugements, nos désirs, nos actions) et ce qui n'en dépend pas (le corps, la richesse, la réputation, les événements). La sagesse consiste à ne placer son bien et son bonheur que dans ce qui dépend de nous, et à accueillir le reste avec sérénité."
+        },
+        {
+          "h": "Les passions, maladies de l'âme",
+          "p": "Les passions (peur, désir excessif, colère, tristesse) naissent de jugements faux sur la valeur des choses extérieures. Le sage stoïcien vise l'apatheia, non l'insensibilité, mais l'absence de passions troublantes. Il cultive des émotions justes et garde son âme dans la tranquillité (ataraxie) quoi qu'il arrive."
+        },
+        {
+          "h": "De Rome aux empereurs",
+          "p": "Transplanté à Rome, le stoïcisme devient la philosophie des hommes d'action et de devoir. Sénèque, conseiller de Néron, en fait une morale de la vie quotidienne ; Épictète, ancien esclave, en livre un manuel concret ; Marc Aurèle, empereur, le médite chaque nuit. Cette diffusion sociale, de l'esclave à l'empereur, montre l'universalité de sa proposition."
+        },
+        {
+          "h": "Une postérité vivante",
+          "p": "Le stoïcisme irrigue la pensée chrétienne, inspire Descartes et Spinoza, nourrit la morale du devoir. Aujourd'hui encore, il connaît un large renouveau, notamment dans le développement personnel et les thérapies cognitives, qui retrouvent l'idée stoïcienne : ce ne sont pas les choses qui nous troublent, mais les jugements que nous portons sur elles."
+        }
+      ],
+      "carte": [
+        ["Dates", "≈ -300 (fondation) à 180 (mort de Marc Aurèle)"],
+        ["Fondateur", "Zénon de Cition"],
+        ["Lieu", "Le Portique (Stoa) d'Athènes, puis Rome"],
+        ["Devise", "Vivre selon la nature et la raison"],
+        ["But", "Ataraxie : la tranquillité de l'âme"]
+      ],
+      "contexte": [
+        "Monde hellénistique instable après la mort d'Alexandre : la philosophie devient un art de vivre individuel.",
+        "Concurrence directe avec l'épicurisme et le scepticisme.",
+        "Forte implantation à Rome chez les élites politiques.",
+        "Trois parties indissociables : logique, physique, éthique."
+      ],
+      "phrase": "« Il y a ce qui dépend de nous et ce qui ne dépend pas de nous. » — Épictète",
+      "oeuvres": [
+        {
+          "titre": "Manuel (Enchiridion)",
+          "wiki": "Enchiridion of Epictetus",
+          "artiste": "Épictète",
+          "annee": "≈ 125",
+          "genie": "Le condensé le plus efficace de la sagesse stoïcienne, lisible en une heure et utile toute une vie.",
+          "analyse": "Recueil de préceptes pratiques noté par le disciple Arrien. Tout part de la distinction entre ce qui dépend de nous et ce qui n'en dépend pas. On y apprend à régler ses désirs, à accepter le cours des choses et à transformer son regard plutôt que le monde."
+        },
+        {
+          "titre": "Pensées pour moi-même",
+          "wiki": "Meditations",
+          "artiste": "Marc Aurèle",
+          "annee": "≈ 175",
+          "genie": "Le journal intime d'un empereur, document unique d'un stoïcisme vécu au sommet du pouvoir.",
+          "analyse": "Écrites en grec pour son seul usage, ces notes mêlent exercices spirituels, méditations sur la mort, l'impermanence et le devoir. Marc Aurèle s'y exhorte sans cesse à rester juste, à accepter le destin et à se souvenir de la brièveté de la vie."
+        },
+        {
+          "titre": "Lettres à Lucilius",
+          "wiki": "Epistulae Morales ad Lucilium",
+          "artiste": "Sénèque",
+          "annee": "≈ 64",
+          "genie": "La forme épistolaire fait de la philosophie une conversation amicale et un guide de vie concret.",
+          "analyse": "Sénèque écrit à son ami Lucilius sur le temps, la mort, l'amitié, la richesse. Il y montre comment vivre en stoïcien dans le monde réel, sans se couper des affaires, en gardant la maîtrise de soi face aux revers de la fortune."
+        },
+        {
+          "titre": "De la nature des choses",
+          "wiki": "De rerum natura",
+          "artiste": "Lucrèce (contraste épicurien)",
+          "annee": "≈ -55",
+          "genie": "Le grand rival épicurien, utile pour saisir par contraste l'originalité du stoïcisme.",
+          "analyse": "Ce poème expose la sagesse d'Épicure : atomes, mortalité de l'âme, recherche du plaisir réglé. Le comparer au stoïcisme éclaire deux voies vers la tranquillité : se retirer du monde (Épicure) ou s'y accorder pleinement (les stoïciens)."
+        }
+      ],
+      "artistes": [
+        {
+          "nom": "Épictète",
+          "wiki": "Epictetus",
+          "dates": "≈ 50 – 135",
+          "niveau": "★",
+          "portrait": "Né esclave en Phrygie, affranchi puis maître à Rome et en Grèce, Épictète incarne l'idée que la liberté intérieure ne dépend d'aucune condition sociale. Il n'a rien écrit : son enseignement nous est parvenu par son disciple Arrien.",
+          "bio_sections": [
+            { "h": "De l'esclavage à la sagesse", "p": "Esclave d'un affranchi de Néron, il étudie la philosophie pendant sa servitude. Affranchi, il enseigne à Rome jusqu'à l'expulsion des philosophes, puis fonde une école à Nicopolis." },
+            { "h": "Une doctrine du regard", "p": "Pour Épictète, nous ne maîtrisons pas les événements, mais notre jugement sur eux. La liberté consiste à vouloir ce qui arrive plutôt qu'à vouloir que les choses arrivent comme nous le désirons." }
+          ]
+        },
+        {
+          "nom": "Marc Aurèle",
+          "wiki": "Marcus Aurelius",
+          "dates": "121 – 180",
+          "niveau": "★",
+          "portrait": "Empereur romain de 161 à 180, surnommé l'« empereur philosophe », il gouverne un empire menacé tout en restant fidèle à l'idéal stoïcien du devoir et de la maîtrise de soi.",
+          "bio_sections": [
+            { "h": "Un pouvoir au service du devoir", "p": "Confronté aux guerres et aux épidémies, il conçoit le pouvoir comme un service. Ses Pensées, écrites sur les champs de bataille, témoignent d'un effort constant pour rester juste et serein." },
+            { "h": "La dernière grande voix stoïcienne", "p": "Sa mort en 180 marque souvent la fin du stoïcisme antique comme école vivante. Son livre demeure l'un des classiques les plus lus de la sagesse occidentale." }
+          ]
+        },
+        {
+          "nom": "Sénèque",
+          "wiki": "Seneca the Younger",
+          "dates": "≈ -4 – 65",
+          "niveau": "★",
+          "portrait": "Homme politique, dramaturge et philosophe, précepteur puis conseiller de Néron, Sénèque illustre les tensions entre la sagesse stoïcienne et l'exercice du pouvoir. Contraint au suicide par son ancien élève, il meurt en stoïcien.",
+          "bio_sections": [
+            { "h": "Philosophe dans le monde", "p": "Riche et engagé dans les affaires de l'Empire, il défend une morale exigeante tout en vivant au cœur du pouvoir, ce qui lui valut des critiques sur la cohérence de sa vie." },
+            { "h": "Une œuvre morale considérable", "p": "Lettres, dialogues et traités (sur la colère, la brièveté de la vie, la tranquillité de l'âme) font de lui le grand passeur du stoïcisme vers le monde latin et chrétien." }
+          ]
+        },
+        {
+          "nom": "Zénon de Cition",
+          "wiki": "Zeno of Citium",
+          "dates": "≈ -334 – -262",
+          "niveau": "○",
+          "portrait": "Marchand devenu philosophe après un naufrage, il fonde l'école stoïcienne à Athènes. On ne conserve de lui que des fragments, mais il pose les bases logiques, physiques et éthiques du système.",
+          "bio_sections": [
+            { "h": "Le fondateur", "p": "Élève des cyniques et de l'Académie, il synthétise plusieurs traditions pour créer une doctrine originale enseignée sous le Portique peint, la Stoa poikilè." }
+          ]
+        }
+      ],
+      "memos": [
+        "Distinguer ce qui dépend de nous (jugements, désirs) de ce qui n'en dépend pas (le reste).",
+        "But : l'ataraxie, tranquillité de l'âme, par l'accord avec la raison du monde (logos).",
+        "Le mal ne vient pas des choses, mais de nos jugements sur elles.",
+        "Trois grands noms romains : Sénèque, Épictète (l'esclave), Marc Aurèle (l'empereur)."
+      ],
+      "autotest": [
+        "Quelle distinction fondamentale Épictète place-t-il au cœur de la sagesse ?",
+        "Que signifie « vivre selon la nature » pour un stoïcien ?",
+        "Qu'est-ce que l'ataraxie, et comment l'atteindre ?",
+        "En quoi le stoïcisme romain (Sénèque, Marc Aurèle) diffère-t-il par son public de l'école athénienne ?",
+        "Pourquoi peut-on dire que les passions reposent sur des jugements faux ?"
+      ],
+      "liens": {
+        "d_ou": "Hérite du cynisme (vivre selon la nature) et dialogue avec l'héraclitéisme (le logos) et le platonisme.",
+        "mene": "Influence la morale chrétienne, le rationalisme (Descartes, Spinoza) et, aujourd'hui, les thérapies cognitives et comportementales."
+      }
+    },
+    {
+      "id": "lumieres-kant",
+      "titre": "Les Lumières et Kant",
+      "periode": "≈ 1715 → 1804",
+      "sous_titre": "Le courage de penser par soi-même et l'autocritique de la raison",
+      "recit": [
+        {
+          "h": "Le siècle des Lumières",
+          "p": "Au XVIIIᵉ siècle, en France, en Angleterre, en Allemagne, une génération de penseurs entreprend de soumettre toutes les croyances au tribunal de la raison. Contre les préjugés, le fanatisme et l'absolutisme, les « philosophes » prônent la tolérance, la liberté et le progrès. Leur mot d'ordre : éclairer les hommes pour les émanciper."
+        },
+        {
+          "h": "Un combat pour la liberté",
+          "p": "Voltaire combat l'intolérance religieuse, Montesquieu théorise la séparation des pouvoirs, Rousseau refonde la légitimité politique sur la volonté générale, Diderot et d'Alembert rassemblent les savoirs dans l'Encyclopédie. Ces œuvres préparent intellectuellement les révolutions américaine et française et la Déclaration des droits de l'homme."
+        },
+        {
+          "h": "Kant, philosophe des Lumières",
+          "p": "En 1784, dans un court texte célèbre, Kant définit les Lumières : « la sortie de l'homme hors de l'état de minorité dont il est lui-même responsable ». Sa devise, Sapere aude, « aie le courage de te servir de ton propre entendement », résume tout le mouvement. Mais Kant va plus loin : il fait de la raison elle-même l'objet de la critique."
+        },
+        {
+          "h": "La révolution copernicienne",
+          "p": "Réveillé par Hume de son « sommeil dogmatique », Kant cherche à dépasser le conflit entre rationalisme et empirisme. Sa solution est une révolution : ce n'est pas notre esprit qui se règle sur les objets, mais les objets qui se conforment aux formes a priori de notre sensibilité (espace, temps) et de notre entendement (les catégories)."
+        },
+        {
+          "h": "Les limites du savoir",
+          "p": "De là découle une conséquence majeure : nous ne connaissons que les phénomènes, le monde tel qu'il nous apparaît, jamais la « chose en soi » (le noumène). La métaphysique classique, qui prétendait connaître Dieu, l'âme ou le monde dans leur réalité absolue, dépasse les bornes de la raison. Kant trace ainsi les frontières du connaissable."
+        },
+        {
+          "h": "La morale du devoir",
+          "p": "Si la raison est limitée dans la connaissance, elle est souveraine dans l'action. Kant fonde une morale autonome : la loi morale, l'impératif catégorique, commande d'agir selon des maximes universalisables et de traiter toujours l'humanité comme une fin, jamais seulement comme un moyen. La dignité de l'homme repose sur cette autonomie."
+        }
+      ],
+      "carte": [
+        ["Dates", "XVIIIᵉ siècle ; Kant : 1724 – 1804"],
+        ["Mots d'ordre", "Raison, tolérance, liberté, progrès"],
+        ["Devise", "Sapere aude (« Ose savoir »)"],
+        ["Œuvre phare", "Critique de la raison pure (1781)"],
+        ["Apport de Kant", "Le criticisme : critique des pouvoirs et limites de la raison"]
+      ],
+      "contexte": [
+        "Réaction contre l'absolutisme, le fanatisme et les préjugés.",
+        "Essor des sciences (Newton) et confiance dans la méthode.",
+        "Diffusion des idées par l'Encyclopédie, les salons, la presse.",
+        "Toile de fond des révolutions américaine (1776) et française (1789)."
+      ],
+      "phrase": "« Sapere aude ! Aie le courage de te servir de ton propre entendement. » — Kant",
+      "oeuvres": [
+        {
+          "titre": "Critique de la raison pure",
+          "wiki": "Critique of Pure Reason",
+          "artiste": "Emmanuel Kant",
+          "annee": "1781",
+          "genie": "Refonde toute la théorie de la connaissance par la « révolution copernicienne » et fixe les limites de la raison.",
+          "analyse": "Kant montre que la connaissance suppose à la fois des données sensibles et des formes a priori de l'esprit. Nous ne connaissons que les phénomènes, structurés par l'espace, le temps et les catégories ; la chose en soi reste inaccessible. La métaphysique dogmatique est ainsi disqualifiée."
+        },
+        {
+          "titre": "Fondements de la métaphysique des mœurs",
+          "wiki": "Groundwork of the Metaphysic of Morals",
+          "artiste": "Emmanuel Kant",
+          "annee": "1785",
+          "genie": "Fonde une morale rationnelle et universelle indépendante de tout intérêt et de toute conséquence.",
+          "analyse": "La valeur morale d'un acte tient à l'intention d'agir par devoir. L'impératif catégorique fournit le critère : n'agir que selon une maxime que l'on pourrait vouloir universelle, et respecter en chacun l'humanité comme fin en soi."
+        },
+        {
+          "titre": "Du contrat social",
+          "wiki": "The Social Contract",
+          "artiste": "Jean-Jacques Rousseau",
+          "annee": "1762",
+          "genie": "Pense une autorité politique légitime fondée sur la liberté : on n'obéit qu'à soi-même.",
+          "analyse": "Par le pacte social, chacun s'unit à tous et se soumet à la volonté générale, expression de l'intérêt commun. Rousseau réconcilie ainsi liberté individuelle et obéissance aux lois, et fonde la souveraineté du peuple."
+        },
+        {
+          "titre": "Encyclopédie",
+          "wiki": "Encyclopédie",
+          "artiste": "Diderot et d'Alembert",
+          "annee": "1751-1772",
+          "genie": "Incarne le projet des Lumières : rassembler et diffuser les savoirs pour changer la manière de penser.",
+          "analyse": "Cette entreprise collective et monumentale ordonne les connaissances selon la raison, valorise les arts et les techniques, et glisse partout une critique des autorités. Malgré la censure, elle devient le manifeste du progrès et de l'esprit critique."
+        }
+      ],
+      "artistes": [
+        {
+          "nom": "Emmanuel Kant",
+          "wiki": "Immanuel Kant",
+          "dates": "1724 – 1804",
+          "niveau": "★",
+          "portrait": "Né et mort à Königsberg, dont il ne sortit presque jamais, Kant mena une vie d'une régularité légendaire entièrement vouée à la pensée. Il est l'auteur du tournant critique qui sépare la philosophie moderne de la philosophie classique.",
+          "bio_sections": [
+            { "h": "Le réveil critique", "p": "Longtemps fidèle à la métaphysique rationaliste, Kant est, selon ses mots, « réveillé de son sommeil dogmatique » par la lecture de Hume. Il élabore alors le projet critique : examiner les pouvoirs et les limites de la raison elle-même." },
+            { "h": "Les trois Critiques", "p": "Son œuvre s'organise autour de trois grandes Critiques : la raison pure (connaître), la raison pratique (agir), et la faculté de juger (le beau et le vivant). Il articule ainsi science, morale et esthétique." },
+            { "h": "Vers la paix", "p": "À la fin de sa vie, Kant écrit Vers la paix perpétuelle, projet d'une fédération d'États libres garantissant la paix par le droit, qui inspirera les organisations internationales modernes." }
+          ]
+        },
+        {
+          "nom": "Jean-Jacques Rousseau",
+          "wiki": "Jean-Jacques Rousseau",
+          "dates": "1712 – 1778",
+          "niveau": "★",
+          "portrait": "Genevois autodidacte, écrivain, musicien et philosophe, Rousseau occupe une place à part dans les Lumières : il en partage l'idéal de liberté mais en critique le progrès et l'optimisme. Il influence la politique, la pédagogie et le romantisme.",
+          "bio_sections": [
+            { "h": "L'homme bon dénaturé", "p": "Pour Rousseau, l'homme est naturellement bon mais corrompu par la société et l'inégalité. Le Discours sur l'origine de l'inégalité retrace cette dégradation." },
+            { "h": "Refonder le lien social et l'éducation", "p": "Le Contrat social cherche une organisation politique respectant la liberté, tandis qu'Émile propose une éducation conforme à la nature de l'enfant." }
+          ]
+        },
+        {
+          "nom": "Voltaire",
+          "wiki": "Voltaire",
+          "dates": "1694 – 1778",
+          "niveau": "○",
+          "portrait": "Écrivain et polémiste infatigable, Voltaire est la figure la plus célèbre des Lumières françaises. Par ses contes, ses lettres et ses combats publics, il fait de la tolérance et de la liberté de pensée une cause européenne.",
+          "bio_sections": [
+            { "h": "Le combat contre l'infâme", "p": "Voltaire lutte sans relâche contre le fanatisme et l'injustice, notamment dans l'affaire Calas, et défend la tolérance dans son Traité sur la tolérance." }
+          ]
+        },
+        {
+          "nom": "Montesquieu",
+          "wiki": "Montesquieu",
+          "dates": "1689 – 1755",
+          "niveau": "○",
+          "portrait": "Magistrat et penseur politique, Montesquieu observe les sociétés et les lois en savant. De l'esprit des lois fonde une science politique comparée et théorise la séparation des pouvoirs.",
+          "bio_sections": [
+            { "h": "La liberté par l'équilibre des pouvoirs", "p": "Pour éviter le despotisme, il faut que « le pouvoir arrête le pouvoir » : législatif, exécutif et judiciaire doivent être distingués et se limiter mutuellement." }
+          ]
+        }
+      ],
+      "memos": [
+        "Lumières = émancipation par la raison ; devise Sapere aude.",
+        "Kant : révolution copernicienne, les objets se règlent sur l'esprit.",
+        "On connaît les phénomènes, jamais la chose en soi (noumène).",
+        "Morale : impératif catégorique, autonomie, l'homme comme fin en soi."
+      ],
+      "autotest": [
+        "Comment Kant définit-il les Lumières dans son texte de 1784 ?",
+        "En quoi consiste la « révolution copernicienne » en philosophie ?",
+        "Quelle différence Kant fait-il entre phénomène et noumène ?",
+        "Énonce une formulation de l'impératif catégorique.",
+        "Qu'apporte Rousseau avec la notion de volonté générale ?"
+      ],
+      "liens": {
+        "d_ou": "Synthétise et dépasse le rationalisme (Descartes, Leibniz) et l'empirisme (Locke, Hume) ; prolonge l'esprit critique des Lumières.",
+        "mene": "Ouvre la voie à l'idéalisme allemand (Fichte, Hegel) et nourrit toute l'éthique et la philosophie politique modernes."
+      }
+    }
+  ]
+}
