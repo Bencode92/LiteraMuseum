@@ -108,7 +108,7 @@ const CFG = {
 };
 const C = () => CFG[DOMAIN];   // raccourci config du domaine actif
 
-const DV = "3"; // bump à chaque mise à jour de contenu pour court-circuiter le cache
+const DV = "4"; // bump à chaque mise à jour de contenu pour court-circuiter le cache
 function mkDomain(c, dos, img) {
   const flat = [];
   (c.chapitres || []).forEach((ch, ci) => (ch.oeuvres || []).forEach((o, oi) =>
@@ -356,7 +356,12 @@ function route() {
   if (top === "quiz") { setActiveFloor(-1); return renderQuiz(); }
   if (top === "session") { setActiveFloor(-1); return startSession(); }
   if (top === "parcours") { setActiveFloor(-1); return renderParcours(); }
-  if (top === "favoris") { setActiveFloor(-1); return renderFavoris(); }
+  if (top === "moi" || top === "favoris") {
+    setActiveFloor(-1);
+    if (parts[1] === "p") return renderPlaylist(parts[2]);
+    if (parts[1] === "run") return renderRun(parts[2]);
+    return renderMoi();
+  }
   if (top === "dossiers") { setActiveFloor(-1); return renderDossiersList(); }
   if (top === "d") {
     setActiveFloor(-1);
@@ -410,7 +415,7 @@ function renderChapitre(ci) {
   $("view").innerHTML = `
     <div class="pagehead">
       <div class="ep">Chapitre ${c.num} · p. ${c.page} · ${esc(c.titre_en)}</div>
-      <h1>${esc(c.titre)} ${favBtn(`chapitre:${c.num}`, `Ch. ${c.num} — ${c.titre}`, `#/c/${ci}`, "chapitre")}</h1>
+      <h1>${esc(c.titre)} ${favBtn(`chapitre:${c.num}`, `Ch. ${c.num} — ${c.titre}`, `#/c/${ci}`, "chapitre", firstWiki(c))}</h1>
       <p class="lead">${esc(c.portee)}</p>
     </div>
     <div class="block"><h3>L'idée du chapitre</h3><p>${esc(c.idee)}</p></div>
@@ -468,7 +473,8 @@ function renderOeuvre(ci, oi) {
     <div class="fiche">
       <img class="img zoomable" alt="${esc(o.titre)}" data-wiki="${esc(o.wiki)}" data-zoom="${esc(o.wiki)}" data-cap="${esc(o.titre)} — ${esc(o.artiste)}" />
       <div class="info">
-        <h1>${esc(o.titre)} ${favBtn(`oeuvre:${ci}:${oi}`, `${o.titre} — ${o.artiste}`, `#/c/${ci}/o/${oi}`, "œuvre")}</h1>
+        <h1>${esc(o.titre)} ${favBtn(`oeuvre:${ci}:${oi}`, `${o.titre} — ${o.artiste}`, `#/c/${ci}/o/${oi}`, "œuvre", o.wiki)}</h1>
+        <div class="addpl">${plBtn(`${o.titre} — ${o.artiste}`, `#/c/${ci}/o/${oi}`, "œuvre", o.wiki)}</div>
         <div class="meta">${esc(o.artiste)} · ${esc(o.annee)}</div>
         <div class="tagline">
           <span class="tag gold" data-nav="#/c/${ci}">Ch. ${c.num} — ${esc(c.titre)}</span>
@@ -825,7 +831,8 @@ function renderArtiste(id, ai) {
 
   P.push(`<div class="pagehead">
     <div class="ep">${esc(d.titre)} · ${esc(a.dates)}${a.role ? ` · ${esc(a.role)}` : ""}</div>
-    <h1>${esc(a.nom)} ${favBtn(`artiste:${a.nom}`, a.nom, `#/d/${id}/a/${ai}`, "artiste")}</h1></div>`);
+    <h1>${esc(a.nom)} ${favBtn(`artiste:${a.nom}`, a.nom, `#/d/${id}/a/${ai}`, "artiste", a.wiki)}</h1>
+    <div class="addpl">${plBtn(a.nom, `#/d/${id}/a/${ai}`, "artiste", a.wiki)}</div></div>`);
 
   // portrait + intro
   P.push(`<div class="recit-block illus">
@@ -870,7 +877,7 @@ function renderDossier(id) {
     ${heroWiki ? `<img class="hero-img" data-wiki="${esc(heroWiki)}" alt="" />` : ""}
     <div class="hero-overlay">
       <div class="ep">${esc(d.periode)}</div>
-      <h1>${esc(d.titre)} ${favBtn(`dossier:${d.id}`, d.titre, `#/d/${d.id}`, "dossier")}</h1>
+      <h1>${esc(d.titre)} ${favBtn(`dossier:${d.id}`, d.titre, `#/d/${d.id}`, "dossier", heroWiki)}</h1>
       ${d.sous_titre ? `<p class="lead">${esc(d.sous_titre)}</p>` : ""}
     </div></div>`);
 
@@ -935,7 +942,7 @@ function renderDossier(id) {
         <figure class="recit-fig"><img class="recit-img" data-wiki="${esc(o.wiki)}" data-zoom="${esc(o.wiki)}" data-cap="${esc(o.titre)} — ${esc(o.artiste)}" alt="${esc(o.titre)}" />
           <figcaption>🔍 cliquer pour agrandir</figcaption></figure>
         <div class="recit-txt">
-          <h3>${esc(o.titre)} ${favBtn(`oeuvre-d:${d.id}:${o.titre}`, `${o.titre} — ${o.artiste}`, `#/d/${d.id}`, "œuvre")}</h3>
+          <h3>${esc(o.titre)} ${favBtn(`oeuvre-d:${d.id}:${o.titre}`, `${o.titre} — ${o.artiste}`, `#/d/${d.id}`, "œuvre", o.wiki)}</h3>
           <div class="s" style="color:var(--muted);font-style:italic;margin-bottom:8px">${esc(o.artiste)} · ${esc(o.annee)}${o.lieu ? ` · ${esc(o.lieu)}` : ""}</div>
           ${o.genese ? `<p><b>📜 Genèse —</b> ${esc(o.genese)}</p>` : ""}
           <p style="font-weight:600">${esc(o.genie)}</p>
@@ -952,7 +959,7 @@ function renderDossier(id) {
       return `<div class="card">
         <div class="thumb zoomable" data-wiki="${esc(a.wiki)}" data-zoom="${esc(a.wiki)}" data-cap="${esc(a.nom)}"></div>
         <div class="body" data-nav="#/d/${d.id}/a/${ai}" style="cursor:pointer">
-          <div class="t">${a.niveau ? `<span class="lvl ${a.niveau === "★" ? "star" : ""}">${a.niveau}</span> ` : ""}${esc(a.nom)} ${favBtn(`artiste:${a.nom}`, a.nom, `#/d/${d.id}/a/${ai}`, "artiste")}</div>
+          <div class="t">${a.niveau ? `<span class="lvl ${a.niveau === "★" ? "star" : ""}">${a.niveau}</span> ` : ""}${esc(a.nom)} ${favBtn(`artiste:${a.nom}`, a.nom, `#/d/${d.id}/a/${ai}`, "artiste", a.wiki)}</div>
           <div class="s">${esc(a.dates)}${a.role ? ` — ${esc(a.role)}` : ""}</div>
           <p style="font-size:13px;margin-top:8px">${esc(teaser)}</p>
           <span class="seemore">📖 Voir sa vie & ses œuvres →</span>
@@ -1002,39 +1009,164 @@ function renderDossier(id) {
 /* =========================================================================
    FAVORIS (référence) — étoile sur œuvres, artistes, dossiers
    ========================================================================= */
-function favs() { try { return JSON.parse(localStorage.getItem(DOMAIN + ":favs")) || {}; } catch { return {}; } }
+function favs() { try { return JSON.parse(localStorage.getItem("li:favs")) || {}; } catch { return {}; } }
 function isFav(key) { return !!favs()[key]; }
-function favBtn(key, label, nav, type) {
-  return `<button class="fav ${isFav(key) ? "on" : ""}" data-fav="${esc(key)}" data-fav-label="${esc(label)}" data-fav-nav="${esc(nav)}" data-fav-type="${esc(type)}" title="Mettre en favori">${isFav(key) ? "★" : "☆"}</button>`;
+function favBtn(key, label, nav, type, wiki) {
+  const on = isFav(key);
+  return `<button class="fav ${on ? "on" : ""}" data-fav="${esc(key)}" data-fav-label="${esc(label)}" data-fav-nav="${esc(nav)}" data-fav-type="${esc(type)}" data-fav-wiki="${esc(wiki || "")}" data-fav-domain="${DOMAIN}" title="J'aime / à développer">${on ? "★" : "☆"}</button>`;
+}
+// bouton « ajouter à un parcours »
+function plBtn(label, nav, type, wiki) {
+  return `<button class="plus-pl" data-pl-label="${esc(label)}" data-pl-nav="${esc(nav)}" data-pl-type="${esc(type)}" data-pl-wiki="${esc(wiki || "")}" data-pl-domain="${DOMAIN}" title="Ajouter à un parcours">➕ Parcours</button>`;
 }
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-fav]"); if (!b) return;
   e.preventDefault(); e.stopPropagation();
   const f = favs(); const k = b.dataset.fav;
   if (f[k]) delete f[k];
-  else f[k] = { label: b.dataset.favLabel, nav: b.dataset.favNav, type: b.dataset.favType };
-  localStorage.setItem(DOMAIN + ":favs", JSON.stringify(f));
+  else f[k] = { label: b.dataset.favLabel, nav: b.dataset.favNav, type: b.dataset.favType, wiki: b.dataset.favWiki || "", domain: b.dataset.favDomain || DOMAIN };
+  localStorage.setItem("li:favs", JSON.stringify(f));
   const on = !!favs()[k]; b.classList.toggle("on", on); b.textContent = on ? "★" : "☆";
 });
 
-function renderFavoris() {
-  crumb([{ label: "Favoris" }]);
-  const f = favs(); const keys = Object.keys(f);
-  if (!keys.length) {
-    $("view").innerHTML = `<div class="pagehead"><h1>Mes favoris</h1>
-      <p class="lead">Aucun favori pour l'instant. Clique l'étoile ☆ sur une œuvre, un artiste ou un dossier pour le retrouver ici.</p></div>`;
-    return;
+/* =========================================================================
+   PARCOURS SUR-MESURE (playlists) — unifiés littérature + philosophie
+   ========================================================================= */
+function plStore() { try { return JSON.parse(localStorage.getItem("li:playlists")) || []; } catch { return []; } }
+function plSaveAll(a) { localStorage.setItem("li:playlists", JSON.stringify(a)); }
+function plCreate(nom) { const a = plStore(); const id = "p" + Date.now().toString(36); a.push({ id, nom: nom || "Nouveau parcours", items: [] }); plSaveAll(a); return id; }
+function plGet(id) { return plStore().find(p => p.id === id); }
+function plUpdate(id, fn) { const a = plStore(); const p = a.find(x => x.id === id); if (p) { fn(p); plSaveAll(a); } }
+const DOMICON = d => (CFG[d] ? CFG[d].icon : "");
+function toast(msg) {
+  let t = $("toast"); if (!t) { t = document.createElement("div"); t.id = "toast"; document.body.appendChild(t); }
+  t.textContent = msg; t.classList.add("show");
+  clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove("show"), 1800);
+}
+function addItemToPlaylist(pid, item) {
+  plUpdate(pid, p => { if (!p.items.some(x => x.nav === item.nav && x.domain === item.domain)) p.items.push(item); });
+}
+function openPlPicker(item) {
+  let ov = $("plpick");
+  if (!ov) { ov = document.createElement("div"); ov.id = "plpick"; document.body.appendChild(ov); }
+  const pls = plStore();
+  ov.innerHTML = `<div class="plpick-box">
+    <header>Ajouter « ${esc(item.label)} » <button class="plpick-x" title="Fermer">×</button></header>
+    <div class="plpick-list">${pls.length ? pls.map(p => `<button class="plpick-opt" data-pid="${esc(p.id)}">${esc(p.nom)} <small>${p.items.length}</small></button>`).join("") : `<p class="dim" style="padding:8px 2px">Aucun parcours encore.</p>`}</div>
+    <button class="plpick-new">＋ Nouveau parcours…</button>
+  </div>`;
+  ov.classList.add("show");
+  ov.querySelector(".plpick-x").onclick = () => ov.classList.remove("show");
+  ov.onclick = ev => { if (ev.target === ov) ov.classList.remove("show"); };
+  ov.querySelectorAll(".plpick-opt").forEach(b => b.onclick = () => { addItemToPlaylist(b.dataset.pid, item); ov.classList.remove("show"); toast("Ajouté au parcours ✓"); });
+  ov.querySelector(".plpick-new").onclick = () => {
+    const nom = prompt("Nom du nouveau parcours :", ""); if (nom === null) return;
+    const id = plCreate(nom.trim() || "Nouveau parcours"); addItemToPlaylist(id, item);
+    ov.classList.remove("show"); toast("Parcours créé ✓");
+  };
+}
+// ouvrir un élément (en changeant de domaine au besoin) ou l'ajouter à un parcours
+document.addEventListener("click", e => {
+  const g = e.target.closest("[data-go]");
+  if (g) {
+    e.preventDefault();
+    const s = g.dataset.go, sep = s.indexOf("|"), dm = s.slice(0, sep), nav = s.slice(sep + 1);
+    if (dm && dm !== DOMAIN) applyDomain(dm);
+    location.hash = nav; route(); return;
   }
-  const groups = {};
-  keys.forEach(k => { const it = f[k]; (groups[it.type] ||= []).push({ k, ...it }); });
-  const labels = { "œuvre": "Œuvres", "artiste": C().who, "dossier": "Dossiers", "chapitre": C().whoCol };
-  $("view").innerHTML = `<div class="pagehead"><h1>Mes favoris</h1>
-    <p class="lead">${keys.length} élément${keys.length > 1 ? "s" : ""} mis de côté.</p></div>
-    ${Object.entries(groups).map(([type, items]) => `
-      <h2 style="margin:18px 0 6px;font-size:20px">${labels[type] || type}</h2>
-      <ul class="favlist">${items.map(it => `
-        <li><a data-nav="${esc(it.nav)}">${esc(it.label)}</a>
-        <button class="fav on" data-fav="${esc(it.k)}" data-fav-label="${esc(it.label)}" data-fav-nav="${esc(it.nav)}" data-fav-type="${esc(type)}" title="Retirer">★</button></li>`).join("")}</ul>`).join("")}`;
+  const a = e.target.closest("[data-pl-nav]");
+  if (a) { e.preventDefault(); e.stopPropagation();
+    openPlPicker({ label: a.dataset.plLabel, nav: a.dataset.plNav, type: a.dataset.plType, wiki: a.dataset.plWiki || "", domain: a.dataset.plDomain || DOMAIN }); }
+});
+
+/* ---------- MON PARCOURS : page perso (favoris + parcours sur-mesure) ---------- */
+function renderMoi() {
+  crumb([{ label: "Mon parcours" }]);
+  const pls = plStore(); const f = favs(); const keys = Object.keys(f);
+  const plCards = pls.length ? `<div class="grid cols">${pls.map(p => {
+    const w = p.items.find(it => it.wiki);
+    return `<div class="card" data-nav="#/moi/p/${p.id}">
+      <div class="thumb" ${w ? `data-wiki="${esc(w.wiki)}"` : ""}></div>
+      <div class="body"><div class="t">${esc(p.nom)}</div><div class="s">${p.items.length} élément${p.items.length > 1 ? "s" : ""}</div></div>
+    </div>`; }).join("")}</div>`
+    : `<p class="lead">Aucun parcours encore. Crée-en un, puis ajoute des auteurs ou des livres avec « ➕ Parcours ».</p>`;
+  const pool = !keys.length ? `<p class="lead">Tu n'as encore rien aimé. Clique l'étoile ☆ sur un auteur ou une œuvre (dans l'un ou l'autre domaine) pour la retrouver ici.</p>`
+    : `<ul class="favlist">${keys.map(k => { const it = f[k]; return `
+        <li>
+          <span class="dom-badge" title="${esc(CFG[it.domain] ? CFG[it.domain].label : "")}">${DOMICON(it.domain)}</span>
+          <a data-go="${esc(it.domain)}|${esc(it.nav)}">${esc(it.label)}</a>
+          <span class="favtype">${esc(it.type)}</span>
+          <button class="plus-pl mini" data-pl-label="${esc(it.label)}" data-pl-nav="${esc(it.nav)}" data-pl-type="${esc(it.type)}" data-pl-wiki="${esc(it.wiki || "")}" data-pl-domain="${esc(it.domain)}" title="Ajouter à un parcours">➕</button>
+          <button class="fav on" data-fav="${esc(k)}" data-fav-label="${esc(it.label)}" data-fav-nav="${esc(it.nav)}" data-fav-type="${esc(it.type)}" data-fav-wiki="${esc(it.wiki || "")}" data-fav-domain="${esc(it.domain)}" title="Retirer">★</button>
+        </li>`; }).join("")}</ul>`;
+  $("view").innerHTML = `
+    <div class="pagehead"><h1>Mon parcours</h1>
+      <p class="lead">Ton espace perso, littérature et philosophie réunies : compose des parcours sur-mesure à partir de ce que tu aimes.</p></div>
+    <div class="sess-actions" style="margin:6px 0 18px"><button class="next" id="plnew">＋ Nouveau parcours</button></div>
+    <h2 class="sec">🧭 Mes parcours</h2>
+    ${plCards}
+    <h2 class="sec">⭐ Ce que j'ai aimé <small style="font-weight:normal;color:var(--muted);font-size:13px">(à développer)</small></h2>
+    ${pool}`;
+  loadImages($("view"));
+  $("plnew").onclick = () => { const nom = prompt("Nom du parcours :", ""); if (nom === null) return; plCreate(nom.trim() || "Nouveau parcours"); renderMoi(); };
+}
+
+function renderPlaylist(id) {
+  const p = plGet(id); if (!p) return renderMoi();
+  crumb([{ label: "Mon parcours", nav: "#/moi" }, { label: p.nom }]);
+  const rows = p.items.length ? p.items.map((it, i) => `
+    <li class="pl-row">
+      <span class="thumb mini" ${it.wiki ? `data-wiki="${esc(it.wiki)}"` : ""}></span>
+      <span class="dom-badge">${DOMICON(it.domain)}</span>
+      <a class="pl-lbl" data-go="${esc(it.domain)}|${esc(it.nav)}">${esc(it.label)}</a>
+      <span class="pl-actions">
+        <button data-pl-up="${i}" title="Monter" ${i === 0 ? "disabled" : ""}>↑</button>
+        <button data-pl-down="${i}" title="Descendre" ${i === p.items.length - 1 ? "disabled" : ""}>↓</button>
+        <button data-pl-del="${i}" title="Retirer">✕</button>
+      </span>
+    </li>`).join("")
+    : `<p class="lead">Parcours vide. Va dans « ⭐ Ce que j'ai aimé » (ou sur une fiche) et clique « ➕ Parcours » pour ajouter des éléments ici.</p>`;
+  $("view").innerHTML = `
+    <div class="pagehead"><h1>${esc(p.nom)}</h1>
+      <p class="lead">${p.items.length} élément${p.items.length > 1 ? "s" : ""} · clique pour ouvrir, réordonne avec ↑↓.</p></div>
+    <div class="sess-actions" style="margin-bottom:16px">
+      ${p.items.length ? `<button class="next" id="plrun">▶ Dérouler le parcours</button>` : ""}
+      <button class="optbtn" id="plrename">✏️ Renommer</button>
+      <button class="optbtn" id="pldel">🗑 Supprimer</button>
+    </div>
+    <ul class="pl-list">${rows}</ul>`;
+  loadImages($("view"));
+  $("plrename").onclick = () => { const n = prompt("Nouveau nom :", p.nom); if (n === null) return; plUpdate(id, x => x.nom = n.trim() || x.nom); renderPlaylist(id); };
+  $("pldel").onclick = () => { if (!confirm("Supprimer le parcours « " + p.nom + " » ?")) return; plSaveAll(plStore().filter(x => x.id !== id)); location.hash = "#/moi"; };
+  const run = $("plrun"); if (run) run.onclick = () => { location.hash = "#/moi/run/" + id; };
+  $("view").querySelectorAll("[data-pl-up]").forEach(b => b.onclick = () => { const i = +b.dataset.plUp; plUpdate(id, x => { [x.items[i - 1], x.items[i]] = [x.items[i], x.items[i - 1]]; }); renderPlaylist(id); });
+  $("view").querySelectorAll("[data-pl-down]").forEach(b => b.onclick = () => { const i = +b.dataset.plDown; plUpdate(id, x => { [x.items[i + 1], x.items[i]] = [x.items[i], x.items[i + 1]]; }); renderPlaylist(id); });
+  $("view").querySelectorAll("[data-pl-del]").forEach(b => b.onclick = () => { const i = +b.dataset.plDel; plUpdate(id, x => x.items.splice(i, 1)); renderPlaylist(id); });
+}
+
+let RUN = null;
+function renderRun(id) {
+  const p = plGet(id); if (!p || !p.items.length) return renderPlaylist(id);
+  if (!RUN || RUN.id !== id) RUN = { id, i: 0 };
+  const i = Math.max(0, Math.min(RUN.i, p.items.length - 1)); RUN.i = i;
+  const it = p.items[i];
+  crumb([{ label: "Mon parcours", nav: "#/moi" }, { label: p.nom, nav: "#/moi/p/" + id }, { label: "Dérouler" }]);
+  $("view").innerHTML = `<div class="session">
+    <div class="sess-prog">Étape ${i + 1} / ${p.items.length} · ${esc(p.nom)}</div>
+    <div class="sess-card">
+      <div class="ep">${DOMICON(it.domain)} ${esc(CFG[it.domain] ? CFG[it.domain].label : "")} · ${esc(it.type)}</div>
+      <img class="sess-img" ${it.wiki ? `data-wiki="${esc(it.wiki)}"` : ""} alt="" />
+      <h2>${esc(it.label)}</h2>
+      <div class="sess-actions"><button class="optbtn" data-go="${esc(it.domain)}|${esc(it.nav)}">📖 Ouvrir la fiche</button></div>
+      <div class="navworks" style="margin-top:18px">
+        <button id="runprev" ${i === 0 ? "disabled" : ""}>← Précédent</button>
+        <button id="runnext" ${i === p.items.length - 1 ? "disabled" : ""}>Suivant →</button>
+      </div>
+    </div></div>`;
+  loadImages($("view"));
+  const pv = $("runprev"), nx = $("runnext");
+  if (pv) pv.onclick = () => { RUN.i = i - 1; renderRun(id); };
+  if (nx) nx.onclick = () => { RUN.i = i + 1; renderRun(id); };
 }
 
 /* =========================================================================

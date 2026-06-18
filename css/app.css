@@ -530,3 +530,57 @@ details.deep p { font-size: 14px; line-height: 1.7; }
   .camps { grid-template-columns: 1fr; }
   .vs { transform: rotate(90deg); margin: 2px 0; }
 }
+
+/* ============ MON PARCOURS (favoris unifiés + playlists) ============ */
+.addpl { margin: 6px 0 14px; }
+.plus-pl {
+  font: inherit; font-size: 12.5px; font-weight: 600; cursor: pointer;
+  border: 1px solid var(--line); background: var(--card); color: var(--ink);
+  border-radius: 999px; padding: 4px 12px; transition: background .15s, border-color .15s;
+}
+.plus-pl:hover { border-color: var(--chap); background: #fff; }
+.plus-pl.mini { padding: 2px 8px; font-size: 12px; }
+
+.favlist { list-style: none; }
+.favlist li { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.favlist li a { color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; cursor: pointer; flex: 1 1 auto; }
+.favlist li a:hover { border-color: var(--ink); }
+.dom-badge { flex: 0 0 auto; font-size: 16px; line-height: 1; }
+.favtype { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+
+.pl-list { list-style: none; }
+.pl-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.pl-row .thumb.mini { width: 46px; height: 46px; flex: 0 0 auto; border-radius: var(--r); background: #eee center/cover no-repeat; }
+.pl-row .pl-lbl { flex: 1 1 auto; color: var(--ink); text-decoration: none; cursor: pointer; border-bottom: 1px solid transparent; }
+.pl-row .pl-lbl:hover { border-color: var(--ink); }
+.pl-actions { display: flex; gap: 4px; flex: 0 0 auto; }
+.pl-actions button {
+  font: inherit; cursor: pointer; border: 1px solid var(--line); background: var(--card);
+  color: var(--ink); border-radius: var(--r); width: 30px; height: 30px; line-height: 1;
+}
+.pl-actions button:disabled { opacity: .35; cursor: default; }
+.pl-actions button:not(:disabled):hover { border-color: var(--chap); }
+
+/* sélecteur de parcours (overlay) */
+#plpick { position: fixed; inset: 0; z-index: 60; display: none; align-items: center; justify-content: center;
+  background: rgba(20,17,13,.5); padding: 20px; }
+#plpick.show { display: flex; }
+.plpick-box { background: #fff; border-radius: 10px; width: min(420px, 100%); max-height: 80vh; overflow: auto;
+  box-shadow: var(--shadow); padding: 16px 18px; }
+.plpick-box header { display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  font-family: "Fraunces", serif; font-size: 16px; font-weight: 600; margin-bottom: 12px; }
+.plpick-x { border: none; background: none; font-size: 22px; cursor: pointer; color: var(--muted); line-height: 1; }
+.plpick-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+.plpick-opt { text-align: left; font: inherit; cursor: pointer; border: 1px solid var(--line);
+  background: var(--card); border-radius: var(--r); padding: 9px 12px; display: flex; justify-content: space-between; }
+.plpick-opt:hover { border-color: var(--chap); }
+.plpick-opt small { color: var(--muted); }
+.plpick-new { width: 100%; font: inherit; font-weight: 600; cursor: pointer; border: 1px dashed var(--line);
+  background: none; border-radius: var(--r); padding: 9px; color: var(--ink); }
+.plpick-new:hover { border-color: var(--chap); }
+
+/* toast */
+#toast { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%) translateY(20px);
+  background: var(--chrome); color: var(--chrome-ink); padding: 10px 18px; border-radius: 999px;
+  font-size: 14px; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 70; }
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
