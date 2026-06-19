@@ -1,49 +1,53 @@
-# Guide IA en ligne — Cloudflare Worker
+# Worker Cloudflare — guide IA + Atelier (publication de fiches)
 
-Ce Worker garde ta **clé Claude** en secret et permet au site déployé (GitHub Pages)
-d'utiliser le guide IA **partout**, pas seulement en local.
+On **réutilise le Worker déjà déployé** `benmuseum-guide`
+(`https://benmuseum-guide.benoit-comas.workers.dev/`) — ta clé Claude y est déjà.
+Il fait deux choses, tous les tokens restant **secrets côté Cloudflare** :
+1. **IA** : proxy vers Claude (guide, enrichissement, quiz, rédaction de fiches) — multi-domaine (art, littérature, philo).
+2. **Atelier** : commit d'une fiche `data/*.json` dans le dépôt GitHub, protégé par mot de passe.
 
-## Déploiement (2 façons)
+## Mettre à jour le Worker (ajoute les modes fiche + commit)
 
-### A. En ligne de commande (Wrangler) — recommandé
 ```bash
-# 1. installer l'outil Cloudflare (une fois)
-npm install -g wrangler
-
-# 2. se connecter à ton compte Cloudflare (ouvre le navigateur)
-wrangler login
-
-# 3. depuis le dossier worker/
-cd worker
-wrangler deploy
-
-# 4. enregistrer la clé Claude comme SECRET (jamais dans le code)
-wrangler secret put ANTHROPIC_API_KEY
-#   → colle ta clé sk-ant-... quand c'est demandé
+npm install -g wrangler        # si pas déjà fait
+wrangler login                 # ton compte Cloudflare
+cd lettres-idees/worker
+wrangler deploy                # met à jour benmuseum-guide avec ce code
 ```
-Wrangler affiche alors l'URL publique, du type :
-`https://benmuseum-guide.<ton-sous-domaine>.workers.dev`
 
-### B. Depuis le tableau de bord Cloudflare (sans terminal)
-1. dash.cloudflare.com → **Workers & Pages** → **Create** → **Create Worker**.
-2. Colle le contenu de `worker.js`, **Deploy**.
-3. Onglet **Settings → Variables → Add variable** :
-   - **Secret** : `ANTHROPIC_API_KEY` = ta clé `sk-ant-...`
-   - (optionnel) Variable : `MODEL` = `claude-sonnet-4-6`
-4. Récupère l'URL `https://....workers.dev`.
+## Ajouter les 2 secrets (la clé Claude est déjà là)
 
-## Brancher le site
-Dans le site en ligne, ouvre une fiche d'œuvre → **« Configurer l'IA en ligne »**
-sous le guide → colle l'URL de ton Worker. (Stocké dans ton navigateur.)
-À partir de là, le guide répond partout, et le bouton « + Ajouter aux notes »
-verse ses réponses dans tes fiches.
+```bash
+# depuis lettres-idees/worker
+wrangler secret put GITHUB_TOKEN   # token GitHub fine-grained (voir ci-dessous)
+wrangler secret put EDIT_TOKEN     # un mot de passe que TU choisis (long, secret)
+```
+Les variables `GH_OWNER=Bencode92`, `GH_REPO=LiteraMuseum`, `GH_BRANCH=main` sont dans `wrangler.toml`.
+
+## Le token GitHub (write Contents)
+
+GitHub → **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate** :
+- **Resource owner** : Bencode92
+- **Repository access** : *Only select repositories* → **LiteraMuseum**
+- **Permissions → Repository → Contents : Read and write**
+- Copie `github_pat_...` → `wrangler secret put GITHUB_TOKEN`.
+
+## Côté site (LiteraMuseum)
+
+L'URL du Worker est **déjà branchée par défaut** en ligne (le guide IA marche tout seul).
+Onglet **Atelier** → bouton **Saisir le mot de passe d'édition** → mets le **même** que `EDIT_TOKEN`.
+Ensuite : rédige une fiche (l'IA aide) → **Publier** → commit auto → Pages republie (~1 min).
+
+> Le musée d'art (BENMUSEUM) continue d'utiliser le même Worker sans rien changer
+> (les prompts sont devenus multi-domaines, les anciens modes sont inchangés).
 
 ## Sécurité
-- La clé reste **côté Cloudflare** ; le navigateur ne la voit jamais.
-- Le Worker n'accepte que les origines listées dans `ALLOWED` (ton site + localhost).
-  Mets-y ton domaine exact si tu changes d'URL.
+- Clé Claude + token GitHub : **jamais** dans le navigateur (secrets Cloudflare).
+- Publier exige `EDIT_TOKEN` (le Worker refuse sinon). Le Worker n'écrit que `data/*.json` sur LiteraMuseum.
+- Origines limitées (`ALLOWED`) à ton site + localhost.
 
-## Modes
-- **discussion** (défaut) : `{ floorName, epoque, salle, work, question, history }`
-- **enrichissement** : `{ mode: "enrich", fiche, texte }` → compare un texte à la fiche
-  et renvoie ✅ nouveau / ↺ déjà couvert / ⚠️ à vérifier (à la studyforge).
+## Modes (API)
+- `{ floorName, salle, work, question, history }` → guide (discussion)
+- `{ mode:"enrich", fiche, texte }` · `{ mode:"quiz", contenu, n }`
+- `{ mode:"fiche", domaine, titre, artiste, annee }` → rédige une fiche (JSON)
+- `{ mode:"commit", editToken, path:"data/x.json", content, message }` → commit GitHub

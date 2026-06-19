@@ -1,10 +1,17 @@
+# On RÉUTILISE le Worker déjà déployé "benmuseum-guide" (clé Claude déjà configurée).
+# `wrangler deploy` depuis ce dossier met à jour ce Worker avec le code à jour.
 name = "benmuseum-guide"
 main = "worker.js"
 compatibility_date = "2024-11-01"
 
-# Modèle Claude (optionnel — sinon claude-sonnet-4-6 par défaut)
+# Variables publiques (pas de secret ici)
 [vars]
 MODEL = "claude-sonnet-4-6"
+GH_OWNER = "Bencode92"
+GH_REPO = "LiteraMuseum"
+GH_BRANCH = "main"
 
-# La clé NE se met PAS ici. C'est un secret :
-#   wrangler secret put ANTHROPIC_API_KEY
+# Les SECRETS ne se mettent PAS ici. À configurer une fois :
+#   wrangler secret put ANTHROPIC_API_KEY   (déjà fait sur ce Worker)
+#   wrangler secret put GITHUB_TOKEN         (token GitHub fine-grained, write Contents sur LiteraMuseum)
+#   wrangler secret put EDIT_TOKEN           (mot de passe d'édition que tu choisis)

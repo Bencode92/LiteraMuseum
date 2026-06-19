@@ -108,7 +108,7 @@ const CFG = {
 };
 const C = () => CFG[DOMAIN];   // raccourci config du domaine actif
 
-const DV = "7"; // bump à chaque mise à jour de contenu pour court-circuiter le cache
+const DV = "8"; // bump à chaque mise à jour de contenu pour court-circuiter le cache
 function mkDomain(c, dos, img) {
   const flat = [];
   (c.chapitres || []).forEach((ch, ci) => (ch.oeuvres || []).forEach((o, oi) =>
@@ -140,8 +140,8 @@ Promise.all([
   fetch("data/images-philo.json?v=" + DV).then(r => r.json()).catch(() => ({})),
 ])
   .then(([lc, pc, ld, pd, li, pi]) => {
-    DOMAINS.litt = mkDomain(lc, ld, li);
-    DOMAINS.philo = mkDomain(pc, pd, pi);
+    DOMAINS.litt = mkDomain(lc, ld, li); DOMAINS.litt.doc = lc; DOMAINS.litt.file = "litterature.json";
+    DOMAINS.philo = mkDomain(pc, pd, pi); DOMAINS.philo.doc = pc; DOMAINS.philo.file = "philosophie.json";
     applyDomain(DOMAIN);
     route();
   })
@@ -354,6 +354,7 @@ function route() {
   document.querySelectorAll(".tab").forEach(b => b.classList.toggle("active", b.dataset.nav === "#/" + tabKey));
   scrollTo(0, 0);
   if (top === "quiz") { setActiveFloor(-1); return renderQuiz(); }
+  if (top === "atelier") { setActiveFloor(-1); return renderAtelier(); }
   if (top === "session") { setActiveFloor(-1); return startSession(); }
   if (top === "parcours") { setActiveFloor(-1); return renderParcours(); }
   if (top === "moi" || top === "favoris") {
@@ -593,8 +594,10 @@ function wireAiQuiz(id, contenu) {
   };
 }
 
-// endpoint IA : ton Cloudflare Worker (en ligne) sinon le serveur local
-function aiEndpoint() { return localStorage.getItem("ai:url") || "/api/ask"; }
+// endpoint IA : en local → serveur node (/api/ask) ; en ligne → Worker déjà déployé
+const DEFAULT_AI = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+  ? "/api/ask" : "https://benmuseum-guide.benoit-comas.workers.dev/";
+function aiEndpoint() { return localStorage.getItem("ai:url") || DEFAULT_AI; }
 function setAiUrl() {
   const u = prompt("Colle l'URL de ton Cloudflare Worker (https://...workers.dev) — voir worker/README.md :", localStorage.getItem("ai:url") || "");
   if (u !== null) { localStorage.setItem("ai:url", u.trim()); alert(u.trim() ? "Guide IA en ligne configuré. Repose ta question." : "URL effacée."); }
@@ -1167,6 +1170,130 @@ function renderRun(id) {
   const pv = $("runprev"), nx = $("runnext");
   if (pv) pv.onclick = () => { RUN.i = i - 1; renderRun(id); };
   if (nx) nx.onclick = () => { RUN.i = i + 1; renderRun(id); };
+}
+
+/* =========================================================================
+   ATELIER — créer / modifier une fiche d'œuvre et publier dans le repo
+   ========================================================================= */
+function atkEdit() { return localStorage.getItem("li:edittoken") || ""; }
+function atkSetEdit() {
+  const v = prompt("Mot de passe d'édition (le même que le secret EDIT_TOKEN du Worker) :", atkEdit());
+  if (v !== null) localStorage.setItem("li:edittoken", v.trim());
+}
+let ATK = { domaine: null, num: null, idx: -1 };
+
+function renderAtelier() {
+  crumb([{ label: "Atelier" }]);
+  const d = ATK.domaine || DOMAIN;
+  const chaps = DOMAINS[d].doc.chapitres;
+  const num = ATK.num != null ? ATK.num : (chaps[0] && chaps[0].num);
+  const chap = chaps.find(c => c.num === num) || chaps[0];
+  const works = (chap && chap.oeuvres) || [];
+  const online = aiEndpoint() !== "/api/ask", hasPwd = !!atkEdit();
+  $("view").innerHTML = `
+    <div class="pagehead"><h1>Atelier ✏️</h1>
+      <p class="lead">Crée ou modifie une fiche d'œuvre — l'IA peut la rédiger — puis publie : elle est écrite dans le dépôt et mise en ligne (~1 min).</p></div>
+    <div class="block">
+      <h3>⚙️ Connexion</h3>
+      <div class="atk-status">
+        <span class="${online ? "ok" : "ko"}">IA / Worker : ${online ? "✅ configuré" : "❌ non configuré"}</span>
+        <button class="optbtn" id="atkAi">Configurer le Worker</button>
+        <span class="${hasPwd ? "ok" : "ko"}">Mot de passe d'édition : ${hasPwd ? "✅ saisi" : "❌ manquant"}</span>
+        <button class="optbtn" id="atkPwd">${hasPwd ? "Modifier" : "Saisir"}</button>
+      </div>
+    </div>
+    <div class="block">
+      <h3>📝 Fiche d'œuvre</h3>
+      <div class="quizcfg">
+        <label>Domaine<br><select id="atkDom">
+          <option value="litt" ${d === "litt" ? "selected" : ""}>📚 Littérature</option>
+          <option value="philo" ${d === "philo" ? "selected" : ""}>🦉 Philosophie</option></select></label>
+        <label>Époque / courant<br><select id="atkChap">${chaps.map(c => `<option value="${c.num}" ${c.num === num ? "selected" : ""}>${c.num}. ${esc(c.titre)}</option>`).join("")}</select></label>
+        <label>Cible<br><select id="atkTarget">
+          <option value="-1">➕ Nouvelle œuvre</option>
+          ${works.map((o, i) => `<option value="${i}" ${i === ATK.idx ? "selected" : ""}>✏️ ${esc(o.titre)}</option>`).join("")}</select></label>
+      </div>
+      <div class="atk-form">
+        <label>Titre<input id="f_titre" /></label>
+        <label>Auteur / penseur<input id="f_artiste" /></label>
+        <label>Année<input id="f_annee" placeholder="ex. 1857" /></label>
+        <label>Image — titre d'article Wikipédia EN<input id="f_wiki" placeholder="ex. Madame Bovary" /></label>
+        <label class="full">Explication<textarea id="f_expl" rows="3"></textarea></label>
+        <label class="full">Contexte<textarea id="f_ctx" rows="2"></textarea></label>
+        <label class="full">Éléments à retenir (un par ligne)<textarea id="f_elem" rows="3"></textarea></label>
+      </div>
+      <div class="atk-preview"><img id="atkImg" alt="" /></div>
+      <div class="sess-actions" style="flex-wrap:wrap">
+        <button class="optbtn" id="atkDraft">🤖 Rédiger via l'IA</button>
+        <button class="optbtn" id="atkTestImg">🖼 Tester l'image</button>
+        <button class="next" id="atkPublish">🚀 Publier</button>
+      </div>
+      <div class="answer" id="atkMsg" hidden></div>
+    </div>`;
+  const testImg = () => { const w = $("f_wiki").value.trim(), img = $("atkImg"); if (!w) { img.style.display = "none"; return; } getImageUrl(w).then(u => { if (u) { img.src = u; img.style.display = "block"; } else img.style.display = "none"; }); };
+  const load = () => {
+    const o = ATK.idx >= 0 ? works[ATK.idx] : null;
+    $("f_titre").value = o ? o.titre || "" : ""; $("f_artiste").value = o ? o.artiste || "" : "";
+    $("f_annee").value = o ? o.annee || "" : ""; $("f_wiki").value = o ? o.wiki || "" : "";
+    $("f_expl").value = o ? o.explication || "" : ""; $("f_ctx").value = o ? o.contexte || "" : "";
+    $("f_elem").value = o ? (o.elements || []).join("\n") : ""; testImg();
+  };
+  $("atkAi").onclick = setAiUrl;
+  $("atkPwd").onclick = () => { atkSetEdit(); renderAtelier(); };
+  $("atkDom").onchange = e => { ATK = { domaine: e.target.value, num: null, idx: -1 }; renderAtelier(); };
+  $("atkChap").onchange = e => { ATK = { domaine: d, num: +e.target.value, idx: -1 }; renderAtelier(); };
+  $("atkTarget").onchange = e => { ATK.idx = +e.target.value; load(); };
+  $("atkTestImg").onclick = testImg;
+  $("atkDraft").onclick = () => atkDraft(d);
+  $("atkPublish").onclick = () => atkPublish(d, num);
+  load();
+}
+
+async function atkDraft(d) {
+  const msg = $("atkMsg"); msg.hidden = false;
+  const titre = $("f_titre").value.trim(), artiste = $("f_artiste").value.trim();
+  if (!titre || !artiste) { msg.className = "answer"; msg.textContent = "Renseigne au moins le titre et l'auteur, puis relance."; return; }
+  if (aiEndpoint() === "/api/ask") { msg.className = "answer"; msg.innerHTML = "⚠️ Worker non configuré. <button class='linkbtn' id='cfgd'>Configurer</button>"; const c = $("cfgd"); if (c) c.onclick = setAiUrl; return; }
+  msg.className = "answer dim"; msg.textContent = "L'IA rédige la fiche…";
+  try {
+    const r = await fetch(aiEndpoint(), { method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({ mode: "fiche", domaine: d === "philo" ? "philosophie" : "littérature", titre, artiste, annee: $("f_annee").value.trim() }) });
+    if (!r.ok) throw new Error();
+    const j = await r.json(); const m = (j.answer || "").match(/\{[\s\S]*\}/); const o = JSON.parse(m ? m[0] : j.answer);
+    if (o.annee && !$("f_annee").value.trim()) $("f_annee").value = o.annee;
+    if (o.wiki) $("f_wiki").value = o.wiki;
+    if (o.explication) $("f_expl").value = o.explication;
+    if (o.contexte) $("f_ctx").value = o.contexte;
+    if (Array.isArray(o.elements)) $("f_elem").value = o.elements.join("\n");
+    msg.className = "answer"; msg.textContent = "✅ Brouillon rempli par l'IA — relis/ajuste, puis publie.";
+    const w = $("f_wiki").value.trim(); if (w) getImageUrl(w).then(u => { if (u) { $("atkImg").src = u; $("atkImg").style.display = "block"; } });
+  } catch { msg.className = "answer"; msg.textContent = "⚠️ Rédaction IA impossible (réponse illisible ou Worker hors ligne)."; }
+}
+
+async function atkPublish(d, num) {
+  const msg = $("atkMsg"); msg.hidden = false;
+  if (!atkEdit()) { msg.className = "answer"; msg.innerHTML = "⚠️ Mot de passe d'édition manquant. <button class='linkbtn' id='setpw'>Le saisir</button>"; const s = $("setpw"); if (s) s.onclick = atkSetEdit; return; }
+  if (aiEndpoint() === "/api/ask") { msg.className = "answer"; msg.textContent = "⚠️ Worker non configuré (nécessaire pour publier)."; return; }
+  const titre = $("f_titre").value.trim(), artiste = $("f_artiste").value.trim();
+  if (!titre || !artiste) { msg.className = "answer"; msg.textContent = "Titre et auteur obligatoires."; return; }
+  const oeuvre = { titre, wiki: $("f_wiki").value.trim(), artiste, annee: $("f_annee").value.trim(),
+    explication: $("f_expl").value.trim(), contexte: $("f_ctx").value.trim(),
+    elements: $("f_elem").value.split("\n").map(s => s.trim()).filter(Boolean) };
+  const dm = DOMAINS[d], doc = dm.doc, chap = doc.chapitres.find(c => c.num === num);
+  if (!chap) { msg.className = "answer"; msg.textContent = "Chapitre introuvable."; return; }
+  chap.oeuvres = chap.oeuvres || [];
+  if (ATK.idx >= 0 && chap.oeuvres[ATK.idx]) chap.oeuvres[ATK.idx] = oeuvre; else { chap.oeuvres.push(oeuvre); ATK.idx = chap.oeuvres.length - 1; }
+  dm.flat = []; doc.chapitres.forEach((c, ci) => (c.oeuvres || []).forEach((o, oi) => dm.flat.push({ ci, oi, chap: c, oeuvre: o })));
+  if (d === DOMAIN) FLAT = dm.flat;
+  const content = JSON.stringify(doc, null, 2);
+  msg.className = "answer dim"; msg.textContent = "Publication…";
+  try {
+    const r = await fetch(aiEndpoint(), { method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({ mode: "commit", editToken: atkEdit(), path: "data/" + dm.file, content, message: `Atelier : « ${titre} » (${chap.titre})` }) });
+    const j = await r.json();
+    if (!r.ok || !j.ok) throw new Error(j.error || "échec");
+    msg.className = "answer"; msg.innerHTML = `✅ Publié ! ${j.commit ? `<a href="${esc(j.commit)}" target="_blank">voir le commit</a> · ` : ""}en ligne dans ~1 min (recharge la page).${oeuvre.wiki ? "" : "<br>⚠️ Pas d'image : ajoute un titre Wikipédia EN."}<br><small>Le quiz visuel inclura l'image au prochain <code>node build-images.mjs</code>.</small>`;
+  } catch (e) { msg.className = "answer"; msg.textContent = "⚠️ Échec de la publication : " + (e.message || e) + " — vérifie le mot de passe d'édition et la config du Worker."; }
 }
 
 /* =========================================================================
