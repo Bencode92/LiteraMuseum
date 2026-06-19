@@ -46,10 +46,20 @@ const GH_HEADERS = token => ({
   "X-GitHub-Api-Version": "2022-11-28",
 });
 
+// récupère le token GitHub depuis la variable existante (quel que soit son nom)
+function ghToken(env) {
+  return env.GITHUB_TOKEN || env.GH_TOKEN || env.GITHUB_PAT || env.GH_PAT ||
+    env.GITHUB_API_TOKEN || env.GITHUB_API_KEY || env.GH_API_TOKEN ||
+    env.GITHUB || env.TOKEN_GITHUB || env.PAT || null;
+}
+
 // ATELIER : commit d'un fichier data/*.json dans le repo GitHub
 async function handleCommit(b, env, cors) {
-  if (!env.GITHUB_TOKEN || !env.EDIT_TOKEN)
-    return json({ error: "Atelier non configuré (secrets GITHUB_TOKEN / EDIT_TOKEN manquants sur le Worker)." }, 500, cors);
+  const token = ghToken(env);
+  if (!token)
+    return json({ error: "Aucun token GitHub trouvé dans les variables du Worker (GITHUB_TOKEN, GH_TOKEN, GITHUB_PAT…)." }, 500, cors);
+  if (!env.EDIT_TOKEN)
+    return json({ error: "EDIT_TOKEN (mot de passe d'édition) manquant sur le Worker." }, 500, cors);
   if (!b.editToken || b.editToken !== env.EDIT_TOKEN)
     return json({ error: "Mot de passe d'édition invalide." }, 403, cors);
   const owner = env.GH_OWNER, repo = env.GH_REPO, branch = env.GH_BRANCH || "main";
@@ -64,10 +74,10 @@ async function handleCommit(b, env, cors) {
   try {
     // SHA actuel (pour mise à jour) ; absent = création de fichier
     let sha;
-    const cur = await fetch(`${api}?ref=${branch}`, { headers: GH_HEADERS(env.GITHUB_TOKEN) });
+    const cur = await fetch(`${api}?ref=${branch}`, { headers: GH_HEADERS(token) });
     if (cur.ok) sha = (await cur.json()).sha;
     const put = await fetch(api, {
-      method: "PUT", headers: { ...GH_HEADERS(env.GITHUB_TOKEN), "content-type": "application/json" },
+      method: "PUT", headers: { ...GH_HEADERS(token), "content-type": "application/json" },
       body: JSON.stringify({ message: b.message || ("Atelier : maj " + path), content: b64utf8(b.content), branch, sha }),
     });
     const data = await put.json();
