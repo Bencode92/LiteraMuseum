@@ -108,7 +108,7 @@ const CFG = {
 };
 const C = () => CFG[DOMAIN];   // raccourci config du domaine actif
 
-const DV = "8"; // bump à chaque mise à jour de contenu pour court-circuiter le cache
+const DV = "9"; // bump à chaque mise à jour de contenu pour court-circuiter le cache
 function mkDomain(c, dos, img) {
   const flat = [];
   (c.chapitres || []).forEach((ch, ci) => (ch.oeuvres || []).forEach((o, oi) =>
@@ -1189,17 +1189,15 @@ function renderAtelier() {
   const num = ATK.num != null ? ATK.num : (chaps[0] && chaps[0].num);
   const chap = chaps.find(c => c.num === num) || chaps[0];
   const works = (chap && chap.oeuvres) || [];
-  const online = aiEndpoint() !== "/api/ask", hasPwd = !!atkEdit();
+  const online = aiEndpoint() !== "/api/ask";
   $("view").innerHTML = `
     <div class="pagehead"><h1>Atelier ✏️</h1>
       <p class="lead">Crée ou modifie une fiche d'œuvre — l'IA peut la rédiger — puis publie : elle est écrite dans le dépôt et mise en ligne (~1 min).</p></div>
     <div class="block">
       <h3>⚙️ Connexion</h3>
       <div class="atk-status">
-        <span class="${online ? "ok" : "ko"}">IA / Worker : ${online ? "✅ configuré" : "❌ non configuré"}</span>
-        <button class="optbtn" id="atkAi">Configurer le Worker</button>
-        <span class="${hasPwd ? "ok" : "ko"}">Mot de passe d'édition : ${hasPwd ? "✅ saisi" : "❌ manquant"}</span>
-        <button class="optbtn" id="atkPwd">${hasPwd ? "Modifier" : "Saisir"}</button>
+        <span class="${online ? "ok" : "ko"}">IA / Worker : ${online ? "✅ prêt" : "❌ hors ligne (lance le site en ligne)"}</span>
+        <button class="optbtn" id="atkAi">Changer l'URL du Worker</button>
       </div>
     </div>
     <div class="block">
@@ -1239,7 +1237,6 @@ function renderAtelier() {
     $("f_elem").value = o ? (o.elements || []).join("\n") : ""; testImg();
   };
   $("atkAi").onclick = setAiUrl;
-  $("atkPwd").onclick = () => { atkSetEdit(); renderAtelier(); };
   $("atkDom").onchange = e => { ATK = { domaine: e.target.value, num: null, idx: -1 }; renderAtelier(); };
   $("atkChap").onchange = e => { ATK = { domaine: d, num: +e.target.value, idx: -1 }; renderAtelier(); };
   $("atkTarget").onchange = e => { ATK.idx = +e.target.value; load(); };
@@ -1272,8 +1269,7 @@ async function atkDraft(d) {
 
 async function atkPublish(d, num) {
   const msg = $("atkMsg"); msg.hidden = false;
-  if (!atkEdit()) { msg.className = "answer"; msg.innerHTML = "⚠️ Mot de passe d'édition manquant. <button class='linkbtn' id='setpw'>Le saisir</button>"; const s = $("setpw"); if (s) s.onclick = atkSetEdit; return; }
-  if (aiEndpoint() === "/api/ask") { msg.className = "answer"; msg.textContent = "⚠️ Worker non configuré (nécessaire pour publier)."; return; }
+  if (aiEndpoint() === "/api/ask") { msg.className = "answer"; msg.textContent = "⚠️ Worker non configuré (publication possible seulement en ligne)."; return; }
   const titre = $("f_titre").value.trim(), artiste = $("f_artiste").value.trim();
   if (!titre || !artiste) { msg.className = "answer"; msg.textContent = "Titre et auteur obligatoires."; return; }
   const oeuvre = { titre, wiki: $("f_wiki").value.trim(), artiste, annee: $("f_annee").value.trim(),

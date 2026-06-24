@@ -93,9 +93,9 @@ async function handleSave(b, env, cors) {
 async function handleCommit(b, env, cors) {
   const token = ghToken(env);
   if (!token) return json({ error: "Aucun token GitHub trouvé dans les variables du Worker." }, 500, cors);
+  // mot de passe OPTIONNEL : exigé seulement si un secret EDIT_TOKEN/EDIT_PASSWORD est défini
   const secret = editSecret(env);
-  if (!secret) return json({ error: "Mot de passe d'édition (EDIT_TOKEN/EDIT_PASSWORD) manquant sur le Worker." }, 500, cors);
-  if (editGiven(b) !== secret) return json({ error: "Mot de passe d'édition invalide." }, 403, cors);
+  if (secret && editGiven(b) !== secret) return json({ error: "Mot de passe d'édition invalide." }, 403, cors);
   const owner = env.GH_OWNER, repo = env.GH_REPO, branch = env.GH_BRANCH || "main";
   if (!owner || !repo) return json({ error: "GH_OWNER / GH_REPO manquants sur le Worker." }, 500, cors);
   const path = String(b.path || "");
