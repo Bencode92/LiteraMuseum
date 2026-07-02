@@ -9,7 +9,7 @@
      - GH_OWNER / GH_REPO / GH_BRANCH : cible du mode "commit" (LiteraMuseum)
 
    Modes :
-     - discussion (défaut), quiz, enrich, fiche      → Claude
+     - discussion (défaut), quiz, enrich, fiche, citation → Claude
      - save   : ajoute une entrée à data/community.json de BENMUSEUM (couche partagée)
      - commit : écrit un fichier data/*.json complet (LiteraMuseum — Atelier)
    ========================================================================= */
@@ -155,6 +155,23 @@ export default {
         "Réponds en français, en 3 sections courtes :\n✅ NOUVEAU (faits exacts absents de la fiche)\n↺ DÉJÀ COUVERT\n⚠️ À VÉRIFIER (douteux ou faux).\nSois concis et factuel.";
       messages = [{ role: "user", content: `CONTENU EXISTANT :\n${b.fiche || ""}\n\nTEXTE PROPOSÉ :\n${b.texte || ""}` }];
       maxTokens = 800;
+    } else if (mode === "citation") {
+      system =
+        "Tu es un professeur de lettres et de philosophie, chaleureux et précis. On te donne une CITATION, son AUTEUR (philosophe, écrivain ou artiste) et parfois l'ŒUVRE dont elle est tirée. " +
+        "Explique-la à un élève de classe préparatoire, en français, SANS jargon, de façon vivante et concrète. " +
+        "Structure ta réponse en sections courtes, séparées par une ligne vide, avec EXACTEMENT ces intitulés :\n" +
+        "🔑 SENS — en 2 ou 3 phrases, ce que la citation veut dire.\n" +
+        "🔁 AUTREMENT DIT — reformule la citation en UNE phrase simple, comme si tu l'expliquais à un ami.\n" +
+        "🧠 ANALYSE — le concept ou l'idée en jeu, sa place dans la pensée de l'auteur, ce qu'elle affirme ou conteste (3 à 5 phrases).\n" +
+        "💡 EXEMPLE — une situation concrète, une image ou un exemple de la vie qui illustre l'idée.\n" +
+        "🎯 À RETENIR — une phrase-clé à mémoriser, et si pertinent un angle de dissertation.\n" +
+        "N'invente RIEN sur la source : si tu n'es pas sûr de l'attribution exacte ou de l'œuvre, dis-le honnêtement.";
+      messages = [{ role: "user", content:
+        `Domaine : ${b.domaine || "philosophie"}.\n` +
+        `Auteur : ${b.auteur || "(inconnu)"}.\n` +
+        (b.oeuvre ? `Œuvre : « ${b.oeuvre} ».\n` : "") +
+        `Citation : « ${b.citation || ""} »` }];
+      maxTokens = 900;
     } else if (mode === "fiche") {
       system =
         "Tu es un spécialiste de culture (histoire de l'art, littérature, philosophie). On te donne le titre d'une œuvre, son auteur et le domaine. " +

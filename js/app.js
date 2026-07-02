@@ -355,6 +355,7 @@ function route() {
   scrollTo(0, 0);
   if (top === "quiz") { setActiveFloor(-1); return renderQuiz(); }
   if (top === "atelier") { setActiveFloor(-1); return renderAtelier(); }
+  if (top === "citations") { setActiveFloor(-1); return renderCitations(); }
   if (top === "session") { setActiveFloor(-1); return startSession(); }
   if (top === "parcours") { setActiveFloor(-1); return renderParcours(); }
   if (top === "moi" || top === "favoris") {
@@ -1181,6 +1182,95 @@ function atkSetEdit() {
   if (v !== null) localStorage.setItem("li:edittoken", v.trim());
 }
 let ATK = { domaine: null, num: null, idx: -1 };
+
+/* ---------- Citations : coller une citation, l'IA l'analyse et l'explique ---------- */
+const CIT_KEY = "citations:list";
+function citStore() { try { return JSON.parse(localStorage.getItem(CIT_KEY) || "[]"); } catch { return []; } }
+function citSaveAll(list) { localStorage.setItem(CIT_KEY, JSON.stringify(list)); }
+function citAdd(item) { const l = citStore(); l.unshift({ ...item, id: Date.now() + "", ts: new Date().toISOString().slice(0, 10) }); citSaveAll(l.slice(0, 200)); }
+function citDel(id) { citSaveAll(citStore().filter(c => c.id !== id)); }
+
+function renderCitations() {
+  crumb([{ label: "Citations" }]);
+  const d = CIT_DOM || DOMAIN;
+  const online = aiEndpoint() !== "/api/ask";
+  const list = citStore();
+  $("view").innerHTML = `
+    <div class="pagehead"><h1>Citations 💬</h1>
+      <p class="lead">Une citation t'a marqué ? Colle-la avec son auteur (et l'œuvre) : l'IA te l'explique, la reformule (« autrement dit… ») et l'illustre par un exemple. Tes citations sont gardées ici.</p></div>
+    <div class="block">
+      <div class="atk-status">
+        <span class="${online ? "ok" : "ko"}">IA / Worker : ${online ? "✅ prêt" : "❌ hors ligne (ouvre le site en ligne)"}</span>
+        <button class="optbtn" id="citAi">Changer l'URL du Worker</button>
+      </div>
+      <div class="quizcfg" style="margin-top:14px">
+        <label>Domaine<br><select id="citDom">
+          <option value="philo" ${d === "philo" ? "selected" : ""}>🦉 Philosophie</option>
+          <option value="litt" ${d === "litt" ? "selected" : ""}>📚 Littérature / art</option></select></label>
+      </div>
+      <div class="atk-form">
+        <label>Auteur (philosophe / écrivain / artiste)<input id="cit_auteur" placeholder="ex. Pascal" /></label>
+        <label>Œuvre (facultatif)<input id="cit_oeuvre" placeholder="ex. Pensées" /></label>
+        <label class="full">Citation<textarea id="cit_texte" rows="3" placeholder="Colle ici la citation qui t'a marqué…"></textarea></label>
+      </div>
+      <div class="sess-actions" style="flex-wrap:wrap">
+        <button class="next" id="citGo">🔎 Analyser & expliquer</button>
+      </div>
+      <div class="answer" id="citRes" hidden style="white-space:pre-wrap;margin-top:12px"></div>
+    </div>
+    <div class="block">
+      <h3>📚 Mes citations (${list.length})</h3>
+      <div id="citList">${list.length ? "" : '<p class="lead">Aucune citation pour l\'instant.</p>'}</div>
+    </div>`;
+
+  const renderList = () => {
+    const l = citStore();
+    $("citList").innerHTML = l.length ? l.map(c => `
+      <div class="card" data-cit="${c.id}" style="cursor:pointer">
+        <blockquote style="margin:0 0 6px;font-style:italic">« ${esc(c.citation)} »</blockquote>
+        <div class="meta">${esc(c.auteur || "?")}${c.oeuvre ? " — " + esc(c.oeuvre) : ""} · ${c.ts}
+          <button class="linkbtn" data-citdel="${c.id}" style="margin-left:8px">Supprimer</button></div>
+      </div>`).join("") : '<p class="lead">Aucune citation pour l\'instant.</p>';
+    document.querySelector("#citList") && ($("citList").querySelectorAll("[data-cit]").forEach(el => {
+      el.onclick = ev => {
+        if (ev.target.dataset.citdel) return;
+        const c = citStore().find(x => x.id === el.dataset.cit); if (!c) return;
+        $("cit_auteur").value = c.auteur || ""; $("cit_oeuvre").value = c.oeuvre || ""; $("cit_texte").value = c.citation || "";
+        const res = $("citRes"); res.hidden = false; res.textContent = c.analyse || "(pas d'analyse enregistrée — relance « Analyser »)";
+        scrollTo(0, 0);
+      };
+    }));
+    $("citList").querySelectorAll("[data-citdel]").forEach(b => b.onclick = ev => {
+      ev.stopPropagation(); citDel(b.dataset.citdel); renderList();
+      const h = document.querySelectorAll("#view .block h3"); if (h[0]) h[0].textContent = "📚 Mes citations (" + citStore().length + ")";
+    });
+  };
+  renderList();
+
+  $("citAi").onclick = setAiUrl;
+  $("citDom").onchange = e => { CIT_DOM = e.target.value; };
+  $("citGo").onclick = async () => {
+    const auteur = $("cit_auteur").value.trim(), oeuvre = $("cit_oeuvre").value.trim(), citation = $("cit_texte").value.trim();
+    const res = $("citRes");
+    if (!citation) { res.hidden = false; res.textContent = "Colle d'abord une citation."; return; }
+    if (aiEndpoint() === "/api/ask") { res.hidden = false; res.innerHTML = "⚠️ Worker non configuré. <button class='linkbtn' id='citcfg'>Configurer</button>"; const c = $("citcfg"); if (c) c.onclick = setAiUrl; return; }
+    res.hidden = false; res.textContent = "Analyse en cours…";
+    try {
+      const r = await fetch(aiEndpoint(), { method: "POST", headers: { "content-type": "application/json" },
+        body: JSON.stringify({ mode: "citation", domaine: CIT_DOM || d, auteur, oeuvre, citation }) });
+      if (!r.ok) throw new Error();
+      const j = await r.json();
+      res.textContent = j.answer || "(réponse vide)";
+      citAdd({ auteur, oeuvre, citation, analyse: j.answer || "" });
+      renderList();
+      const h = document.querySelectorAll("#view .block h3"); if (h[0]) h[0].textContent = "📚 Mes citations (" + citStore().length + ")";
+    } catch {
+      res.innerHTML = "⚠️ IA hors ligne. <button class='linkbtn' id='citcfg2'>Configurer l'IA en ligne</button>";
+      const b = $("citcfg2"); if (b) b.onclick = setAiUrl;
+    }
+  };
+}
+let CIT_DOM = null;
 
 function renderAtelier() {
   crumb([{ label: "Atelier" }]);
