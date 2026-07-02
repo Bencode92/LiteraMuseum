@@ -1219,9 +1219,15 @@ function renderCitations() {
       <div class="answer" id="citRes" hidden style="white-space:pre-wrap;margin-top:12px"></div>
     </div>
     <div class="block">
-      <h3>📚 Mes citations (${list.length})</h3>
+      <h3>✨ À découvrir</h3>
+      <p class="lead">Une sélection déjà analysée, tirée des cours. Clique pour lire l'analyse, ou ajoute-la à tes citations.</p>
+      <div id="citSeeds"><p class="lead">Chargement…</p></div>
+    </div>
+    <div class="block">
+      <h3 id="citCount">📚 Mes citations (${list.length})</h3>
       <div id="citList">${list.length ? "" : '<p class="lead">Aucune citation pour l\'instant.</p>'}</div>
     </div>`;
+  const updateCount = () => { const el = $("citCount"); if (el) el.textContent = "📚 Mes citations (" + citStore().length + ")"; };
 
   const renderList = () => {
     const l = citStore();
@@ -1241,11 +1247,35 @@ function renderCitations() {
       };
     }));
     $("citList").querySelectorAll("[data-citdel]").forEach(b => b.onclick = ev => {
-      ev.stopPropagation(); citDel(b.dataset.citdel); renderList();
-      const h = document.querySelectorAll("#view .block h3"); if (h[0]) h[0].textContent = "📚 Mes citations (" + citStore().length + ")";
+      ev.stopPropagation(); citDel(b.dataset.citdel); renderList(); updateCount();
     });
   };
   renderList();
+
+  // Collection de départ (data/citations.json), affichée dans « À découvrir »
+  const showCit = c => {
+    $("cit_auteur").value = c.auteur || ""; $("cit_oeuvre").value = c.oeuvre || ""; $("cit_texte").value = c.citation || "";
+    const res = $("citRes"); res.hidden = false; res.textContent = c.analyse || "(pas d'analyse enregistrée)"; scrollTo(0, 0);
+  };
+  const renderSeeds = () => {
+    const seeds = CIT_SEEDS || [];
+    $("citSeeds").innerHTML = seeds.length ? seeds.map((c, i) => `
+      <div class="card" data-seed="${i}" style="cursor:pointer">
+        <blockquote style="margin:0 0 6px;font-style:italic">« ${esc(c.citation)} »</blockquote>
+        <div class="meta">${c.domaine === "philo" ? "🦉" : "📚"} ${esc(c.auteur || "?")}${c.oeuvre ? " — " + esc(c.oeuvre) : ""}
+          <button class="linkbtn" data-seedadd="${i}" style="margin-left:8px">➕ Ajouter à mes citations</button></div>
+      </div>`).join("") : '<p class="lead">—</p>';
+    $("citSeeds").querySelectorAll("[data-seed]").forEach(el => el.onclick = ev => { if (ev.target.dataset.seedadd) return; showCit(CIT_SEEDS[+el.dataset.seed]); });
+    $("citSeeds").querySelectorAll("[data-seedadd]").forEach(b => b.onclick = ev => {
+      ev.stopPropagation(); const c = CIT_SEEDS[+b.dataset.seedadd];
+      citAdd({ auteur: c.auteur, oeuvre: c.oeuvre, citation: c.citation, analyse: c.analyse });
+      renderList(); updateCount(); b.textContent = "✓ Ajoutée"; b.disabled = true;
+    });
+  };
+  if (CIT_SEEDS) renderSeeds();
+  else fetch("data/citations.json?v=" + DV).then(r => r.json())
+    .then(a => { CIT_SEEDS = Array.isArray(a) ? a : []; renderSeeds(); })
+    .catch(() => { CIT_SEEDS = []; $("citSeeds").innerHTML = '<p class="lead">—</p>'; });
 
   $("citAi").onclick = setAiUrl;
   $("citDom").onchange = e => { CIT_DOM = e.target.value; };
@@ -1262,8 +1292,7 @@ function renderCitations() {
       const j = await r.json();
       res.textContent = j.answer || "(réponse vide)";
       citAdd({ auteur, oeuvre, citation, analyse: j.answer || "" });
-      renderList();
-      const h = document.querySelectorAll("#view .block h3"); if (h[0]) h[0].textContent = "📚 Mes citations (" + citStore().length + ")";
+      renderList(); updateCount();
     } catch {
       res.innerHTML = "⚠️ IA hors ligne. <button class='linkbtn' id='citcfg2'>Configurer l'IA en ligne</button>";
       const b = $("citcfg2"); if (b) b.onclick = setAiUrl;
@@ -1271,6 +1300,7 @@ function renderCitations() {
   };
 }
 let CIT_DOM = null;
+let CIT_SEEDS = null;
 
 function renderAtelier() {
   crumb([{ label: "Atelier" }]);
