@@ -599,3 +599,42 @@ details.deep p { font-size: 14px; line-height: 1.7; }
 .atk-form input:focus, .atk-form textarea:focus { outline: none; border-color: var(--chap); }
 .atk-preview img { display: none; max-height: 200px; border-radius: var(--r); border: 1px solid var(--line); margin: 4px 0 12px; }
 @media (max-width: 680px) { .atk-form { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   Citations — cartes-citations + analyse structurée
+   ============================================================ */
+.cit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-top: 6px; }
+
+.cit-quote {
+  position: relative; background: var(--card); border: 1px solid var(--line);
+  border-left: 3px solid var(--chap); border-radius: var(--r); padding: 16px 16px 12px 18px;
+  cursor: pointer; transition: border-color .15s, box-shadow .2s, transform .2s; overflow: hidden;
+}
+.cit-quote:hover { box-shadow: var(--shadow); transform: translateY(-2px); border-left-color: var(--accent); }
+.cit-quote::before {
+  content: "\201C"; position: absolute; top: -12px; right: 10px;
+  font-family: "Fraunces", serif; font-size: 64px; line-height: 1; color: var(--chap); opacity: .12;
+}
+.cit-quote .q { font-family: "Fraunces", serif; font-style: italic; font-size: 16.5px; line-height: 1.4; color: var(--ink); margin: 0 0 10px; }
+.cit-quote .m { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.cit-quote .m b { color: var(--ink); font-weight: 600; }
+.cit-quote .add {
+  border: 1px solid var(--line); background: none; color: var(--muted); cursor: pointer;
+  font-family: "Archivo", sans-serif; font-size: 11px; padding: 3px 9px; border-radius: 999px; margin-left: auto; transition: .15s;
+}
+.cit-quote .add:hover { border-color: var(--ink); color: var(--ink); }
+.cit-quote .add:disabled { color: var(--ok); border-color: var(--ok); cursor: default; }
+
+/* analyse structurée en sections */
+.cit-analyse { display: grid; gap: 12px; margin-top: 14px; }
+.cit-sec { border: 1px solid var(--line); border-radius: var(--r); padding: 12px 14px; background: #FBFAF6; }
+.cit-sec .h { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.cit-sec .ico { font-size: 16px; }
+.cit-sec .lbl { font-family: "Archivo", sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--chap); }
+.cit-sec .b { font-size: 15px; line-height: 1.55; color: var(--ink); }
+.cit-sec.reformule { background: #F4F1EA; border-left: 3px solid var(--accent); }
+.cit-sec.retenir { background: var(--ok-bg); border-left: 3px solid var(--ok); }
+.cit-sec.retenir .lbl { color: var(--ok); }
+
+/* formulaire citations un peu plus aéré */
+#view .atk-form label.full textarea { min-height: 74px; }
