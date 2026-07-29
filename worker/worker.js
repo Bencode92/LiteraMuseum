@@ -11,6 +11,7 @@
    Modes :
      - discussion (défaut), quiz, enrich, fiche, citation → Claude
      - lecture  : action "fiche" (fiche de lecture, option "rappel") ou "chat" (discuter du livre) → Claude
+     - mot      : définition d'un mot de vocabulaire (avec sa phrase de contexte) → Claude
      - concept  : action "fiche" (rédige/réécrit une fiche concept) ou "chat" (discussion) → Claude
      - save   : ajoute une entrée à data/community.json de BENMUSEUM (couche partagée)
      - commit : écrit un fichier data/*.json complet (LiteraMuseum — Atelier, Lectures, Concepts)
@@ -237,6 +238,27 @@ export default {
           `\nLISTE DE CHAPITRES :\n${b.chapitres || "(aucune)"}` }];
       }
       maxTokens = rappel ? 4000 : 2200;   // le mode rappel ajoute 3 sections : 1600 tronquait la fiche
+    } else if (mode === "mot") {
+      // carnet de vocabulaire : un mot croisé en lisant, expliqué pour être relu vite
+      system =
+        "Tu es un professeur de lettres, précis et pédagogue. On te donne un MOT que le lecteur a rencontré dans une lecture et n'a pas compris, parfois avec la PHRASE où il l'a croisé. " +
+        "Explique-le en français, clairement, sans le remplacer par un mot tout aussi difficile. Si le mot a plusieurs sens, donne d'abord celui qui convient au contexte fourni. " +
+        "Si le mot n'existe pas ou que tu n'en es pas sûr, dis-le franchement plutôt que d'inventer une définition. " +
+        "Structure ta réponse en sections. Écris chaque intitulé SEUL sur sa ligne, exactement comme ci-dessous (emoji compris), puis son contenu à partir de la ligne suivante. " +
+        "Ne recopie JAMAIS les consignes de contenu dans ta réponse.\n\n" +
+        "🔤 DÉFINITION\n🧬 ORIGINE\n📐 DANS TA PHRASE\n🔀 À NE PAS CONFONDRE\n💡 UN EXEMPLE\n🎯 MÉMO\n\n" +
+        "Contenu attendu dans chaque section :\n" +
+        "• 🔤 : le sens, en 1 ou 2 phrases simples. Précise la nature du mot (nom, adjectif, verbe…) et son registre s'il est soutenu, technique, vieilli ou familier.\n" +
+        "• 🧬 : l'étymologie en une phrase — la langue d'origine et le sens premier, quand ça éclaire vraiment le mot d'aujourd'hui.\n" +
+        "• 📐 : ce que le mot veut dire PRÉCISÉMENT dans la phrase fournie, et ce que l'auteur gagne à l'employer plutôt qu'un synonyme courant. Si aucune phrase n'est fournie, écris « (pas de contexte fourni) ».\n" +
+        "• 🔀 : 1 à 3 mots proches avec lesquels on le confond (paronymes ou quasi-synonymes), un par ligne commençant par un tiret, en disant la différence en quelques mots.\n" +
+        "• 💡 : une seule phrase d'exemple, courante et parlante, qui emploie le mot correctement.\n" +
+        "• 🎯 : une formule de MOINS DE 12 MOTS, à relire d'un coup d'œil pour se rappeler le sens. Pas de phrase complète, juste l'essentiel.";
+      messages = [{ role: "user", content:
+        `Mot : « ${b.mot || ""} »\n` +
+        (b.contexte ? `Phrase où il l'a croisé : « ${b.contexte} »\n` : "") +
+        (b.source ? `Rencontré dans : ${b.source}\n` : "") }];
+      maxTokens = 900;
     } else if (mode === "concept") {
       if (b.action === "chat") {
         system =

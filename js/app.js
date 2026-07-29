@@ -145,8 +145,8 @@ Promise.all([
     applyDomain(DOMAIN);
     route();
     // carnet perso : on rapatrie la version publiée en tâche de fond, sans bloquer l'affichage
-    Promise.all([dbPull(LEC), dbPull(CON)]).then(() => {
-      if (/^#\/(lectures|concepts|c)\b/.test(location.hash)) route();
+    Promise.all([dbPull(LEC), dbPull(CON), dbPull(VOC)]).then(() => {
+      if (/^#\/(lectures|concepts|vocabulaire|c)\b/.test(location.hash)) route();
     });
   })
   .catch(() => $("view").innerHTML = "<p>Impossible de charger les données — lance le site via un serveur (voir README), pas en file://.</p>");
@@ -362,6 +362,7 @@ function route() {
   if (top === "citations") { setActiveFloor(-1); return renderCitations(); }
   if (top === "lectures") { setActiveFloor(-1); return parts[1] === "l" ? renderLecture(parts[2]) : renderLectures(); }
   if (top === "concepts") { setActiveFloor(-1); return parts[1] === "c" ? renderConcept(parts[2]) : renderConcepts(); }
+  if (top === "vocabulaire") { setActiveFloor(-1); return parts[1] === "m" ? renderMot(parts[2]) : renderVocab(); }
   if (top === "session") { setActiveFloor(-1); return startSession(); }
   if (top === "parcours") { setActiveFloor(-1); return renderParcours(); }
   if (top === "moi" || top === "favoris") {
@@ -1196,6 +1197,8 @@ function citStore() { try { return JSON.parse(localStorage.getItem(CIT_KEY) || "
 function citSaveAll(list) { localStorage.setItem(CIT_KEY, JSON.stringify(list)); }
 function citAdd(item) { const l = citStore(); l.unshift({ ...item, id: Date.now() + "", ts: new Date().toISOString().slice(0, 10) }); citSaveAll(l.slice(0, 200)); }
 function citDel(id) { citSaveAll(citStore().filter(c => c.id !== id)); }
+// le modèle emploie l'italique markdown (*L'Étranger*) : on le rend au lieu d'afficher les astérisques
+const ital = t => esc(t).replace(/\*\*([^*\n]+)\*\*/g, "<strong>$1</strong>").replace(/\*([^*\n]+)\*/g, "<em>$1</em>");
 // corps d'une section : les lignes commençant par un tiret deviennent une liste
 function secBody(t) {
   const lines = (t || "").trim().split("\n").map(l => l.trim()).filter(Boolean);
@@ -1204,7 +1207,7 @@ function secBody(t) {
     const li = /^[-–—•*]\s+/.test(l);
     if (li && !ul) { out += "<ul>"; ul = true; }
     if (!li && ul) { out += "</ul>"; ul = false; }
-    out += li ? `<li>${esc(l.replace(/^[-–—•*]\s+/, ""))}</li>` : `<p>${esc(l)}</p>`;
+    out += li ? `<li>${ital(l.replace(/^[-–—•*]\s+/, ""))}</li>` : `<p>${ital(l)}</p>`;
   });
   return out + (ul ? "</ul>" : "");
 }
@@ -1354,10 +1357,12 @@ let CIT_SEEDS = null;
    ========================================================================= */
 const LEC = { key: "lectures:list", path: "data/lectures.json" };
 const CON = { key: "concepts:list", path: "data/concepts.json" };
+const VOC = { key: "vocab:list", path: "data/vocabulaire.json" };
 const LEC_SEC = { "📖": "sens", "🎬": "deroule", "👤": "qui", "📌": "moments", "🧭": "sol", "🌀": "bascule", "🧠": "analyse", "💬": "reformule", "🔗": "liens", "🎯": "retenir", "📚": "rattach" };
 const CON_SEC = { "🔑": "sens", "🧭": "sol", "🥊": "bascule", "💡": "exemple", "🧠": "analyse", "📚": "liens", "🔍": "questions", "🎯": "retenir" };
+const VOC_SEC = { "\u{1F524}": "sens", "\u{1F9EC}": "sol", "\u{1F4D0}": "reformule", "\u{1F500}": "bascule", "\u{1F4A1}": "exemple", "\u{1F3AF}": "retenir" };
 const STATUTS = { lu: "✅ Lu", "en-cours": "📗 En cours", "a-lire": "🔖 À lire" };
-let LEC_DOM = null, CON_DOM = null;
+let LEC_DOM = null, CON_DOM = null, VOC_FILTRE = "";
 
 const dbAll = s => { try { return JSON.parse(localStorage.getItem(s.key) || "[]"); } catch { return []; } };
 const dbPut = (s, l) => localStorage.setItem(s.key, JSON.stringify(l));
@@ -1464,6 +1469,28 @@ const syncBar = (pull, push) =>
    <button class="optbtn" id="${push}">☁️ Publier maintenant</button>
    <label class="autopub"><input type="checkbox" id="${push}Auto" ${autoPubOn() ? "checked" : ""} /> publication automatique</label>
    <span class="pubstate">${PUB.state}</span></div>`;
+
+/* ---------- 🔤 Vocabulaire : outils ---------- */
+// corps d'une section précise d'une fiche (ex. le mémo court, pour l'index)
+function secText(fiche, ico) {
+  const lines = (fiche || "").replace(/\uFE0F/g, "").split("\n");
+  const i = lines.findIndex(l => l.trim().startsWith(ico));
+  if (i < 0) return "";
+  const first = lines[i].trim().slice(ico.length).trim().replace(/^.{0,40}?\s+[—–]\s+/, "");
+  const out = [first];
+  for (let k = i + 1; k < lines.length; k++) {
+    const t = lines[k].trim();
+    if (!t) continue;
+    if (/^\p{Extended_Pictographic}/u.test(t)) break;
+    out.push(t);
+  }
+  return out.filter(Boolean).join(" ").trim();
+}
+const vocMemo = v => (v.memo || secText(v.fiche, "\u{1F3AF}") || secText(v.fiche, "\u{1F524}")).replace(/\*+/g, "");
+// tri et regroupement à la française : « élégie » se range sous E, pas après Z
+const sansAccent = m => (m || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+const vocInitiale = m => { const c = sansAccent(m).trim().toUpperCase().charAt(0); return /[A-Z]/.test(c) ? c : "#"; };
+const vocTri = (a, b) => (a.mot || "").localeCompare(b.mot || "", "fr", { sensitivity: "base" });
 
 /* ---------- discussion : le même bloc sert aux livres et aux concepts ---------- */
 function chatBlockHTML(p) {
@@ -1651,6 +1678,11 @@ function renderLecture(id) {
       ${l.tronque ? `<p class="warn">${TRONQUE}</p>` : ""}
       <div id="lzFiche">${l.fiche ? secHTML(l.fiche, LEC_SEC) : '<p class="lead">Pas encore de fiche — clique sur « Générer la fiche avec l\'IA ».</p>'}</div>
     </div>
+    ${(() => {
+      const mots = dbAll(VOC).filter(v => v.source === l.id).sort(vocTri);
+      return mots.length ? `<div class="block"><h3>🔤 Mots relevés dans ce livre</h3>
+        <div class="chips">${mots.map(v => `<span class="chip" data-nav="#/vocabulaire/m/${v.id}">${esc(v.mot)}</span>`).join("")}</div></div>` : "";
+    })()}
     ${chatBlockHTML({
       id: "lc", titre: "Discuter du livre",
       lead: "Conteste, demande un éclaircissement, creuse un personnage ou une scène. La discussion est enregistrée avec le livre ; quand elle a donné quelque chose, réécris la fiche pour qu'elle l'intègre.",
@@ -1820,6 +1852,142 @@ function renderConcept(id) {
     payload: (q, history) => ({ mode: "concept", action: "chat", nom: c.nom, fiche: c.fiche, history, question: q }),
     redo: redoFiche,
   });
+}
+
+/* ---------- 🔤 Vocabulaire : le dictionnaire personnel ---------- */
+function renderVocab() {
+  crumb([{ label: "Vocabulaire" }]);
+  const online = aiEndpoint() !== "/api/ask";
+  const lecs = dbAll(LEC);
+  $("view").innerHTML = `
+    <div class="pagehead"><h1>Vocabulaire 🔤</h1>
+      <p class="lead">Un mot que tu ne connais pas, croisé dans un livre ? Note-le avec la phrase où tu l'as trouvé : l'IA te le définit, te dit d'où il vient et avec quoi on le confond. Tout se range tout seul par ordre alphabétique, pour se relire.</p></div>
+    <div class="block">
+      <div class="atk-status">
+        <span class="${online ? "ok" : "ko"}">IA / Worker : ${online ? "✅ prêt" : "❌ hors ligne (ouvre le site en ligne)"}</span>
+        <button class="optbtn" id="vocAi">Changer l'URL du Worker</button>
+      </div>
+      <div class="atk-form">
+        <label>Le mot<input id="voc_mot" placeholder="ex. abscons" /></label>
+        <label>Rencontré dans (facultatif)<select id="voc_src"><option value="">— aucun livre —</option>${lecs.map(l => `<option value="${l.id}">${esc(l.titre)}</option>`).join("")}</select></label>
+        <label class="full">La phrase où tu l'as croisé (facultatif, mais ça change tout)<textarea id="voc_ctx" rows="2" placeholder="Colle la phrase : l'IA dira le sens précis qu'a le mot À CET ENDROIT, pas juste sa définition de dictionnaire."></textarea></label>
+      </div>
+      <div class="sess-actions" style="flex-wrap:wrap"><button class="next" id="vocGo">🔎 Définir le mot</button></div>
+      <div class="answer" id="vocRes" hidden style="margin-top:12px"></div>
+    </div>
+    <div class="block">
+      <h3 id="vocCount">📕 Mon dictionnaire</h3>
+      ${syncBar("vocPull", "vocPush")}
+      <div class="vocfiltre"><input id="voc_f" placeholder="Filtrer : un mot, un sens…" value="${esc(VOC_FILTRE)}" />
+        <button class="optbtn" id="vocClear">✕</button></div>
+      <div id="vocAlpha" class="alphabar"></div>
+      <div id="vocList"></div>
+    </div>`;
+
+  const renderList = () => {
+    const tout = dbAll(VOC).slice().sort(vocTri);
+    const f = sansAccent(VOC_FILTRE).toLowerCase().trim();
+    const l = f ? tout.filter(v => (sansAccent(v.mot) + " " + sansAccent(vocMemo(v))).toLowerCase().includes(f)) : tout;
+    $("vocCount").textContent = `📕 Mon dictionnaire (${tout.length}${f ? ` · ${l.length} affiché${l.length > 1 ? "s" : ""}` : ""})`;
+
+    // barre A-Z : seules les lettres réellement présentes sont cliquables
+    const presentes = new Set(l.map(v => vocInitiale(v.mot)));
+    $("vocAlpha").innerHTML = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").concat("#")
+      .map(c => `<button class="al ${presentes.has(c) ? "" : "off"}" data-al="${c}" ${presentes.has(c) ? "" : "disabled"}>${c}</button>`).join("");
+
+    if (!l.length) {
+      $("vocList").innerHTML = tout.length
+        ? '<p class="lead">Aucun mot ne correspond à ce filtre.</p>'
+        : '<p class="lead">Ton dictionnaire est vide — ajoute le premier mot ci-dessus.</p>';
+      return;
+    }
+    // regroupement par initiale, comme un vrai dictionnaire
+    let html = "", lettre = null;
+    l.forEach(v => {
+      const ini = vocInitiale(v.mot);
+      if (ini !== lettre) { if (lettre) html += "</div>"; lettre = ini; html += `<div class="vocgroupe" id="voc-l-${ini}"><h4 class="vocl">${ini}</h4>`; }
+      html += `<div class="vocentree" data-nav="#/vocabulaire/m/${v.id}">
+        <b class="mot">${esc(v.mot)}</b><span class="def">${esc(vocMemo(v)) || "<i>à définir</i>"}</span>
+        ${v.source ? `<span class="src">${esc((lecs.find(x => x.id === v.source) || {}).titre || "")}</span>` : ""}
+      </div>`;
+    });
+    $("vocList").innerHTML = html + "</div>";
+    $("vocAlpha").querySelectorAll("[data-al]").forEach(b => b.onclick = () => {
+      const t = $("voc-l-" + b.dataset.al); if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  };
+  renderList();
+
+  $("vocAi").onclick = setAiUrl;
+  $("vocPull").onclick = async e => { e.target.textContent = "Récupération…"; await dbPull(VOC); renderList(); e.target.textContent = "⟲ Récupérer la version publiée"; };
+  $("vocPush").onclick = e => dbPush(VOC, e.target);
+  $("vocPushAuto").onchange = e => { localStorage.setItem(AUTOPUB, e.target.checked ? "1" : "0"); paintPub(); };
+  $("voc_f").oninput = e => { VOC_FILTRE = e.target.value; renderList(); };
+  $("vocClear").onclick = () => { VOC_FILTRE = ""; $("voc_f").value = ""; renderList(); };
+  $("voc_mot").onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); $("vocGo").click(); } };
+  $("vocGo").onclick = async () => {
+    const res = $("vocRes"), mot = $("voc_mot").value.trim();
+    if (!mot) { res.hidden = false; res.textContent = "Écris d'abord le mot."; return; }
+    const src = $("voc_src").value;
+    const item = {
+      id: "v" + Date.now(), mot, contexte: $("voc_ctx").value.trim(), source: src || null,
+      fiche: "", memo: "", ts: new Date().toISOString().slice(0, 10),
+    };
+    res.hidden = false; res.textContent = "Recherche du sens…";
+    try {
+      const titre = (lecs.find(x => x.id === src) || {}).titre || "";
+      const a = await askAI({ mode: "mot", mot, contexte: item.contexte, source: titre });
+      item.fiche = a.text; item.tronque = a.truncated;
+      item.memo = secText(item.fiche, "\u{1F3AF}");
+      res.hidden = true;
+    } catch (e) { aiFail(res, e); }
+    dbSave(VOC, item);
+    $("voc_mot").value = ""; $("voc_ctx").value = "";
+    renderList();
+    $("voc_mot").focus();
+  };
+}
+
+/* ---------- 🔤 Un mot : sa fiche ---------- */
+function renderMot(id) {
+  const v = dbFind(VOC, id);
+  if (!v) { location.hash = "#/vocabulaire"; return; }
+  crumb([{ label: "Vocabulaire", nav: "#/vocabulaire" }, { label: v.mot }]);
+  const lec = v.source && dbFind(LEC, v.source);
+  const tous = dbAll(VOC).slice().sort(vocTri);
+  const i = tous.findIndex(x => x.id === id);
+  const prev = i > 0 ? tous[i - 1] : null, next = i < tous.length - 1 ? tous[i + 1] : null;
+  $("view").innerHTML = `
+    <div class="pagehead">
+      <div class="ep">Vocabulaire · noté le ${esc(v.ts)}</div>
+      <h1>${esc(v.mot)}</h1>
+      ${v.contexte ? `<p class="lead vocctx">« ${esc(v.contexte)} »</p>` : ""}
+      ${lec ? `<a class="dossier-link" data-nav="#/lectures/l/${lec.id}">📖 Rencontré dans : ${esc(lec.titre)} →</a>` : ""}
+    </div>
+    ${v.tronque ? `<p class="warn">${TRONQUE}</p>` : ""}
+    <div class="block">${v.fiche ? secHTML(v.fiche, VOC_SEC) : '<p class="lead">Pas encore de définition.</p>'}</div>
+    <div class="block">
+      <div class="sess-actions" style="flex-wrap:wrap">
+        <button class="optbtn" id="vmRedo">🔁 Redemander la définition</button>
+        <button class="optbtn" id="vmDel">🗑 Retirer ce mot</button>
+        <span class="pubstate">${PUB.state}</span>
+      </div>
+      <div class="answer" id="vmMsg" hidden style="margin-top:12px"></div>
+    </div>
+    <div class="navworks vocnav">
+      ${prev ? `<button data-nav="#/vocabulaire/m/${prev.id}">← ${esc(prev.mot)}</button>` : "<span></span>"}
+      <button data-nav="#/vocabulaire">Tout le dictionnaire</button>
+      ${next ? `<button data-nav="#/vocabulaire/m/${next.id}">${esc(next.mot)} →</button>` : "<span></span>"}
+    </div>`;
+  $("vmDel").onclick = () => { if (confirm(`Retirer « ${v.mot} » du dictionnaire ?`)) { dbDel(VOC, id); location.hash = "#/vocabulaire"; } };
+  $("vmRedo").onclick = async () => {
+    const m = $("vmMsg"); m.hidden = false; m.textContent = "Recherche du sens…";
+    try {
+      const a = await askAI({ mode: "mot", mot: v.mot, contexte: v.contexte, source: lec ? lec.titre : "" });
+      v.fiche = a.text; v.tronque = a.truncated; v.memo = secText(v.fiche, "\u{1F3AF}");
+      dbSave(VOC, v); renderMot(id);
+    } catch (e) { aiFail(m, e); }
+  };
 }
 
 /* ---------- ce que le carnet ajoute à une page de chapitre ---------- */
