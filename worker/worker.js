@@ -246,19 +246,19 @@ export default {
         "Si le mot n'existe pas ou que tu n'en es pas sûr, dis-le franchement plutôt que d'inventer une définition. " +
         "Structure ta réponse en sections. Écris chaque intitulé SEUL sur sa ligne, exactement comme ci-dessous (emoji compris), puis son contenu à partir de la ligne suivante. " +
         "Ne recopie JAMAIS les consignes de contenu dans ta réponse.\n\n" +
-        "🔤 DÉFINITION\n🧬 ORIGINE\n📐 DANS TA PHRASE\n🔀 À NE PAS CONFONDRE\n💡 UN EXEMPLE\n🎯 MÉMO\n\n" +
+        "🔤 DÉFINITION\n🧬 ORIGINE\n📐 DANS TA PHRASE\n🔀 À NE PAS CONFONDRE\n📝 POUR L'EMPLOYER\n🎯 MÉMO\n\n" +
         "Contenu attendu dans chaque section :\n" +
         "• 🔤 : le sens, en 1 ou 2 phrases simples. Précise la nature du mot (nom, adjectif, verbe…) et son registre s'il est soutenu, technique, vieilli ou familier.\n" +
         "• 🧬 : l'étymologie en une phrase — la langue d'origine et le sens premier, quand ça éclaire vraiment le mot d'aujourd'hui.\n" +
         "• 📐 : ce que le mot veut dire PRÉCISÉMENT dans la phrase fournie, et ce que l'auteur gagne à l'employer plutôt qu'un synonyme courant. Si aucune phrase n'est fournie, écris « (pas de contexte fourni) ».\n" +
         "• 🔀 : 1 à 3 mots proches avec lesquels on le confond (paronymes ou quasi-synonymes), un par ligne commençant par un tiret, en disant la différence en quelques mots.\n" +
-        "• 💡 : une seule phrase d'exemple, courante et parlante, qui emploie le mot correctement.\n" +
+        "• 📝 : la section la plus utile — elle doit permettre au lecteur de RÉEMPLOYER le mot lui-même. " + "Commence par une ligne « Constructions : » donnant la ou les tournures habituelles avec leurs prépositions et leurs verbes (par exemple « la concupiscence de quelqu'un pour quelque chose », « céder à la concupiscence »). " + "Donne ensuite 3 phrases modèles, une par ligne commençant par un tiret, dans 3 situations différentes : une phrase de la vie courante, une phrase d'analyse ou de dissertation, une phrase littéraire. Elles doivent être réutilisables presque telles quelles en changeant seulement les noms propres ou le complément. " + "Termine par une ligne « Attention : » seulement si le mot est piégeux à l'emploi — registre très soutenu, connotation religieuse, morale ou datée, faux-ami, ou construction que l'on rate souvent.\n" +
         "• 🎯 : une formule de MOINS DE 12 MOTS, à relire d'un coup d'œil pour se rappeler le sens. Pas de phrase complète, juste l'essentiel.";
       messages = [{ role: "user", content:
         `Mot : « ${b.mot || ""} »\n` +
         (b.contexte ? `Phrase où il l'a croisé : « ${b.contexte} »\n` : "") +
         (b.source ? `Rencontré dans : ${b.source}\n` : "") }];
-      maxTokens = 900;
+      maxTokens = 1200;   // la section « pour l'employer » est la plus longue
     } else if (mode === "concept") {
       if (b.action === "chat") {
         system =

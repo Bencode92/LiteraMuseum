@@ -1360,7 +1360,7 @@ const CON = { key: "concepts:list", path: "data/concepts.json" };
 const VOC = { key: "vocab:list", path: "data/vocabulaire.json" };
 const LEC_SEC = { "📖": "sens", "🎬": "deroule", "👤": "qui", "📌": "moments", "🧭": "sol", "🌀": "bascule", "🧠": "analyse", "💬": "reformule", "🔗": "liens", "🎯": "retenir", "📚": "rattach" };
 const CON_SEC = { "🔑": "sens", "🧭": "sol", "🥊": "bascule", "💡": "exemple", "🧠": "analyse", "📚": "liens", "🔍": "questions", "🎯": "retenir" };
-const VOC_SEC = { "\u{1F524}": "sens", "\u{1F9EC}": "sol", "\u{1F4D0}": "reformule", "\u{1F500}": "bascule", "\u{1F4A1}": "exemple", "\u{1F3AF}": "retenir" };
+const VOC_SEC = { "\u{1F524}": "sens", "\u{1F9EC}": "sol", "\u{1F4D0}": "reformule", "\u{1F500}": "bascule", "\u{1F4DD}": "emploi", "\u{1F4A1}": "exemple", "\u{1F3AF}": "retenir" };
 const STATUTS = { lu: "✅ Lu", "en-cours": "📗 En cours", "a-lire": "🔖 À lire" };
 let LEC_DOM = null, CON_DOM = null, VOC_FILTRE = "";
 

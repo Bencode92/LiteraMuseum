@@ -775,3 +775,7 @@ h4.vocl {
 .vocentree .src { font-size: 11.5px; color: var(--muted); font-style: italic; opacity: .8; }
 .pagehead .vocctx { font-style: italic; border-left: 3px solid var(--line); padding-left: 12px; }
 .vocnav { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+/* « pour l'employer » : la section qu'on vient rechercher pour réutiliser le mot */
+.cit-sec.emploi { background: #F3F6F3; border-left: 3px solid var(--ok); }
+.cit-sec.emploi .lbl { color: var(--ok); }
+.cit-sec.emploi li { margin-bottom: 7px; }
