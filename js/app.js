@@ -1236,7 +1236,7 @@ function secHTML(text, SEC) {
     secs.map(s => `<div class="cit-sec ${SEC[s.ico] || ""}"><div class="h"><span class="ico">${s.ico}</span><span class="lbl">${esc(s.label)}</span></div><div class="b">${secBody(s.body.join("\n"))}</div></div>`).join("") +
     `</div>`;
 }
-const CIT_SEC = { "🔑": "sens", "🔁": "reformule", "🧠": "analyse", "💡": "exemple", "🎯": "retenir" };
+const CIT_SEC = { "📜": "source", "🔑": "sens", "🔁": "reformule", "🧠": "analyse", "💡": "exemple", "🎯": "retenir" };
 const citAnalyseHTML = text => secHTML(text, CIT_SEC);
 function citShowRes(res, text) { res.hidden = false; res.innerHTML = citAnalyseHTML(text || "(pas d'analyse enregistrée)"); }
 
@@ -1247,7 +1247,7 @@ function renderCitations() {
   const list = citStore();
   $("view").innerHTML = `
     <div class="pagehead"><h1>Citations 💬</h1>
-      <p class="lead">Une citation t'a marqué ? Colle-la avec son auteur (et l'œuvre) : l'IA te l'explique, la reformule (« autrement dit… ») et l'illustre par un exemple. Tes citations sont gardées ici.</p></div>
+      <p class="lead">Une citation t'a marqué ? Note-la avec son auteur, même vite et mal orthographiée : l'IA la rétablit proprement, te l'explique, la reformule (« autrement dit… ») et l'illustre. Ta saisie d'origine reste visible sous la version corrigée.</p></div>
     <div class="block">
       <div class="atk-status">
         <span class="${online ? "ok" : "ko"}">IA / Worker : ${online ? "✅ prêt" : "❌ hors ligne (ouvre le site en ligne)"}</span>
@@ -1284,6 +1284,7 @@ function renderCitations() {
     $("citList").innerHTML = l.length ? '<div class="cit-grid">' + l.map(c => `
       <div class="cit-quote" data-cit="${c.id}">
         <p class="q">« ${esc(c.citation)} »</p>
+        ${c.saisie ? `<p class="brut" title="Ce que tu avais saisi">✎ tu avais écrit : ${esc(c.saisie)}</p>` : ""}
         <div class="m"><b>${esc(c.auteur || "?")}</b>${c.oeuvre ? " — " + esc(c.oeuvre) : ""} · ${c.ts}
           <button class="add" data-citdel="${c.id}" title="Supprimer">✕</button></div>
       </div>`).join("") + '</div>' : '<p class="lead">Aucune citation pour l\'instant — colle-en une ci-dessus, ou pioche dans « À découvrir ».</p>';
@@ -1339,8 +1340,12 @@ function renderCitations() {
         body: JSON.stringify({ mode: "citation", domaine: CIT_DOM || d, auteur, oeuvre, citation }) });
       if (!r.ok) throw new Error();
       const j = await r.json();
-      citShowRes(res, j.answer || "(réponse vide)");
-      citAdd({ auteur, oeuvre, citation, analyse: j.answer || "" });
+      const fiche = j.answer || "";
+      citShowRes(res, fiche || "(réponse vide)");
+      // l'IA rétablit la citation : on affiche la version propre, sans perdre ce qui a été tapé
+      const propre = citCorrigee(fiche) || citation;
+      $("cit_texte").value = propre;
+      citAdd({ auteur, oeuvre, citation: propre, saisie: propre !== citation ? citation : null, analyse: fiche });
       renderList(); updateCount();
     } catch {
       res.innerHTML = "⚠️ IA hors ligne. <button class='linkbtn' id='citcfg2'>Configurer l'IA en ligne</button>";
@@ -1472,19 +1477,28 @@ const syncBar = (pull, push) =>
 
 /* ---------- 🔤 Vocabulaire : outils ---------- */
 // corps d'une section précise d'une fiche (ex. le mémo court, pour l'index)
-function secText(fiche, ico) {
+function secLines(fiche, ico) {
   const lines = (fiche || "").replace(/\uFE0F/g, "").split("\n");
   const i = lines.findIndex(l => l.trim().startsWith(ico));
-  if (i < 0) return "";
-  const first = lines[i].trim().slice(ico.length).trim().replace(/^.{0,40}?\s+[—–]\s+/, "");
-  const out = [first];
+  if (i < 0) return [];
+  // même règle que secHTML : « ICÔNE TITRE — corps » ou « ICÔNE TITRE » puis corps
+  // à la ligne suivante. Sans ça on renvoie le TITRE au lieu du contenu.
+  const rest = lines[i].trim().slice(ico.length).trim();
+  const m = rest.match(/^(.{0,60}?)\s+[—–]\s+([\s\S]*)$/);
+  const out = m ? [m[2].trim()] : [];
   for (let k = i + 1; k < lines.length; k++) {
     const t = lines[k].trim();
     if (!t) continue;
     if (/^\p{Extended_Pictographic}/u.test(t)) break;
     out.push(t);
   }
-  return out.filter(Boolean).join(" ").trim();
+  return out.filter(Boolean);
+}
+const secText = (fiche, ico) => secLines(fiche, ico).join(" ").trim();
+// la citation rétablie : première ligne de la section 📜, débarrassée de ses guillemets
+function citCorrigee(fiche) {
+  const l = secLines(fiche, "\u{1F4DC}")[0] || "";
+  return l.replace(/^[«"“'\s]+|[»"”'\s]+$/g, "").trim();
 }
 const vocMemo = v => (v.memo || secText(v.fiche, "\u{1F3AF}") || secText(v.fiche, "\u{1F524}")).replace(/\*+/g, "");
 // tri et regroupement à la française : « élégie » se range sous E, pas après Z
