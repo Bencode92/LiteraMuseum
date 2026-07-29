@@ -706,3 +706,30 @@ details.deep p { font-size: 14px; line-height: 1.7; }
 .chatlog .msg .tx ul { margin: 4px 0 0; padding-left: 20px; }
 .cit-intro { font-size: 15px; line-height: 1.55; color: var(--muted); margin-bottom: 4px; }
 .cit-intro p { margin: 0 0 6px; }
+
+/* mode « rappel » : livre lu il y a longtemps */
+.cit-sec.deroule { background: #F7F4EE; border-left: 3px solid #b06a2c; }
+.cit-sec.deroule .lbl { color: #b06a2c; }
+.cit-sec.qui { background: #F5F7F5; }
+.cit-sec.moments { background: #FAF6F4; border-left: 3px solid var(--accent); }
+.cit-sec.moments .lbl { color: var(--accent); }
+
+label.rappel {
+  display: flex; gap: 10px; align-items: flex-start; cursor: pointer;
+  border: 1px dashed var(--line); border-radius: var(--r);
+  padding: 11px 14px; margin: 4px 0 14px; background: #FBFAF6;
+}
+label.rappel:hover { border-color: var(--chap); }
+label.rappel input { margin-top: 3px; flex: none; }
+label.rappel span { font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+label.rappel b { color: var(--ink); font-weight: 600; }
+
+/* ajout d'une idée à la volée */
+.quickadd { display: flex; gap: 8px; margin: 10px 0 4px; }
+.quickadd input {
+  flex: 1; font: inherit; font-size: 15px; padding: 9px 12px;
+  border: 1px solid var(--line); border-radius: var(--r); background: var(--card); color: var(--ink);
+}
+.quickadd input:focus { outline: none; border-color: var(--chap); }
+@media (max-width: 560px) { .quickadd { flex-direction: column; } }
+.warn { background: #FBF3E8; border-left: 3px solid #b06a2c; color: #7a4a18; padding: 9px 13px; border-radius: var(--r); font-size: 14px; margin: 0 0 12px; }

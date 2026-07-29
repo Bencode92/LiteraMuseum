@@ -1354,7 +1354,7 @@ let CIT_SEEDS = null;
    ========================================================================= */
 const LEC = { key: "lectures:list", path: "data/lectures.json" };
 const CON = { key: "concepts:list", path: "data/concepts.json" };
-const LEC_SEC = { "📖": "sens", "🧭": "sol", "🌀": "bascule", "🧠": "analyse", "💬": "reformule", "🔗": "liens", "🎯": "retenir", "📚": "rattach" };
+const LEC_SEC = { "📖": "sens", "🎬": "deroule", "👤": "qui", "📌": "moments", "🧭": "sol", "🌀": "bascule", "🧠": "analyse", "💬": "reformule", "🔗": "liens", "🎯": "retenir", "📚": "rattach" };
 const CON_SEC = { "🔑": "sens", "🧭": "sol", "🥊": "bascule", "💡": "exemple", "🧠": "analyse", "📚": "liens", "🔍": "questions", "🎯": "retenir" };
 const STATUTS = { lu: "✅ Lu", "en-cours": "📗 En cours", "a-lire": "🔖 À lire" };
 let LEC_DOM = null, CON_DOM = null;
@@ -1404,8 +1404,10 @@ async function askAI(payload) {
   const r = await fetch(aiEndpoint(), { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(payload) });
   const j = await r.json().catch(() => ({}));
   if (!r.ok || !j.answer) throw new Error(typeof j.error === "string" ? j.error : "réponse vide");
-  return j.answer;
+  // truncated : le modèle a buté sur le plafond de tokens — la fin de la fiche manque
+  return { text: j.answer, truncated: j.stop === "max_tokens" };
 }
+const TRONQUE = "⚠️ Fiche incomplète : la réponse a été coupée avant la fin. Relance-la, ou raccourcis tes notes.";
 function aiFail(el, e) {
   el.hidden = false;
   el.innerHTML = `⚠️ ${esc(e.message || "IA hors ligne")}. <button class="linkbtn aiRetryCfg">Configurer l'IA en ligne</button>`;
@@ -1456,8 +1458,10 @@ function renderLectures() {
         <label>Titre du livre<input id="lec_titre" placeholder="ex. L'Étranger" /></label>
         <label>Auteur<input id="lec_auteur" placeholder="ex. Albert Camus" /></label>
         <label>Année (facultatif)<input id="lec_annee" placeholder="ex. 1942" /></label>
-        <label class="full">Tes idées — ce qui t'a marqué, tes questions, tes désaccords, en vrac<textarea id="lec_notes" rows="4" placeholder="Écris comme ça vient : l'IA reformulera et nommera les concepts que tu as touchés."></textarea></label>
+        <label class="full">Tes idées — ce qui t'a marqué, tes questions, tes désaccords, en vrac<textarea id="lec_notes" rows="4" placeholder="Écris comme ça vient : l'IA reformulera et nommera les concepts que tu as touchés. Tu pourras en ajouter d'autres plus tard."></textarea></label>
       </div>
+      <label class="rappel"><input type="checkbox" id="lec_rappel" />
+        <span><b>Je l'ai lu il y a longtemps et je l'ai oublié</b> — ajoute le déroulé complet, qui est qui, et les scènes qui restent, pour me le faire revenir (la fin est dévoilée, c'est un rappel).</span></label>
       <div class="sess-actions" style="flex-wrap:wrap"><button class="next" id="lecGo">✍️ Créer la fiche</button></div>
       <div class="answer" id="lecRes" hidden style="margin-top:12px"></div>
     </div>
@@ -1499,12 +1503,14 @@ function renderLectures() {
     const item = {
       id: "l" + Date.now(), titre, auteur: $("lec_auteur").value.trim(), annee: $("lec_annee").value.trim(),
       domaine: dom, statut: $("lec_statut").value, note: +$("lec_note").value,
+      rappel: $("lec_rappel").checked,
       idees: $("lec_notes").value.trim(), fiche: "", chapitre: null, concepts: [],
       ts: new Date().toISOString().slice(0, 10),
     };
-    res.hidden = false; res.textContent = "Rédaction de la fiche…";
+    res.hidden = false; res.textContent = item.rappel ? "Rappel du livre en cours…" : "Rédaction de la fiche…";
     try {
-      item.fiche = await askAI({ mode: "lecture", domaine: dom, titre, auteur: item.auteur, annee: item.annee, notes: item.idees, chapitres: chapText(dom) });
+      const a = await askAI({ mode: "lecture", domaine: dom, titre, auteur: item.auteur, annee: item.annee, notes: item.idees, rappel: item.rappel, chapitres: chapText(dom) });
+      item.fiche = a.text; item.tronque = a.truncated;
       item.chapitre = lecChapNum(item.fiche);
     } catch (e) { aiFail(res, e); }
     dbSave(LEC, item);
@@ -1536,11 +1542,16 @@ function renderLecture(id) {
     </div>
     <div class="block">
       <h3>💬 Tes idées</h3>
-      <p class="lead">Ce que tu as noté toi-même. Modifie-le quand tu veux, puis relance la fiche pour que l'IA en tienne compte.</p>
-      <div class="atk-form"><label class="full"><textarea id="lz_idees" rows="5">${esc(l.idees || "")}</textarea></label></div>
+      <p class="lead">Ce que tu as noté toi-même. Une idée qui te revient ? Ajoute-la ici, ligne après ligne — puis relance la fiche pour que l'IA en tienne compte.</p>
+      <div class="quickadd">
+        <input id="lz_add" placeholder="Une idée qui te revient…" />
+        <button class="optbtn" id="lzAdd">➕ Ajouter</button>
+      </div>
+      <div class="atk-form"><label class="full"><textarea id="lz_idees" rows="5" placeholder="Rien noté pour l'instant.">${esc(l.idees || "")}</textarea></label></div>
       <div class="sess-actions" style="flex-wrap:wrap">
         <button class="next" id="lzSave">💾 Enregistrer</button>
         <button class="optbtn" id="lzRedo">🔁 ${l.fiche ? "Réécrire" : "Générer"} la fiche avec l'IA</button>
+        ${l.rappel ? "" : '<button class="optbtn" id="lzRappel">🎬 Me le rappeler (déroulé complet)</button>'}
         <button class="optbtn" id="lzDel">🗑 Supprimer cette lecture</button>
       </div>
       <div class="answer" id="lzMsg" hidden style="margin-top:12px"></div>
@@ -1555,6 +1566,7 @@ function renderLecture(id) {
     </div>
     <div class="block">
       <h3>📄 La fiche</h3>
+      ${l.tronque ? `<p class="warn">${TRONQUE}</p>` : ""}
       <div id="lzFiche">${l.fiche ? secHTML(l.fiche, LEC_SEC) : '<p class="lead">Pas encore de fiche — clique sur « Générer la fiche avec l\'IA ».</p>'}</div>
     </div>`;
 
@@ -1568,15 +1580,33 @@ function renderLecture(id) {
   });
   $("lzSave").onclick = () => { l.idees = $("lz_idees").value.trim(); commit(); const m = $("lzMsg"); m.hidden = false; m.textContent = "✓ Enregistré."; };
   $("lzDel").onclick = () => { if (confirm(`Supprimer « ${l.titre} » ?`)) { dbDel(LEC, id); location.hash = "#/lectures"; } };
-  $("lzRedo").onclick = async () => {
-    const m = $("lzMsg"); m.hidden = false; m.textContent = "Rédaction de la fiche…";
+
+  // les idées reviennent rarement d'un coup : on les empile ligne à ligne
+  const addIdee = () => {
+    const v = $("lz_add").value.trim(); if (!v) return;
+    const ta = $("lz_idees");
+    ta.value = (ta.value.trim() ? ta.value.trim() + "\n" : "") + (/^[-–—•]/.test(v) ? v : "— " + v);
+    l.idees = ta.value.trim(); commit();
+    $("lz_add").value = ""; $("lz_add").focus();
+    ta.scrollTop = ta.scrollHeight;
+    const m = $("lzMsg"); m.hidden = false; m.textContent = "✓ Idée ajoutée. Relance la fiche quand tu veux que l'IA l'intègre.";
+  };
+  $("lzAdd").onclick = addIdee;
+  $("lz_add").onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); addIdee(); } };
+
+  const regen = async rappel => {
+    const m = $("lzMsg"); m.hidden = false; m.textContent = rappel ? "Rappel du livre en cours…" : "Rédaction de la fiche…";
     l.idees = $("lz_idees").value.trim();
+    if (rappel) l.rappel = true;
     try {
-      l.fiche = await askAI({ mode: "lecture", domaine: l.domaine, titre: l.titre, auteur: l.auteur, annee: l.annee, notes: l.idees, chapitres: chapText(l.domaine) });
+      const a = await askAI({ mode: "lecture", domaine: l.domaine, titre: l.titre, auteur: l.auteur, annee: l.annee, notes: l.idees, rappel: !!l.rappel, chapitres: chapText(l.domaine) });
+      l.fiche = a.text; l.tronque = a.truncated;
       if (!l.chapitre) l.chapitre = lecChapNum(l.fiche);
       commit(); renderLecture(id);
     } catch (e) { aiFail(m, e); commit(); }
   };
+  $("lzRedo").onclick = () => regen(!!l.rappel);
+  if ($("lzRappel")) $("lzRappel").onclick = () => regen(true);
 }
 
 /* ---------- 🧠 Concepts : la liste ---------- */
@@ -1635,7 +1665,8 @@ function renderConcepts() {
     const item = { id: "c" + Date.now(), nom, domaine: dom, consigne: $("con_consigne").value.trim(), fiche: "", chat: [], chapitres: [], ts: new Date().toISOString().slice(0, 10) };
     res.hidden = false; res.textContent = "Rédaction de la fiche…";
     try {
-      item.fiche = await askAI({ mode: "concept", action: "fiche", domaine: dom, nom, consigne: item.consigne, chapitres: chapText(dom) });
+      const a = await askAI({ mode: "concept", action: "fiche", domaine: dom, nom, consigne: item.consigne, chapitres: chapText(dom) });
+      item.fiche = a.text; item.tronque = a.truncated;
       item.chapitres = conChapNums(item.fiche);
     } catch (e) { aiFail(res, e); }
     dbSave(CON, item);
@@ -1665,6 +1696,7 @@ function renderConcept(id) {
       <div class="chips">${lecs.map(l => `<span class="chip" data-nav="#/lectures/l/${l.id}">${esc(l.titre)}</span>`).join("")}</div></div>` : ""}
     <div class="block">
       <h3>📄 La fiche</h3>
+      ${c.tronque ? `<p class="warn">${TRONQUE}</p>` : ""}
       <div id="czFiche">${c.fiche ? secHTML(c.fiche, CON_SEC) : '<p class="lead">Pas encore de fiche.</p>'}</div>
     </div>
     <div class="block">
@@ -1701,15 +1733,17 @@ function renderConcept(id) {
     m.hidden = false; m.textContent = "Le prof réfléchit…";
     try {
       const a = await askAI({ mode: "concept", action: "chat", nom: c.nom, fiche: c.fiche, history, question: q });
-      c.chat.push({ role: "assistant", text: a });
-      m.hidden = true;
+      c.chat.push({ role: "assistant", text: a.text });
+      if (a.truncated) { m.textContent = "⚠️ Réponse coupée avant la fin — repose la question plus précisément."; }
+      else m.hidden = true;
     } catch (e) { aiFail(m, e); }
     dbSave(CON, c); drawChat();
   };
   $("czRedo").onclick = async () => {
     const m = $("czMsg"); m.hidden = false; m.textContent = "Réécriture de la fiche…";
     try {
-      c.fiche = await askAI({ mode: "concept", action: "fiche", domaine: c.domaine, nom: c.nom, consigne: c.consigne, fiche: c.fiche, history: (c.chat || []).slice(-12), chapitres: chapText(c.domaine) });
+      const a = await askAI({ mode: "concept", action: "fiche", domaine: c.domaine, nom: c.nom, consigne: c.consigne, fiche: c.fiche, history: (c.chat || []).slice(-12), chapitres: chapText(c.domaine) });
+      c.fiche = a.text; c.tronque = a.truncated;
       c.chapitres = conChapNums(c.fiche);
       dbSave(CON, c); renderConcept(id);
     } catch (e) { aiFail(m, e); }

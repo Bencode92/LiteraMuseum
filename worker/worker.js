@@ -175,18 +175,33 @@ export default {
         `Citation : « ${b.citation || ""} »` }];
       maxTokens = 900;
     } else if (mode === "lecture") {
+      // mode « rappel » : le livre a été lu il y a longtemps et oublié — on le fait revenir
+      const rappel = !!b.rappel;
       system =
         "Tu es un professeur de lettres et de philosophie qui aide un lecteur à garder trace de ses lectures. On te donne un LIVRE (titre, auteur, année) et, souvent, les NOTES PERSONNELLES du lecteur — ce qui l'a marqué, écrit vite et sans mise en forme. " +
         "Rédige sa fiche de lecture en français, vivante et concrète, SANS jargon. N'invente RIEN sur le livre : si tu n'es pas sûr d'un fait, dis-le. " +
-        "Structure ta réponse en huit sections, dans cet ordre. Écris chaque intitulé SEUL sur sa ligne, exactement comme ci-dessous (emoji compris), puis son contenu à partir de la ligne suivante. " +
+        (rappel
+          ? "IMPORTANT : ce lecteur a lu ce livre il y a longtemps et ne s'en souvient plus. Ton but premier est de le lui FAIRE REVENIR : sois concret, nomme les personnages, raconte ce qui se passe. Ne crains pas de dévoiler la fin — ce n'est pas une critique sans divulgâchis, c'est un rappel de mémoire. "
+          : "") +
+        "Structure ta réponse en sections, dans cet ordre. Écris chaque intitulé SEUL sur sa ligne, exactement comme ci-dessous (emoji compris), puis son contenu à partir de la ligne suivante. " +
         "Ne recopie JAMAIS les consignes de contenu dans ta réponse : elles sont pour toi, pas pour le lecteur.\n\n" +
-        "📖 EN DEUX PHRASES\n🧭 LE CONTEXTE\n🌀 CE QUE LE LIVRE CHANGE\n🧠 LES IDÉES CLÉS\n💬 TES IDÉES\n🔗 À RAPPROCHER DE\n🎯 À RETENIR\n📚 RATTACHEMENT\n\n" +
+        "📖 EN DEUX PHRASES\n" +
+        (rappel ? "🎬 LE DÉROULÉ\n👤 QUI EST QUI\n📌 LES MOMENTS QUI RESTENT\n" : "") +
+        "🧭 LE CONTEXTE\n🌀 CE QUE LE LIVRE CHANGE\n🧠 LES IDÉES CLÉS\n💬 TES IDÉES\n🔗 À RAPPROCHER DE\n🎯 À RETENIR\n📚 RATTACHEMENT\n\n" +
         "Contenu attendu dans chaque section :\n" +
         "• 📖 : de quoi ça parle et ce que c'est (roman, essai, traité…).\n" +
+        (rappel
+          ? "• 🎬 : le déroulé complet de l'œuvre, du début à la fin, en 8 à 12 phrases. Suis l'ordre du livre, nomme les personnages, dis ce qui arrive — fin comprise. Pour un essai ou un traité, suis le fil de l'argumentation partie par partie.\n" +
+            "• 👤 : les personnages qui comptent, un par ligne commençant par un tiret : le nom, qui il est, son rôle dans l'histoire. Pour un essai, remplace par les notions ou les figures centrales.\n" +
+            "• 📌 : 3 à 5 scènes ou passages que tout lecteur retient, un par ligne commençant par un tiret, décrits assez concrètement pour rallumer le souvenir (le lieu, le geste, la phrase).\n"
+          : "") +
         "• 🧭 : le sol — l'époque, le mouvement, ce qui précède et rend ce livre possible (3 à 4 phrases).\n" +
         "• 🌀 : la bascule — le geste de rupture, ce que ce livre fait que personne ne faisait avant, pourquoi il compte (3 à 5 phrases).\n" +
         "• 🧠 : 3 à 5 idées ou thèses, chacune en une phrase, une par ligne, chaque ligne commençant par un tiret.\n" +
-        "• 💬 : reprends les NOTES du lecteur — reformule-les proprement, nomme le concept ou le procédé qu'il a touché sans le savoir, et relie-les au livre. Si les notes sont vides, écris « (rien noté pour l'instant) ».\n" +
+        "• 💬 : reprends les NOTES du lecteur — reformule-les proprement, nomme le concept ou le procédé qu'il a touché sans le savoir, et relie-les au livre. " +
+        (rappel
+          ? "Si les notes sont vides, n'invente rien à sa place : écris une seule ligne l'invitant à noter ce qui lui revient maintenant que le livre lui a été rappelé, et suggère deux ou trois pistes précises sur lesquelles sa mémoire pourrait s'accrocher.\n"
+          : "Si les notes sont vides, écris « (rien noté pour l'instant) ».\n") +
         "• 🔗 : 2 ou 3 autres œuvres ou auteurs à lire dans la foulée, et pourquoi.\n" +
         "• 🎯 : une seule phrase-clé à mémoriser.\n" +
         "• 📚 : une seule ligne, commençant par le numéro du chapitre le plus pertinent de la LISTE DE CHAPITRES fournie, puis son titre — par exemple « 10 · Existentialisme et absurde ». Si aucun ne convient, écris « 0 · aucun ».";
@@ -195,7 +210,7 @@ export default {
         `Livre : « ${b.titre || "(sans titre)"} »` + (b.auteur ? ` — ${b.auteur}` : "") + (b.annee ? `, ${b.annee}` : "") + ".\n" +
         `NOTES DU LECTEUR :\n${(b.notes || "").trim() || "(aucune)"}\n\n` +
         `LISTE DE CHAPITRES :\n${b.chapitres || "(aucune)"}` }];
-      maxTokens = 1600;
+      maxTokens = rappel ? 4000 : 2200;   // le mode rappel ajoute 3 sections : 1600 tronquait la fiche
     } else if (mode === "concept") {
       if (b.action === "chat") {
         system =
@@ -237,7 +252,7 @@ export default {
           (b.fiche ? `\nFICHE EXISTANTE :\n${b.fiche}\n` : "") +
           (disc ? `\nDISCUSSION À INTÉGRER :\n${disc}\n` : "") +
           `\nLISTE DE CHAPITRES :\n${b.chapitres || "(aucune)"}` }];
-        maxTokens = 2000;
+        maxTokens = 2600;
       }
     } else if (mode === "fiche") {
       system =
@@ -274,7 +289,8 @@ export default {
       const data = await r.json();
       if (!r.ok) return json({ error: data }, 502, cors);
       const answer = (data.content || []).filter(x => x.type === "text").map(x => x.text).join("\n").trim();
-      return json({ answer }, 200, cors);
+      // stop : le client doit pouvoir detecter une reponse coupee ("max_tokens") au lieu de l'afficher telle quelle
+      return json({ answer, stop: data.stop_reason }, 200, cors);
     } catch (e) {
       return json({ error: String(e) }, 500, cors);
     }
