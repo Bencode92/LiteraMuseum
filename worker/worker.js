@@ -10,8 +10,10 @@
 
    Modes :
      - discussion (défaut), quiz, enrich, fiche, citation → Claude
+     - lecture  : structure une fiche de lecture (livre lu + notes perso)  → Claude
+     - concept  : action "fiche" (rédige/réécrit une fiche concept) ou "chat" (discussion) → Claude
      - save   : ajoute une entrée à data/community.json de BENMUSEUM (couche partagée)
-     - commit : écrit un fichier data/*.json complet (LiteraMuseum — Atelier)
+     - commit : écrit un fichier data/*.json complet (LiteraMuseum — Atelier, Lectures, Concepts)
    ========================================================================= */
 
 const DEFAULT_MODEL = "claude-sonnet-4-6";
@@ -172,6 +174,71 @@ export default {
         (b.oeuvre ? `Œuvre : « ${b.oeuvre} ».\n` : "") +
         `Citation : « ${b.citation || ""} »` }];
       maxTokens = 900;
+    } else if (mode === "lecture") {
+      system =
+        "Tu es un professeur de lettres et de philosophie qui aide un lecteur à garder trace de ses lectures. On te donne un LIVRE (titre, auteur, année) et, souvent, les NOTES PERSONNELLES du lecteur — ce qui l'a marqué, écrit vite et sans mise en forme. " +
+        "Rédige sa fiche de lecture en français, vivante et concrète, SANS jargon. N'invente RIEN sur le livre : si tu n'es pas sûr d'un fait, dis-le. " +
+        "Structure ta réponse en huit sections, dans cet ordre. Écris chaque intitulé SEUL sur sa ligne, exactement comme ci-dessous (emoji compris), puis son contenu à partir de la ligne suivante. " +
+        "Ne recopie JAMAIS les consignes de contenu dans ta réponse : elles sont pour toi, pas pour le lecteur.\n\n" +
+        "📖 EN DEUX PHRASES\n🧭 LE CONTEXTE\n🌀 CE QUE LE LIVRE CHANGE\n🧠 LES IDÉES CLÉS\n💬 TES IDÉES\n🔗 À RAPPROCHER DE\n🎯 À RETENIR\n📚 RATTACHEMENT\n\n" +
+        "Contenu attendu dans chaque section :\n" +
+        "• 📖 : de quoi ça parle et ce que c'est (roman, essai, traité…).\n" +
+        "• 🧭 : le sol — l'époque, le mouvement, ce qui précède et rend ce livre possible (3 à 4 phrases).\n" +
+        "• 🌀 : la bascule — le geste de rupture, ce que ce livre fait que personne ne faisait avant, pourquoi il compte (3 à 5 phrases).\n" +
+        "• 🧠 : 3 à 5 idées ou thèses, chacune en une phrase, une par ligne, chaque ligne commençant par un tiret.\n" +
+        "• 💬 : reprends les NOTES du lecteur — reformule-les proprement, nomme le concept ou le procédé qu'il a touché sans le savoir, et relie-les au livre. Si les notes sont vides, écris « (rien noté pour l'instant) ».\n" +
+        "• 🔗 : 2 ou 3 autres œuvres ou auteurs à lire dans la foulée, et pourquoi.\n" +
+        "• 🎯 : une seule phrase-clé à mémoriser.\n" +
+        "• 📚 : une seule ligne, commençant par le numéro du chapitre le plus pertinent de la LISTE DE CHAPITRES fournie, puis son titre — par exemple « 10 · Existentialisme et absurde ». Si aucun ne convient, écris « 0 · aucun ».";
+      messages = [{ role: "user", content:
+        `Domaine : ${b.domaine === "philo" ? "philosophie" : "littérature"}.\n` +
+        `Livre : « ${b.titre || "(sans titre)"} »` + (b.auteur ? ` — ${b.auteur}` : "") + (b.annee ? `, ${b.annee}` : "") + ".\n" +
+        `NOTES DU LECTEUR :\n${(b.notes || "").trim() || "(aucune)"}\n\n` +
+        `LISTE DE CHAPITRES :\n${b.chapitres || "(aucune)"}` }];
+      maxTokens = 1600;
+    } else if (mode === "concept") {
+      if (b.action === "chat") {
+        system =
+          "Tu es un professeur de philosophie et de lettres, chaleureux et précis, qui discute d'un CONCEPT avec un élève de classe préparatoire. " +
+          "Réponds en français, sans jargon inutile, de façon concrète : chaque idée abstraite doit être éclairée par une image ou un exemple. " +
+          "Sois concis (4 à 8 phrases), va au fond de la question posée plutôt que de tout survoler, et n'hésite pas à distinguer les positions en présence quand elles s'opposent. " +
+          "Tu peux dire que tu n'es pas sûr. Voici l'état actuel de la fiche de l'élève sur ce concept :\n\n" +
+          `CONCEPT : ${b.nom || "(sans nom)"}\n\nFICHE ACTUELLE :\n${b.fiche || "(fiche encore vide)"}`;
+        const history = Array.isArray(b.history) ? b.history : [];
+        messages = [
+          ...history.map(m => ({ role: m.role === "assistant" ? "assistant" : "user", content: m.text })),
+          { role: "user", content: b.question || "" },
+        ];
+        maxTokens = 900;
+      } else {
+        system =
+          "Tu es un professeur de philosophie et de lettres. On te donne un CONCEPT à approfondir pour un élève de classe préparatoire. " +
+          "Si une FICHE EXISTANTE et une DISCUSSION te sont fournies, tu ne repars pas de zéro : tu réécris la fiche en y intégrant ce qui s'est dit, en gardant ce qui était juste. " +
+          "Écris en français, sans jargon : chaque idée abstraite doit être rendue intelligible par une image, une métaphore ou un exemple concret. N'invente aucune référence dont tu n'es pas sûr. " +
+          "Structure ta réponse en huit sections, dans cet ordre. Écris chaque intitulé SEUL sur sa ligne, exactement comme ci-dessous (emoji compris), puis son contenu à partir de la ligne suivante. " +
+          "Ne recopie JAMAIS les consignes de contenu dans ta réponse : elles sont pour toi, pas pour l'élève.\n\n" +
+          "🔑 DÉFINITION\n🧭 D'OÙ ÇA VIENT\n🥊 LES POSITIONS EN PRÉSENCE\n💡 L'IMAGE POUR COMPRENDRE\n🧠 LES ENJEUX\n📚 OÙ LE TRAVAILLER\n🔍 TROIS QUESTIONS\n🎯 À RETENIR\n\n" +
+          "Contenu attendu dans chaque section :\n" +
+          "• 🔑 : ce que le concept veut dire, en 2 ou 3 phrases, sans présupposer le vocabulaire. Distingue-le des notions voisines avec lesquelles on le confond.\n" +
+          "• 🧭 : la généalogie — quel problème le concept vient résoudre, chez qui il apparaît, comment il se déplace au fil du temps.\n" +
+          "• 🥊 : les thèses qui s'affrontent — qui défend quoi, et contre qui. Une ligne par position, chaque ligne commençant par un tiret, avec le nom de l'auteur.\n" +
+          "• 💡 : une situation concrète ou une expérience de pensée qui rend le concept évident.\n" +
+          "• 🧠 : ce qui se joue vraiment — ce que ça change si le concept est vrai ou faux, ses conséquences morales, politiques ou scientifiques.\n" +
+          "• 📚 : les auteurs et les œuvres à lire pour ce concept ; puis, en toute dernière ligne de la section, les numéros des chapitres concernés de la LISTE DE CHAPITRES fournie, sous la forme exacte « Chapitres : 6, 10 ».\n" +
+          "• 🔍 : trois questions ouvertes pour aller plus loin, une par ligne commençant par un tiret, dont au moins une qui pourrait être un sujet de dissertation.\n" +
+          "• 🎯 : une seule phrase-clé à mémoriser.";
+        const disc = Array.isArray(b.history) && b.history.length
+          ? b.history.map(m => (m.role === "assistant" ? "PROF" : "ÉLÈVE") + " : " + m.text).join("\n\n")
+          : "";
+        messages = [{ role: "user", content:
+          `Domaine : ${b.domaine === "litt" ? "littérature" : "philosophie"}.\n` +
+          `CONCEPT : ${b.nom || ""}\n` +
+          (b.consigne ? `CE QUE L'ÉLÈVE VEUT CREUSER : ${b.consigne}\n` : "") +
+          (b.fiche ? `\nFICHE EXISTANTE :\n${b.fiche}\n` : "") +
+          (disc ? `\nDISCUSSION À INTÉGRER :\n${disc}\n` : "") +
+          `\nLISTE DE CHAPITRES :\n${b.chapitres || "(aucune)"}` }];
+        maxTokens = 2000;
+      }
     } else if (mode === "fiche") {
       system =
         "Tu es un spécialiste de culture (histoire de l'art, littérature, philosophie). On te donne le titre d'une œuvre, son auteur et le domaine. " +

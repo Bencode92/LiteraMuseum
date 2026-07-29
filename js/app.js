@@ -144,6 +144,10 @@ Promise.all([
     DOMAINS.philo = mkDomain(pc, pd, pi); DOMAINS.philo.doc = pc; DOMAINS.philo.file = "philosophie.json";
     applyDomain(DOMAIN);
     route();
+    // carnet perso : on rapatrie la version publiée en tâche de fond, sans bloquer l'affichage
+    Promise.all([dbPull(LEC), dbPull(CON)]).then(() => {
+      if (/^#\/(lectures|concepts|c)\b/.test(location.hash)) route();
+    });
   })
   .catch(() => $("view").innerHTML = "<p>Impossible de charger les données — lance le site via un serveur (voir README), pas en file://.</p>");
 
@@ -356,6 +360,8 @@ function route() {
   if (top === "quiz") { setActiveFloor(-1); return renderQuiz(); }
   if (top === "atelier") { setActiveFloor(-1); return renderAtelier(); }
   if (top === "citations") { setActiveFloor(-1); return renderCitations(); }
+  if (top === "lectures") { setActiveFloor(-1); return parts[1] === "l" ? renderLecture(parts[2]) : renderLectures(); }
+  if (top === "concepts") { setActiveFloor(-1); return parts[1] === "c" ? renderConcept(parts[2]) : renderConcepts(); }
   if (top === "session") { setActiveFloor(-1); return startSession(); }
   if (top === "parcours") { setActiveFloor(-1); return renderParcours(); }
   if (top === "moi" || top === "favoris") {
@@ -446,6 +452,7 @@ function renderChapitre(ci) {
           <div class="thumb" data-wiki="${esc(o.wiki)}"></div>
           <div class="body"><div class="t">${esc(o.titre)}</div><div class="s">${esc(o.artiste)} · ${esc(o.annee)}</div></div>
         </div>`).join("")}</div>` : ""}
+    ${carnetBlock(c.num)}
     ${notesBlock("chap:" + c.num)}`;
   loadImages($("view"));
   wireChecklist();
@@ -1189,18 +1196,45 @@ function citStore() { try { return JSON.parse(localStorage.getItem(CIT_KEY) || "
 function citSaveAll(list) { localStorage.setItem(CIT_KEY, JSON.stringify(list)); }
 function citAdd(item) { const l = citStore(); l.unshift({ ...item, id: Date.now() + "", ts: new Date().toISOString().slice(0, 10) }); citSaveAll(l.slice(0, 200)); }
 function citDel(id) { citSaveAll(citStore().filter(c => c.id !== id)); }
-// transforme le texte d'analyse (🔑 SENS — …) en sections stylées
-function citAnalyseHTML(text) {
-  if (!text) return "";
-  const SEC = { "🔑": "sens", "🔁": "reformule", "🧠": "analyse", "💡": "exemple", "🎯": "retenir" };
-  const re = /(🔑|🔁|🧠|💡|🎯)\s*([^\n—–-]*?)\s*[—–-]\s*([\s\S]*?)(?=(?:🔑|🔁|🧠|💡|🎯)|$)/gu;
-  let m, out = "", n = 0;
-  while ((m = re.exec(text))) {
-    n++;
-    out += `<div class="cit-sec ${SEC[m[1]] || ""}"><div class="h"><span class="ico">${m[1]}</span><span class="lbl">${esc((m[2] || "").trim())}</span></div><div class="b">${esc((m[3] || "").trim())}</div></div>`;
-  }
-  return n ? `<div class="cit-analyse">${out}</div>` : `<div style="white-space:pre-wrap">${esc(text)}</div>`;
+// corps d'une section : les lignes commençant par un tiret deviennent une liste
+function secBody(t) {
+  const lines = (t || "").trim().split("\n").map(l => l.trim()).filter(Boolean);
+  let out = "", ul = false;
+  lines.forEach(l => {
+    const li = /^[-–—•*]\s+/.test(l);
+    if (li && !ul) { out += "<ul>"; ul = true; }
+    if (!li && ul) { out += "</ul>"; ul = false; }
+    out += li ? `<li>${esc(l.replace(/^[-–—•*]\s+/, ""))}</li>` : `<p>${esc(l)}</p>`;
+  });
+  return out + (ul ? "</ul>" : "");
 }
+/* Decoupe un texte en sections stylees. Lecture ligne a ligne (et non par regex globale)
+   parce que le modele ecrit tantot « ICONE TITRE — corps », tantot « ICONE TITRE » puis le
+   corps a la ligne suivante : les deux formes doivent passer, sinon une section entiere est
+   perdue silencieusement. */
+function secHTML(text, SEC) {
+  if (!text) return "";
+  const icons = Object.keys(SEC);
+  const secs = []; let cur = null; const intro = [];
+  for (const raw of text.replace(/\uFE0F/g, "").split("\n")) {
+    const line = raw.trim();
+    const ico = icons.find(i => line.startsWith(i));
+    if (ico) {
+      const rest = line.slice(ico.length).trim();
+      const m = rest.match(/^(.{0,60}?)\s+[—–]\s+([\s\S]*)$/);   // tiret separateur, s'il y en a un
+      cur = { ico, label: m ? m[1].trim() : rest, body: m && m[2].trim() ? [m[2].trim()] : [] };
+      secs.push(cur);
+    } else if (cur) { if (line) cur.body.push(line); }
+    else if (line) intro.push(line);                        // texte avant la 1re section : jamais perdu
+  }
+  if (!secs.length) return `<div style="white-space:pre-wrap">${esc(text)}</div>`;
+  return `<div class="cit-analyse">` +
+    (intro.length ? `<div class="cit-intro">${secBody(intro.join("\n"))}</div>` : "") +
+    secs.map(s => `<div class="cit-sec ${SEC[s.ico] || ""}"><div class="h"><span class="ico">${s.ico}</span><span class="lbl">${esc(s.label)}</span></div><div class="b">${secBody(s.body.join("\n"))}</div></div>`).join("") +
+    `</div>`;
+}
+const CIT_SEC = { "🔑": "sens", "🔁": "reformule", "🧠": "analyse", "💡": "exemple", "🎯": "retenir" };
+const citAnalyseHTML = text => secHTML(text, CIT_SEC);
 function citShowRes(res, text) { res.hidden = false; res.innerHTML = citAnalyseHTML(text || "(pas d'analyse enregistrée)"); }
 
 function renderCitations() {
@@ -1313,6 +1347,388 @@ function renderCitations() {
 }
 let CIT_DOM = null;
 let CIT_SEEDS = null;
+
+/* =========================================================================
+   📖 Mes lectures & 🧠 Concepts — le carnet personnel, relié au corpus.
+   Stockage : localStorage d'abord ; publication GitHub via le Worker (mode commit).
+   ========================================================================= */
+const LEC = { key: "lectures:list", path: "data/lectures.json" };
+const CON = { key: "concepts:list", path: "data/concepts.json" };
+const LEC_SEC = { "📖": "sens", "🧭": "sol", "🌀": "bascule", "🧠": "analyse", "💬": "reformule", "🔗": "liens", "🎯": "retenir", "📚": "rattach" };
+const CON_SEC = { "🔑": "sens", "🧭": "sol", "🥊": "bascule", "💡": "exemple", "🧠": "analyse", "📚": "liens", "🔍": "questions", "🎯": "retenir" };
+const STATUTS = { lu: "✅ Lu", "en-cours": "📗 En cours", "a-lire": "🔖 À lire" };
+let LEC_DOM = null, CON_DOM = null;
+
+const dbAll = s => { try { return JSON.parse(localStorage.getItem(s.key) || "[]"); } catch { return []; } };
+const dbPut = (s, l) => localStorage.setItem(s.key, JSON.stringify(l));
+const dbFind = (s, id) => dbAll(s).find(x => x.id === id);
+const dbDel = (s, id) => dbPut(s, dbAll(s).filter(x => x.id !== id));
+function dbSave(s, item) {
+  item.maj = Date.now();
+  const l = dbAll(s), i = l.findIndex(x => x.id === item.id);
+  if (i < 0) l.unshift(item); else l[i] = item;
+  dbPut(s, l); return item;
+}
+// fusion avec la version publiée : à id égal, la fiche la plus récemment modifiée gagne
+async function dbPull(s) {
+  let remote = null;
+  try { remote = await (await fetch(s.path + "?t=" + Date.now())).json(); } catch { }
+  if (!Array.isArray(remote)) return dbAll(s);
+  const byId = new Map(remote.map(x => [x.id, x]));
+  dbAll(s).forEach(x => { const r = byId.get(x.id); if (!r || (x.maj || 0) >= (r.maj || 0)) byId.set(x.id, x); });
+  const merged = [...byId.values()].sort((a, b) => (b.maj || 0) - (a.maj || 0));
+  dbPut(s, merged); return merged;
+}
+async function dbPush(s, btn) {
+  if (aiEndpoint() === "/api/ask") return setAiUrl();
+  const label = btn.textContent; btn.disabled = true; btn.textContent = "Publication…";
+  try {
+    const r = await fetch(aiEndpoint(), {
+      method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({ mode: "commit", path: s.path, content: JSON.stringify(dbAll(s), null, 2) + "\n", message: "carnet : maj " + s.path }),
+    });
+    const j = await r.json();
+    btn.textContent = j.ok ? "✓ Publié sur GitHub" : "✕ " + String(j.error || "échec").slice(0, 40);
+  } catch { btn.textContent = "✕ Worker hors ligne"; }
+  setTimeout(() => { btn.disabled = false; btn.textContent = label; }, 3000);
+}
+
+const chapsOf = d => (DOMAINS[d] && DOMAINS[d].chapitres) || [];
+const chapText = d => chapsOf(d).map(c => `${c.num} — ${c.titre}`).join("\n");
+const chapNav = (d, num) => { const i = chapsOf(d).findIndex(c => c.num === num); return i < 0 ? null : `#/c/${i}`; };
+const chapTitre = (d, num) => (chapsOf(d).find(c => c.num === num) || {}).titre || "";
+const stars = n => n ? "★".repeat(n) + "☆".repeat(5 - n) : "";
+
+async function askAI(payload) {
+  if (aiEndpoint() === "/api/ask") throw new Error("Worker non configuré");
+  const r = await fetch(aiEndpoint(), { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(payload) });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok || !j.answer) throw new Error(typeof j.error === "string" ? j.error : "réponse vide");
+  return j.answer;
+}
+function aiFail(el, e) {
+  el.hidden = false;
+  el.innerHTML = `⚠️ ${esc(e.message || "IA hors ligne")}. <button class="linkbtn aiRetryCfg">Configurer l'IA en ligne</button>`;
+  el.querySelectorAll(".aiRetryCfg").forEach(b => b.onclick = setAiUrl);
+}
+// « RATTACHEMENT — 10 · Existentialisme » OU titre seul puis « 10 · … » a la ligne suivante
+function lecChapNum(fiche) {
+  const t = (fiche || "").replace(/\uFE0F/g, "");
+  const i = t.indexOf("\u{1F4DA}");
+  if (i < 0) return null;
+  // le numero est soit sur la ligne du titre, soit sur la ligne suivante
+  const m = t.slice(i).split("\n").slice(0, 3).join(" ").match(/\b(\d{1,2})\b/);
+  return m && +m[1] > 0 ? +m[1] : null;
+}
+// « Chapitres : 6, 10 » → [6, 10]
+function conChapNums(fiche) {
+  const m = (fiche || "").match(/Chapitres\s*:\s*([\d,;\s]+)/i);
+  return m ? [...new Set(m[1].split(/[^\d]+/).filter(Boolean).map(Number).filter(n => n > 0))] : [];
+}
+const domSelect = (id, d) =>
+  `<label>Domaine<br><select id="${id}">
+     <option value="litt" ${d === "litt" ? "selected" : ""}>📚 Littérature</option>
+     <option value="philo" ${d === "philo" ? "selected" : ""}>🦉 Philosophie</option></select></label>`;
+const syncBar = (pull, push) =>
+  `<div class="syncbar"><button class="optbtn" id="${pull}">⟲ Récupérer la version publiée</button>
+   <button class="optbtn" id="${push}">☁️ Publier sur GitHub</button>
+   <span class="dim">Tes fiches vivent dans ce navigateur ; publie-les pour les retrouver ailleurs.</span></div>`;
+
+/* ---------- 📖 Mes lectures : la liste ---------- */
+function renderLectures() {
+  crumb([{ label: "Mes lectures" }]);
+  const d = LEC_DOM || DOMAIN;
+  const online = aiEndpoint() !== "/api/ask";
+  $("view").innerHTML = `
+    <div class="pagehead"><h1>Mes lectures 📖</h1>
+      <p class="lead">Chaque livre lu, avec ce que tu en as retenu. Tu donnes le titre et tes idées en vrac ; l'IA en fait une fiche structurée, la relie au chapitre du cours qui va bien, et te dit quoi lire ensuite.</p></div>
+    <div class="block">
+      <div class="atk-status">
+        <span class="${online ? "ok" : "ko"}">IA / Worker : ${online ? "✅ prêt" : "❌ hors ligne (ouvre le site en ligne)"}</span>
+        <button class="optbtn" id="lecAi">Changer l'URL du Worker</button>
+      </div>
+      <div class="quizcfg" style="margin-top:14px">
+        ${domSelect("lec_dom", d)}
+        <label>Statut<br><select id="lec_statut">${Object.entries(STATUTS).map(([k, v]) => `<option value="${k}">${v}</option>`).join("")}</select></label>
+        <label>Note<br><select id="lec_note"><option value="0">— pas encore —</option>${[1, 2, 3, 4, 5].map(n => `<option value="${n}">${stars(n)}</option>`).join("")}</select></label>
+      </div>
+      <div class="atk-form">
+        <label>Titre du livre<input id="lec_titre" placeholder="ex. L'Étranger" /></label>
+        <label>Auteur<input id="lec_auteur" placeholder="ex. Albert Camus" /></label>
+        <label>Année (facultatif)<input id="lec_annee" placeholder="ex. 1942" /></label>
+        <label class="full">Tes idées — ce qui t'a marqué, tes questions, tes désaccords, en vrac<textarea id="lec_notes" rows="4" placeholder="Écris comme ça vient : l'IA reformulera et nommera les concepts que tu as touchés."></textarea></label>
+      </div>
+      <div class="sess-actions" style="flex-wrap:wrap"><button class="next" id="lecGo">✍️ Créer la fiche</button></div>
+      <div class="answer" id="lecRes" hidden style="margin-top:12px"></div>
+    </div>
+    <div class="block">
+      <h3 id="lecCount">📚 Ma bibliothèque</h3>
+      ${syncBar("lecPull", "lecPush")}
+      <div id="lecList"></div>
+    </div>`;
+
+  const renderList = () => {
+    const l = dbAll(LEC);
+    $("lecCount").textContent = `📚 Ma bibliothèque (${l.length})`;
+    $("lecList").innerHTML = l.length ? `<div class="grid cols">${l.map(x => `
+      <div class="card lec-card" data-nav="#/lectures/l/${x.id}">
+        <div class="body">
+          <div class="t">${x.domaine === "philo" ? "🦉" : "📚"} ${esc(x.titre)}</div>
+          <div class="s">${esc(x.auteur || "?")}${x.annee ? " · " + esc(x.annee) : ""}</div>
+          <div class="meta">
+            <span class="pill">${STATUTS[x.statut] || ""}</span>
+            ${x.note ? `<span class="pill star">${stars(x.note)}</span>` : ""}
+            ${x.chapitre ? `<span class="pill gold">Ch. ${x.chapitre} — ${esc(chapTitre(x.domaine, x.chapitre))}</span>` : ""}
+            ${x.fiche ? "" : '<span class="pill todo">fiche à générer</span>'}
+          </div>
+        </div>
+      </div>`).join("")}</div>`
+      : '<p class="lead">Aucune lecture pour l\'instant — ajoute ton premier livre ci-dessus.</p>';
+  };
+  renderList();
+
+  $("lecAi").onclick = setAiUrl;
+  $("lec_dom").onchange = e => { LEC_DOM = e.target.value; };
+  $("lecPull").onclick = async e => { e.target.textContent = "Récupération…"; await dbPull(LEC); renderList(); e.target.textContent = "⟲ Récupérer la version publiée"; };
+  $("lecPush").onclick = e => dbPush(LEC, e.target);
+  $("lecGo").onclick = async () => {
+    const res = $("lecRes");
+    const titre = $("lec_titre").value.trim();
+    if (!titre) { res.hidden = false; res.textContent = "Donne au moins le titre du livre."; return; }
+    const dom = $("lec_dom").value;
+    const item = {
+      id: "l" + Date.now(), titre, auteur: $("lec_auteur").value.trim(), annee: $("lec_annee").value.trim(),
+      domaine: dom, statut: $("lec_statut").value, note: +$("lec_note").value,
+      idees: $("lec_notes").value.trim(), fiche: "", chapitre: null, concepts: [],
+      ts: new Date().toISOString().slice(0, 10),
+    };
+    res.hidden = false; res.textContent = "Rédaction de la fiche…";
+    try {
+      item.fiche = await askAI({ mode: "lecture", domaine: dom, titre, auteur: item.auteur, annee: item.annee, notes: item.idees, chapitres: chapText(dom) });
+      item.chapitre = lecChapNum(item.fiche);
+    } catch (e) { aiFail(res, e); }
+    dbSave(LEC, item);
+    if (item.fiche) location.hash = "#/lectures/l/" + item.id;
+    else renderList();
+  };
+}
+
+/* ---------- 📖 Une lecture : la fiche ---------- */
+function renderLecture(id) {
+  const l = dbFind(LEC, id);
+  if (!l) { location.hash = "#/lectures"; return; }
+  crumb([{ label: "Mes lectures", nav: "#/lectures" }, { label: l.titre }]);
+  const cons = dbAll(CON);
+  const nav = l.chapitre && chapNav(l.domaine, l.chapitre);
+  $("view").innerHTML = `
+    <div class="pagehead">
+      <div class="ep">${l.domaine === "philo" ? "🦉 Philosophie" : "📚 Littérature"} · ${STATUTS[l.statut] || ""} · lu le ${esc(l.ts)}</div>
+      <h1>${esc(l.titre)}</h1>
+      <p class="lead">${esc(l.auteur || "?")}${l.annee ? " · " + esc(l.annee) : ""} ${l.note ? `<span class="pill star">${stars(l.note)}</span>` : ""}</p>
+    </div>
+    <div class="block">
+      <div class="quizcfg">
+        <label>Statut<br><select id="lz_statut">${Object.entries(STATUTS).map(([k, v]) => `<option value="${k}" ${l.statut === k ? "selected" : ""}>${v}</option>`).join("")}</select></label>
+        <label>Note<br><select id="lz_note"><option value="0">—</option>${[1, 2, 3, 4, 5].map(n => `<option value="${n}" ${l.note === n ? "selected" : ""}>${stars(n)}</option>`).join("")}</select></label>
+        <label>Chapitre du cours<br><select id="lz_chap"><option value="">— aucun —</option>${chapsOf(l.domaine).map(c => `<option value="${c.num}" ${l.chapitre === c.num ? "selected" : ""}>${c.num}. ${esc(c.titre)}</option>`).join("")}</select></label>
+      </div>
+      ${nav ? `<a class="dossier-link" data-nav="${nav}">📖 Chapitre ${l.chapitre} — ${esc(chapTitre(l.domaine, l.chapitre))} →</a>` : ""}
+    </div>
+    <div class="block">
+      <h3>💬 Tes idées</h3>
+      <p class="lead">Ce que tu as noté toi-même. Modifie-le quand tu veux, puis relance la fiche pour que l'IA en tienne compte.</p>
+      <div class="atk-form"><label class="full"><textarea id="lz_idees" rows="5">${esc(l.idees || "")}</textarea></label></div>
+      <div class="sess-actions" style="flex-wrap:wrap">
+        <button class="next" id="lzSave">💾 Enregistrer</button>
+        <button class="optbtn" id="lzRedo">🔁 ${l.fiche ? "Réécrire" : "Générer"} la fiche avec l'IA</button>
+        <button class="optbtn" id="lzDel">🗑 Supprimer cette lecture</button>
+      </div>
+      <div class="answer" id="lzMsg" hidden style="margin-top:12px"></div>
+    </div>
+    <div class="block">
+      <h3>🧠 Concepts rattachés</h3>
+      ${l.concepts && l.concepts.length ? `<div class="chips">${l.concepts.map(cid => {
+        const c = cons.find(x => x.id === cid);
+        return c ? `<span class="chip" data-nav="#/concepts/c/${c.id}">${esc(c.nom)}<button class="x" data-unlink="${c.id}">✕</button></span>` : "";
+      }).join("")}</div>` : '<p class="lead">Aucun concept rattaché.</p>'}
+      <div class="quizcfg"><label>Rattacher un concept<br><select id="lz_con"><option value="">— choisir —</option>${cons.filter(c => !(l.concepts || []).includes(c.id)).map(c => `<option value="${c.id}">${esc(c.nom)}</option>`).join("")}</select></label></div>
+    </div>
+    <div class="block">
+      <h3>📄 La fiche</h3>
+      <div id="lzFiche">${l.fiche ? secHTML(l.fiche, LEC_SEC) : '<p class="lead">Pas encore de fiche — clique sur « Générer la fiche avec l\'IA ».</p>'}</div>
+    </div>`;
+
+  const commit = () => { dbSave(LEC, l); };
+  $("lz_statut").onchange = e => { l.statut = e.target.value; commit(); };
+  $("lz_note").onchange = e => { l.note = +e.target.value; commit(); };
+  $("lz_chap").onchange = e => { l.chapitre = e.target.value ? +e.target.value : null; commit(); renderLecture(id); };
+  $("lz_con").onchange = e => { if (!e.target.value) return; l.concepts = [...(l.concepts || []), e.target.value]; commit(); renderLecture(id); };
+  $("view").querySelectorAll("[data-unlink]").forEach(b => b.onclick = ev => {
+    ev.stopPropagation(); l.concepts = (l.concepts || []).filter(x => x !== b.dataset.unlink); commit(); renderLecture(id);
+  });
+  $("lzSave").onclick = () => { l.idees = $("lz_idees").value.trim(); commit(); const m = $("lzMsg"); m.hidden = false; m.textContent = "✓ Enregistré."; };
+  $("lzDel").onclick = () => { if (confirm(`Supprimer « ${l.titre} » ?`)) { dbDel(LEC, id); location.hash = "#/lectures"; } };
+  $("lzRedo").onclick = async () => {
+    const m = $("lzMsg"); m.hidden = false; m.textContent = "Rédaction de la fiche…";
+    l.idees = $("lz_idees").value.trim();
+    try {
+      l.fiche = await askAI({ mode: "lecture", domaine: l.domaine, titre: l.titre, auteur: l.auteur, annee: l.annee, notes: l.idees, chapitres: chapText(l.domaine) });
+      if (!l.chapitre) l.chapitre = lecChapNum(l.fiche);
+      commit(); renderLecture(id);
+    } catch (e) { aiFail(m, e); commit(); }
+  };
+}
+
+/* ---------- 🧠 Concepts : la liste ---------- */
+function renderConcepts() {
+  crumb([{ label: "Concepts" }]);
+  const d = CON_DOM || DOMAIN;
+  const online = aiEndpoint() !== "/api/ask";
+  $("view").innerHTML = `
+    <div class="pagehead"><h1>Concepts 🧠</h1>
+      <p class="lead">Le déterminisme, la liberté, l'absurde, le sublime… Les idées que tu croises et que tu veux vraiment comprendre. L'IA rédige une première fiche, puis tu discutes avec elle pour l'affiner jusqu'à ce qu'elle soit à toi.</p></div>
+    <div class="block">
+      <div class="atk-status">
+        <span class="${online ? "ok" : "ko"}">IA / Worker : ${online ? "✅ prêt" : "❌ hors ligne (ouvre le site en ligne)"}</span>
+        <button class="optbtn" id="conAi">Changer l'URL du Worker</button>
+      </div>
+      <div class="quizcfg" style="margin-top:14px">${domSelect("con_dom", d)}</div>
+      <div class="atk-form">
+        <label>Le concept<input id="con_nom" placeholder="ex. le déterminisme" /></label>
+        <label class="full">Ce que tu veux creuser (facultatif)<textarea id="con_consigne" rows="2" placeholder="ex. est-ce compatible avec la responsabilité morale ? qui s'y oppose ?"></textarea></label>
+      </div>
+      <div class="sess-actions" style="flex-wrap:wrap"><button class="next" id="conGo">🔎 Créer la fiche</button></div>
+      <div class="answer" id="conRes" hidden style="margin-top:12px"></div>
+    </div>
+    <div class="block">
+      <h3 id="conCount">🧠 Mes concepts</h3>
+      ${syncBar("conPull", "conPush")}
+      <div id="conList"></div>
+    </div>`;
+
+  const renderList = () => {
+    const l = dbAll(CON);
+    $("conCount").textContent = `🧠 Mes concepts (${l.length})`;
+    $("conList").innerHTML = l.length ? `<div class="grid cols">${l.map(x => `
+      <div class="card con-card" data-nav="#/concepts/c/${x.id}">
+        <div class="body">
+          <div class="t">${x.domaine === "litt" ? "📚" : "🦉"} ${esc(x.nom)}</div>
+          <div class="meta">
+            ${(x.chapitres || []).map(n => `<span class="pill gold">Ch. ${n}</span>`).join("")}
+            ${x.chat && x.chat.length ? `<span class="pill">💬 ${x.chat.length}</span>` : ""}
+            ${x.fiche ? "" : '<span class="pill todo">fiche à générer</span>'}
+          </div>
+        </div>
+      </div>`).join("")}</div>`
+      : '<p class="lead">Aucun concept pour l\'instant — lance-toi avec celui qui te trotte dans la tête.</p>';
+  };
+  renderList();
+
+  $("conAi").onclick = setAiUrl;
+  $("con_dom").onchange = e => { CON_DOM = e.target.value; };
+  $("conPull").onclick = async e => { e.target.textContent = "Récupération…"; await dbPull(CON); renderList(); e.target.textContent = "⟲ Récupérer la version publiée"; };
+  $("conPush").onclick = e => dbPush(CON, e.target);
+  $("conGo").onclick = async () => {
+    const res = $("conRes"), nom = $("con_nom").value.trim();
+    if (!nom) { res.hidden = false; res.textContent = "Nomme d'abord le concept."; return; }
+    const dom = $("con_dom").value;
+    const item = { id: "c" + Date.now(), nom, domaine: dom, consigne: $("con_consigne").value.trim(), fiche: "", chat: [], chapitres: [], ts: new Date().toISOString().slice(0, 10) };
+    res.hidden = false; res.textContent = "Rédaction de la fiche…";
+    try {
+      item.fiche = await askAI({ mode: "concept", action: "fiche", domaine: dom, nom, consigne: item.consigne, chapitres: chapText(dom) });
+      item.chapitres = conChapNums(item.fiche);
+    } catch (e) { aiFail(res, e); }
+    dbSave(CON, item);
+    if (item.fiche) location.hash = "#/concepts/c/" + item.id;
+    else renderList();
+  };
+}
+
+/* ---------- 🧠 Un concept : fiche + discussion pour l'affiner ---------- */
+function renderConcept(id) {
+  const c = dbFind(CON, id);
+  if (!c) { location.hash = "#/concepts"; return; }
+  crumb([{ label: "Concepts", nav: "#/concepts" }, { label: c.nom }]);
+  const lecs = dbAll(LEC).filter(l => (l.concepts || []).includes(c.id));
+  $("view").innerHTML = `
+    <div class="pagehead">
+      <div class="ep">${c.domaine === "litt" ? "📚 Littérature" : "🦉 Philosophie"} · fiche créée le ${esc(c.ts)}</div>
+      <h1>${esc(c.nom)}</h1>
+      ${c.consigne ? `<p class="lead">Ce que tu voulais creuser : ${esc(c.consigne)}</p>` : ""}
+    </div>
+    ${(c.chapitres || []).length ? `<div class="block"><h3>📚 Où le travailler dans le cours</h3>
+      <div class="chips">${c.chapitres.map(n => {
+        const nav = chapNav(c.domaine, n);
+        return nav ? `<span class="chip" data-nav="${nav}">Ch. ${n} — ${esc(chapTitre(c.domaine, n))}</span>` : "";
+      }).join("")}</div></div>` : ""}
+    ${lecs.length ? `<div class="block"><h3>📖 Tes lectures sur ce concept</h3>
+      <div class="chips">${lecs.map(l => `<span class="chip" data-nav="#/lectures/l/${l.id}">${esc(l.titre)}</span>`).join("")}</div></div>` : ""}
+    <div class="block">
+      <h3>📄 La fiche</h3>
+      <div id="czFiche">${c.fiche ? secHTML(c.fiche, CON_SEC) : '<p class="lead">Pas encore de fiche.</p>'}</div>
+    </div>
+    <div class="block">
+      <h3>💬 Discuter pour l'affiner</h3>
+      <p class="lead">Pose tes questions, conteste, demande un exemple. Quand la discussion a donné quelque chose, réécris la fiche : elle intégrera ce qu'on s'est dit.</p>
+      <div id="czChat" class="chatlog"></div>
+      <div class="atk-form"><label class="full"><textarea id="cz_q" rows="2" placeholder="ex. si tout est déterminé, en quoi suis-je encore responsable ?"></textarea></label></div>
+      <div class="sess-actions" style="flex-wrap:wrap">
+        <button class="next" id="czAsk">Envoyer</button>
+        <button class="optbtn" id="czRedo">🔁 Réécrire la fiche avec la discussion</button>
+        <button class="optbtn" id="czClear">Vider la discussion</button>
+        <button class="optbtn" id="czDel">🗑 Supprimer ce concept</button>
+      </div>
+      <div class="answer" id="czMsg" hidden style="margin-top:12px"></div>
+    </div>`;
+
+  const drawChat = () => {
+    $("czChat").innerHTML = (c.chat || []).length
+      ? c.chat.map(m => `<div class="msg ${m.role}"><div class="who">${m.role === "assistant" ? "🦉 Le prof" : "🙋 Toi"}</div><div class="tx">${secBody(m.text)}</div></div>`).join("")
+      : '<p class="lead">La discussion est vide.</p>';
+    $("czChat").scrollTop = $("czChat").scrollHeight;
+  };
+  drawChat();
+
+  $("czDel").onclick = () => { if (confirm(`Supprimer le concept « ${c.nom} » ?`)) { dbDel(CON, id); location.hash = "#/concepts"; } };
+  $("czClear").onclick = () => { if (confirm("Vider la discussion ? La fiche est conservée.")) { c.chat = []; dbSave(CON, c); drawChat(); } };
+  $("czAsk").onclick = async () => {
+    const q = $("cz_q").value.trim(), m = $("czMsg");
+    if (!q) return;
+    c.chat = c.chat || [];
+    const history = c.chat.slice(-10);
+    c.chat.push({ role: "user", text: q });
+    $("cz_q").value = ""; drawChat();
+    m.hidden = false; m.textContent = "Le prof réfléchit…";
+    try {
+      const a = await askAI({ mode: "concept", action: "chat", nom: c.nom, fiche: c.fiche, history, question: q });
+      c.chat.push({ role: "assistant", text: a });
+      m.hidden = true;
+    } catch (e) { aiFail(m, e); }
+    dbSave(CON, c); drawChat();
+  };
+  $("czRedo").onclick = async () => {
+    const m = $("czMsg"); m.hidden = false; m.textContent = "Réécriture de la fiche…";
+    try {
+      c.fiche = await askAI({ mode: "concept", action: "fiche", domaine: c.domaine, nom: c.nom, consigne: c.consigne, fiche: c.fiche, history: (c.chat || []).slice(-12), chapitres: chapText(c.domaine) });
+      c.chapitres = conChapNums(c.fiche);
+      dbSave(CON, c); renderConcept(id);
+    } catch (e) { aiFail(m, e); }
+  };
+}
+
+/* ---------- ce que le carnet ajoute à une page de chapitre ---------- */
+function carnetBlock(num) {
+  const lecs = dbAll(LEC).filter(l => l.domaine === DOMAIN && l.chapitre === num);
+  const cons = dbAll(CON).filter(c => c.domaine === DOMAIN && (c.chapitres || []).includes(num));
+  if (!lecs.length && !cons.length) return "";
+  return `<div class="block carnet">
+    <h3>🗂 Ton carnet sur ce chapitre</h3>
+    ${lecs.length ? `<p class="lead">📖 Tes lectures</p><div class="chips">${lecs.map(l =>
+      `<span class="chip" data-nav="#/lectures/l/${l.id}">${esc(l.titre)}${l.note ? ` <em>${stars(l.note)}</em>` : ""}</span>`).join("")}</div>` : ""}
+    ${cons.length ? `<p class="lead">🧠 Tes concepts</p><div class="chips">${cons.map(c =>
+      `<span class="chip" data-nav="#/concepts/c/${c.id}">${esc(c.nom)}</span>`).join("")}</div>` : ""}
+  </div>`;
+}
 
 function renderAtelier() {
   crumb([{ label: "Atelier" }]);
