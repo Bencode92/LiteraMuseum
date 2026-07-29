@@ -10,7 +10,7 @@
 
    Modes :
      - discussion (défaut), quiz, enrich, fiche, citation → Claude
-     - lecture  : structure une fiche de lecture (livre lu + notes perso)  → Claude
+     - lecture  : action "fiche" (fiche de lecture, option "rappel") ou "chat" (discuter du livre) → Claude
      - concept  : action "fiche" (rédige/réécrit une fiche concept) ou "chat" (discussion) → Claude
      - save   : ajoute une entrée à data/community.json de BENMUSEUM (couche partagée)
      - commit : écrit un fichier data/*.json complet (LiteraMuseum — Atelier, Lectures, Concepts)
@@ -174,6 +174,26 @@ export default {
         (b.oeuvre ? `Œuvre : « ${b.oeuvre} ».\n` : "") +
         `Citation : « ${b.citation || ""} »` }];
       maxTokens = 900;
+    } else if (mode === "lecture" && b.action === "chat") {
+      // discuter DU LIVRE : la fiche et les notes du lecteur servent de contexte
+      system =
+        "Tu es un professeur de lettres et de philosophie, chaleureux et précis, qui discute d'un LIVRE avec un lecteur qui l'a lu. " +
+        "Réponds en français, sans jargon inutile, de façon concrète : appuie-toi sur des scènes, des personnages, des passages précis plutôt que sur des généralités. " +
+        "Sois concis (4 à 8 phrases), va au fond de la question posée plutôt que de tout survoler. " +
+        "Prends au sérieux les objections et les désaccords du lecteur : discute-les vraiment, quitte à lui donner tort avec des raisons. " +
+        "Tu peux dire que tu n'es pas sûr d'un point, et tu n'inventes jamais un détail du livre. " +
+        "Voici le livre, la fiche déjà rédigée et les notes personnelles du lecteur :\n\n" +
+        `LIVRE : « ${b.titre || "(sans titre)"} »` + (b.auteur ? ` — ${b.auteur}` : "") + (b.annee ? `, ${b.annee}` : "") + "\n\n" +
+        `FICHE ACTUELLE :\n${b.fiche || "(pas encore de fiche)"}\n\n` +
+        `NOTES DU LECTEUR :\n${(b.notes || "").trim() || "(aucune)"}`;
+      {
+        const history = Array.isArray(b.history) ? b.history : [];
+        messages = [
+          ...history.map(m => ({ role: m.role === "assistant" ? "assistant" : "user", content: m.text })),
+          { role: "user", content: b.question || "" },
+        ];
+      }
+      maxTokens = 900;
     } else if (mode === "lecture") {
       // mode « rappel » : le livre a été lu il y a longtemps et oublié — on le fait revenir
       const rappel = !!b.rappel;
@@ -205,11 +225,17 @@ export default {
         "• 🔗 : 2 ou 3 autres œuvres ou auteurs à lire dans la foulée, et pourquoi.\n" +
         "• 🎯 : une seule phrase-clé à mémoriser.\n" +
         "• 📚 : une seule ligne, commençant par le numéro du chapitre le plus pertinent de la LISTE DE CHAPITRES fournie, puis son titre — par exemple « 10 · Existentialisme et absurde ». Si aucun ne convient, écris « 0 · aucun ».";
-      messages = [{ role: "user", content:
-        `Domaine : ${b.domaine === "philo" ? "philosophie" : "littérature"}.\n` +
-        `Livre : « ${b.titre || "(sans titre)"} »` + (b.auteur ? ` — ${b.auteur}` : "") + (b.annee ? `, ${b.annee}` : "") + ".\n" +
-        `NOTES DU LECTEUR :\n${(b.notes || "").trim() || "(aucune)"}\n\n` +
-        `LISTE DE CHAPITRES :\n${b.chapitres || "(aucune)"}` }];
+      {
+        const disc = Array.isArray(b.history) && b.history.length
+          ? b.history.map(m => (m.role === "assistant" ? "PROF" : "LECTEUR") + " : " + m.text).join("\n\n")
+          : "";
+        messages = [{ role: "user", content:
+          `Domaine : ${b.domaine === "philo" ? "philosophie" : "littérature"}.\n` +
+          `Livre : « ${b.titre || "(sans titre)"} »` + (b.auteur ? ` — ${b.auteur}` : "") + (b.annee ? `, ${b.annee}` : "") + ".\n" +
+          `NOTES DU LECTEUR :\n${(b.notes || "").trim() || "(aucune)"}\n` +
+          (disc ? `\nDISCUSSION À INTÉGRER — ce que le lecteur a compris, contesté ou creusé en discutant ; la section 💬 TES IDÉES doit en tenir compte :\n${disc}\n` : "") +
+          `\nLISTE DE CHAPITRES :\n${b.chapitres || "(aucune)"}` }];
+      }
       maxTokens = rappel ? 4000 : 2200;   // le mode rappel ajoute 3 sections : 1600 tronquait la fiche
     } else if (mode === "concept") {
       if (b.action === "chat") {

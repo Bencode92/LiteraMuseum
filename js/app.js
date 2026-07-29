@@ -1367,7 +1367,35 @@ function dbSave(s, item) {
   item.maj = Date.now();
   const l = dbAll(s), i = l.findIndex(x => x.id === item.id);
   if (i < 0) l.unshift(item); else l[i] = item;
-  dbPut(s, l); return item;
+  dbPut(s, l); dbAutoPush(s); return item;
+}
+
+/* Publication automatique — sinon une réflexion écrite ce soir vit uniquement dans ce
+   navigateur : vidage de cache, autre appareil, et elle est perdue. On regroupe les
+   écritures (une rafale de messages = un seul commit) plutôt que de committer à chaque frappe. */
+const AUTOPUB = "carnet:autopub";
+const autoPubOn = () => localStorage.getItem(AUTOPUB) !== "0";
+const PUB = { timers: {}, state: "", pending: false };
+function paintPub() {
+  document.querySelectorAll(".pubstate").forEach(el => { el.textContent = PUB.state; el.className = "pubstate " + (PUB.pending ? "wait" : PUB.err ? "ko" : "ok"); });
+}
+function dbAutoPush(s) {
+  if (!autoPubOn()) { PUB.state = "publication auto désactivée"; PUB.pending = false; return paintPub(); }
+  if (aiEndpoint() === "/api/ask") { PUB.state = "⚠ hors ligne : rien n'est publié"; PUB.err = 1; PUB.pending = false; return paintPub(); }
+  PUB.pending = true; PUB.state = "modifications non publiées…"; paintPub();
+  clearTimeout(PUB.timers[s.key]);
+  PUB.timers[s.key] = setTimeout(async () => {
+    try {
+      const r = await fetch(aiEndpoint(), {
+        method: "POST", headers: { "content-type": "application/json" },
+        body: JSON.stringify({ mode: "commit", path: s.path, content: JSON.stringify(dbAll(s), null, 2) + "\n", message: "carnet : maj " + s.path }),
+      });
+      const j = await r.json();
+      PUB.err = j.ok ? 0 : 1;
+      PUB.state = j.ok ? "☁️ publié à " + new Date().toTimeString().slice(0, 5) : "⚠ échec : " + String(j.error || "").slice(0, 40);
+    } catch { PUB.err = 1; PUB.state = "⚠ échec de publication (hors ligne ?)"; }
+    PUB.pending = false; paintPub();
+  }, 4000);
 }
 // fusion avec la version publiée : à id égal, la fiche la plus récemment modifiée gagne
 async function dbPull(s) {
@@ -1433,8 +1461,60 @@ const domSelect = (id, d) =>
      <option value="philo" ${d === "philo" ? "selected" : ""}>🦉 Philosophie</option></select></label>`;
 const syncBar = (pull, push) =>
   `<div class="syncbar"><button class="optbtn" id="${pull}">⟲ Récupérer la version publiée</button>
-   <button class="optbtn" id="${push}">☁️ Publier sur GitHub</button>
-   <span class="dim">Tes fiches vivent dans ce navigateur ; publie-les pour les retrouver ailleurs.</span></div>`;
+   <button class="optbtn" id="${push}">☁️ Publier maintenant</button>
+   <label class="autopub"><input type="checkbox" id="${push}Auto" ${autoPubOn() ? "checked" : ""} /> publication automatique</label>
+   <span class="pubstate">${PUB.state}</span></div>`;
+
+/* ---------- discussion : le même bloc sert aux livres et aux concepts ---------- */
+function chatBlockHTML(p) {
+  return `<div class="block">
+      <h3>💬 ${p.titre}</h3>
+      <p class="lead">${p.lead}</p>
+      <div id="${p.id}Chat" class="chatlog"></div>
+      <div class="atk-form"><label class="full"><textarea id="${p.id}_q" rows="2" placeholder="${esc(p.ph)}"></textarea></label></div>
+      <div class="sess-actions" style="flex-wrap:wrap">
+        <button class="next" id="${p.id}Ask">Envoyer</button>
+        <button class="optbtn" id="${p.id}Redo">🔁 Réécrire la fiche avec la discussion</button>
+        <button class="optbtn" id="${p.id}Clear">Vider la discussion</button>
+      </div>
+      <div class="answer" id="${p.id}Msg" hidden style="margin-top:12px"></div>
+    </div>`;
+}
+/* p = { id, item, store, moi, prof, payload(question, history), redo() } */
+function wireChat(p) {
+  const it = p.item, box = $(p.id + "Chat"), msg = $(p.id + "Msg");
+  const draw = () => {
+    box.innerHTML = (it.chat || []).length
+      ? it.chat.map(m => `<div class="msg ${m.role}"><div class="who">${m.role === "assistant" ? p.prof : p.moi}</div><div class="tx">${secBody(m.text)}</div></div>`).join("")
+      : '<p class="lead">La discussion est vide. Pose ta première question.</p>';
+    box.scrollTop = box.scrollHeight;
+  };
+  draw();
+  $(p.id + "Clear").onclick = () => {
+    if (!confirm("Vider la discussion ? La fiche est conservée.")) return;
+    it.chat = []; dbSave(p.store, it); draw();
+  };
+  const send = async () => {
+    const q = $(p.id + "_q").value.trim();
+    if (!q) return;
+    it.chat = it.chat || [];
+    const history = it.chat.slice(-10);          // contexte borné : les 10 derniers tours
+    it.chat.push({ role: "user", text: q });
+    $(p.id + "_q").value = ""; draw();
+    dbSave(p.store, it);                          // la question est enregistrée avant même la réponse
+    msg.hidden = false; msg.textContent = "Réflexion en cours…";
+    try {
+      const a = await askAI(p.payload(q, history));
+      it.chat.push({ role: "assistant", text: a.text });
+      if (a.truncated) msg.textContent = "⚠️ Réponse coupée avant la fin — repose la question plus précisément.";
+      else msg.hidden = true;
+    } catch (e) { aiFail(msg, e); }
+    dbSave(p.store, it); draw();
+  };
+  $(p.id + "Ask").onclick = send;
+  $(p.id + "_q").onkeydown = e => { if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); send(); } };
+  $(p.id + "Redo").onclick = p.redo;
+}
 
 /* ---------- 📖 Mes lectures : la liste ---------- */
 function renderLectures() {
@@ -1495,6 +1575,7 @@ function renderLectures() {
   $("lec_dom").onchange = e => { LEC_DOM = e.target.value; };
   $("lecPull").onclick = async e => { e.target.textContent = "Récupération…"; await dbPull(LEC); renderList(); e.target.textContent = "⟲ Récupérer la version publiée"; };
   $("lecPush").onclick = e => dbPush(LEC, e.target);
+  $("lecPushAuto").onchange = e => { localStorage.setItem(AUTOPUB, e.target.checked ? "1" : "0"); paintPub(); };
   $("lecGo").onclick = async () => {
     const res = $("lecRes");
     const titre = $("lec_titre").value.trim();
@@ -1553,6 +1634,7 @@ function renderLecture(id) {
         <button class="optbtn" id="lzRedo">🔁 ${l.fiche ? "Réécrire" : "Générer"} la fiche avec l'IA</button>
         ${l.rappel ? "" : '<button class="optbtn" id="lzRappel">🎬 Me le rappeler (déroulé complet)</button>'}
         <button class="optbtn" id="lzDel">🗑 Supprimer cette lecture</button>
+        <span class="pubstate">${PUB.state}</span>
       </div>
       <div class="answer" id="lzMsg" hidden style="margin-top:12px"></div>
     </div>
@@ -1568,7 +1650,12 @@ function renderLecture(id) {
       <h3>📄 La fiche</h3>
       ${l.tronque ? `<p class="warn">${TRONQUE}</p>` : ""}
       <div id="lzFiche">${l.fiche ? secHTML(l.fiche, LEC_SEC) : '<p class="lead">Pas encore de fiche — clique sur « Générer la fiche avec l\'IA ».</p>'}</div>
-    </div>`;
+    </div>
+    ${chatBlockHTML({
+      id: "lc", titre: "Discuter du livre",
+      lead: "Conteste, demande un éclaircissement, creuse un personnage ou une scène. La discussion est enregistrée avec le livre ; quand elle a donné quelque chose, réécris la fiche pour qu'elle l'intègre.",
+      ph: "ex. pourquoi Meursault ne pleure-t-il pas ? est-ce vraiment de l'indifférence ?",
+    })}`;
 
   const commit = () => { dbSave(LEC, l); };
   $("lz_statut").onchange = e => { l.statut = e.target.value; commit(); };
@@ -1599,7 +1686,7 @@ function renderLecture(id) {
     l.idees = $("lz_idees").value.trim();
     if (rappel) l.rappel = true;
     try {
-      const a = await askAI({ mode: "lecture", domaine: l.domaine, titre: l.titre, auteur: l.auteur, annee: l.annee, notes: l.idees, rappel: !!l.rappel, chapitres: chapText(l.domaine) });
+      const a = await askAI({ mode: "lecture", domaine: l.domaine, titre: l.titre, auteur: l.auteur, annee: l.annee, notes: l.idees, rappel: !!l.rappel, history: (l.chat || []).slice(-12), chapitres: chapText(l.domaine) });
       l.fiche = a.text; l.tronque = a.truncated;
       if (!l.chapitre) l.chapitre = lecChapNum(l.fiche);
       commit(); renderLecture(id);
@@ -1607,6 +1694,15 @@ function renderLecture(id) {
   };
   $("lzRedo").onclick = () => regen(!!l.rappel);
   if ($("lzRappel")) $("lzRappel").onclick = () => regen(true);
+
+  wireChat({
+    id: "lc", item: l, store: LEC, moi: "🙋 Toi", prof: "📖 Le prof",
+    payload: (q, history) => ({
+      mode: "lecture", action: "chat", titre: l.titre, auteur: l.auteur, annee: l.annee,
+      fiche: l.fiche, notes: l.idees, history, question: q,
+    }),
+    redo: () => regen(!!l.rappel),
+  });
 }
 
 /* ---------- 🧠 Concepts : la liste ---------- */
@@ -1658,6 +1754,7 @@ function renderConcepts() {
   $("con_dom").onchange = e => { CON_DOM = e.target.value; };
   $("conPull").onclick = async e => { e.target.textContent = "Récupération…"; await dbPull(CON); renderList(); e.target.textContent = "⟲ Récupérer la version publiée"; };
   $("conPush").onclick = e => dbPush(CON, e.target);
+  $("conPushAuto").onchange = e => { localStorage.setItem(AUTOPUB, e.target.checked ? "1" : "0"); paintPub(); };
   $("conGo").onclick = async () => {
     const res = $("conRes"), nom = $("con_nom").value.trim();
     if (!nom) { res.hidden = false; res.textContent = "Nomme d'abord le concept."; return; }
@@ -1699,47 +1796,16 @@ function renderConcept(id) {
       ${c.tronque ? `<p class="warn">${TRONQUE}</p>` : ""}
       <div id="czFiche">${c.fiche ? secHTML(c.fiche, CON_SEC) : '<p class="lead">Pas encore de fiche.</p>'}</div>
     </div>
-    <div class="block">
-      <h3>💬 Discuter pour l'affiner</h3>
-      <p class="lead">Pose tes questions, conteste, demande un exemple. Quand la discussion a donné quelque chose, réécris la fiche : elle intégrera ce qu'on s'est dit.</p>
-      <div id="czChat" class="chatlog"></div>
-      <div class="atk-form"><label class="full"><textarea id="cz_q" rows="2" placeholder="ex. si tout est déterminé, en quoi suis-je encore responsable ?"></textarea></label></div>
-      <div class="sess-actions" style="flex-wrap:wrap">
-        <button class="next" id="czAsk">Envoyer</button>
-        <button class="optbtn" id="czRedo">🔁 Réécrire la fiche avec la discussion</button>
-        <button class="optbtn" id="czClear">Vider la discussion</button>
-        <button class="optbtn" id="czDel">🗑 Supprimer ce concept</button>
-      </div>
-      <div class="answer" id="czMsg" hidden style="margin-top:12px"></div>
-    </div>`;
-
-  const drawChat = () => {
-    $("czChat").innerHTML = (c.chat || []).length
-      ? c.chat.map(m => `<div class="msg ${m.role}"><div class="who">${m.role === "assistant" ? "🦉 Le prof" : "🙋 Toi"}</div><div class="tx">${secBody(m.text)}</div></div>`).join("")
-      : '<p class="lead">La discussion est vide.</p>';
-    $("czChat").scrollTop = $("czChat").scrollHeight;
-  };
-  drawChat();
+    ${chatBlockHTML({
+      id: "cz", titre: "Discuter pour l'affiner",
+      lead: "Pose tes questions, conteste, demande un exemple. Quand la discussion a donné quelque chose, réécris la fiche : elle intégrera ce qu'on s'est dit.",
+      ph: "ex. si tout est déterminé, en quoi suis-je encore responsable ?",
+    })}
+    <div class="block"><div class="sess-actions"><button class="optbtn" id="czDel">🗑 Supprimer ce concept</button></div></div>`;
 
   $("czDel").onclick = () => { if (confirm(`Supprimer le concept « ${c.nom} » ?`)) { dbDel(CON, id); location.hash = "#/concepts"; } };
-  $("czClear").onclick = () => { if (confirm("Vider la discussion ? La fiche est conservée.")) { c.chat = []; dbSave(CON, c); drawChat(); } };
-  $("czAsk").onclick = async () => {
-    const q = $("cz_q").value.trim(), m = $("czMsg");
-    if (!q) return;
-    c.chat = c.chat || [];
-    const history = c.chat.slice(-10);
-    c.chat.push({ role: "user", text: q });
-    $("cz_q").value = ""; drawChat();
-    m.hidden = false; m.textContent = "Le prof réfléchit…";
-    try {
-      const a = await askAI({ mode: "concept", action: "chat", nom: c.nom, fiche: c.fiche, history, question: q });
-      c.chat.push({ role: "assistant", text: a.text });
-      if (a.truncated) { m.textContent = "⚠️ Réponse coupée avant la fin — repose la question plus précisément."; }
-      else m.hidden = true;
-    } catch (e) { aiFail(m, e); }
-    dbSave(CON, c); drawChat();
-  };
-  $("czRedo").onclick = async () => {
+
+  const redoFiche = async () => {
     const m = $("czMsg"); m.hidden = false; m.textContent = "Réécriture de la fiche…";
     try {
       const a = await askAI({ mode: "concept", action: "fiche", domaine: c.domaine, nom: c.nom, consigne: c.consigne, fiche: c.fiche, history: (c.chat || []).slice(-12), chapitres: chapText(c.domaine) });
@@ -1748,6 +1814,12 @@ function renderConcept(id) {
       dbSave(CON, c); renderConcept(id);
     } catch (e) { aiFail(m, e); }
   };
+
+  wireChat({
+    id: "cz", item: c, store: CON, moi: "🙋 Toi", prof: "🦉 Le prof",
+    payload: (q, history) => ({ mode: "concept", action: "chat", nom: c.nom, fiche: c.fiche, history, question: q }),
+    redo: redoFiche,
+  });
 }
 
 /* ---------- ce que le carnet ajoute à une page de chapitre ---------- */

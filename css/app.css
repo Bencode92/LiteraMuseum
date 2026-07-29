@@ -733,3 +733,10 @@ label.rappel b { color: var(--ink); font-weight: 600; }
 .quickadd input:focus { outline: none; border-color: var(--chap); }
 @media (max-width: 560px) { .quickadd { flex-direction: column; } }
 .warn { background: #FBF3E8; border-left: 3px solid #b06a2c; color: #7a4a18; padding: 9px 13px; border-radius: var(--r); font-size: 14px; margin: 0 0 12px; }
+
+/* état de publication + interrupteur auto */
+.pubstate { font-size: 12.5px; color: var(--muted); font-style: italic; align-self: center; }
+.pubstate.ok { color: var(--ok); font-style: normal; }
+.pubstate.ko { color: var(--accent); font-style: normal; }
+.pubstate.wait { color: #b06a2c; }
+label.autopub { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--muted); cursor: pointer; }
