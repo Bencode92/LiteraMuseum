@@ -17,7 +17,26 @@
      - commit : écrit un fichier data/*.json complet (LiteraMuseum — Atelier, Lectures, Concepts)
    ========================================================================= */
 
-const DEFAULT_MODEL = "claude-sonnet-4-6";
+/* Modèle par mode. Opus 5 là où l'écriture compte (fiches de lecture, concepts,
+   discussions), Sonnet 5 pour le court et le factuel (vocabulaire, citations, quiz).
+   env.MODEL, s'il est défini, force un modèle unique partout — dépannage seulement. */
+const MODELS = {
+  lecture:    "claude-opus-5",
+  concept:    "claude-opus-5",
+  discussion: "claude-opus-5",   // le guide conversationnel du musée
+  citation:   "claude-sonnet-5",
+  mot:        "claude-sonnet-5",
+  quiz:       "claude-sonnet-5",
+  enrich:     "claude-sonnet-5",
+  fiche:      "claude-sonnet-5",
+};
+const DEFAULT_MODEL = "claude-sonnet-5";
+/* Effort : sur Opus 5 comme sur Sonnet 5 le raisonnement interne est actif par
+   défaut et PARTAGE le plafond max_tokens avec le texte produit. « medium » suffit
+   largement pour rédiger une fiche structurée, et garde une latence acceptable ;
+   « low » pour le court et factuel. Les plafonds ci-dessous en tiennent compte. */
+const EFFORTS = { lecture: "medium", concept: "medium", discussion: "medium" };
+const DEFAULT_EFFORT = "low";
 
 // Couche communautaire de BENMUSEUM (mode "save")
 const COMM_REPO = "Bencode92/BENMUSEUM";
@@ -135,7 +154,7 @@ export default {
 
     if (!env.ANTHROPIC_API_KEY) return json({ error: "Clé absente (configurer le secret ANTHROPIC_API_KEY)" }, 500, cors);
 
-    let system, messages, maxTokens = 700;
+    let system, messages, maxTokens = 3000;
 
     if (mode === "quiz") {
       const n = Math.min(Math.max(parseInt(b.n) || 4, 2), 10);
@@ -151,13 +170,13 @@ export default {
         '{"questions":[{"q":"…","options":["…","…","…","…"],"answer":0,"explication":"…"}]} ' +
         "où answer est l'index (0-3) de la bonne option.";
       messages = [{ role: "user", content: "CONTENU :\n" + (b.contenu || "") }];
-      maxTokens = 1400;
+      maxTokens = 5000;
     } else if (mode === "enrich") {
       system =
         "Tu es un vérificateur de contenu (histoire de l'art, littérature, philosophie). On te donne le CONTENU EXISTANT d'une fiche, puis un TEXTE proposé par l'utilisateur. " +
         "Réponds en français, en 3 sections courtes :\n✅ NOUVEAU (faits exacts absents de la fiche)\n↺ DÉJÀ COUVERT\n⚠️ À VÉRIFIER (douteux ou faux).\nSois concis et factuel.";
       messages = [{ role: "user", content: `CONTENU EXISTANT :\n${b.fiche || ""}\n\nTEXTE PROPOSÉ :\n${b.texte || ""}` }];
-      maxTokens = 800;
+      maxTokens = 3500;
     } else if (mode === "citation") {
       system =
         "Tu es un professeur de lettres et de philosophie, chaleureux et précis. On te donne une CITATION saisie à la volée par un lecteur — souvent tapée vite, mal ponctuée, mal accentuée ou approximative — avec son AUTEUR et parfois l'ŒUVRE. " +
@@ -181,7 +200,7 @@ export default {
         `Auteur : ${b.auteur || "(inconnu)"}.\n` +
         (b.oeuvre ? `Œuvre : « ${b.oeuvre} ».\n` : "") +
         `Citation saisie telle quelle : « ${b.citation || ""} »` }];
-      maxTokens = 900;
+      maxTokens = 3500;
     } else if (mode === "lecture" && b.action === "chat") {
       // discuter DU LIVRE : la fiche et les notes du lecteur servent de contexte
       system =
@@ -201,7 +220,7 @@ export default {
           { role: "user", content: b.question || "" },
         ];
       }
-      maxTokens = 900;
+      maxTokens = 3500;
     } else if (mode === "lecture") {
       // mode « rappel » : le livre a été lu il y a longtemps et oublié — on le fait revenir
       const rappel = !!b.rappel;
@@ -244,7 +263,7 @@ export default {
           (disc ? `\nDISCUSSION À INTÉGRER — ce que le lecteur a compris, contesté ou creusé en discutant ; la section 💬 TES IDÉES doit en tenir compte :\n${disc}\n` : "") +
           `\nLISTE DE CHAPITRES :\n${b.chapitres || "(aucune)"}` }];
       }
-      maxTokens = rappel ? 4000 : 2200;   // le mode rappel ajoute 3 sections : 1600 tronquait la fiche
+      maxTokens = rappel ? 12000 : 7000;   // le mode rappel ajoute 3 sections, et le raisonnement partage le budget
     } else if (mode === "mot") {
       // carnet de vocabulaire : un mot croisé en lisant, expliqué pour être relu vite
       system =
@@ -265,7 +284,7 @@ export default {
         `Mot : « ${b.mot || ""} »\n` +
         (b.contexte ? `Phrase où il l'a croisé : « ${b.contexte} »\n` : "") +
         (b.source ? `Rencontré dans : ${b.source}\n` : "") }];
-      maxTokens = 1200;   // la section « pour l'employer » est la plus longue
+      maxTokens = 4500;   // la section « pour l'employer » est la plus longue
     } else if (mode === "concept") {
       if (b.action === "chat") {
         system =
@@ -279,7 +298,7 @@ export default {
           ...history.map(m => ({ role: m.role === "assistant" ? "assistant" : "user", content: m.text })),
           { role: "user", content: b.question || "" },
         ];
-        maxTokens = 900;
+        maxTokens = 3500;
       } else {
         system =
           "Tu es un professeur de philosophie et de lettres. On te donne un CONCEPT à approfondir pour un élève de classe préparatoire. " +
@@ -307,7 +326,7 @@ export default {
           (b.fiche ? `\nFICHE EXISTANTE :\n${b.fiche}\n` : "") +
           (disc ? `\nDISCUSSION À INTÉGRER :\n${disc}\n` : "") +
           `\nLISTE DE CHAPITRES :\n${b.chapitres || "(aucune)"}` }];
-        maxTokens = 2600;
+        maxTokens = 8000;
       }
     } else if (mode === "fiche") {
       system =
@@ -318,7 +337,7 @@ export default {
         "où explication = 2-3 phrases ; contexte = 1-2 phrases ; elements = 3 points à retenir ; " +
         "wiki = le TITRE EXACT d'un article Wikipédia ANGLAIS qui a une image (l'œuvre de préférence, sinon l'auteur).";
       messages = [{ role: "user", content: `Domaine : ${b.domaine || "littérature"}.\nŒuvre : « ${b.titre || ""} » — ${b.artiste || ""}${b.annee ? ", " + b.annee : ""}.${b.hint ? "\nIndication : " + b.hint : ""}` }];
-      maxTokens = 900;
+      maxTokens = 3500;
     } else {
       const ctx = [
         b.floorName ? `Période / chapitre : ${b.floorName}${b.epoque ? ` (${b.epoque})` : ""}.` : "",
@@ -339,13 +358,19 @@ export default {
       const r = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
         headers: { "x-api-key": env.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json" },
-        body: JSON.stringify({ model: env.MODEL || DEFAULT_MODEL, max_tokens: maxTokens, system, messages }),
+        body: JSON.stringify({
+          model: env.MODEL || MODELS[mode] || DEFAULT_MODEL,
+          max_tokens: maxTokens,
+          thinking: { type: "adaptive" },
+          output_config: { effort: EFFORTS[mode] || DEFAULT_EFFORT },
+          system, messages,
+        }),
       });
       const data = await r.json();
       if (!r.ok) return json({ error: data }, 502, cors);
       const answer = (data.content || []).filter(x => x.type === "text").map(x => x.text).join("\n").trim();
       // stop : le client doit pouvoir detecter une reponse coupee ("max_tokens") au lieu de l'afficher telle quelle
-      return json({ answer, stop: data.stop_reason }, 200, cors);
+      return json({ answer, stop: data.stop_reason, model: data.model }, 200, cors);
     } catch (e) {
       return json({ error: String(e) }, 500, cors);
     }

@@ -313,7 +313,7 @@ async function analyseChat() {
   const ctx = CHATCTX || (CHATCTX = pageContext());
   const res = $("chatares");
   if (!chatMsgs.length) { res.textContent = "Discute d'abord un peu, puis lance l'analyse."; return; }
-  res.textContent = "Analyse en cours…";
+  res.innerHTML = PATIENCE("Analyse en cours", true);
   const transcript = chatMsgs.map(m => (m.role === "user" ? "Moi : " : "Guide : ") + m.text).join("\n");
   try {
     const r = await fetch(aiEndpoint(), { method: "POST", headers: { "content-type": "application/json" },
@@ -1352,7 +1352,7 @@ function renderCitations() {
     const res = $("citRes");
     if (!citation) { res.hidden = false; res.textContent = "Colle d'abord une citation."; return; }
     if (aiEndpoint() === "/api/ask") { res.hidden = false; res.innerHTML = "⚠️ Worker non configuré. <button class='linkbtn' id='citcfg'>Configurer</button>"; const c = $("citcfg"); if (c) c.onclick = setAiUrl; return; }
-    res.hidden = false; res.textContent = "Analyse en cours…";
+    res.hidden = false; res.innerHTML = PATIENCE("Analyse en cours", true);
     try {
       const r = await fetch(aiEndpoint(), { method: "POST", headers: { "content-type": "application/json" },
         body: JSON.stringify({ mode: "citation", domaine: CIT_DOM || d, auteur, oeuvre, citation }) });
@@ -1463,6 +1463,11 @@ async function askAI(payload) {
   // truncated : le modèle a buté sur le plafond de tokens — la fin de la fiche manque
   return { text: j.answer, truncated: j.stop === "max_tokens" };
 }
+// Le modèle réfléchit avant d'écrire : une fiche riche demande jusqu'à une minute.
+// Sans le dire, l'écran a l'air figé et on relance inutilement.
+const PATIENCE = (quoi, court) =>
+  `<span class="patiente">${esc(quoi)}<span class="pts"><i>.</i><i>.</i><i>.</i></span></span>` +
+  `<span class="dim"> ${court ? "quelques secondes" : "jusqu'à une minute — le modèle réfléchit avant de rédiger"}</span>`;
 const TRONQUE = "⚠️ Fiche incomplète : la réponse a été coupée avant la fin. Relance-la, ou raccourcis tes notes.";
 function aiFail(el, e) {
   el.hidden = false;
@@ -1561,7 +1566,7 @@ function wireChat(p) {
     it.chat.push({ role: "user", text: q });
     $(p.id + "_q").value = ""; draw();
     dbSave(p.store, it);                          // la question est enregistrée avant même la réponse
-    msg.hidden = false; msg.textContent = "Réflexion en cours…";
+    msg.hidden = false; msg.innerHTML = PATIENCE("Réflexion en cours", true);
     try {
       const a = await askAI(p.payload(q, history));
       it.chat.push({ role: "assistant", text: a.text });
@@ -1646,7 +1651,7 @@ function renderLectures() {
       idees: $("lec_notes").value.trim(), fiche: "", chapitre: null, concepts: [],
       ts: new Date().toISOString().slice(0, 10),
     };
-    res.hidden = false; res.textContent = item.rappel ? "Rappel du livre en cours…" : "Rédaction de la fiche…";
+    res.hidden = false; res.innerHTML = PATIENCE(item.rappel ? "Rappel du livre en cours" : "Rédaction de la fiche");
     try {
       const a = await askAI({ mode: "lecture", domaine: dom, titre, auteur: item.auteur, annee: item.annee, notes: item.idees, rappel: item.rappel, chapitres: chapText(dom) });
       item.fiche = a.text; item.tronque = a.truncated;
@@ -1745,7 +1750,7 @@ function renderLecture(id) {
   $("lz_add").onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); addIdee(); } };
 
   const regen = async rappel => {
-    const m = $("lzMsg"); m.hidden = false; m.textContent = rappel ? "Rappel du livre en cours…" : "Rédaction de la fiche…";
+    const m = $("lzMsg"); m.hidden = false; m.innerHTML = PATIENCE(rappel ? "Rappel du livre en cours" : "Rédaction de la fiche");
     l.idees = $("lz_idees").value.trim();
     if (rappel) l.rappel = true;
     try {
@@ -1822,7 +1827,7 @@ function renderConcepts() {
     if (!nom) { res.hidden = false; res.textContent = "Nomme d'abord le concept."; return; }
     const dom = $("con_dom").value;
     const item = { id: "c" + Date.now(), nom, domaine: dom, consigne: $("con_consigne").value.trim(), fiche: "", chat: [], chapitres: [], ts: new Date().toISOString().slice(0, 10) };
-    res.hidden = false; res.textContent = "Rédaction de la fiche…";
+    res.hidden = false; res.innerHTML = PATIENCE("Rédaction de la fiche");
     try {
       const a = await askAI({ mode: "concept", action: "fiche", domaine: dom, nom, consigne: item.consigne, chapitres: chapText(dom) });
       item.fiche = a.text; item.tronque = a.truncated;
@@ -1868,7 +1873,7 @@ function renderConcept(id) {
   $("czDel").onclick = () => { if (confirm(`Supprimer le concept « ${c.nom} » ?`)) { dbDel(CON, id); location.hash = "#/concepts"; } };
 
   const redoFiche = async () => {
-    const m = $("czMsg"); m.hidden = false; m.textContent = "Réécriture de la fiche…";
+    const m = $("czMsg"); m.hidden = false; m.innerHTML = PATIENCE("Réécriture de la fiche");
     try {
       const a = await askAI({ mode: "concept", action: "fiche", domaine: c.domaine, nom: c.nom, consigne: c.consigne, fiche: c.fiche, history: (c.chat || []).slice(-12), chapitres: chapText(c.domaine) });
       c.fiche = a.text; c.tronque = a.truncated;
@@ -1962,7 +1967,7 @@ function renderVocab() {
       id: "v" + Date.now(), mot, contexte: $("voc_ctx").value.trim(), source: src || null,
       fiche: "", memo: "", ts: new Date().toISOString().slice(0, 10),
     };
-    res.hidden = false; res.textContent = "Recherche du sens…";
+    res.hidden = false; res.innerHTML = PATIENCE("Recherche du sens", true);
     try {
       const titre = (lecs.find(x => x.id === src) || {}).titre || "";
       const a = await askAI({ mode: "mot", mot, contexte: item.contexte, source: titre });
@@ -2010,7 +2015,7 @@ function renderMot(id) {
     </div>`;
   $("vmDel").onclick = () => { if (confirm(`Retirer « ${v.mot} » du dictionnaire ?`)) { dbDel(VOC, id); location.hash = "#/vocabulaire"; } };
   $("vmRedo").onclick = async () => {
-    const m = $("vmMsg"); m.hidden = false; m.textContent = "Recherche du sens…";
+    const m = $("vmMsg"); m.hidden = false; m.innerHTML = PATIENCE("Recherche du sens", true);
     try {
       const a = await askAI({ mode: "mot", mot: v.mot, contexte: v.contexte, source: lec ? lec.titre : "" });
       v.fiche = a.text; v.tronque = a.truncated; v.memo = secText(v.fiche, "\u{1F3AF}");

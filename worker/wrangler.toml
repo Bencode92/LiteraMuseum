@@ -6,7 +6,8 @@ compatibility_date = "2024-11-01"
 
 # Variables publiques (pas de secret ici)
 [vars]
-MODEL = "claude-sonnet-4-6"
+# MODEL : non défini — le Worker choisit le modèle selon le mode (voir MODELS dans worker.js).
+#         Ne le définir que pour forcer un modèle unique partout, en dépannage.
 GH_OWNER = "Bencode92"
 GH_REPO = "LiteraMuseum"
 GH_BRANCH = "main"
