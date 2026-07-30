@@ -603,13 +603,32 @@ function wireAiQuiz(id, contenu) {
   };
 }
 
-// endpoint IA : en local → serveur node (/api/ask) ; en ligne → Worker déjà déployé
-const DEFAULT_AI = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
-  ? "/api/ask" : "https://benmuseum-guide.benoit-comas.workers.dev/";
-function aiEndpoint() { return localStorage.getItem("ai:url") || DEFAULT_AI; }
+/* Endpoint IA. Le Worker est le défaut PARTOUT, y compris en local : son CORS
+   autorise déjà localhost, donc plus besoin de lancer node server.js avec une clé
+   pour travailler en local. « /api/ask » (serveur node) reste possible en le
+   saisissant explicitement. Une URL enregistrée dans ce navigateur reste prioritaire,
+   mais elle est désormais affichée — un réglage local périmé ne peut plus casser
+   l'IA en silence. */
+const AI_WORKER = "https://benmuseum-guide.benoit-comas.workers.dev/";
+const DEFAULT_AI = AI_WORKER;
+const aiPerso = () => (localStorage.getItem("ai:url") || "").trim();
+function aiEndpoint() { return aiPerso() || DEFAULT_AI; }
+function aiHost() { try { return new URL(aiEndpoint(), location.href).host; } catch { return aiEndpoint(); } }
+// bandeau d'état partagé par toutes les pages qui appellent l'IA
+function aiStatus() {
+  const on = aiEndpoint() !== "/api/ask";
+  return `<span class="${on ? "ok" : "ko"}">IA : ${on ? "✅ prête" : "❌ serveur local requis"}</span>` +
+    `<span class="aiwhere">${esc(aiHost())} · ${aiPerso() ? "réglage propre à ce navigateur" : "réglage par défaut du site"}</span>`;
+}
 function setAiUrl() {
-  const u = prompt("Colle l'URL de ton Cloudflare Worker (https://...workers.dev) — voir worker/README.md :", localStorage.getItem("ai:url") || "");
-  if (u !== null) { localStorage.setItem("ai:url", u.trim()); alert(u.trim() ? "Guide IA en ligne configuré. Repose ta question." : "URL effacée."); }
+  const u = prompt(
+    "URL du service IA.\n\nLaisse le champ VIDE pour revenir au réglage par défaut du site :\n" + DEFAULT_AI,
+    aiPerso());
+  if (u === null) return;
+  const v = u.trim();
+  if (v) localStorage.setItem("ai:url", v); else localStorage.removeItem("ai:url");
+  alert(v ? "IA configurée sur :\n" + v : "Réglage local effacé — retour à l'URL par défaut du site.");
+  route();
 }
 
 function wireGuide(c, o, scope) {
@@ -1243,14 +1262,13 @@ function citShowRes(res, text) { res.hidden = false; res.innerHTML = citAnalyseH
 function renderCitations() {
   crumb([{ label: "Citations" }]);
   const d = CIT_DOM || DOMAIN;
-  const online = aiEndpoint() !== "/api/ask";
   const list = citStore();
   $("view").innerHTML = `
     <div class="pagehead"><h1>Citations 💬</h1>
       <p class="lead">Une citation t'a marqué ? Note-la avec son auteur, même vite et mal orthographiée : l'IA la rétablit proprement, te l'explique, la reformule (« autrement dit… ») et l'illustre. Ta saisie d'origine reste visible sous la version corrigée.</p></div>
     <div class="block">
       <div class="atk-status">
-        <span class="${online ? "ok" : "ko"}">IA / Worker : ${online ? "✅ prêt" : "❌ hors ligne (ouvre le site en ligne)"}</span>
+        ${aiStatus()}
         <button class="optbtn" id="citAi">Changer l'URL du Worker</button>
       </div>
       <div class="quizcfg" style="margin-top:14px">
@@ -1561,13 +1579,12 @@ function wireChat(p) {
 function renderLectures() {
   crumb([{ label: "Mes lectures" }]);
   const d = LEC_DOM || DOMAIN;
-  const online = aiEndpoint() !== "/api/ask";
   $("view").innerHTML = `
     <div class="pagehead"><h1>Mes lectures 📖</h1>
       <p class="lead">Chaque livre lu, avec ce que tu en as retenu. Tu donnes le titre et tes idées en vrac ; l'IA en fait une fiche structurée, la relie au chapitre du cours qui va bien, et te dit quoi lire ensuite.</p></div>
     <div class="block">
       <div class="atk-status">
-        <span class="${online ? "ok" : "ko"}">IA / Worker : ${online ? "✅ prêt" : "❌ hors ligne (ouvre le site en ligne)"}</span>
+        ${aiStatus()}
         <button class="optbtn" id="lecAi">Changer l'URL du Worker</button>
       </div>
       <div class="quizcfg" style="margin-top:14px">
@@ -1755,13 +1772,12 @@ function renderLecture(id) {
 function renderConcepts() {
   crumb([{ label: "Concepts" }]);
   const d = CON_DOM || DOMAIN;
-  const online = aiEndpoint() !== "/api/ask";
   $("view").innerHTML = `
     <div class="pagehead"><h1>Concepts 🧠</h1>
       <p class="lead">Le déterminisme, la liberté, l'absurde, le sublime… Les idées que tu croises et que tu veux vraiment comprendre. L'IA rédige une première fiche, puis tu discutes avec elle pour l'affiner jusqu'à ce qu'elle soit à toi.</p></div>
     <div class="block">
       <div class="atk-status">
-        <span class="${online ? "ok" : "ko"}">IA / Worker : ${online ? "✅ prêt" : "❌ hors ligne (ouvre le site en ligne)"}</span>
+        ${aiStatus()}
         <button class="optbtn" id="conAi">Changer l'URL du Worker</button>
       </div>
       <div class="quizcfg" style="margin-top:14px">${domSelect("con_dom", d)}</div>
@@ -1871,14 +1887,13 @@ function renderConcept(id) {
 /* ---------- 🔤 Vocabulaire : le dictionnaire personnel ---------- */
 function renderVocab() {
   crumb([{ label: "Vocabulaire" }]);
-  const online = aiEndpoint() !== "/api/ask";
   const lecs = dbAll(LEC);
   $("view").innerHTML = `
     <div class="pagehead"><h1>Vocabulaire 🔤</h1>
       <p class="lead">Un mot que tu ne connais pas, croisé dans un livre ? Note-le avec la phrase où tu l'as trouvé : l'IA te le définit, te dit d'où il vient et avec quoi on le confond. Tout se range tout seul par ordre alphabétique, pour se relire.</p></div>
     <div class="block">
       <div class="atk-status">
-        <span class="${online ? "ok" : "ko"}">IA / Worker : ${online ? "✅ prêt" : "❌ hors ligne (ouvre le site en ligne)"}</span>
+        ${aiStatus()}
         <button class="optbtn" id="vocAi">Changer l'URL du Worker</button>
       </div>
       <div class="atk-form">
@@ -2025,14 +2040,13 @@ function renderAtelier() {
   const num = ATK.num != null ? ATK.num : (chaps[0] && chaps[0].num);
   const chap = chaps.find(c => c.num === num) || chaps[0];
   const works = (chap && chap.oeuvres) || [];
-  const online = aiEndpoint() !== "/api/ask";
   $("view").innerHTML = `
     <div class="pagehead"><h1>Atelier ✏️</h1>
       <p class="lead">Crée ou modifie une fiche d'œuvre — l'IA peut la rédiger — puis publie : elle est écrite dans le dépôt et mise en ligne (~1 min).</p></div>
     <div class="block">
       <h3>⚙️ Connexion</h3>
       <div class="atk-status">
-        <span class="${online ? "ok" : "ko"}">IA / Worker : ${online ? "✅ prêt" : "❌ hors ligne (lance le site en ligne)"}</span>
+        ${aiStatus()}
         <button class="optbtn" id="atkAi">Changer l'URL du Worker</button>
       </div>
     </div>

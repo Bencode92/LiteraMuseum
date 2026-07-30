@@ -783,3 +783,5 @@ h4.vocl {
 .cit-quote .brut { font-size: 12.5px; color: var(--muted); font-style: italic; margin: 4px 0 0; opacity: .85; }
 .cit-sec.source { background: #FAF8F2; border-left: 3px solid var(--chap); }
 .cit-sec.source .b p:first-child { font-family: "Fraunces", serif; font-size: 17px; font-style: italic; }
+/* quel service IA est réellement utilisé, et d'où vient le réglage */
+.aiwhere { font-size: 11.5px; color: var(--muted); font-style: italic; margin-left: 10px; }
