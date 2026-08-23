@@ -1,5 +1,16 @@
 [
   {
+    "id": "v1787469718428",
+    "mot": "Anaphore",
+    "contexte": "",
+    "source": null,
+    "fiche": "🔤 DÉFINITION\nNom féminin, terme de rhétorique et de grammaire. C'est la répétition d'un même mot ou groupe de mots en début de phrases, de vers ou de propositions successives, pour créer un effet d'insistance ou de rythme.\n\n🧬 ORIGINE\nDu grec « anaphora », qui signifie « action de rapporter, de reporter en arrière » (de « phorein », porter), en référence au fait de « reporter » le même mot au début de chaque segment.\n\n📐 DANS TA PHRASE\n(pas de contexte fourni)\n\n🔀 À NE PAS CONFONDRE\n- Épiphore : répétition d'un mot à la FIN de plusieurs phrases ou vers (l'inverse de l'anaphore).\n- Anaphore grammaticale : en linguistique, ce mot désigne aussi le fait qu'un pronom reprenne un élément déjà cité (« Marie est venue, elle a souri ») — un sens différent, plus technique.\n- Répétition : terme général ; l'anaphore est un cas précis de répétition, en tête de phrase ou de vers.\n\n📝 POUR L'EMPLOYER\nConstructions : « une anaphore sur (tel mot) », « l'auteur file une anaphore », « procéder par anaphores ».\n- Le slogan répétait « Oui nous pouvons » en anaphore à chaque phrase du discours.\n- Dans ce poème, l'anaphore sur « je me souviens » crée un effet obsédant qui souligne la mémoire douloureuse du narrateur.\n- « Je pleure, je gémis, je crie » : Racine multiplie les anaphores pour exprimer la douleur de son personnage.\n\n🎯 MÉMO\nRépéter le même mot en début de phrases pour marquer.",
+    "memo": "Répéter le même mot en début de phrases pour marquer.",
+    "ts": "2026-08-23",
+    "tronque": false,
+    "maj": 1787469726652
+  },
+  {
     "id": "v1787469689540",
     "mot": "Analepse",
     "contexte": "",
