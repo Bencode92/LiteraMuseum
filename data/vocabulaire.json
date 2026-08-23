@@ -1,5 +1,16 @@
 [
   {
+    "id": "v1787469844956",
+    "mot": "Dénotation",
+    "contexte": "",
+    "source": null,
+    "fiche": "🔤 DÉFINITION\nNom féminin. La dénotation est le sens premier, objectif et stable d'un mot, celui que l'on trouve dans le dictionnaire, indépendamment des sentiments ou des idées associées qu'il peut évoquer chez tel ou tel locuteur.\n\n🧬 ORIGINE\nDu latin denotare, « désigner clairement, marquer », lui-même formé sur notare, « noter, indiquer ».\n\n📐 DANS TA PHRASE\n(pas de contexte fourni)\n\n🔀 À NE PAS CONFONDRE\n- Connotation : le sens second, affectif ou culturel, qui s'ajoute au sens premier (ex. « loup » dénote un animal, mais connote la ruse ou le danger).\n- Définition : l'énoncé qui explique le sens d'un mot, alors que la dénotation est ce sens lui-même.\n- Notation : simple action de noter, sans lien direct avec le sens linguistique.\n\n📝 POUR L'EMPLOYER\nConstructions : « la dénotation d'un mot / d'un signe », « au niveau de la dénotation », « par opposition à la connotation ».\n- En cherchant ce mot dans le dictionnaire, on trouve d'abord sa dénotation, avant toute nuance personnelle.\n- Dans ce texte, l'analyse distingue la dénotation du mot « rouge » de ses connotations symboliques (passion, danger).\n- Le poète joue sur l'écart entre la dénotation banale du mot et les connotations qu'il fait naître chez le lecteur.\n\n🎯 MÉMO\nSens objectif, littéral d'un mot — opposé à la connotation.",
+    "memo": "Sens objectif, littéral d'un mot — opposé à la connotation.",
+    "ts": "2026-08-23",
+    "tronque": false,
+    "maj": 1787469852219
+  },
+  {
     "id": "v1787469821674",
     "mot": "Champ sémantiques",
     "contexte": "",
