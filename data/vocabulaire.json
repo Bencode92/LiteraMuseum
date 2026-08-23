@@ -1,5 +1,26 @@
 [
   {
+    "id": "v1787468927997",
+    "mot": "Palefreniers",
+    "contexte": "",
+    "source": null,
+    "fiche": "🔤 DÉFINITION\nNom masculin. Personne chargée de soigner et de s'occuper des chevaux dans une écurie (les nourrir, les panser, les entretenir). C'est un mot un peu ancien, qui évoque surtout le monde des châteaux, des écuries nobles ou des époques passées.\n\n🧬 ORIGINE\nVient de l'ancien français « palefroi », qui désignait un cheval de marche ou d'apparat (distinct du cheval de guerre) ; le palefrenier était donc à l'origine celui qui s'occupait du palefroi.\n\n📐 DANS TA PHRASE\n(pas de contexte fourni)\n\n🔀 À NE PAS CONFONDRE\n- Écuyer : à l'origine, celui qui s'occupait des armes et accompagnait un chevalier ; plus tard, celui qui monte à cheval avec art (dans un cirque, un manège).\n- Maréchal-ferrant : celui qui ferre les chevaux, métier différent (travail du métal, pas soins généraux).\n- Groom : dans un sens ancien, jeune valet qui s'occupait aussi des chevaux, mais le mot a pris ensuite un sens différent (employé d'hôtel).\n\n📝 POUR L'EMPLOYER\nConstructions : « le palefrenier de quelqu'un », « travailler comme palefrenier », « les palefreniers s'occupaient des chevaux ».\n- Le palefrenier menait les chevaux à l'abreuvoir chaque matin.\n- Dans la société féodale, le palefrenier occupait une place modeste au sein de la maisonnée seigneuriale.\n- Les palefreniers s'affairaient dans la cour du château, pansant les montures avant le grand tournoi.\n\n🎯 MÉMO\nCelui qui soigne les chevaux à l'écurie.",
+    "memo": "Celui qui soigne les chevaux à l'écurie.",
+    "ts": "2026-08-23",
+    "tronque": false,
+    "maj": 1787468937136
+  },
+  {
+    "id": "v1786297481506",
+    "mot": "Hébétude",
+    "contexte": "",
+    "source": null,
+    "fiche": "",
+    "memo": "",
+    "ts": "2026-08-09",
+    "maj": 1786297495418
+  },
+  {
     "id": "v1785844297379",
     "mot": "Deus ex machina",
     "contexte": "",
