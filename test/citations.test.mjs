@@ -19,6 +19,13 @@ t.check("l'ancienne citation est toujours là", a.texte().includes("Le coeur a s
 t.check("son analyse d'origine est conservée", a.lu("citations:list")[0].analyse.includes("Ancienne analyse"));
 t.check("la barre de publication est apparue", !!a.$("citPull") && !!a.$("citPush") && !!a.$("citPushAuto"));
 
+t.section("Les anciennes citations sont sauvegardées sans rien faire");
+await pause(4600);   // aucune écriture : juste l'ouverture de l'application
+const premier = a.ia.appels.filter(c => c.mode === "commit" && c.path === "data/citations-perso.json");
+t.check("la sauvegarde part dès la synchronisation", premier.length === 1, premier.length + " commit(s)");
+t.check("elle contient la citation d'avant la migration",
+  (premier[0]?.content || "").includes("Le coeur a ses raisons"));
+
 t.section("Une saisie bâclée est rétablie");
 a.$("cit_auteur").value = "Sartre";
 a.$("cit_texte").value = "lhomme est condanné a etre libre";

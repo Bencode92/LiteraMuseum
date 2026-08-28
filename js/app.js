@@ -1440,11 +1440,17 @@ function dbAutoPush(s) {
 async function dbPull(s) {
   let remote = null;
   try { remote = await (await fetch(s.path + "?t=" + Date.now())).json(); } catch { }
-  if (!Array.isArray(remote)) return dbAll(s);
+  if (!Array.isArray(remote)) return dbAll(s);   // distant illisible : on ne publie surtout pas par-dessus
   const byId = new Map(remote.map(x => [x.id, x]));
+  const connusDuDistant = new Set(byId.keys());
   dbAll(s).forEach(x => { const r = byId.get(x.id); if (!r || (x.maj || 0) >= (r.maj || 0)) byId.set(x.id, x); });
   const merged = [...byId.values()].sort((a, b) => (b.maj || 0) - (a.maj || 0));
-  dbPut(s, merged); return merged;
+  dbPut(s, merged);
+  /* Ce que ce navigateur possède et que le distant ignore n'aurait été publié qu'à
+     la prochaine écriture : des fiches anciennes pouvaient rester locales indéfiniment.
+     On les sauvegarde dès la synchronisation. */
+  if (merged.some(x => !connusDuDistant.has(x.id))) dbAutoPush(s);
+  return merged;
 }
 async function dbPush(s, btn) {
   if (aiEndpoint() === "/api/ask") return setAiUrl();
