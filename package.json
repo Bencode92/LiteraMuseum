@@ -4,7 +4,11 @@
   "description": "Lettres & Idées — littérature & philosophie en une seule app (guide IA Claude)",
   "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "node test/run.mjs"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  }
 }

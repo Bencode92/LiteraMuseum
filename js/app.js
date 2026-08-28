@@ -145,8 +145,8 @@ Promise.all([
     applyDomain(DOMAIN);
     route();
     // carnet perso : on rapatrie la version publiée en tâche de fond, sans bloquer l'affichage
-    Promise.all([dbPull(LEC), dbPull(CON), dbPull(VOC)]).then(() => {
-      if (/^#\/(lectures|concepts|vocabulaire|c)\b/.test(location.hash)) route();
+    Promise.all([dbPull(LEC), dbPull(CON), dbPull(VOC), dbPull(CIT)]).then(() => {
+      if (/^#\/(lectures|concepts|vocabulaire|citations|c)\b/.test(location.hash)) route();
     });
   })
   .catch(() => $("view").innerHTML = "<p>Impossible de charger les données — lance le site via un serveur (voir README), pas en file://.</p>");
@@ -1211,11 +1211,14 @@ function atkSetEdit() {
 let ATK = { domaine: null, num: null, idx: -1 };
 
 /* ---------- Citations : coller une citation, l'IA l'analyse et l'explique ---------- */
-const CIT_KEY = "citations:list";
-function citStore() { try { return JSON.parse(localStorage.getItem(CIT_KEY) || "[]"); } catch { return []; } }
-function citSaveAll(list) { localStorage.setItem(CIT_KEY, JSON.stringify(list)); }
-function citAdd(item) { const l = citStore(); l.unshift({ ...item, id: Date.now() + "", ts: new Date().toISOString().slice(0, 10) }); citSaveAll(l.slice(0, 200)); }
-function citDel(id) { citSaveAll(citStore().filter(c => c.id !== id)); }
+/* Les citations passent par la même couche que lectures, concepts et vocabulaire :
+   enregistrement local ET publication automatique sur GitHub. La clé de stockage
+   reste "citations:list" — les citations déjà saisies sont donc reprises telles
+   quelles, sans transfert. Le fichier publié est data/citations-perso.json, à ne
+   pas confondre avec data/citations.json, la collection de départ en lecture seule. */
+const citStore = () => dbAll(CIT);
+function citAdd(item) { dbSave(CIT, { ...item, id: "c" + Date.now(), ts: new Date().toISOString().slice(0, 10) }); }
+const citDel = id => dbDel(CIT, id);
 // le modèle emploie l'italique markdown (*L'Étranger*) : on le rend au lieu d'afficher les astérisques
 const ital = t => esc(t).replace(/\*\*([^*\n]+)\*\*/g, "<strong>$1</strong>").replace(/\*([^*\n]+)\*/g, "<em>$1</em>");
 // corps d'une section : les lignes commençant par un tiret deviennent une liste
@@ -1293,6 +1296,7 @@ function renderCitations() {
     </div>
     <div class="block">
       <h3 id="citCount">📚 Mes citations (${list.length})</h3>
+      ${syncBar("citPull", "citPush")}
       <div id="citList">${list.length ? "" : '<p class="lead">Aucune citation pour l\'instant.</p>'}</div>
     </div>`;
   const updateCount = () => { const el = $("citCount"); if (el) el.textContent = "📚 Mes citations (" + citStore().length + ")"; };
@@ -1346,6 +1350,9 @@ function renderCitations() {
     .catch(() => { CIT_SEEDS = []; $("citSeeds").innerHTML = '<p class="lead">—</p>'; });
 
   $("citAi").onclick = setAiUrl;
+  $("citPull").onclick = async e => { e.target.textContent = "Récupération…"; await dbPull(CIT); renderList(); updateCount(); e.target.textContent = "⟲ Récupérer la version publiée"; };
+  $("citPush").onclick = e => dbPush(CIT, e.target);
+  $("citPushAuto").onchange = e => { localStorage.setItem(AUTOPUB, e.target.checked ? "1" : "0"); paintPub(); };
   $("citDom").onchange = e => { CIT_DOM = e.target.value; };
   $("citGo").onclick = async () => {
     const auteur = $("cit_auteur").value.trim(), oeuvre = $("cit_oeuvre").value.trim(), citation = $("cit_texte").value.trim();
@@ -1381,6 +1388,7 @@ let CIT_SEEDS = null;
 const LEC = { key: "lectures:list", path: "data/lectures.json" };
 const CON = { key: "concepts:list", path: "data/concepts.json" };
 const VOC = { key: "vocab:list", path: "data/vocabulaire.json" };
+const CIT = { key: "citations:list", path: "data/citations-perso.json" };
 const LEC_SEC = { "📖": "sens", "🎬": "deroule", "👤": "qui", "📌": "moments", "🧭": "sol", "🌀": "bascule", "🧠": "analyse", "💬": "reformule", "🔗": "liens", "🎯": "retenir", "📚": "rattach" };
 const CON_SEC = { "🔑": "sens", "🧭": "sol", "🥊": "bascule", "💡": "exemple", "🧠": "analyse", "📚": "liens", "🔍": "questions", "🎯": "retenir" };
 const VOC_SEC = { "\u{1F524}": "sens", "\u{1F9EC}": "sol", "\u{1F4D0}": "reformule", "\u{1F500}": "bascule", "\u{1F4DD}": "emploi", "\u{1F4A1}": "exemple", "\u{1F3AF}": "retenir" };
@@ -1390,7 +1398,10 @@ let LEC_DOM = null, CON_DOM = null, VOC_FILTRE = "";
 const dbAll = s => { try { return JSON.parse(localStorage.getItem(s.key) || "[]"); } catch { return []; } };
 const dbPut = (s, l) => localStorage.setItem(s.key, JSON.stringify(l));
 const dbFind = (s, id) => dbAll(s).find(x => x.id === id);
-const dbDel = (s, id) => dbPut(s, dbAll(s).filter(x => x.id !== id));
+/* Une suppression DOIT être publiée : la fusion de dbPull conserve ce qui est
+   présent à distance et absent en local. Sans publication, l'élément supprimé
+   ressuscite au rechargement suivant. */
+const dbDel = (s, id) => { dbPut(s, dbAll(s).filter(x => x.id !== id)); dbAutoPush(s); };
 function dbSave(s, item) {
   item.maj = Date.now();
   const l = dbAll(s), i = l.findIndex(x => x.id === item.id);
