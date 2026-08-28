@@ -1,71 +1,54 @@
-/* Citations : reprise des citations déjà saisies + publication + non-résurrection après suppression */
-import { JSDOM } from "jsdom";
-import { readFileSync } from "node:fs";
-import { pathToFileURL } from "node:url";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");   // le dépôt, quel que soit l'endroit où il est cloné
-const dom = new JSDOM(readFileSync(ROOT + "/index.html", "utf8"), { url: "http://localhost:8080/", pretendToBeVisual: true });
-const w = dom.window;
-const AI = { calls: [], distant: {} };
-globalThis.fetch = async (url, opts) => {
-  const u = String(url);
-  if (opts && opts.method === "POST") {
-    const b = JSON.parse(opts.body); AI.calls.push(b);
-    if (b.mode === "commit") { AI.distant[b.path] = b.content; return { ok: true, json: async () => ({ ok: true }) }; }
-    return { ok: true, json: async () => ({ answer: "📜 LA CITATION\nUne citation propre.\n\n🔑 SENS\nDu sens.", stop: "end_turn" }) };
-  }
-  const path = u.replace("http://localhost:8080/", "").split("?")[0];
-  if (AI.distant[path]) return { ok: true, json: async () => JSON.parse(AI.distant[path]) };  // ce qui a été publié
-  try { return { ok: true, json: async () => JSON.parse(readFileSync(ROOT + "/" + path, "utf8")) }; }
-  catch { return { ok: false, status: 404, json: async () => ({}) }; }
-};
-for (const k of ["document","location","localStorage","addEventListener","MutationObserver","getComputedStyle","requestAnimationFrame","history"])
-  globalThis[k] = k === "addEventListener" ? w[k].bind(w) : w[k];
-globalThis.window = w;
-globalThis.IntersectionObserver = class { observe(){} unobserve(){} disconnect(){} };
-globalThis.scrollTo = () => {}; globalThis.confirm = () => true;
-w.Element.prototype.scrollIntoView = function () {};
+/* Citations : reprise des citations déjà saisies lors du passage à la publication
+   GitHub, réécriture d'une saisie bâclée, et non-résurrection après suppression. */
+import { demarrer, pause, verificateur } from "./_harness.mjs";
 
-// UNE CITATION DÉJÀ SAISIE, dans l'ancien format, avant toute migration
-w.localStorage.setItem("citations:list", JSON.stringify([
-  { id: "1750000000000", auteur: "Pascal", oeuvre: "Pensées", citation: "Le coeur a ses raisons.", analyse: "🔑 SENS\nAncienne analyse.", ts: "2026-06-20" },
-]));
+const t = verificateur("citations");
+// une citation déjà saisie, dans l'ancien format, avant toute migration
+const a = await demarrer({
+  localStorage: {
+    "citations:list": JSON.stringify([{
+      id: "1750000000000", auteur: "Pascal", oeuvre: "Pensées",
+      citation: "Le coeur a ses raisons.", analyse: "🔑 SENS\nAncienne analyse.", ts: "2026-06-20",
+    }]),
+  },
+});
 
-await import(pathToFileURL(ROOT + "/js/app.js").href);
-const $ = id => w.document.getElementById(id);
-const txt = () => $("view").textContent.replace(/\s+/g, " ");
-const go = async h => { w.location.hash = h; await new Promise(r => setTimeout(r, 80)); };
-let ko = 0;
-const check = (l, c, x = "") => { console.log((c ? "  ✅ " : "  ❌ ") + l + (c ? "" : "  → " + x)); if (!c) ko++; };
-await new Promise(r => setTimeout(r, 500));
+t.section("Les citations déjà saisies sont reprises");
+await a.aller("#/citations");
+t.check("l'ancienne citation est toujours là", a.texte().includes("Le coeur a ses raisons"), a.texte().slice(0, 180));
+t.check("son analyse d'origine est conservée", a.lu("citations:list")[0].analyse.includes("Ancienne analyse"));
+t.check("la barre de publication est apparue", !!a.$("citPull") && !!a.$("citPush") && !!a.$("citPushAuto"));
 
-console.log("\n── Les citations déjà saisies sont reprises");
-await go("#/citations");
-check("l'ancienne citation est toujours là", txt().includes("Le coeur a ses raisons"), txt().slice(0, 200));
-check("son analyse d'origine est conservée",
-  JSON.parse(w.localStorage.getItem("citations:list"))[0].analyse.includes("Ancienne analyse"));
-check("la barre de publication est apparue", !!$("citPull") && !!$("citPush") && !!$("citPushAuto"));
+t.section("Une saisie bâclée est rétablie");
+a.$("cit_auteur").value = "Sartre";
+a.$("cit_texte").value = "lhomme est condanné a etre libre";
+a.clic("citGo");
+await pause(200);
+const neuve = a.lu("citations:list").find(c => c.auteur === "Sartre");
+t.check("citation rétablie et enregistrée",
+  neuve.citation === "L'homme est condamne a etre libre.", JSON.stringify(neuve.citation));
+t.check("guillemets retirés de la version propre", !/[«»]/.test(neuve.citation));
+t.check("saisie d'origine conservée", neuve.saisie === "lhomme est condanné a etre libre", JSON.stringify(neuve.saisie));
+t.check("le champ affiche la version corrigée", a.$("cit_texte").value === neuve.citation);
+t.check("la carte rappelle ce qui avait été tapé", a.texte().includes("tu avais écrit"), a.texte().slice(0, 200));
+t.check("la section 📜 est rendue", !!a.w.document.querySelector(".cit-sec.source"));
 
-console.log("\n── Une nouvelle citation part sur GitHub");
-$("cit_auteur").value = "Sartre"; $("cit_texte").value = "lenfer cest les autres";
-$("citGo").dispatchEvent(new w.MouseEvent("click", { bubbles: true }));
-await new Promise(r => setTimeout(r, 4600));
-const pub = AI.calls.filter(c => c.mode === "commit" && c.path === "data/citations-perso.json");
-check("publication automatique déclenchée", pub.length >= 1, pub.length + " commit(s)");
-check("fichier distinct de la collection de départ", !AI.distant["data/citations.json"]);
-const publie = JSON.parse(AI.distant["data/citations-perso.json"] || "[]");
-check("les deux citations sont publiées", publie.length === 2, JSON.stringify(publie.map(c => c.citation)));
-check("l'ancienne aussi, pas seulement la neuve", publie.some(c => c.citation.includes("Le coeur a ses raisons")));
+t.section("Publication sur GitHub");
+await pause(4600);
+const pub = a.ia.appels.filter(c => c.mode === "commit" && c.path === "data/citations-perso.json");
+t.check("publication automatique déclenchée", pub.length >= 1, pub.length + " commit(s)");
+t.check("la collection de départ n'est pas écrasée", !a.ia.distant["data/citations.json"]);
+const publie = JSON.parse(a.ia.distant["data/citations-perso.json"] || "[]");
+t.check("les deux citations sont publiées", publie.length === 2, JSON.stringify(publie.map(c => c.auteur)));
+t.check("l'ancienne aussi, pas seulement la neuve", publie.some(c => c.citation.includes("Le coeur a ses raisons")));
 
-console.log("\n── Suppression : l'élément ne doit pas ressusciter");
-const cible = JSON.parse(w.localStorage.getItem("citations:list")).find(c => c.auteur === "Sartre");
-w.document.querySelector(`[data-citdel="${cible.id}"]`).dispatchEvent(new w.MouseEvent("click", { bubbles: true }));
-await new Promise(r => setTimeout(r, 4600));
-check("suppression publiée", JSON.parse(AI.distant["data/citations-perso.json"]).length === 1,
-  JSON.stringify(JSON.parse(AI.distant["data/citations-perso.json"]).map(c => c.auteur)));
-await go("#/lectures"); await go("#/citations");   // rechargement : la fusion avec le distant a lieu
-check("la citation supprimée ne revient pas après synchro",
-  !JSON.parse(w.localStorage.getItem("citations:list")).some(c => c.auteur === "Sartre"),
-  JSON.stringify(JSON.parse(w.localStorage.getItem("citations:list")).map(c => c.auteur)));
-process.exit(ko ? 1 : 0);
+t.section("Suppression : pas de résurrection");
+a.w.document.querySelector(`[data-citdel="${neuve.id}"]`).dispatchEvent(new a.w.MouseEvent("click", { bubbles: true }));
+await pause(4600);
+t.check("suppression publiée",
+  !JSON.parse(a.ia.distant["data/citations-perso.json"]).some(c => c.id === neuve.id));
+await a.aller("#/lectures"); await a.aller("#/citations");   // rechargement : fusion avec le distant
+t.check("la citation supprimée ne revient pas", !a.lu("citations:list").some(c => c.id === neuve.id),
+  JSON.stringify(a.lu("citations:list").map(c => c.auteur)));
+
+t.bilan();
